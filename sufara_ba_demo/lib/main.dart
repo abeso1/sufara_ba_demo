@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.lime,
-        accentColor: Colors.green[400],
+        accentColor: Colors.green[800],
       ),
       debugShowCheckedModeBanner: false,
       home: TabsScreens(),

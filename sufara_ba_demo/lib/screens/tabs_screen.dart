@@ -16,9 +16,14 @@ class _TabsScreensState extends State<TabsScreens> {
         //ovdje se treba staviti logo Sufara.ba
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text('Sufara.ba', style: TextStyle(color: Colors.green,),),
+          title: Text(
+            'Sufara.ba',
+            style: TextStyle(
+              color: Colors.green[800],
+            ),
+          ),
           bottom: TabBar(
-            labelColor: Colors.green,
+            labelColor: Colors.green[800],
             unselectedLabelColor: Colors.grey,
             tabs: [
               Tab(
