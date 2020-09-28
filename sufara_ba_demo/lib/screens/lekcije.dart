@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sufara_ba_demo/settings/size_config.dart';
 
 class Lekcije extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //this need to be added so i can use size config
+    SizeConfig().init(context);
     return Center(
       ///Pogledaj svg folder koji je odmah ispod lib foldera. U njemu je trenutno dio harfova
       ///a ja sam ubacio samo iz subfoldera '1' slikice u assets pa iz njega citam i prikazujem
@@ -44,7 +47,8 @@ class Lekcije extends StatelessWidget {
 
       child: SvgPicture.asset(
         'svg/15/vel-fulku.svg',
-        width: 200,
+        width: SizeConfig.blockSizeVertical * 80,
+        height: SizeConfig.blockSizeVertical * 50,
         color: Colors.green,
       ),
     );
