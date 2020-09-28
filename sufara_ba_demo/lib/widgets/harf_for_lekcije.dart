@@ -52,7 +52,7 @@ class HarfWidgetForLekcije extends StatelessWidget {
                         margin:
                             EdgeInsets.all(SizeConfig.blockSizeVertical * 1.5),
                         child: Text(
-                          harf.lekcijaIliVjezbaIndex,
+                          '${harf.id}. lekcija',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.grey,

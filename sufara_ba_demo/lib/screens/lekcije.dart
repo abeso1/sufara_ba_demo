@@ -8,7 +8,6 @@ import 'package:sufara_ba_demo/widgets/harf_for_lekcije.dart';
 class Lekcije extends StatelessWidget {
   final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
 
-
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
