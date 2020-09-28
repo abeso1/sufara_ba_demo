@@ -9,6 +9,15 @@ class Vjezbe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'svg/back_img/back_img.jpg',
+          ),
+          fit: BoxFit.cover,
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.dstATop),
+        ),
+      ),
       //ovdje ide gridview
       child: GridView.builder(
         padding: EdgeInsets.all(20),

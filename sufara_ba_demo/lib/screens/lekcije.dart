@@ -58,6 +58,15 @@ class Lekcije extends StatelessWidget {
     //  ),
     //);
     return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'svg/back_img/back_img.jpg',
+          ),
+          fit: BoxFit.cover,
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.dstATop),
+        ),
+      ),
       // ovdje ide listview
       child: ListView.builder(
         padding: const EdgeInsets.all(25),
