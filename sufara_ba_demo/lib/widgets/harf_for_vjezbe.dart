@@ -25,7 +25,7 @@ class HarfWidgetForVjezbe extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           elevation: 15,
-          shadowColor: Colors.green,
+          //shadowColor: Colors.green,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

@@ -30,7 +30,7 @@ class HarfWidgetForLekcije extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           elevation: 15,
-          shadowColor: Colors.green,
+          //shadowColor: Colors.green,
           child: Row(
             children: [
               Column(

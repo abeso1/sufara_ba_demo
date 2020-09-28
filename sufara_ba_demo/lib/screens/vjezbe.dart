@@ -15,7 +15,7 @@ class Vjezbe extends StatelessWidget {
             'svg/back_img/back_img.jpg',
           ),
           fit: BoxFit.cover,
-          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.dstATop),
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.15), BlendMode.dstATop),
         ),
       ),
       //ovdje ide gridview
