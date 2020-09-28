@@ -7,7 +7,7 @@ class HarfModel {
   final String lekcijaIliVjezbaIndex;
   final bool lekcija;
 
-  HarfModel({
+  const HarfModel({
     @required this.id,
     @required this.name,
     @required this.imageUrl,

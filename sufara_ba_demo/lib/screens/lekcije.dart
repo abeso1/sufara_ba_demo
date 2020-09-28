@@ -1,68 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sufara_ba_demo/dummy_data.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/harf_for_lekcije.dart';
 
 class Lekcije extends StatelessWidget {
-  final List<HarfModel> listHarf = [
-    HarfModel(
-      id: '1',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Prva lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '2',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Druga lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '3',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Treca lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '4',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Cetvrta lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '5',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Peta lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '6',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Sesta lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '7',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Sedma lekcija',
-      lekcija: true,
-    ),
-    HarfModel(
-      id: '8',
-      name: 'Elif',
-      imageUrl: 'svg/1/elif_1.svg',
-      lekcijaIliVjezbaIndex: 'Osma lekcija',
-      lekcija: true,
-    ),
-  ];
+  final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
+
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +61,7 @@ class Lekcije extends StatelessWidget {
     return Container(
       // ovdje ide listview
       child: ListView.builder(
+        padding: const EdgeInsets.all(25),
         itemCount: listHarf.length,
         itemBuilder: (context, index) {
           return HarfWidgetForLekcije(listHarf[index]);
