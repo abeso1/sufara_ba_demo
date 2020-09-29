@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
@@ -92,6 +93,88 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               ),
             ),
             //ovdje idu 3 kartice i button za izgovor
+            //ovdje koristim listview samo jer znam da idu 3 slikice one i button
+            //mozda ako bude trebalo napravim odvojen ovaj widget
+            Container(
+              padding: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockSizeVertical * 5,
+                horizontal: SizeConfig.safeBlockHorizontal * 15,
+              ),
+              height: SizeConfig.blockSizeVertical * 73,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              child: ListView(
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: SvgPicture.asset(
+                        widget.harf.imageUrl,
+                        height: SizeConfig.blockSizeVertical * 12,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                  ),
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: SvgPicture.asset(
+                      widget.harf.imageUrl,
+                      height: SizeConfig.blockSizeVertical * 12,
+                      color: Colors.green,
+                    ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                  ),
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: SvgPicture.asset(
+                      widget.harf.imageUrl,
+                      height: SizeConfig.blockSizeVertical * 12,
+                      color: Colors.green,
+                    ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                  ),
+                  Container(
+                    height: SizeConfig.blockSizeVertical * 6,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeVertical * 7,
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.blockSizeVertical * 7,
+                        vertical: SizeConfig.blockSizeVertical * 1.25,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        gradient: LinearGradient(
+                          colors: [kon_boja, poc_boja],
+                        ),
+                      ),
+                      child: Text(
+                        'IZGOVOR',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ));
   }
