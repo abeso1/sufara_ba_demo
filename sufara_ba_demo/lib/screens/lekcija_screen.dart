@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:sufara_ba_demo/shared/constants.dart';
 
 class LekcijaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -17,6 +18,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          color: Colors.white,
+        ),
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -31,7 +35,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               //ovaj gradient treba popraviti
-              colors: [Colors.green[800], Colors.lightGreen],
+              colors: [poc_boja, kon_boja],
             ),
           ),
         ),
@@ -48,7 +52,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
               ),
               gradient: LinearGradient(
                 //ovaj gradient treba popraviti
-                colors: [Colors.green[800], Colors.lightGreen],
+                colors: [poc_boja, kon_boja],
               ),
             ),
             child: Column(
@@ -61,7 +65,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   padding:
                       EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 6),
                   width: SizeConfig.blockSizeHorizontal * 100,
-                  // height: SizeConfig.blockSizeVertical * 40,
+                  //height: SizeConfig.blockSizeVertical * 35,
                   child: Text(
                     widget.harf.name,
                     textAlign: TextAlign.left,
@@ -78,7 +82,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              height: SizeConfig.blockSizeVertical * 75,
+              height: SizeConfig.blockSizeVertical * 73,
               padding: EdgeInsets.symmetric(
                 vertical: SizeConfig.blockSizeVertical * 3,
                 horizontal: SizeConfig.blockSizeHorizontal * 3,
@@ -99,20 +103,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     height: 20,
                   ),
                   //ovjde ide opis harfa
-                  Text(
-                    widget.harf.opis,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  Text(
-                    widget.harf.opis,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
                   Text(
                     widget.harf.opis,
                     style: TextStyle(

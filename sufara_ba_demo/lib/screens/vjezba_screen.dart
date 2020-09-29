@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:sufara_ba_demo/shared/constants.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -17,6 +18,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     SizeConfig().init(context);
     return Scaffold(
         appBar: AppBar(
+          leading: BackButton(
+            color: Colors.white,
+          ),
           elevation: 0,
           centerTitle: true,
           title: Text(
@@ -31,7 +35,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 //ovaj gradient treba popraviti
-                colors: [Colors.green[800], Colors.lightGreen],
+                colors: [poc_boja, kon_boja],
               ),
             ),
           ),
@@ -48,7 +52,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                 ),
                 gradient: LinearGradient(
                   //ovaj gradient treba popraviti
-                  colors: [Colors.green[800], Colors.lightGreen],
+                  colors: [poc_boja, kon_boja],
                 ),
               ),
               child: Column(
