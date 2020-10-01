@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
@@ -76,6 +77,25 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     ),
                   ),
                 ),
+
+                Container(
+                  padding: EdgeInsets.only(
+                    left: SizeConfig.blockSizeHorizontal * 45,
+                    right: SizeConfig.blockSizeHorizontal * 3,
+                  ),
+                  width: SizeConfig.blockSizeHorizontal * 100,
+                  child: Container(
+                    //padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 50),
+                    color: Colors.white12,
+                    width: SizeConfig.blockSizeHorizontal * 50,
+                    height: SizeConfig.blockSizeVertical * 8,
+                    child: SvgPicture.asset(
+                      widget.harf.imageUrl,
+                      height: SizeConfig.blockSizeVertical * 6,
+                      color: Colors.white,
+                    ),
+                  ),
+                )
               ],
             ),
           ),
