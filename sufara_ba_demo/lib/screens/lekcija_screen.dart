@@ -86,7 +86,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   width: SizeConfig.blockSizeHorizontal * 100,
                   child: Container(
                     //padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 50),
-                    color: Colors.white12,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.white24,
+                    ),
+                    //color: Colors.white24,
                     width: SizeConfig.blockSizeHorizontal * 50,
                     height: SizeConfig.blockSizeVertical * 8,
                     child: SvgPicture.asset(
