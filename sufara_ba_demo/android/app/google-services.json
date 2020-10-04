@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "133745601520",
+    "firebase_url": "https://sufaramobile.firebaseio.com",
+    "project_id": "sufaramobile",
+    "storage_bucket": "sufaramobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133745601520:android:752652673804dde27ecb35",
+        "android_client_info": {
+          "package_name": "com.example.sufara_ba_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133745601520-dtppqdqgd30hk6da6trjc1d8dh0ffs9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfQEiVSng9XnPLfQ0Vjy6hzJaHyOLJ2cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133745601520-dtppqdqgd30hk6da6trjc1d8dh0ffs9s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
