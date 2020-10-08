@@ -1,3 +1,4 @@
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
@@ -151,23 +152,30 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeVertical * 7,
                     ),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.blockSizeVertical * 7,
-                        vertical: SizeConfig.blockSizeVertical * 1.25,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          colors: [kon_boja, poc_boja],
+                    child: GestureDetector(
+                      onTap: () {
+                        //ovako se audio pusta
+                      //  final AudioCache player = AudioCache();
+                      //  player.play(fileName);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: SizeConfig.blockSizeVertical * 7,
+                          vertical: SizeConfig.blockSizeVertical * 1.25,
                         ),
-                      ),
-                      child: Text(
-                        'IZGOVOR',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: LinearGradient(
+                            colors: [kon_boja, poc_boja],
+                          ),
+                        ),
+                        child: Text(
+                          'IZGOVOR',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),

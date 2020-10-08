@@ -35,6 +35,7 @@ dependencies:
   provider: ^4.3.2+2
   cloud_firestore: ^0.14.0+2
   archive: ^2.0.8
+  audioplayers: ^0.16.1
 
 dev_dependencies:
   flutter_test:
