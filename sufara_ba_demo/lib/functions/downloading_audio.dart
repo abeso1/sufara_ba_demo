@@ -12,18 +12,19 @@ class Download {
   }
 
   Future<void> downloadFile() async{
-    StorageReference storageReference = FirebaseStorage.instance.ref();
+    StorageReference storageReference = FirebaseStorage.instance.ref().child('audio');
     final Directory directory = await path.getExternalStorageDirectory();
-    final String downloadPath = '${directory.path}/';
+    final String downloadPath = '${directory.path}/audio';
 
 
     try{
-      final File file = File('$downloadPath/');
+      final File file = File('$downloadPath/audio');
       
       if(file.existsSync()){
-        return ; 
       }
       else{
+        await file.create(recursive: true);
+
         storageReference.writeToFile(file);
       }
 
