@@ -7,7 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 class Download {
   Future<bool> checkFile() async {
     Directory directory = await path.getExternalStorageDirectory();
-    String downloadPath = '${directory.path}/audio';
+    String downloadPath = '${directory.path}/Audio';
     Directory downloadDir = Directory(downloadPath);
     return downloadDir.existsSync();
   }
@@ -19,17 +19,19 @@ class Download {
     final String downloadPath = '${directory.path}/audio';
 
     try {
-      final File file = File('$downloadPath/');
+      final File file = File('$downloadPath/audio');
 
       if (file.existsSync()) {
       } else {
-        await file.create(recursive: true);
-
+        /*await*/ file.createSync(recursive: true);
         storageReference.writeToFile(file);
+        unZipFile(file);
       }
     } catch (error) {
       print(error.toString());
     }
+
+    print(downloadPath);
   }
 
   unZipFile(var zippedFile) async {
