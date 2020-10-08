@@ -7,7 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 class Download {
   Future<bool> checkFile() async {
     Directory directory = await path.getExternalStorageDirectory();
-    String downloadPath = '${directory.path}/';
+    String downloadPath = '${directory.path}/audio';
     Directory downloadDir = Directory(downloadPath);
     return downloadDir.existsSync();
   }
@@ -19,7 +19,7 @@ class Download {
     final String downloadPath = '${directory.path}/audio';
 
     try {
-      final File file = File('$downloadPath/audio');
+      final File file = File('$downloadPath/');
 
       if (file.existsSync()) {
       } else {
