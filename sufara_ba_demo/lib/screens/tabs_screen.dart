@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sufara_ba_demo/functions/downloading_audio.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/screens/lekcije.dart';
 import 'package:sufara_ba_demo/screens/vjezbe.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
@@ -10,6 +11,18 @@ class TabsScreens extends StatefulWidget {
 }
 
 class _TabsScreensState extends State<TabsScreens> {
+  Download download = Download();
+
+  @override
+  void initState() {
+    download.checkFile().then(
+          (value) => {
+            download.downloadFile(),
+          },
+        );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config

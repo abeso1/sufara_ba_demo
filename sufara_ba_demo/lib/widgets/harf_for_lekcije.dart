@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ribbon/ribbon.dart';
+
 
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/lekcija_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:sufara_ba_demo/shared/constants.dart';
 
 class HarfWidgetForLekcije extends StatelessWidget {
   final HarfModel harf;

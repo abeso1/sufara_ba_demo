@@ -4,7 +4,7 @@ import 'package:ribbon/ribbon.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:sufara_ba_demo/shared/constants.dart';
+
 
 class HarfWidgetForVjezbe extends StatelessWidget {
   final HarfModel harf;
