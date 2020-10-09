@@ -36,6 +36,7 @@ dependencies:
   cloud_firestore: ^0.14.0+2
   archive: ^2.0.8
   audioplayers: ^0.16.1
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,7 @@ flutter:
     - svg/15/vel-fulku.svg
     - svg/back_img/back_img.jpg
     - svg/back_img/sufara.ba_logo.png
+    - audio/audio.zip
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -15,11 +15,12 @@ class _TabsScreensState extends State<TabsScreens> {
 
   @override
   void initState() {
-    download.checkFile().then(
-          (value) => {
-            download.downloadFile(),
-          },
-        );
+    var file = download.downloadFile(
+      'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
+      'audio.zip',
+    );
+
+    print(file.toString());
     super.initState();
   }
 
