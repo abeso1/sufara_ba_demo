@@ -19,28 +19,6 @@ class Download {
         .exists();
   }
 
-  /*Future<void> downloadFile() async {
-    StorageReference storageReference =
-        FirebaseStorage.instance.ref().child('audio');
-    final io.Directory directory = await path.getExternalStorageDirectory();
-    final String downloadPath = '${directory.path}/audio';
-
-    try {
-      final io.File file = io.File('$downloadPath/audio');
-
-      if (file.existsSync()) {
-      } else {
-        /*await*/ file.createSync(recursive: true);
-        storageReference.writeToFile(file);
-        unZipFile(file);
-      }
-    } catch (error) {
-      print(error.toString());
-    }
-
-    print(downloadPath);
-  }*/
-
   Future<io.File> downloadFile(String url, String filename) async {
     var request = await httpClient.getUrl(Uri.parse(url));
     var response = await request.close();
@@ -53,7 +31,7 @@ class Download {
   }
 
   unZipFile(var zippedFile) async {
-    io.Directory directory = await path.getExternalStorageDirectory();
+    String directory = (await path.getApplicationDocumentsDirectory()).path;
     var bytes = zippedFile.readAsBytesSync();
     var archive = ZipDecoder().decodeBytes(bytes);
     for (var file in archive) {
@@ -63,6 +41,7 @@ class Download {
         outFile = await outFile.create(recursive: true);
         await outFile.writeAsBytes(file.content);
       }
+      print('$directory/${file.name}');
     }
   }
 }
