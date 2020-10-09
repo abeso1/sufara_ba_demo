@@ -1,9 +1,15 @@
+import 'dart:io';
+
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart' as path;
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
+//import 'package:path_provider/path_provider.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -15,6 +21,14 @@ class VjezbaScreen extends StatefulWidget {
 }
 
 class _VjezbaScreenState extends State<VjezbaScreen> {
+  playAudio(String url) async {
+    AudioPlayer player = AudioPlayer();
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    print('$dir/audio/1/E.mp3');
+    await player.play('$dir/audio/1/E.mp3', volume: 100, isLocal: false);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -154,9 +168,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        //ovako se audio pusta
-                      //  final AudioCache player = AudioCache();
-                      //  player.play(fileName);
+                        playAudio(widget.harf.imageUrl);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart' as path;
-import 'package:firebase_storage/firebase_storage.dart';
+//import 'package:firebase_storage/firebase_storage.dart';
 
 class Download {
   static var httpClient = new io.HttpClient();
