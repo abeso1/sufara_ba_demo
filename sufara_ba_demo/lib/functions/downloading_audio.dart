@@ -24,6 +24,8 @@ class Download {
         .existsSync();
   }
 
+
+//ovo radi
   Future<io.File> downloadFile(String url, String filename) async {
     var request = await httpClient.getUrl(Uri.parse(url));
     var response = await request.close();
@@ -35,6 +37,8 @@ class Download {
     return file;
   }
 
+
+//ovo radi
   unZipFile(var zippedFile) async {
     String directory = (await path.getApplicationDocumentsDirectory()).path;
     var bytes = zippedFile.readAsBytesSync();

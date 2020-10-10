@@ -22,6 +22,10 @@ class VjezbaScreen extends StatefulWidget {
 
 class _VjezbaScreenState extends State<VjezbaScreen> {
   //this functions plays audio in 172 line
+  //ovo ne radi!!!!!
+  //baca ovo u debug console
+  //cleanDrmObj: mDrmObj=null mDrmSessionId=null
+  //resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
   playAudio(String url) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -51,7 +55,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                //ovaj gradient treba popraviti
+                //ovaj gradient je popravljen
                 colors: [poc_boja, kon_boja],
               ),
             ),
@@ -68,7 +72,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                   bottomRight: Radius.circular(30),
                 ),
                 gradient: LinearGradient(
-                  //ovaj gradient treba popraviti
+                  //ovaj gradient je popravljen
                   colors: [poc_boja, kon_boja],
                 ),
               ),

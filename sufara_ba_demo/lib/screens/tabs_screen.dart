@@ -42,7 +42,7 @@ class _TabsScreensState extends State<TabsScreens> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        //ovdje se treba staviti logo Sufara.ba
+        //ovdje se treba staviti logo Sufara.ba(psotavljen)
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Image.asset(
