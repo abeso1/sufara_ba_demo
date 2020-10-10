@@ -21,11 +21,12 @@ class VjezbaScreen extends StatefulWidget {
 }
 
 class _VjezbaScreenState extends State<VjezbaScreen> {
+  //this functions plays audio in 172 line
   playAudio(String url) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('$dir/audio/1/E.mp3');
-    await player.play('$dir/audio/1/E.mp3', volume: 100, isLocal: false);
+    await player.play('$dir/audio/1/E.mp3', isLocal: true);
     setState(() {});
   }
 

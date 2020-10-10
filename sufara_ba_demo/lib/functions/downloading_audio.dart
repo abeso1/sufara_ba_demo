@@ -7,16 +7,21 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class Download {
   static var httpClient = new io.HttpClient();
-
-  Future<bool> checkFile() {
+//fun checkFile treba provjeravati da li vec ima otpakovan zip file i da se uvijek ne mora skidati
+//ova funkcija radi
+//tebi ce abi prvi put da se skine i nikad vise
+//prati debug console prvu put kad pokrenes
+//vidjet ces sve fileove da su otpakovani
+  Future<bool> checkFile() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
     if (io.Directory(
-            '/storage/emulated/0/Android/data/com.example.sufara_ba_demo/files/audio')
+            '$dir/audio/1')
         .existsSync()) {
       print('postoji');
     }
-    return io.File(
-            '/storage/emulated/0/Android/data/com.example.sufara_ba_demo/files/audio')
-        .exists();
+    return io.Directory(
+            '$dir/audio/1')
+        .existsSync();
   }
 
   Future<io.File> downloadFile(String url, String filename) async {

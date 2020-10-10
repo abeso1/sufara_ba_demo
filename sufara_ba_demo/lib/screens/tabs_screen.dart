@@ -15,14 +15,22 @@ class _TabsScreensState extends State<TabsScreens> {
 
   @override
   void initState() {
-    var file = download
-        .downloadFile(
-          'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
-          'audio.zip',
-        )
-        .then((value) => {
-              download.unZipFile(value),
-            });
+    var file;
+    download.checkFile().then((value) => {
+          if (!value)
+            {
+              file = download
+                  .downloadFile(
+                    'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
+                    'audio.zip',
+                  )
+                  .then(
+                    (value) => {
+                      download.unZipFile(value),
+                    },
+                  ),
+            }
+        });
     print(file.toString());
     super.initState();
   }
