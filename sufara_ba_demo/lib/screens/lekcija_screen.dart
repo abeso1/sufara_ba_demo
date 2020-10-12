@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
+import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
@@ -264,6 +265,41 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     ),
                   ),
                   //zapocni vjezbu
+                  Container(
+                    height: SizeConfig.blockSizeVertical * 8,
+                    padding: EdgeInsets.only(
+                      left: SizeConfig.blockSizeHorizontal * 45,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => VjezbaScreen(widget.harf),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: SizeConfig.blockSizeVertical * 1,
+                          vertical: SizeConfig.blockSizeVertical * 2,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: LinearGradient(
+                            colors: [kon_boja, poc_boja],
+                          ),
+                        ),
+                        child: Text(
+                          'Započni vježbu',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
