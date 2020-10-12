@@ -109,7 +109,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       color: Colors.white,
                     ),*/
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      //mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
                           width: SizeConfig.safeBlockHorizontal * 1,
