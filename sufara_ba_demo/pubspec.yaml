@@ -67,6 +67,7 @@ flutter:
     - svg/15/vel-fulku.svg
     - svg/back_img/back_img.jpg
     - svg/back_img/sufara.ba_logo.png
+    - svg/back_img/throat-e.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

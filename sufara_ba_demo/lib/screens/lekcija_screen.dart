@@ -187,20 +187,82 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   ),
                   //slika grla
                   Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockSizeVertical * 3,
-                      horizontal: SizeConfig.blockSizeHorizontal * 5,
+                    padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockSizeVertical * 1,
+                      horizontal: SizeConfig.blockSizeHorizontal * 2,
                     ),
-                    /*padding: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockSizeVertical*3,
-                      horizontal: SizeConfig.blockSizeHorizontal*20,
-                    ),*/
-                    width: SizeConfig.blockSizeHorizontal * 80,
-                    height: SizeConfig.blockSizeVertical * 50,
-                    color: Colors.black26,
-                    child: Center(child: Text('slika grla')),
-                  )
+                    child: Image.asset(
+                      'svg/back_img/throat-e.jpg',
+                      height: SizeConfig.blockSizeVertical * 45,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                   //oblici
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockSizeVertical * 3,
+                      horizontal: SizeConfig.blockSizeHorizontal * 3,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          width: SizeConfig.safeBlockHorizontal * 1,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            playAudio('E');
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            elevation: 10,
+                            child: SvgPicture.asset(
+                              widget.harf.images[0],
+                              height: SizeConfig.blockSizeVertical * 14,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            playAudio('U');
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            elevation: 10,
+                            child: SvgPicture.asset(
+                              widget.harf.images[1],
+                              height: SizeConfig.blockSizeVertical * 14,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            playAudio('I');
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            elevation: 10,
+                            child: SvgPicture.asset(
+                              widget.harf.images[2],
+                              height: SizeConfig.blockSizeVertical * 14,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: SizeConfig.safeBlockHorizontal * 1,
+                        ),
+                      ],
+                    ),
+                  ),
                   //zapocni vjezbu
                 ],
               ),
