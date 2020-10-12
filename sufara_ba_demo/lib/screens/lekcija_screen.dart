@@ -181,9 +181,12 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   //ovjde ide opis harfa
                   Text(
                     widget.harf.opis,
+                    //ovako izleda bolje nego kad je centriran
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 22,
-                      fontWeight: FontWeight.w300,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'RobotoCondensed',
                     ),
                   ),
                   //slika grla
