@@ -1,15 +1,11 @@
-import 'dart:io';
-
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart' as path;
-import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
-//import 'package:path_provider/path_provider.dart';
+
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
