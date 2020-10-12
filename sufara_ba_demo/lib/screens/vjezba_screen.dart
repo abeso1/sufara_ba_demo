@@ -45,6 +45,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             //textAlign: TextAlign.right,
             style: TextStyle(
               fontWeight: FontWeight.w300,
+              fontFamily: 'RobotoCondensed',
               color: Colors.white,
             ),
           ),
@@ -85,6 +86,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         fontSize: 30,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
+                        fontFamily: 'RobotoCondensed',
                       ),
                     ),
                   ),
@@ -102,6 +104,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         fontSize: 26,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
+                        fontFamily: 'RobotoCondensed',
                       ),
                     ),
                   ),
@@ -186,6 +189,8 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                           'IZGOVOR',
                           textAlign: TextAlign.center,
                           style: TextStyle(
+                            fontFamily: 'RobotoCondensed',
+                            fontWeight: FontWeight.normal,
                             color: Colors.white,
                             fontSize: 20,
                           ),
