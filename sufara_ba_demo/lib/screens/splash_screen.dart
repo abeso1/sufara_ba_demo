@@ -12,6 +12,11 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     Timer(Duration(seconds: 5), () {
+      Navigator.of(context).pop(
+        MaterialPageRoute(
+          builder: (context) => TabsScreens(),
+        ),
+      );
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => TabsScreens(),
