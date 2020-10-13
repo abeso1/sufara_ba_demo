@@ -86,7 +86,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         fontSize: 30,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
-                        fontFamily: 'RobotoC',
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ),

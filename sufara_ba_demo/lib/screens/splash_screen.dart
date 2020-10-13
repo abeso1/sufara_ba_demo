@@ -10,6 +10,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     Timer(Duration(seconds: 5), (){
       Navigator.of(context).push(
           MaterialPageRoute(
@@ -24,9 +25,22 @@ class SplashScreen extends StatelessWidget {
           children: [
             Image.asset(
               'svg/back_img/sufara.ba_logo.png',
+              width: SizeConfig.blockSizeHorizontal * 100,
+              height: SizeConfig.blockSizeVertical * 50,
             ),
-            Text(
-              Hadis.listHadis[rng.nextInt(20)].name,
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 10,
+              ),
+              child: Text(
+                Hadis.listHadis[rng.nextInt(20)].name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 18,
+                ),
+              ),
             ),
           ],
         ),
