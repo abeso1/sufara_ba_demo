@@ -207,7 +207,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   ),
                   //oblici
                   Container(
-                    padding: EdgeInsets.symmetric(
+                    margin: EdgeInsets.symmetric(
                       vertical: SizeConfig.blockSizeVertical * 3,
                       horizontal: SizeConfig.blockSizeHorizontal * 3,
                     ),
@@ -228,7 +228,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             elevation: 10,
                             child: SvgPicture.asset(
                               widget.harf.images[0],
-                              height: SizeConfig.blockSizeVertical * 14,
+                              width: SizeConfig.blockSizeHorizontal * 25,
                               color: Colors.green,
                             ),
                           ),
@@ -244,7 +244,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             elevation: 10,
                             child: SvgPicture.asset(
                               widget.harf.images[1],
-                              height: SizeConfig.blockSizeVertical * 14,
+                              width: SizeConfig.blockSizeHorizontal * 25,
                               color: Colors.green,
                             ),
                           ),
@@ -260,7 +260,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             elevation: 10,
                             child: SvgPicture.asset(
                               widget.harf.images[2],
-                              height: SizeConfig.blockSizeVertical * 14,
+                              width: SizeConfig.blockSizeHorizontal * 25,
                               color: Colors.green,
                             ),
                           ),
