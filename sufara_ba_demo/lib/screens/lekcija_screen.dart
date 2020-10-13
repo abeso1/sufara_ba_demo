@@ -40,7 +40,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           //textAlign: TextAlign.right,
           style: TextStyle(
             fontWeight: FontWeight.w300,
-            fontFamily: 'RobotoCondensed',
+            fontFamily: 'Roboto',
             color: Colors.white,
           ),
         ),
@@ -86,7 +86,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontFamily: 'RobotoCondensed',
+                      fontFamily: 'Roboto',
                     ),
                   ),
                 ),
@@ -175,7 +175,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     widget.harf.lekcijaIliVjezbaIndex,
                     style: TextStyle(
                       fontSize: 24,
-                      fontFamily: 'RobotoCondensed',
+                      fontFamily: 'Roboto',
                       fontWeight: FontWeight.w700
                     ),
                   ),
@@ -190,7 +190,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.normal,
-                      fontFamily: 'RobotoCondensed',
+                      fontFamily: 'Roboto',
                     ),
                   ),
                   //slika grla
@@ -303,7 +303,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
-                            fontFamily: 'RobotoCondensed',
+                            fontFamily: 'Roboto',
                           ),
                         ),
                       ),
