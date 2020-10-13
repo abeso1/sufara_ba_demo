@@ -195,9 +195,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   ),
                   //slika grla
                   Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockSizeVertical * 1,
-                      horizontal: SizeConfig.blockSizeHorizontal * 2,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal * 12,
+                      vertical: SizeConfig.blockSizeVertical * 12,
                     ),
                     child: Image.asset(
                       'svg/back_img/throat-e.jpg',
