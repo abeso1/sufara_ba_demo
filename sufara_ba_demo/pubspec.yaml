@@ -37,6 +37,7 @@ dependencies:
   archive: ^2.0.8
   audioplayers: ^0.16.1
   http: ^0.12.2
+  #flutter_signin_button: ^1.1.0
 
 dev_dependencies:
   flutter_test:

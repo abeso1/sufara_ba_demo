@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sufara_ba_demo/dummy_data.dart';
+import 'package:sufara_ba_demo/data/dummy_data.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/widgets/harf_for_vjezbe.dart';
 
@@ -28,6 +28,7 @@ class Vjezbe extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return HarfWidgetForVjezbe(listHarf[index]);
+
         },
         itemCount: listHarf.length,
       ),
