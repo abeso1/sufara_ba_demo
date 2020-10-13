@@ -112,7 +112,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       color: Colors.white,
                     ),*/
                     child: Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
                           width: SizeConfig.safeBlockHorizontal * 1,
@@ -123,7 +123,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: SvgPicture.asset(
                             widget.harf.images[0],
-                            height: SizeConfig.blockSizeVertical * 10,
+                            width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
                         ),
@@ -133,7 +133,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: SvgPicture.asset(
                             widget.harf.images[1],
-                            height: SizeConfig.blockSizeVertical * 10,
+                            width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
                         ),
@@ -143,7 +143,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: SvgPicture.asset(
                             widget.harf.images[2],
-                            height: SizeConfig.blockSizeVertical * 10,
+                            width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
                         ),
