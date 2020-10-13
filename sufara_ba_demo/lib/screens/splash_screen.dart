@@ -11,38 +11,58 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    Timer(Duration(seconds: 5), (){
+    Timer(Duration(seconds: 5), () {
       Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => TabsScreens(),
-          ),
-        );
+        MaterialPageRoute(
+          builder: (context) => TabsScreens(),
+        ),
+      );
     });
 
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Image.asset(
-              'svg/back_img/sufara.ba_logo.png',
-              width: SizeConfig.blockSizeHorizontal * 100,
-              height: SizeConfig.blockSizeVertical * 50,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'svg/back_img/back_img_splash.jpg',
             ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal * 10,
+            fit: BoxFit.fill,
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.12), BlendMode.dstATop),
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(
+                height: SizeConfig.blockSizeVertical * 1,
               ),
-              child: Text(
-                Hadis.listHadis[rng.nextInt(20)].name,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
+              Image.asset(
+                'svg/back_img/sufara.ba_logo_splash.png',
+                width: SizeConfig.blockSizeHorizontal * 50,
+                height: SizeConfig.blockSizeVertical * 50,
+                fit: BoxFit.fitWidth,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.blockSizeHorizontal * 15,
+                ),
+                child: Text(
+                  Hadis.listHadis[rng.nextInt(20)].name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.normal,
+                      fontSize: 22,
+                      color: Colors.green),
                 ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: SizeConfig.blockSizeVertical * 6,
+              ),
+            ],
+          ),
         ),
       ),
     );
