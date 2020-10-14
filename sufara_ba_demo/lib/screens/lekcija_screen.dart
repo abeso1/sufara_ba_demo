@@ -171,26 +171,36 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 scrollDirection: Axis.vertical,
                 children: [
                   //ovdje naslov harfa
-                  Text(
-                    widget.harf.lekcijaIliVjezbaIndex,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w700
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal * 1,
+                    ),
+                    child: Text(
+                      widget.harf.lekcijaIliVjezbaIndex,
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   //ovjde ide opis harfa
-                  Text(
-                    widget.harf.opis,
-                    //ovako izleda bolje nego kad je centriran
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Roboto',
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal*1,
+                    ),
+                    child: Text(
+                      widget.harf.opis,
+                      //ovako izleda bolje nego kad je centriran
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Roboto',
+                      ),
                     ),
                   ),
                   //slika grla
