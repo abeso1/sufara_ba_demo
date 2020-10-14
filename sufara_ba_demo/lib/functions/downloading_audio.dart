@@ -14,16 +14,15 @@ class Download {
 //vidjet ces sve fileove da su otpakovani
   Future<bool> checkFile() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    if (io.Directory(
-            '$dir/audio/1')
-        .existsSync()) {
+    if (io.Directory('$dir/audio/1').existsSync()) {
       print('postoji');
     }
-    return io.Directory(
-            '$dir/audio/1')
-        .existsSync();
+    //ovo treba
+    //return io.Directory(
+    //        '$dir/audio/1')
+    //    .existsSync();
+    return false;
   }
-
 
 //ovo radi
   Future<io.File> downloadFile(String url, String filename) async {
@@ -37,9 +36,8 @@ class Download {
     return file;
   }
 
-
 //ovo radi
-  unZipFile(var zippedFile) async {
+  Future<bool> unZipFile(var zippedFile) async {
     String directory = (await path.getApplicationDocumentsDirectory()).path;
     var bytes = zippedFile.readAsBytesSync();
     var archive = ZipDecoder().decodeBytes(bytes);
@@ -52,5 +50,18 @@ class Download {
       }
       print('$directory/${file.name}');
     }
+    return true;
+  }
+
+  Future<bool> downloadAndUnzip() async {
+    downloadFile(
+      'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
+      'audio.zip',
+    ).then(
+      (value) => {
+        unZipFile(value),
+      },
+    );
+    return true;
   }
 }

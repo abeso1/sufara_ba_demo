@@ -4,6 +4,7 @@ import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/screens/lekcije.dart';
 import 'package:sufara_ba_demo/screens/vjezbe.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert.dart';
 
 class TabsScreens extends StatefulWidget {
   @override
@@ -12,26 +13,33 @@ class TabsScreens extends StatefulWidget {
 
 class _TabsScreensState extends State<TabsScreens> {
   Download download = Download();
+  bool dialog = true;
 
   @override
   void initState() {
-    var file;
-    download.checkFile().then((value) => {
-          if (!value)
+    //var file;
+    download.checkFile().then((val) => {
+          if (!val)
             {
-              file = download
-                  .downloadFile(
-                    'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
-                    'audio.zip',
-                  )
-                  .then(
-                    (value) => {
-                      download.unZipFile(value),
-                    },
-                  ),
+              showDialog(
+                  context: context,
+                  builder: (ctx) {
+                    return CustomAlert();
+                  }).then((value) {
+                if (value == null) {
+                  setState(() {
+                    dialog = false;
+                  });
+                }
+              })
+            }
+            else {
+              setState(() {
+                    dialog = false;
+                  })
             }
         });
-    print(file.toString());
+    //print(file.toString());
     super.initState();
   }
 
