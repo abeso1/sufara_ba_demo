@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
+import 'package:sufara_ba_demo/settings/size_config.dart';
 
 class CustomAlert extends StatefulWidget {
   @override
@@ -8,20 +9,30 @@ class CustomAlert extends StatefulWidget {
 
 class _CustomAlertState extends State<CustomAlert> {
   Download _download = Download();
+  bool progres = false;
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SimpleDialog(
-      title: Text('Preuzmi potreban audio za aplikaciju?'),
+      contentPadding: EdgeInsets.all(0),
+      title: Text(
+        'Preuzmi potreban audio za aplikaciju?',
+        textAlign: TextAlign.center,
+      ),
       children: [
+        SizedBox(
+          height: SizeConfig.blockSizeVertical * 1,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RaisedButton(
               onPressed: () async {
-                _download
-                    .downloadAndUnzip()
-                    .then(
+                setState(() {
+                  progres = true;
+                });
+                _download.downloadAndUnzip().then(
                   (val) {
                     if (val) {
                       Navigator.of(context).pop(0);
@@ -31,9 +42,11 @@ class _CustomAlertState extends State<CustomAlert> {
                     }
                   },
                 );
-                print('amer');
               },
               child: Text('Da'),
+            ),
+            SizedBox(
+              width: SizeConfig.blockSizeHorizontal * 10,
             ),
             RaisedButton(
               onPressed: () {
@@ -42,7 +55,23 @@ class _CustomAlertState extends State<CustomAlert> {
               child: Text('Odustani'),
             ),
           ],
-        )
+        ),
+        SizedBox(
+          height: SizeConfig.blockSizeVertical * 1,
+        ),
+        progres ? Container(
+          child: SizedBox(
+            width: double.infinity,
+            height: SizeConfig.blockSizeVertical * 3,
+            child: LinearProgressIndicator(
+              minHeight: 10,
+              value: 0.0,
+              backgroundColor: Colors.grey,
+            ),
+          ),
+        ) : Container(
+          height: SizeConfig.blockSizeVertical * 2,
+        ),
       ],
     );
   }
