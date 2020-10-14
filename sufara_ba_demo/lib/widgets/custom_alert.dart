@@ -32,16 +32,9 @@ class _CustomAlertState extends State<CustomAlert> {
                 setState(() {
                   progres = true;
                 });
-                _download.downloadAndUnzip().then(
-                  (val) {
-                    if (val) {
-                      Navigator.of(context).pop(0);
-                      print('radi ovo!!!');
-                    } else {
-                      Navigator.of(context).pop();
-                    }
-                  },
-                );
+                _download.downloadAndUnzip().then((value) {
+                  Navigator.of(context).pop(value);
+                });
               },
               child: Text('Da'),
             ),
@@ -59,7 +52,7 @@ class _CustomAlertState extends State<CustomAlert> {
         SizedBox(
           height: SizeConfig.blockSizeVertical * 1,
         ),
-        progres ? Container(
+        /*progres ? Container(
           child: SizedBox(
             width: double.infinity,
             height: SizeConfig.blockSizeVertical * 3,
@@ -71,7 +64,7 @@ class _CustomAlertState extends State<CustomAlert> {
           ),
         ) : Container(
           height: SizeConfig.blockSizeVertical * 2,
-        ),
+        ),*/
       ],
     );
   }

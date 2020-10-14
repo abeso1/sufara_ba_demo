@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
@@ -5,6 +7,7 @@ import 'package:sufara_ba_demo/screens/lekcije.dart';
 import 'package:sufara_ba_demo/screens/vjezbe.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
+import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 
 class TabsScreens extends StatefulWidget {
   @override
@@ -14,6 +17,7 @@ class TabsScreens extends StatefulWidget {
 class _TabsScreensState extends State<TabsScreens> {
   Download download = Download();
   bool dialog = true;
+  int progress = 23;
 
   @override
   void initState() {
@@ -26,17 +30,28 @@ class _TabsScreensState extends State<TabsScreens> {
                   builder: (ctx) {
                     return CustomAlert();
                   }).then((value) {
-                if (value == null) {
+                if (value == false) {
+                  print('ovo se desi');
+                  Navigator.of(context).pop();
                   setState(() {
                     dialog = false;
                   });
+                } else {
+                  print('ovo se desi!');
+                  showDialog(
+                    context: context,
+                    builder: (ctx) {
+                      return ProgressionIndicator();
+                    },
+                  );
                 }
               })
             }
-            else {
+          else
+            {
               setState(() {
-                    dialog = false;
-                  })
+                dialog = false;
+              })
             }
         });
     //print(file.toString());
