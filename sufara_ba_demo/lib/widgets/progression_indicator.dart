@@ -10,11 +10,11 @@ class ProgressionIndicator extends StatefulWidget {
 }
 
 class _ProgressionIndicatorState extends State<ProgressionIndicator> {
-  var progress = 0.0;
+  //var progress = 0.0;
 
   @override
   Widget build(BuildContext context) {
-    print('${Provider.of<Download>(context, listen: true).progress}');
+    final progress = Provider.of<Download>(context, listen: false).progress;
     return SimpleDialog(
       children: [
         Container(
@@ -25,12 +25,12 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
             fit: StackFit.expand,
             children: [
               CircularProgressIndicator(
-                strokeWidth: 20,
-                value: Provider.of<Download>(context, listen: false).progress,
+                strokeWidth: 20,  
+                value: progress,
               ),
               Center(
                 child: Text(
-                  '${Provider.of<Download>(context, listen: false).progress}',
+                  '$progress%',
                 ),
               ),
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/screens/splash_screen.dart';
+import 'package:sufara_ba_demo/screens/tabs_screen.dart';
 
 
 void main() {
