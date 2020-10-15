@@ -9,7 +9,7 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class Download extends ChangeNotifier {
   static var httpClient = new io.HttpClient();
-  double progress = 0.1;
+  double progress;
   var length;
   var dio = Dio();
 
@@ -31,10 +31,14 @@ class Download extends ChangeNotifier {
 
 //ovo radi
   Future<io.File> downloadFile(String url, String filename) async {
+    /*String dir = (await path.getApplicationDocumentsDirectory()).path;
+    io.File file = new io.File('$dir/$filename');
     try {
       Response response = await dio.get(
         url,
+
         onReceiveProgress: showDownloadProgress,
+
         options: Options(
           responseType: ResponseType.bytes,
           followRedirects: false,
@@ -43,27 +47,28 @@ class Download extends ChangeNotifier {
           },
         ),
       );
-      String dir = (await path.getApplicationDocumentsDirectory()).path;
-      io.File file = new io.File('$dir/$filename');
       var raf = file.openSync(mode: io.FileMode.write);
       raf.writeFromSync(response.data);
       await raf.close();
-      return file;
     } catch (e) {
       print(e);
-    }
+    }*/
     ////ovo radi za firebase
-    /*var request = await httpClient.getUrl(Uri.parse(url));
+    ///ovaj za sad radi, ali ne znam kako progres da ispisem
+    var request = await httpClient.getUrl(Uri.parse(url));
+    print('1');
     var response = await request.close();
-    length = response.contentLength;
-    progress = 0.5;
-    notifyListeners();
+        print('2');
     var bytes = await consolidateHttpClientResponseBytes(response);
+        print('3');
     String dir = (await path.getApplicationDocumentsDirectory()).path;
+        print('4');
     io.File file = new io.File('$dir/$filename');
+        print('5');
     await file.writeAsBytes(bytes);
+        print('6');
     print('$dir/$filename');
-    return file;*/
+    return file;
   }
 
   void showDownloadProgress(received, total) {
@@ -96,16 +101,16 @@ class Download extends ChangeNotifier {
   }
 
   Future<bool> downloadAndUnzip() async {
-    /*var file = downloadFile(
+    /*io.File file = await downloadFile(
       //'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
-      'https://drive.google.com/file/d/14IvtFtMmhs49opKX0Sts8UihRlDICqik/view?usp=sharing',
+      'https://drive.google.com/u/1/uc?id=14IvtFtMmhs49opKX0Sts8UihRlDICqik&export=download',
       'audio.zip',
     );
 
     await unZipFile(file);*/
-
+//////////https://drive.google.com/u/1/uc?id=14IvtFtMmhs49opKX0Sts8UihRlDICqik&export=download
     downloadFile(
-      'https://drive.google.com/file/d/14IvtFtMmhs49opKX0Sts8UihRlDICqik/view?usp=sharing',
+      'https://drive.google.com/u/1/uc?id=14IvtFtMmhs49opKX0Sts8UihRlDICqik&export=download',
       'audio.zip',
     ).then(
       (value) => {
