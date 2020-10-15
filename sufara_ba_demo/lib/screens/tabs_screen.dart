@@ -43,7 +43,9 @@ class _TabsScreensState extends State<TabsScreens> {
                     builder: (ctx) {
                       return ProgressionIndicator();
                     },
-                  );
+                  ).then((value) {
+                    Navigator.of(context).pop();
+                  });
                 }
               })
             }
