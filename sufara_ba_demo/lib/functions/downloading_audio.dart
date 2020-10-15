@@ -9,13 +9,13 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class Download extends ChangeNotifier {
   static var httpClient = new io.HttpClient();
-  double progress;
+  double progress = 0.1;
   var length;
   var dio = Dio();
 
-  double downloadProgress() {
-    return progress;
-  }
+  //double downloadProgress() {
+  //  return progress;
+  //}
 
   Future<bool> checkFile() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -52,7 +52,7 @@ class Download extends ChangeNotifier {
     } catch (e) {
       print(e);
     }
-
+    ////ovo radi za firebase
     /*var request = await httpClient.getUrl(Uri.parse(url));
     var response = await request.close();
     length = response.contentLength;
@@ -70,6 +70,8 @@ class Download extends ChangeNotifier {
     if (total != -1) {
       print((received / total * 100).toStringAsFixed(0) + "%");
     }
+    progress = (received / total * 100);
+    notifyListeners();
   }
 
 //ovo radi
@@ -94,15 +96,23 @@ class Download extends ChangeNotifier {
   }
 
   Future<bool> downloadAndUnzip() async {
+    /*var file = downloadFile(
+      //'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
+      'https://drive.google.com/file/d/14IvtFtMmhs49opKX0Sts8UihRlDICqik/view?usp=sharing',
+      'audio.zip',
+    );
+
+    await unZipFile(file);*/
+
     downloadFile(
-      'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
-      //'https://drive.google.com/file/d/14IvtFtMmhs49opKX0Sts8UihRlDICqik/view?usp=sharing',
+      'https://drive.google.com/file/d/14IvtFtMmhs49opKX0Sts8UihRlDICqik/view?usp=sharing',
       'audio.zip',
     ).then(
       (value) => {
         unZipFile(value),
       },
     );
+
     return true;
   }
 }
