@@ -28,7 +28,11 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                 strokeWidth: 20,
                 value: Provider.of<Download>(context, listen: false).progress,
               ),
-              Text('${Provider.of<Download>(context, listen: false).progress}')
+              Center(
+                child: Text(
+                  '${Provider.of<Download>(context, listen: false).progress}',
+                ),
+              ),
             ],
           ),
         ),

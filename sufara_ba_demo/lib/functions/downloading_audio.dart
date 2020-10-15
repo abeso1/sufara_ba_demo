@@ -1,6 +1,7 @@
 import 'dart:io' as io;
 import 'dart:async';
 import 'package:archive/archive.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart' as path;
@@ -10,6 +11,7 @@ class Download extends ChangeNotifier {
   static var httpClient = new io.HttpClient();
   double progress;
   var length;
+  var dio = Dio();
 
   double downloadProgress() {
     return progress;
@@ -29,7 +31,29 @@ class Download extends ChangeNotifier {
 
 //ovo radi
   Future<io.File> downloadFile(String url, String filename) async {
-    var request = await httpClient.getUrl(Uri.parse(url));
+    try {
+      Response response = await dio.get(
+        url,
+        onReceiveProgress: showDownloadProgress,
+        options: Options(
+          responseType: ResponseType.bytes,
+          followRedirects: false,
+          validateStatus: (status) {
+            return status < 500;
+          },
+        ),
+      );
+      String dir = (await path.getApplicationDocumentsDirectory()).path;
+      io.File file = new io.File('$dir/$filename');
+      var raf = file.openSync(mode: io.FileMode.write);
+      raf.writeFromSync(response.data);
+      await raf.close();
+      return file;
+    } catch (e) {
+      print(e);
+    }
+
+    /*var request = await httpClient.getUrl(Uri.parse(url));
     var response = await request.close();
     length = response.contentLength;
     progress = 0.5;
@@ -39,7 +63,13 @@ class Download extends ChangeNotifier {
     io.File file = new io.File('$dir/$filename');
     await file.writeAsBytes(bytes);
     print('$dir/$filename');
-    return file;
+    return file;*/
+  }
+
+  void showDownloadProgress(received, total) {
+    if (total != -1) {
+      print((received / total * 100).toStringAsFixed(0) + "%");
+    }
   }
 
 //ovo radi
@@ -50,8 +80,8 @@ class Download extends ChangeNotifier {
     var archiveLength = archive.length * 2;
     for (var file in archive) {
       var fileName = '$directory/${file.name}';
-      var fileLength = file.size;
-      progress += (fileLength/archiveLength);
+      //var fileLength = file.size;
+      //progress += (fileLength / archiveLength);
       notifyListeners();
       if (file.isFile) {
         var outFile = io.File(fileName);
@@ -66,6 +96,7 @@ class Download extends ChangeNotifier {
   Future<bool> downloadAndUnzip() async {
     downloadFile(
       'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
+      //'https://drive.google.com/file/d/14IvtFtMmhs49opKX0Sts8UihRlDICqik/view?usp=sharing',
       'audio.zip',
     ).then(
       (value) => {
