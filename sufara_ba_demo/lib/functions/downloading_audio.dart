@@ -8,7 +8,6 @@ import 'package:path_provider/path_provider.dart' as path;
 //import 'package:firebase_storage/firebase_storage.dart';
 
 class Download extends ChangeNotifier {
-
   static var httpClient = new io.HttpClient();
   double progress;
   var length;
@@ -60,25 +59,25 @@ class Download extends ChangeNotifier {
     progress = 0.1;
     notifyListeners();
     var response = await request.close();
-        print('2');
-        progress = 0.2;
-        notifyListeners();
+    print('2');
+    progress = 0.2;
+    notifyListeners();
     var bytes = await consolidateHttpClientResponseBytes(response);
-        print('3');
-        progress = 0.3;
-        notifyListeners();
+    print('3');
+    progress = 0.3;
+    notifyListeners();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-        print('4');
-        progress = 0.4;
-        notifyListeners();
+    print('4');
+    progress = 0.4;
+    notifyListeners();
     io.File file = new io.File('$dir/$filename');
-        print('5');
-        progress = 0.5;
-        notifyListeners();
+    print('5');
+    progress = 0.5;
+    notifyListeners();
     await file.writeAsBytes(bytes);
-        print('6');
-        progress = 0.6;
-        notifyListeners();
+    print('6');
+    progress = 0.6;
+    notifyListeners();
     print('$dir/$filename');
     return file;
   }

@@ -50,7 +50,7 @@ class _CustomAlertState extends State<CustomAlert> {
           ],
         ),
         SizedBox(
-          height: SizeConfig.blockSizeVertical * 1,
+          height: SizeConfig.blockSizeVertical * 3,
         ),
            ///ovo je drugi neki nacin za progression
         /*progres ? Container(

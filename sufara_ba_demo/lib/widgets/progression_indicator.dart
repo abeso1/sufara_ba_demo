@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
+import 'package:sufara_ba_demo/settings/size_config.dart';
 
 class ProgressionIndicator extends StatefulWidget {
   @override
@@ -14,12 +15,13 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    final progress = Provider.of<Download>(context, listen: false).progress;
+    SizeConfig().init(context);
+    var progress = Provider.of<Download>(context, listen: false).progress;
     return SimpleDialog(
       children: [
         Container(
-          height: 250,
-          width: 250,
+          height: SizeConfig.blockSizeVertical*40,
+          width: SizeConfig.blockSizeHorizontal*25,
           padding: EdgeInsets.all(50),
           child: Stack(
             fit: StackFit.expand,
