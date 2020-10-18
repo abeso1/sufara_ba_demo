@@ -5,7 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
-
+import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
+import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
+import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -123,44 +125,20 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
                 children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: SvgPicture.asset(
-                        widget.harf.imageUrl,
-                        height: SizeConfig.blockSizeVertical * 12,
-                        color: Colors.green,
-                      ),
-                    ),
+                  CardForVjezbeRegural(
+                    widget.harf,
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: SvgPicture.asset(
-                      widget.harf.imageUrl,
-                      height: SizeConfig.blockSizeVertical * 12,
-                      color: Colors.green,
-                    ),
+                  CardForVjezbaFalse(
+                    widget.harf,
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: SvgPicture.asset(
-                      widget.harf.imageUrl,
-                      height: SizeConfig.blockSizeVertical * 12,
-                      color: Colors.green,
-                    ),
+                  CardForVjezbeTrue(
+                    widget.harf,
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
