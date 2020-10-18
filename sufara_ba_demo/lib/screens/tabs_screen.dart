@@ -4,6 +4,7 @@ import 'package:sufara_ba_demo/screens/lekcije.dart';
 import 'package:sufara_ba_demo/screens/vjezbe.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
+import 'package:sufara_ba_demo/widgets/message_hadis.dart';
 import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 
 class TabsScreens extends StatefulWidget {
@@ -26,25 +27,34 @@ class _TabsScreensState extends State<TabsScreens> {
                   context: context,
                   builder: (ctx) {
                     return CustomAlert();
-                  }).then((value) {
-                if (value == false) {
-                  print('ovo se desi');
-                  Navigator.of(context).pop();
-                  setState(() {
-                    dialog = false;
-                  });
-                } else {
-                  print('ovo se desi!');
-                  showDialog(
-                    context: context,
-                    builder: (ctx) {
-                      return ProgressionIndicator();
-                    },
-                  ).then((value) {
-                    //Navigator.of(context).pop();
-                  });
-                }
-              })
+                  }).then(
+                (value) {
+                  if (value == false) {
+                    print('ovo se desi');
+                    Navigator.of(context).pop();
+                    setState(() {
+                      dialog = false;
+                    });
+                  } else {
+                    print('ovo se desi!');
+                    showDialog(
+                      context: context,
+                      builder: (ctx) {
+                        return ProgressionIndicator();
+                      },
+                    ).then(
+                      (value) {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) {
+                            return MessageHadis();
+                          },
+                        );
+                      },
+                    );
+                  }
+                },
+              ),
             }
           else
             {

@@ -142,7 +142,7 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 16,
             ),
           ),
         ),
