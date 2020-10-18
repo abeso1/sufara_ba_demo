@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 
 class CustomAlert extends StatefulWidget {
@@ -8,7 +7,6 @@ class CustomAlert extends StatefulWidget {
 }
 
 class _CustomAlertState extends State<CustomAlert> {
-  Download _download = Download();
   bool progres = false;
 
   @override
@@ -32,9 +30,9 @@ class _CustomAlertState extends State<CustomAlert> {
                 setState(() {
                   progres = true;
                 });
-                _download.downloadAndUnzip().then((value) {
-                  Navigator.of(context).pop(value);
-                });
+                //_download.downloadAndUnzip().then((value) {
+                  Navigator.of(context).pop(true);
+                //});
               },
               child: Text('Da'),
             ),

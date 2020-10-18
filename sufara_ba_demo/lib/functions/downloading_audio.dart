@@ -1,6 +1,5 @@
 import 'dart:io' as io;
 import 'dart:async';
-import 'package:archive/archive.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -9,13 +8,13 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class Download extends ChangeNotifier {
   static var httpClient = new io.HttpClient();
-  double progress;
+  double progress = 0.0;
   var length;
   var dio = Dio();
 
-  //double downloadProgress() {
-  //  return progress;
-  //}
+  get downloadProgress {
+    return progress;
+  }
 
   Future<bool> checkFile() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -28,7 +27,8 @@ class Download extends ChangeNotifier {
     //    .existsSync();
     return false;
   }
-
+}
+/*
 //ovo radi
   Future<io.File> downloadFile(String url, String filename) async {
     /*String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -57,27 +57,27 @@ class Download extends ChangeNotifier {
     ///ovaj za sad radi, ali ne znam kako progres da ispisem
     var request = await httpClient.getUrl(Uri.parse(url));
     progress = 0.1;
-    notifyListeners();
+//notifyListeners();
     var response = await request.close();
-    print('2');
+    print('2$progress');
     progress = 0.2;
-    notifyListeners();
+//notifyListeners();
     var bytes = await consolidateHttpClientResponseBytes(response);
-    print('3');
+    print('3$progress');
     progress = 0.3;
-    notifyListeners();
+//notifyListeners();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('4');
+    print('4$progress');
     progress = 0.4;
-    notifyListeners();
+    //notifyListeners();
     io.File file = new io.File('$dir/$filename');
-    print('5');
+    print('5$progress');
     progress = 0.5;
-    notifyListeners();
+    //notifyListeners();
     await file.writeAsBytes(bytes);
-    print('6');
+    print('6$progress');
     progress = 0.6;
-    notifyListeners();
+    //notifyListeners();
     print('$dir/$filename');
     return file;
   }
@@ -131,4 +131,4 @@ class Download extends ChangeNotifier {
 
     return true;
   }
-}
+}*/
