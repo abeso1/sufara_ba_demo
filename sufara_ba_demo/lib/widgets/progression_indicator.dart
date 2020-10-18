@@ -17,7 +17,7 @@ class ProgressionIndicator extends StatefulWidget {
 
 class _ProgressionIndicatorState extends State<ProgressionIndicator> {
   double progress = 0.01;
-  String text = 'Downloading data...';
+  String text = 'Preuzimanje podataka...';
 
   static var httpClient = new io.HttpClient();
   Future<bool> checkFile() async {
@@ -73,7 +73,7 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
     var bytes = zippedFile.readAsBytesSync();
     var archive = ZipDecoder().decodeBytes(bytes);
     setState(() {
-      text = 'Almost done...';
+      text = 'Skoro gotovo...';
     });
     for (var file in archive) {
       var fileName = '$directory/${file.name}';
