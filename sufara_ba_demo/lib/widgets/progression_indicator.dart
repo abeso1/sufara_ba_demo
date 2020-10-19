@@ -26,11 +26,11 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
       print('postoji');
     }
     //ovo treba
-    return io.Directory(
-            '$dir/audio/1')
-        .existsSync();
+    //return io.Directory(
+      //      '$dir/audio/1')
+        //.existsSync();
     //ovo je za testing samo
-    //return false;
+    return false;
   }
 
 //ovo radi

@@ -131,13 +131,13 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  CardForVjezbaFalse(
+                  CardForVjezbeRegural(
                     widget.harf,
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  CardForVjezbeTrue(
+                  CardForVjezbaFalse(
                     widget.harf,
                   ),
                   SizedBox(

@@ -9,41 +9,52 @@ class MessageHadis extends StatelessWidget {
     return SimpleDialog(
       children: [
         Container(
-          height: SizeConfig.blockSizeVertical * 27,
-          width: SizeConfig.blockSizeHorizontal * 25,
+          height: SizeConfig.blockSizeVertical * 30,
+          width: SizeConfig.blockSizeHorizontal * 28,
           padding: EdgeInsets.symmetric(
             horizontal: SizeConfig.blockSizeHorizontal * 3,
             vertical: SizeConfig.blockSizeVertical * 2,
           ),
           child: Column(
             children: [
-              Text(
-                //ovo treba nesto ljepse
-                'Učite Kur\'an, jer će, uistinu, on doći na Sudnji dan kao zagovornik onima koji ga budu učili.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.normal,
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.blockSizeHorizontal * 2,
+                  vertical: SizeConfig.blockSizeVertical * 2,
+                ),
+                child: Text(
+                  //ovo treba nesto ljepse
+                  'Učite Kur\'an, jer će, uistinu, on doći na Sudnji dan kao zagovornik onima koji ga budu učili.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
               SizedBox(
                 height: SizeConfig.blockSizeVertical * 2,
               ),
-              RaisedButton(
-                color: kon_boja,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+              Container(
+                width: SizeConfig.blockSizeHorizontal * 35,
+                height: SizeConfig.blockSizeVertical * 7,
+                child: RaisedButton(
+                  color: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    'Zatvori prozor',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
-                child: Text(
-                  'Zatvori prozor',
-                  /*style: TextStyle(
-                    //color: Colors.white,
-                  ),*/
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
               ),
             ],
           ),

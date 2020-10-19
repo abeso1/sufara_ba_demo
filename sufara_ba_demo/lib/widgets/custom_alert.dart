@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:sufara_ba_demo/shared/constants.dart';
 
 class CustomAlert extends StatefulWidget {
   @override
@@ -13,33 +14,42 @@ class _CustomAlertState extends State<CustomAlert> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SimpleDialog(
-      contentPadding: EdgeInsets.all(0),
+      titlePadding: EdgeInsets.symmetric(
+        vertical: SizeConfig.blockSizeVertical * 5,
+      ),
       title: Text(
         'Preuzmi potreban audio za aplikaciju?',
         textAlign: TextAlign.center,
       ),
       children: [
-        SizedBox(
-          height: SizeConfig.blockSizeVertical * 1,
-        ),
+        //SizedBox(
+        //  height: SizeConfig.blockSizeVertical * 3,
+        //),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RaisedButton(
+              color: Colors.green,
               onPressed: () async {
                 setState(() {
                   progres = true;
                 });
                 //_download.downloadAndUnzip().then((value) {
-                  Navigator.of(context).pop(true);
+                Navigator.of(context).pop(true);
                 //});
               },
-              child: Text('Da'),
+              child: Text(
+                'Da',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
             SizedBox(
               width: SizeConfig.blockSizeHorizontal * 10,
             ),
             RaisedButton(
+              color: Colors.grey[200],
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -50,7 +60,8 @@ class _CustomAlertState extends State<CustomAlert> {
         SizedBox(
           height: SizeConfig.blockSizeVertical * 3,
         ),
-           ///ovo je drugi neki nacin za progression
+
+        ///ovo je drugi neki nacin za progression
         /*progres ? Container(
           child: SizedBox(
             width: double.infinity,
