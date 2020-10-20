@@ -26,11 +26,11 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
       print('postoji');
     }
     //ovo treba
-    //return io.Directory(
-      //      '$dir/audio/1')
-        //.existsSync();
+    return io.Directory(
+            '$dir/audio/1')
+        .existsSync();
     //ovo je za testing samo
-    return false;
+    //return false;
   }
 
 //ovo radi
@@ -94,6 +94,8 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
 
   Future<bool> downloadAndUnzip() async {
     downloadFile(
+      //ovaj firebaseov link radi, ali za samo mali broj korisnika
+      //'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
       'https://drive.google.com/u/1/uc?id=14IvtFtMmhs49opKX0Sts8UihRlDICqik&export=download',
       'audio.zip',
     ).then(
