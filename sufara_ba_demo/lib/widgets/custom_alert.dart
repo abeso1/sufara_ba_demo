@@ -51,7 +51,7 @@ class _CustomAlertState extends State<CustomAlert> {
             RaisedButton(
               color: Colors.grey[200],
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(false);
               },
               child: Text('Odustani'),
             ),

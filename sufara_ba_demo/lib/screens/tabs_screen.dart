@@ -19,7 +19,6 @@ class _TabsScreensState extends State<TabsScreens> {
 
   @override
   void initState() {
-    //var file;
     download.checkFile().then((val) => {
           if (!val)
             {
@@ -31,7 +30,7 @@ class _TabsScreensState extends State<TabsScreens> {
                 (value) {
                   if (value == false) {
                     print('ovo se desi');
-                    Navigator.of(context).pop();
+                    //Navigator.of(context).pop();
                     setState(() {
                       dialog = false;
                     });
