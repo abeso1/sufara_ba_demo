@@ -20,7 +20,7 @@ class CardForVjezbeTrue extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: SvgPicture.asset(
-          harf.imageUrl,
+          '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
           height: SizeConfig.blockSizeVertical * 12,
           color: Colors.white,
         ),

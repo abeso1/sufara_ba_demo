@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
+import 'package:path_provider/path_provider.dart' as path;
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/lekcija_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
@@ -10,6 +10,12 @@ class HarfWidgetForLekcije extends StatelessWidget {
   final HarfModel harf;
 
   HarfWidgetForLekcije(this.harf);
+
+  get catchDir async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    print('$dir');
+    return dir;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +50,7 @@ class HarfWidgetForLekcije extends StatelessWidget {
           //  ),
           //  location: RibbonLocation.topEnd,
            child: Row(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   children: [
@@ -53,13 +60,16 @@ class HarfWidgetForLekcije extends StatelessWidget {
                         top: SizeConfig.blockSizeHorizontal * 1,
                       ),
                       child: SvgPicture.asset(
-                        harf.imageUrl,
-                        width: SizeConfig.blockSizeHorizontal * 34,
+                        '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
+                        //width: SizeConfig.blockSizeHorizontal * 34,
                         height: SizeConfig.blockSizeVertical * 12,
                         color: Colors.green,
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  width: SizeConfig.blockSizeHorizontal * 1,
                 ),
                 Column(
                   children: [

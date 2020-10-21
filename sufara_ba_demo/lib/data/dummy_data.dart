@@ -4,8 +4,8 @@ class DUMMY_DATA {
   static const List<HarfModel> listHarfDummyData = [
     HarfModel(
       id: '1',
-      name: 'Harf Elif',
-      imageUrl: 'svg/1/E.svg',
+      name: 'Kratki vokali',
+      imageUrl: 'E',
       lekcijaIliVjezbaIndex: 'Prva slovo arapske abecede',
       lekcija: true,
       opis:
@@ -18,8 +18,8 @@ class DUMMY_DATA {
     ),
     HarfModel(
       id: '2',
-      name: 'Harf Ba',
-      imageUrl: 'svg/1/elif.svg',
+      name: 'Harf Elif i Vav',
+      imageUrl: 'e',
       lekcijaIliVjezbaIndex: 'Druga lekcija',
       lekcija: true,
       opis:
@@ -32,8 +32,8 @@ class DUMMY_DATA {
     ),
     HarfModel(
       id: '3',
-      name: 'Harf Ra',
-      imageUrl: 'svg/1/fetha_.svg',
+      name: 'Harf Dal i Zal',
+      imageUrl: 'd',
       lekcijaIliVjezbaIndex: 'Treca lekcija',
       lekcija: true,
       opis:
@@ -47,7 +47,7 @@ class DUMMY_DATA {
     HarfModel(
       id: '4',
       name: 'Harf Dal',
-      imageUrl: 'svg/1/damma_.svg',
+      imageUrl: 'z',
       lekcijaIliVjezbaIndex: 'Cetvrta lekcija',
       lekcija: true,
       opis:
@@ -61,7 +61,7 @@ class DUMMY_DATA {
     HarfModel(
       id: '5',
       name: 'Harf Ra',
-      imageUrl: 'svg/1/damma_.svg',
+      imageUrl: 'zen',
       lekcijaIliVjezbaIndex: 'Peta lekcija',
       lekcija: true,
       opis:
@@ -74,7 +74,7 @@ class DUMMY_DATA {
     HarfModel(
       id: '6',
       name: 'Harf Ta',
-      imageUrl: 'svg/1/damma.svg',
+      imageUrl: 'vav',
       lekcijaIliVjezbaIndex: 'Sesta lekcija',
       lekcija: true,
       opis:
@@ -87,7 +87,7 @@ class DUMMY_DATA {
     HarfModel(
       id: '7',
       name: 'Harf Sa',
-      imageUrl: 'svg/1/elif_1.svg',
+      imageUrl: 'inne',
       lekcijaIliVjezbaIndex: 'Sedma lekcija',
       lekcija: true,
       opis:
@@ -100,7 +100,7 @@ class DUMMY_DATA {
     HarfModel(
       id: '8',
       name: 'Harf Sin',
-      imageUrl: 'svg/1/I.svg',
+      imageUrl: 's',
       lekcijaIliVjezbaIndex: 'Osma lekcija',
       lekcija: true,
       opis:

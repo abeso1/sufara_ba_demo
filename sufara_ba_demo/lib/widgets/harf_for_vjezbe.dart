@@ -54,9 +54,9 @@ class HarfWidgetForVjezbe extends StatelessWidget {
                     height: 10,
                   ),
                   SvgPicture.asset(
-                    harf.imageUrl,
+                    '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
                     color: Colors.green,
-                    width: SizeConfig.blockSizeHorizontal * 17,
+                    height: SizeConfig.blockSizeVertical * 10,
                   ),
                   SizedBox(
                     height: 10,

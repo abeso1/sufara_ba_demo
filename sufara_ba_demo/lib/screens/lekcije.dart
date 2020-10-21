@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/dummy_data.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/harf_for_lekcije.dart';
+import 'package:path_provider/path_provider.dart' as path;
 
 class Lekcije extends StatelessWidget {
   final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
+
+  catchDir() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    print('$dir');
+    return dir;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +71,8 @@ class Lekcije extends StatelessWidget {
             'svg/back_img/back_img.jpg',
           ),
           fit: BoxFit.cover,
-          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.10), BlendMode.dstATop),
+          colorFilter: new ColorFilter.mode(
+              Colors.black.withOpacity(0.10), BlendMode.dstATop),
         ),
       ),
       // ovdje ide listview

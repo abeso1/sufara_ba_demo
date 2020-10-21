@@ -24,11 +24,11 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   //baca ovo u debug console
   //cleanDrmObj: mDrmObj=null mDrmSessionId=null
   //resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
-  playAudio(String url) async {
+  playAudio(HarfModel harf) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('$dir/audio/1/E.mp3');
-    await player.play('$dir/audio/1/E.mp3', isLocal: true);
+    print('$dir/audio/${harf.id}/${harf.imageUrl}.mp3');
+    await player.play('$dir/audio/${harf.id}/${harf.imageUrl}.mp3', isLocal: true);
     setState(() {});
   }
 
@@ -150,7 +150,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        playAudio(widget.harf.imageUrl);
+                        playAudio(widget.harf);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
