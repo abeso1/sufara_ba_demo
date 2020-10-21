@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-//import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 
 import 'dart:io' as io;
@@ -16,19 +15,18 @@ class ProgressionIndicator extends StatefulWidget {
 }
 
 class _ProgressionIndicatorState extends State<ProgressionIndicator> {
-  double progress = 0.01;
+  double progress = 0.11;
   String text = 'Preuzimanje podataka...';
 
   static var httpClient = new io.HttpClient();
   Future<bool> checkFile() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    if (io.Directory('$dir/audio/1').existsSync()) {
+    /*if (io.Directory('$dir/audio/1').existsSync()) {
       print('postoji');
-    }
+    }*/
     //ovo treba
-    return io.Directory(
-            '$dir/audio/1')
-        .existsSync();
+    return (io.Directory('$dir/audio/1').existsSync() &&
+        io.Directory('$dir/svg/1').existsSync());
     //ovo je za testing samo
     //return false;
   }
@@ -37,32 +35,32 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
   Future<io.File> downloadFile(String url, String filename) async {
     var request = await httpClient.getUrl(Uri.parse(url));
     setState(() {
-      progress = 0.11;
+      progress += 0.03;
     });
     var response = await request.close();
     print('2$progress');
     setState(() {
-      progress = 0.19;
+      progress += 0.03;
     });
     var bytes = await consolidateHttpClientResponseBytes(response);
     print('3$progress');
     setState(() {
-      progress = 0.26;
+      progress += 0.03;
     });
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('4$progress');
     setState(() {
-      progress = 0.39;
+      progress += 0.03;
     });
     io.File file = new io.File('$dir/$filename');
     print('5$progress');
     setState(() {
-      progress = 0.45;
+      progress += 0.03;
     });
     await file.writeAsBytes(bytes);
     print('6$progress');
     setState(() {
-      progress = 0.49;
+      progress += 0.03;
     });
     print('$dir/$filename');
     return file;
@@ -73,13 +71,13 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
     String directory = (await path.getApplicationDocumentsDirectory()).path;
     var bytes = zippedFile.readAsBytesSync();
     var archive = ZipDecoder().decodeBytes(bytes);
-    setState(() {
-      text = 'Skoro gotovo...';
-    });
+    //setState(() {
+    //  text = 'Skoro gotovo...';
+    //});
     for (var file in archive) {
       var fileName = '$directory/${file.name}';
       setState(() {
-        progress += 0.0006;
+        progress += 0.0003;
       });
       if (file.isFile) {
         var outFile = io.File(fileName);
@@ -88,11 +86,11 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
       }
       print('$directory/${file.name}');
     }
-    Navigator.of(context).pop();
+    if(progress > 0.97) Navigator.of(context).pop();
     return true;
   }
 
-  Future<bool> downloadAndUnzip() async {
+  Future<bool> downloadAndUnzipAudio() async {
     downloadFile(
       //ovaj firebaseov link radi, ali za samo mali broj korisnika
       //'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
@@ -107,9 +105,22 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
     return true;
   }
 
+  Future<bool> downloadAndUnzipSvg() async {
+    downloadFile(
+      'https://drive.google.com/u/1/uc?id=120Z6q-ZAwt4fazv2WV86P-OZNLX_r8bB&export=download',
+      'svg.zip',
+    ).then(
+      (value) => {
+        unZipFile(value),
+      },
+    );
+
+    return true;
+  }
+
   @override
   void initState() {
-    downloadAndUnzip();
+    downloadAndUnzipAudio().then((value) => downloadAndUnzipSvg());
     super.initState();
   }
 

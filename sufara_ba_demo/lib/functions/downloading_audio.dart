@@ -22,10 +22,9 @@ class Download extends ChangeNotifier {
       print('postoji');
     }
     //ovo treba
-    //return io.Directory(
-      //      '$dir/audio/1')
-        //.existsSync();
-    return false;
+    return (io.Directory('$dir/audio/1').existsSync() &&
+        io.Directory('$dir/svg/1').existsSync());
+    //return false;
   }
 }
 /*

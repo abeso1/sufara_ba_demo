@@ -18,7 +18,7 @@ class _CustomAlertState extends State<CustomAlert> {
         vertical: SizeConfig.blockSizeVertical * 5,
       ),
       title: Text(
-        'Preuzmi potreban audio za aplikaciju?',
+        'Preuzmi potrebne podatke za aplikaciju?',
         textAlign: TextAlign.center,
       ),
       children: [
