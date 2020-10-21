@@ -49,65 +49,71 @@ class HarfWidgetForLekcije extends StatelessWidget {
           //    color: Colors.green,
           //  ),
           //  location: RibbonLocation.topEnd,
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: SizeConfig.blockSizeHorizontal * 7,
-                        top: SizeConfig.blockSizeHorizontal * 1,
-                      ),
-                      child: SvgPicture.asset(
-                        '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: SizeConfig.blockSizeVertical * 12,
-                        color: Colors.green,
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  width: SizeConfig.blockSizeHorizontal * 1,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeConfig.blockSizeHorizontal * 34,
-                          height: SizeConfig.blockSizeVertical * 3,
-                          margin: EdgeInsets.all(
-                              SizeConfig.blockSizeVertical * 1.5),
-                          child: Text(
-                            '${harf.id}. lekcija',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                      ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    width: SizeConfig.blockSizeHorizontal * 20,
+                    height: SizeConfig.blockSizeVertical * 13,
+                    padding: EdgeInsets.only(
+                      left: SizeConfig.blockSizeHorizontal * 7,
+                      top: SizeConfig.blockSizeHorizontal * 1,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          harf.name,
+                    child: SvgPicture.asset(
+                      '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
+                      //width: SizeConfig.blockSizeHorizontal * 34,
+                      //height: SizeConfig.blockSizeVertical * 1,
+                      color: Colors.green,
+                    ),
+                  )
+                ],
+              ),
+              //SizedBox(
+              //  width: SizeConfig.blockSizeHorizontal * 1,
+              //),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal * 34,
+                        height: SizeConfig.blockSizeVertical * 3,
+                        margin: EdgeInsets.all(
+                          SizeConfig.blockSizeVertical * 1.5,
+                        ),
+                        child: Text(
+                          '${harf.id}. lekcija',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 26,
+                            color: Colors.grey,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        harf.name,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: SizeConfig.blockSizeHorizontal * 0.5,
+              ),
+            ],
           ),
         ),
+      ),
       //),
     );
   }
