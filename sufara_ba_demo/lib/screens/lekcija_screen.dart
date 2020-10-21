@@ -17,11 +17,12 @@ class LekcijaScreen extends StatefulWidget {
 }
 
 class _LekcijaScreenState extends State<LekcijaScreen> {
-  playAudio(String url) async {
+  playAudio(HarfModel harf, int index) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('$dir/audio/1/$url.mp3');
-    await player.play('$dir/audio/1/$url.mp3', isLocal: true);
+    print('$dir/audio/${harf.id}/${harf.images[index]}.mp3');
+    await player.play('$dir/audio/${harf.id}/${harf.images[index]}.mp3',
+        isLocal: true);
     setState(() {});
   }
 
@@ -119,30 +120,30 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            playAudio('E');
+                            playAudio(widget.harf, 0);
                           },
                           child: SvgPicture.asset(
-                            widget.harf.images[0],
+                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[0]}.svg',
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            playAudio('U');
+                            playAudio(widget.harf, 1);
                           },
                           child: SvgPicture.asset(
-                            widget.harf.images[1],
+                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[1]}.svg',
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            playAudio('I');
+                            playAudio(widget.harf, 2);
                           },
                           child: SvgPicture.asset(
-                            widget.harf.images[2],
+                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[2]}.svg',
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -178,10 +179,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     child: Text(
                       widget.harf.lekcijaIliVjezbaIndex,
                       style: TextStyle(
-                        fontSize: 26,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w700
-                      ),
+                          fontSize: 26,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w700),
                     ),
                   ),
                   SizedBox(
@@ -190,7 +190,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   //ovjde ide opis harfa
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal*1,
+                      horizontal: SizeConfig.blockSizeHorizontal * 1,
                     ),
                     child: Text(
                       widget.harf.opis,
@@ -217,68 +217,39 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   ),
                   //oblici
                   Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockSizeVertical * 3,
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(
-                          width: SizeConfig.safeBlockHorizontal * 1,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            playAudio('E');
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            elevation: 10,
-                            child: SvgPicture.asset(
-                              widget.harf.images[0],
-                              width: SizeConfig.blockSizeHorizontal * 25,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            playAudio('U');
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            elevation: 10,
-                            child: SvgPicture.asset(
-                              widget.harf.images[1],
-                              width: SizeConfig.blockSizeHorizontal * 25,
-                              color: Colors.green,
+                    child: GridView.builder(
+                      physics: ScrollPhysics(),
+                      padding: EdgeInsets.symmetric(
+                        vertical: SizeConfig.blockSizeVertical * 2,
+                        horizontal: SizeConfig.blockSizeHorizontal * 2,
+                      ),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: widget.harf.images.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          //width: SizeConfig.blockSizeHorizontal * 15,
+                          //height: SizeConfig.blockSizeVertical * 15,
+                          child: GestureDetector(
+                            onTap: () {
+                              playAudio(widget.harf, index);
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              elevation: 10,
+                              child: SvgPicture.asset(
+                                '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[index]}.svg',
+                                //height: SizeConfig.blockSizeVertical * 11,
+                                color: Colors.green,
+                              ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            playAudio('I');
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            elevation: 10,
-                            child: SvgPicture.asset(
-                              widget.harf.images[2],
-                              width: SizeConfig.blockSizeHorizontal * 25,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: SizeConfig.safeBlockHorizontal * 1,
-                        ),
-                      ],
+                        );
+                      },
                     ),
                   ),
                   //zapocni vjezbu
