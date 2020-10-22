@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
@@ -17,13 +19,64 @@ class VjezbaScreen extends StatefulWidget {
 }
 
 class _VjezbaScreenState extends State<VjezbaScreen> {
+  var rng = new Random();
+  int index1;
+  int index2;
+  int index3;
+  int tacan;
+  Widget jedan;
+  Widget dva;
+  Widget tri;
+
   //this functions plays audio in 172 line
-  playAudio(HarfModel harf) async {
+  playAudio(HarfModel harf, int index) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('$dir/audio/${harf.id}/${harf.imageUrl}.mp3');
-    await player.play('$dir/audio/${harf.id}/${harf.imageUrl}.mp3', isLocal: true);
-    setState(() {});
+    if (harf.images[index]['audio'].isEmpty) {
+      await player.play(
+          '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+          isLocal: true);
+      setState(() {});
+    } else {
+      await player.play(
+          '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+          isLocal: true);
+      setState(() {});
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    int prvi = rng.nextInt(widget.harf.images.length);
+    setState(() {
+      index1 = prvi;
+    });
+    int drugi = prvi;
+    while(drugi == prvi){
+      drugi = rng.nextInt(widget.harf.images.length);
+    }
+    setState(() {
+      index2 = drugi;
+    });
+    int treci = prvi;
+    while(treci == prvi || treci == drugi){
+      treci = rng.nextInt(widget.harf.images.length);
+    }
+    setState(() {
+      index3 = treci;
+    });
+    List<int> array = [prvi,drugi, treci]; 
+    int broj = rng.nextInt(array.length);
+    setState(() {
+      tacan = array[broj];
+    });
+    setState(() {
+      jedan = CardForVjezbeRegural(widget.harf, index1);
+      dva = CardForVjezbeRegural(widget.harf, index2);
+      tri = CardForVjezbeRegural(widget.harf, index3);
+    });
+    super.initState();
   }
 
   @override
@@ -119,21 +172,15 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
                 children: [
-                  CardForVjezbeRegural(
-                    widget.harf,
-                  ),
+                  jedan,
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  CardForVjezbeRegural(
-                    widget.harf,
-                  ),
+                  dva,
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  CardForVjezbaFalse(
-                    widget.harf,
-                  ),
+                  tri,
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
@@ -144,7 +191,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        playAudio(widget.harf);
+                        playAudio(widget.harf, tacan);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
