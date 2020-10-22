@@ -1,13 +1,11 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
-import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;

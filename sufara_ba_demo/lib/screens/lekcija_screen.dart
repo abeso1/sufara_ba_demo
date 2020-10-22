@@ -234,11 +234,14 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: widget.harf.images.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: SizeConfig.blockSizeHorizontal * 50,
+                        //childAspectRatio: 3/2,
+                        mainAxisSpacing: SizeConfig.blockSizeVertical * 1,
+                        crossAxisSpacing: SizeConfig.blockSizeHorizontal * 1,
+                      ),
                       itemBuilder: (context, index) {
                         return Container(
-                          //width: SizeConfig.blockSizeHorizontal * 15,
                           //height: SizeConfig.blockSizeVertical * 15,
                           child: GestureDetector(
                             onTap: () {
@@ -251,7 +254,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                               elevation: 10,
                               child: SvgPicture.asset(
                                 '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
-                                //height: SizeConfig.blockSizeVertical * 11,
+                                height: SizeConfig.blockSizeVertical * 11,
                                 //color: Colors.green,
                               ),
                             ),

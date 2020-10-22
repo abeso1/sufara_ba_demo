@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:sufara_ba_demo/shared/constants.dart';
 
 class CustomAlert extends StatefulWidget {
   @override
