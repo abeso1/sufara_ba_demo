@@ -5,24 +5,22 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 
 class CardForVjezbaFalse extends StatelessWidget {
   final HarfModel harf;
+    final int index;
 
-  CardForVjezbaFalse(this.harf);
+  CardForVjezbaFalse(this.harf, this.index);
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return GestureDetector(
-      onTap: () {},
-      child: Card(
-        color: Colors.red,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: SvgPicture.asset(
-          '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
-          height: SizeConfig.blockSizeVertical * 12,
-          color: Colors.white,
-        ),
+    return Card(
+      color: Colors.red,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: SvgPicture.asset(
+        '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.images[index]['name']}.svg',
+        height: SizeConfig.blockSizeVertical * 12,
+        color: Colors.white,
       ),
     );
   }

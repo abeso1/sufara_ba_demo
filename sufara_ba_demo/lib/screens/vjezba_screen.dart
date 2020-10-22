@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -8,6 +9,7 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
+import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -24,9 +26,110 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   int index2;
   int index3;
   int tacan;
+  int tacanBroj;
   Widget jedan;
   Widget dva;
   Widget tri;
+  Color _color = Colors.grey;
+  int indexColor = 0;
+  List<AlwaysStoppedAnimation<MaterialColor>> _valueColors = [
+    AlwaysStoppedAnimation(Colors.red),
+    AlwaysStoppedAnimation(Colors.red),
+    AlwaysStoppedAnimation(Colors.orange),
+    AlwaysStoppedAnimation(Colors.yellow),
+    AlwaysStoppedAnimation(Colors.lightGreen),
+    AlwaysStoppedAnimation(Colors.green),
+  ];
+
+  setHarfs() {
+    int prvi = rng.nextInt(widget.harf.images.length);
+    setState(() {
+      index1 = prvi;
+    });
+    int drugi = prvi;
+    while (drugi == prvi) {
+      drugi = rng.nextInt(widget.harf.images.length);
+    }
+    setState(() {
+      index2 = drugi;
+    });
+    int treci = prvi;
+    while (treci == prvi || treci == drugi) {
+      treci = rng.nextInt(widget.harf.images.length);
+    }
+    setState(() {
+      index3 = treci;
+    });
+    List<int> array = [prvi, drugi, treci];
+    int broj = rng.nextInt(array.length);
+    setState(() {
+      tacan = array[broj];
+      tacanBroj = broj;
+    });
+    setState(() {
+      jedan = CardForVjezbeRegural(widget.harf, index1);
+      dva = CardForVjezbeRegural(widget.harf, index2);
+      tri = CardForVjezbeRegural(widget.harf, index3);
+    });
+    playAudio(widget.harf, tacan);
+  }
+
+  answerQuestion(int i) {
+    if (i == tacanBroj) {
+      setState(() {
+        indexColor++;
+      });
+      if (i == 0) {
+        setState(() {
+          jedan = CardForVjezbeTrue(widget.harf, index1);
+        });
+      } else if (i == 1) {
+        setState(() {
+          dva = CardForVjezbeTrue(widget.harf, index2);
+        });
+      } else if (i == 2) {
+        setState(() {
+          tri = CardForVjezbeTrue(widget.harf, index3);
+        });
+      }
+      Timer(Duration(seconds: 1), () => setHarfs());
+    } else {
+      if (indexColor > 0) {
+        setState(() {
+          indexColor--;
+        });
+      }
+      if (i == 0) {
+        setState(() {
+          jedan = CardForVjezbaFalse(widget.harf, index1);
+        });
+        Timer(Duration(seconds: 1), () {
+          setState(() {
+            jedan = CardForVjezbeRegural(widget.harf, index1);
+          });
+        });
+      } else if (i == 1) {
+        setState(() {
+          dva = CardForVjezbaFalse(widget.harf, index2);
+        });
+        Timer(Duration(seconds: 1), () {
+          setState(() {
+            dva = CardForVjezbeRegural(widget.harf, index2);
+          });
+        });
+      } else if (i == 2) {
+        setState(() {
+          tri = CardForVjezbaFalse(widget.harf, index3);
+        });
+        Timer(Duration(seconds: 1), () {
+          setState(() {
+            tri = CardForVjezbeRegural(widget.harf, index3);
+          });
+        });
+      }
+      playAudio(widget.harf, tacan);
+    }
+  }
 
   //this functions plays audio in 172 line
   playAudio(HarfModel harf, int index) async {
@@ -48,34 +151,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    int prvi = rng.nextInt(widget.harf.images.length);
-    setState(() {
-      index1 = prvi;
-    });
-    int drugi = prvi;
-    while(drugi == prvi){
-      drugi = rng.nextInt(widget.harf.images.length);
-    }
-    setState(() {
-      index2 = drugi;
-    });
-    int treci = prvi;
-    while(treci == prvi || treci == drugi){
-      treci = rng.nextInt(widget.harf.images.length);
-    }
-    setState(() {
-      index3 = treci;
-    });
-    List<int> array = [prvi,drugi, treci]; 
-    int broj = rng.nextInt(array.length);
-    setState(() {
-      tacan = array[broj];
-    });
-    setState(() {
-      jedan = CardForVjezbeRegural(widget.harf, index1);
-      dva = CardForVjezbeRegural(widget.harf, index2);
-      tri = CardForVjezbeRegural(widget.harf, index3);
-    });
+    setHarfs();
     super.initState();
   }
 
@@ -172,17 +248,45 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
                 children: [
-                  jedan,
+                  GestureDetector(
+                    onTap: () {
+                      answerQuestion(0);
+                    },
+                    child: jedan,
+                  ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  dva,
+                  GestureDetector(
+                    onTap: () {
+                      answerQuestion(1);
+                    },
+                    child: dva,
+                  ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),
-                  tri,
+                  GestureDetector(
+                    onTap: () {
+                      answerQuestion(2);
+                    },
+                    child: tri,
+                  ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal * 2,
+                      vertical: SizeConfig.blockSizeVertical * 2,
+                    ),
+                    width: SizeConfig.safeBlockHorizontal * 95,
+                    child: LinearProgressIndicator(
+                      minHeight: SizeConfig.blockSizeVertical * 2,
+                      backgroundColor: _color,
+                      value: indexColor / 5,
+                      valueColor: _valueColors[indexColor],
+                    ),
                   ),
                   Container(
                     height: SizeConfig.blockSizeVertical * 6,

@@ -12,18 +12,15 @@ class CardForVjezbeRegural extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return GestureDetector(
-      onTap: () {},
-      child: Card(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: SvgPicture.asset(
-          '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.images[index]['name']}.svg',
-          height: SizeConfig.blockSizeVertical * 12,
-          color: Colors.green,
-        ),
+    return Card(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: SvgPicture.asset(
+        '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.images[index]['name']}.svg',
+        height: SizeConfig.blockSizeVertical * 12,
+        color: Colors.green,
       ),
     );
   }
