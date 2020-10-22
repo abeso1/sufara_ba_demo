@@ -20,10 +20,6 @@ class VjezbaScreen extends StatefulWidget {
 
 class _VjezbaScreenState extends State<VjezbaScreen> {
   //this functions plays audio in 172 line
-  //ovo ne radi!!!!!
-  //baca ovo u debug console
-  //cleanDrmObj: mDrmObj=null mDrmSessionId=null
-  //resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
   playAudio(HarfModel harf) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;

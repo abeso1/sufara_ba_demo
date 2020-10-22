@@ -4,7 +4,7 @@ class HarfModel {
   final String id;
   final String name;
   final String imageUrl;
-  final List<String> images;
+  final List<Map<String, String>> images;
   final String lekcijaIliVjezbaIndex;
   final String opis;
   final bool lekcija;

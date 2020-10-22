@@ -21,9 +21,17 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('$dir/audio/${harf.id}/${harf.images[index]}.mp3');
-    await player.play('$dir/audio/${harf.id}/${harf.images[index]}.mp3',
-        isLocal: true);
-    setState(() {});
+    if (harf.images[index]['audio'].isEmpty) {
+      await player.play(
+          '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+          isLocal: true);
+      setState(() {});
+    } else {
+      await player.play(
+          '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+          isLocal: true);
+      setState(() {});
+    }
   }
 
   @override
@@ -123,7 +131,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             playAudio(widget.harf, 0);
                           },
                           child: SvgPicture.asset(
-                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[0]}.svg',
+                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg',
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -133,7 +141,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             playAudio(widget.harf, 1);
                           },
                           child: SvgPicture.asset(
-                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[1]}.svg',
+                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg',
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -143,7 +151,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             playAudio(widget.harf, 2);
                           },
                           child: SvgPicture.asset(
-                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[2]}.svg',
+                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg',
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -242,9 +250,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                               ),
                               elevation: 10,
                               child: SvgPicture.asset(
-                                '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[index]}.svg',
+                                '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                 //height: SizeConfig.blockSizeVertical * 11,
-                                color: Colors.green,
+                                //color: Colors.green,
                               ),
                             ),
                           ),
