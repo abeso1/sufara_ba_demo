@@ -61,9 +61,12 @@ class HarfWidgetForVjezbe extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    harf.name,
-                    style: TextStyle(color: Colors.black, fontSize: 25),
+                  FittedBox(
+                    fit: BoxFit.fill,
+                      child: Text(
+                      harf.name,
+                      style: TextStyle(color: Colors.black, fontSize: 25),
+                    ),
                   ),
                 ],
               ),

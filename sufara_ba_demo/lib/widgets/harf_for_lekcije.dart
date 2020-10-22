@@ -95,12 +95,18 @@ class HarfWidgetForLekcije extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(
-                        harf.name,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 26,
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal * 43,
+                        child: FittedBox(
+                          fit: BoxFit.fill,
+                          child: Text(
+                            harf.name,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 26,
+                            ),
+                          ),
                         ),
                       ),
                     ],

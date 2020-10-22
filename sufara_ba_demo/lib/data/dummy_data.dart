@@ -303,7 +303,7 @@ class DUMMY_DATA {
     HarfModel(
         id: '6',
         name: 'Dugi vokali A i U',
-        imageUrl: 'de',
+        imageUrl: 'slice6',
         lekcijaIliVjezbaIndex: 'Sesta lekcija',
         lekcija: true,
         opis:
