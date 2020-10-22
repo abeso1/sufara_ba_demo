@@ -31,13 +31,13 @@ class DUMMY_DATA {
           {"name": "e-1", "audio": "e", "desc": ""},
           {"name": "i-1", "audio": "i", "desc": ""},
           {"name": "u-1", "audio": "u", "desc": ""},
-          {"name": "i", "audio": "", "desc": ""},
+          //{"name": "i", "audio": "", "desc": ""},
           {"name": "u-1", "audio": "u", "desc": ""},
-          {"name": "e", "audio": "", "desc": ""},
+          //{"name": "e", "audio": "", "desc": ""},
           {"name": "u-1", "audio": "u", "desc": ""},
-          {"name": "e", "audio": "", "desc": ""},
+          //{"name": "e", "audio": "", "desc": ""},
           {"name": "i-1", "audio": "i", "desc": ""},
-          {"name": "u", "audio": "", "desc": ""},
+          //{"name": "u", "audio": "", "desc": ""},
           {"name": "ve", "audio": "", "desc": "ve"},
           {"name": "vi", "audio": "", "desc": "vi"},
           {"name": "vu", "audio": "", "desc": "vu"},
@@ -227,7 +227,7 @@ class DUMMY_DATA {
     HarfModel(
         id: '5',
         name: 'Tenvin tesdid',
-        imageUrl: 'zen',
+        imageUrl: 'en',
         lekcijaIliVjezbaIndex: 'Peta lekcija',
         lekcija: true,
         opis:
@@ -303,7 +303,7 @@ class DUMMY_DATA {
     HarfModel(
         id: '6',
         name: 'Dugi vokali A i U',
-        imageUrl: 'vav',
+        imageUrl: 'de',
         lekcijaIliVjezbaIndex: 'Sesta lekcija',
         lekcija: true,
         opis:
@@ -362,7 +362,7 @@ class DUMMY_DATA {
     HarfModel(
         id: '7',
         name: 'Harf Ba i Nun',
-        imageUrl: 'inne',
+        imageUrl: 'ben',
         lekcijaIliVjezbaIndex: 'Sedma lekcija',
         lekcija: true,
         opis:
@@ -439,7 +439,7 @@ class DUMMY_DATA {
     HarfModel(
         id: '8',
         name: 'Harf Ta i Sa',
-        imageUrl: 's',
+        imageUrl: 'te',
         lekcijaIliVjezbaIndex: 'Osma lekcija',
         lekcija: true,
         opis:
