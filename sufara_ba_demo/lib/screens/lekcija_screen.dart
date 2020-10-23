@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,6 +19,24 @@ class LekcijaScreen extends StatefulWidget {
 }
 
 class _LekcijaScreenState extends State<LekcijaScreen> {
+  String directory = '';
+
+  Future<String> getDir() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    return dir;
+  }
+
+  @override
+  void initState() {
+    getDir().then((value) {
+      setState(() {
+        directory = value;
+      });
+    });
+    // TODO: implement initState
+    super.initState();
+  }
+
   playAudio(HarfModel harf, int index) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -130,8 +150,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           onTap: () {
                             playAudio(widget.harf, 0);
                           },
-                          child: SvgPicture.asset(
-                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg',
+                          child: SvgPicture.file(
+                            File(
+                                '$directory/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -140,8 +161,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           onTap: () {
                             playAudio(widget.harf, 1);
                           },
-                          child: SvgPicture.asset(
-                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg',
+                          child: SvgPicture.file(
+                            File(
+                                '$directory/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -150,8 +172,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           onTap: () {
                             playAudio(widget.harf, 2);
                           },
-                          child: SvgPicture.asset(
-                            '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg',
+                          child: SvgPicture.file(
+                            File(
+                                '$directory/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -252,8 +275,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               elevation: 10,
-                              child: SvgPicture.asset(
-                                '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
+                              child: SvgPicture.file(
+                                File(
+                                    '$directory/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg'),
                                 height: SizeConfig.blockSizeVertical * 11,
                                 color: Colors.green,
                               ),

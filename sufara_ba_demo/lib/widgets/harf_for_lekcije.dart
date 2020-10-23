@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,15 +8,32 @@ import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/lekcija_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 
-class HarfWidgetForLekcije extends StatelessWidget {
+class HarfWidgetForLekcije extends StatefulWidget {
   final HarfModel harf;
 
   HarfWidgetForLekcije(this.harf);
 
-  get catchDir async {
+  @override
+  _HarfWidgetForLekcijeState createState() => _HarfWidgetForLekcijeState();
+}
+
+class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
+  String directory = '';
+
+  Future<String> getDir() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('$dir');
     return dir;
+  }
+
+  @override
+  void initState() {
+    getDir().then((value) {
+      setState(() {
+        directory = value;
+      });
+    });
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -25,7 +44,7 @@ class HarfWidgetForLekcije extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => LekcijaScreen(harf),
+            builder: (context) => LekcijaScreen(widget.harf),
           ),
         );
       },
@@ -61,8 +80,9 @@ class HarfWidgetForLekcije extends StatelessWidget {
                       left: SizeConfig.blockSizeHorizontal * 7,
                       top: SizeConfig.blockSizeHorizontal * 1,
                     ),
-                    child: SvgPicture.asset(
-                      '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
+                    child: SvgPicture.file(
+                      File(
+                          '$directory/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
                       //width: SizeConfig.blockSizeHorizontal * 34,
                       //height: SizeConfig.blockSizeVertical * 1,
                       color: Colors.green,
@@ -84,7 +104,7 @@ class HarfWidgetForLekcije extends StatelessWidget {
                           SizeConfig.blockSizeVertical * 1.5,
                         ),
                         child: Text(
-                          '${harf.id}. lekcija',
+                          '${widget.harf.id}. lekcija',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.grey,
@@ -100,7 +120,7 @@ class HarfWidgetForLekcije extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.fill,
                           child: Text(
-                            harf.name,
+                            widget.harf.name,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,

@@ -1,15 +1,41 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ribbon/ribbon.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:path_provider/path_provider.dart' as path;
 
 
-class HarfWidgetForVjezbe extends StatelessWidget {
+class HarfWidgetForVjezbe extends StatefulWidget {
   final HarfModel harf;
 
   HarfWidgetForVjezbe(this.harf);
+
+  @override
+  _HarfWidgetForVjezbeState createState() => _HarfWidgetForVjezbeState();
+}
+
+class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
+  String directory = '';
+
+  Future<String> getDir() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    return dir;
+  }
+
+  @override
+  void initState() {
+    getDir().then((value) {
+      setState(() {
+        directory = value;
+      });
+    });
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +43,7 @@ class HarfWidgetForVjezbe extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => VjezbaScreen(harf),
+            builder: (context) => VjezbaScreen(widget.harf),
           ),
         );
       },
@@ -45,7 +71,7 @@ class HarfWidgetForVjezbe extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    '${harf.id}. vjezba',
+                    '${widget.harf.id}. vjezba',
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -53,8 +79,8 @@ class HarfWidgetForVjezbe extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  SvgPicture.asset(
-                    '/data/user/0/com.example.sufara_ba_demo/app_flutter/svg/${harf.id}/${harf.imageUrl}.svg',
+                  SvgPicture.file(
+                    File('$directory/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
                     color: Colors.green,
                     height: SizeConfig.blockSizeVertical * 10,
                   ),
@@ -64,7 +90,7 @@ class HarfWidgetForVjezbe extends StatelessWidget {
                   FittedBox(
                     fit: BoxFit.fill,
                       child: Text(
-                      harf.name,
+                      widget.harf.name,
                       style: TextStyle(color: Colors.black, fontSize: 25),
                     ),
                   ),
