@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/data/dummy_data.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
-import 'package:sufara_ba_demo/widgets/harf_for_vjezbe.dart';
+import 'package:sufara_ba_demo/widgets/harf_for_vjezbe_done.dart';
+import 'package:sufara_ba_demo/widgets/harf_for_vjezbe_regural.dart';
 
 class Vjezbe extends StatelessWidget {
   final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
@@ -15,7 +16,8 @@ class Vjezbe extends StatelessWidget {
             'svg/back_img/back_img.jpg',
           ),
           fit: BoxFit.cover,
-          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.10), BlendMode.dstATop),
+          colorFilter: new ColorFilter.mode(
+              Colors.black.withOpacity(0.10), BlendMode.dstATop),
         ),
       ),
       //ovdje ide gridview
@@ -27,8 +29,12 @@ class Vjezbe extends StatelessWidget {
           mainAxisSpacing: 20,
         ),
         itemBuilder: (context, index) {
-          return HarfWidgetForVjezbe(listHarf[index]);
-
+          if (index % 2 == 1) {
+            return HarfWidgetForVjezbe(listHarf[index]);
+          }
+          else {
+            return HarfWidgetForVjezbeDone(listHarf[index]);
+          }
         },
         itemCount: listHarf.length,
       ),
