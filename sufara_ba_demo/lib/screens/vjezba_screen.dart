@@ -10,6 +10,7 @@ import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -71,7 +72,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       dva = CardForVjezbeRegural(widget.harf, index2);
       tri = CardForVjezbeRegural(widget.harf, index3);
     });
-    playAudio(widget.harf, tacan);
+    Timer(Duration(milliseconds: 500), () => playAudio(widget.harf, tacan));
   }
 
   answerQuestion(int i) {
@@ -92,7 +93,19 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           tri = CardForVjezbeTrue(widget.harf, index3);
         });
       }
-      Timer(Duration(seconds: 1), () => setHarfs());
+      if (indexColor == 5) {
+        showDialog(
+            context: context,
+            builder: (ctx) {
+              return CustomAlertVjezba();
+            }).then(
+          (value) => {
+            Navigator.of(context).pop(),
+          },
+        );
+      } else {
+        Timer(Duration(seconds: 1), () => setHarfs());
+      }
     } else {
       if (indexColor > 0) {
         setState(() {

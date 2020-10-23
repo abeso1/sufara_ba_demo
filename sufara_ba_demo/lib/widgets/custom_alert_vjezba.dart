@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+import 'package:sufara_ba_demo/settings/size_config.dart';
+
+class CustomAlertVjezba extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return SimpleDialog(
+      title: Text(
+        'Uspjesno ste polozili vjezbu!',
+        textAlign: TextAlign.center,
+      ),
+      children: [
+        Container(
+          height: SizeConfig.blockSizeVertical * 15,
+          width: SizeConfig.blockSizeHorizontal * 28,
+          padding: EdgeInsets.symmetric(
+            horizontal: SizeConfig.blockSizeHorizontal * 3,
+            vertical: SizeConfig.blockSizeVertical * 2,
+          ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: SizeConfig.blockSizeVertical * 2,
+              ),
+              Container(
+                width: SizeConfig.blockSizeHorizontal * 35,
+                height: SizeConfig.blockSizeVertical * 7,
+                child: RaisedButton(
+                  color: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    'Zatvori prozor',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
