@@ -1,71 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/screens/lekcije.dart';
 import 'package:sufara_ba_demo/screens/vjezbe.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:sufara_ba_demo/widgets/custom_alert.dart';
-import 'package:sufara_ba_demo/widgets/message_hadis.dart';
-import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 
 class TabsScreens extends StatefulWidget {
+  final String dir;
+
+  TabsScreens(this.dir);
+
   @override
   _TabsScreensState createState() => _TabsScreensState();
 }
 
 class _TabsScreensState extends State<TabsScreens> {
-  Download download = Download();
-  bool dialog = true;
-  int progress = 23;
-
-  @override
-  void initState() {
-    download.checkFile().then((val) => {
-          if (!val)
-            {
-              showDialog(
-                  context: context,
-                  builder: (ctx) {
-                    return CustomAlert();
-                  }).then(
-                (value) {
-                  if (value == false) {
-                    print('ovo se desi');
-                    //Navigator.of(context).pop();
-                    setState(() {
-                      dialog = false;
-                    });
-                  } else {
-                    print('ovo se desi!');
-                    showDialog(
-                      context: context,
-                      builder: (ctx) {
-                        return ProgressionIndicator();
-                      },
-                    ).then(
-                      (value) {
-                        //Navigator.of(context).pop();
-                        showDialog(
-                          context: context,
-                          builder: (ctx) {
-                            return MessageHadis();
-                          },
-                        );
-                      },
-                    );
-                  }
-                },
-              ),
-            }
-          else
-            {
-              setState(() {
-                dialog = false;
-              })
-            }
-        });
-    //print(file.toString());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,8 +43,8 @@ class _TabsScreensState extends State<TabsScreens> {
           ),
         ),
         body: TabBarView(children: [
-          Lekcije(),
-          Vjezbe(),
+          Lekcije(widget.dir),
+          Vjezbe(widget.dir),
         ]),
       ),
     );

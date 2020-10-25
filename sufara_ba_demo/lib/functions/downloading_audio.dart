@@ -122,7 +122,7 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class Download extends ChangeNotifier {
   static var httpClient = new io.HttpClient();
-  double progress;
+  double progress = 0.12;
   var length;
   var dio = Dio();
 
@@ -137,7 +137,7 @@ class Download extends ChangeNotifier {
     }
     //ovo treba
     //return (io.Directory('$dir/audio/1').existsSync() &&
-     //   io.Directory('$dir/svg/1').existsSync());
+    //   io.Directory('$dir/svg/1').existsSync());
     return false;
   }
 
@@ -146,27 +146,28 @@ class Download extends ChangeNotifier {
       String url, String filename, Function notifyListeners) async {
     //progress = 0.11;
     var request = await httpClient.getUrl(Uri.parse(url));
-
+    progress += 0.03;
+    notifyListeners(() {});
     var response = await request.close();
     print('$progress');
-    //  notifyListeners(() {});
+    progress += 0.03;
+    notifyListeners(() {});
     var bytes = await consolidateHttpClientResponseBytes(response);
     print('3$progress');
-
-    //  notifyListeners(() {});
+    progress += 0.03;
+    notifyListeners(() {});
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('4$progress');
-
-    //  notifyListeners(() {});
+    progress += 0.03;
+    notifyListeners(() {});
     io.File file = new io.File('$dir/$filename');
     print('5$progress');
-
-    // notifyListeners(() {});
+    progress += 0.03;
+    notifyListeners(() {});
     await file.writeAsBytes(bytes);
     print('6$progress');
-    // notifyListeners(() {});
+    progress += 0.03;
     print('$dir/$filename');
-
     notifyListeners(() {});
     return file;
   }
@@ -181,6 +182,7 @@ class Download extends ChangeNotifier {
     //});
     for (var file in archive) {
       var fileName = '$directory/${file.name}';
+      progress += 0.0003;
       notifyListeners(() {});
       // notifyListeners();
       if (file.isFile) {
@@ -222,4 +224,3 @@ class Download extends ChangeNotifier {
     return true;
   }
 }
-

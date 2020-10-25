@@ -6,6 +6,9 @@ import 'package:sufara_ba_demo/widgets/harf_for_vjezbe_regural.dart';
 
 class Vjezbe extends StatelessWidget {
   final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
+  final String dir;
+
+  Vjezbe(this.dir);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +33,10 @@ class Vjezbe extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           if (index % 2 == 1) {
-            return HarfWidgetForVjezbe(listHarf[index]);
+            return HarfWidgetForVjezbe(listHarf[index], dir);
           }
           else {
-            return HarfWidgetForVjezbeDone(listHarf[index]);
+            return HarfWidgetForVjezbeDone(listHarf[index], dir);
           }
         },
         itemCount: listHarf.length,

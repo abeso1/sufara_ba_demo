@@ -10,31 +10,15 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 
 class HarfWidgetForLekcije extends StatefulWidget {
   final HarfModel harf;
+  final String dir;
 
-  HarfWidgetForLekcije(this.harf);
+  HarfWidgetForLekcije(this.harf, this.dir);
 
   @override
   _HarfWidgetForLekcijeState createState() => _HarfWidgetForLekcijeState();
 }
 
 class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
-  String directory = '';
-
-  Future<String> getDir() async {
-    String dir = (await path.getApplicationDocumentsDirectory()).path;
-    return dir;
-  }
-
-  @override
-  void initState() {
-    getDir().then((value) {
-      setState(() {
-        directory = value;
-      });
-    });
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +66,7 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
                     ),
                     child: SvgPicture.file(
                       File(
-                          '$directory/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                          '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
                       //width: SizeConfig.blockSizeHorizontal * 34,
                       //height: SizeConfig.blockSizeVertical * 1,
                       color: Colors.green,

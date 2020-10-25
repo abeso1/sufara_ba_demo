@@ -90,7 +90,7 @@ class ProgressionIndicator extends StatefulWidget {
 }
 
 class _ProgressionIndicatorState extends State<ProgressionIndicator> {
-  double progress = 0.02;
+  double progress = 0;
   String text = 'Preuzimanje podataka...';
   Download download = Download();
   bool isInit = true;
@@ -109,7 +109,13 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
         StatefulBuilder(
           builder: (context, setState) {
             if (progress < 100) {
-              progress += 0.0008;
+              progress = download.downloadProgress;
+              print(progress);
+              if (progress > 0.99290) {
+                Timer(Duration(milliseconds: 200), () {
+                  Navigator.of(context).pop();
+                });
+              }
             }
 
             if (isInit) {

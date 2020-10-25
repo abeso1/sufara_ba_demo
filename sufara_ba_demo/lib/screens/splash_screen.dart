@@ -2,27 +2,113 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/data/hadis_data.dart';
+import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/screens/tabs_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert.dart';
+import 'package:sufara_ba_demo/widgets/message_hadis.dart';
+import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
+import 'package:path_provider/path_provider.dart' as path;
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  Download download = Download();
+  bool dialog = true;
+  bool done = false;
+  String dir;
+
+  Future<String> getDir() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    return dir;
+  }
+
+  @override
+  void initState() {
+    download.checkFile().then((val) => {
+          if (!val)
+            {
+              Timer(Duration(seconds: 5), () {
+                getDir().then((value) {
+                  setState(() {
+                    dir = value;
+                  });
+                });
+                showDialog(
+                    context: context,
+                    builder: (ctx) {
+                      return CustomAlert();
+                    }).then(
+                  (value) {
+                    if (value == false) {
+                      print('ovo se desi');
+                      //Navigator.of(context).pop();
+                      setState(() {
+                        dialog = false;
+                      });
+                    } else {
+                      print('ovo se desi!');
+                      showDialog(
+                        context: context,
+                        builder: (ctx) {
+                          return ProgressionIndicator();
+                        },
+                      ).then(
+                        (value) {
+                          //Navigator.of(context).pop();
+                          showDialog(
+                            context: context,
+                            builder: (ctx) {
+                              return MessageHadis();
+                            },
+                          ).then((value) {
+                            setState(() {
+                              done = true;
+                            });
+                          });
+                        },
+                      );
+                    }
+                  },
+                );
+              })
+            }
+          else
+            {
+              Timer(Duration(seconds: 5), () {
+                done = true;
+              }),
+              setState(() {
+                dialog = false;
+              })
+            }
+        });
+    //print(file.toString());
+    super.initState();
+  }
+
   var rng = new Random();
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    Timer(Duration(seconds: 5), () {
-      Navigator.of(context).pop(
-        MaterialPageRoute(
-          builder: (context) => TabsScreens(),
-        ),
-      );
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => TabsScreens(),
-        ),
-      );
-    });
+    if (done) {
+      Timer(Duration(seconds: 1), () {
+        Navigator.of(context).pop(
+          MaterialPageRoute(
+            builder: (context) => TabsScreens(dir),
+          ),
+        );
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => TabsScreens(dir),
+          ),
+        );
+      });
+    }
 
     return Scaffold(
       body: Container(

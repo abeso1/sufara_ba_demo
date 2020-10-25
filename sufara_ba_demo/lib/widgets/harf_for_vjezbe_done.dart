@@ -11,31 +11,15 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class HarfWidgetForVjezbeDone extends StatefulWidget {
   final HarfModel harf;
+  final String dir;
 
-  HarfWidgetForVjezbeDone(this.harf);
+  HarfWidgetForVjezbeDone(this.harf, this.dir);
 
   @override
   _HarfWidgetForVjezbeDoneState createState() => _HarfWidgetForVjezbeDoneState();
 }
 
 class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
-  String directory = '';
-
-  Future<String> getDir() async {
-    String dir = (await path.getApplicationDocumentsDirectory()).path;
-    return dir;
-  }
-
-  @override
-  void initState() {
-    getDir().then((value) {
-      setState(() {
-        directory = value;
-      });
-    });
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +64,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
                     height: 10,
                   ),
                   SvgPicture.file(
-                    File('$directory/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                    File('${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
                     color: Colors.green,
                     height: SizeConfig.blockSizeVertical * 10,
                   ),

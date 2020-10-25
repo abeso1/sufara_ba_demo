@@ -7,12 +7,15 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class Lekcije extends StatelessWidget {
   final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
+  final String dir;
 
-  catchDir() async {
+  Lekcije(this.dir);
+
+  /*catchDir() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('$dir');
     return dir;
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +82,7 @@ class Lekcije extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         itemCount: listHarf.length,
         itemBuilder: (context, index) {
-          return HarfWidgetForLekcije(listHarf[index]);
+          return HarfWidgetForLekcije(listHarf[index], dir);
         },
       ),
     );
