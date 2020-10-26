@@ -20,6 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool dialog = true;
   bool done = false;
   String dir;
+  String hadis;
 
   Future<String> getDir() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -28,6 +29,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+    setState(() {
+      hadis = Hadis.listHadis[rng.nextInt(20)].name;
+    });
     download.checkFile().then((val) => {
           if (!val)
             {
@@ -76,13 +80,19 @@ class _SplashScreenState extends State<SplashScreen> {
                 );
               })
             }
-          else
+          else if (val)
             {
+              getDir().then((value) {
+                setState(() {
+                  dir = value;
+                });
+              }),
               Timer(Duration(seconds: 5), () {
                 done = true;
               }),
               setState(() {
                 dialog = false;
+                done = true;
               })
             }
         });
@@ -96,7 +106,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     if (done) {
-      Timer(Duration(seconds: 1), () {
+      Timer(Duration(seconds: 5), () {
         Navigator.of(context).pop(
           MaterialPageRoute(
             builder: (context) => TabsScreens(dir),
@@ -140,7 +150,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   horizontal: SizeConfig.blockSizeHorizontal * 15,
                 ),
                 child: Text(
-                  Hadis.listHadis[rng.nextInt(20)].name,
+                  hadis,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'Roboto',

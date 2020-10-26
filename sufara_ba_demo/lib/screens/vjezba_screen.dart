@@ -14,8 +14,9 @@ import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
+  final String dir;
 
-  VjezbaScreen(this.harf);
+  VjezbaScreen(this.harf, this.dir);
 
   @override
   _VjezbaScreenState createState() => _VjezbaScreenState();
@@ -68,9 +69,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       tacanBroj = broj;
     });
     setState(() {
-      jedan = CardForVjezbeRegural(widget.harf, index1);
-      dva = CardForVjezbeRegural(widget.harf, index2);
-      tri = CardForVjezbeRegural(widget.harf, index3);
+      jedan = CardForVjezbeRegural(widget.harf, index1, widget.dir);
+      dva = CardForVjezbeRegural(widget.harf, index2, widget.dir);
+      tri = CardForVjezbeRegural(widget.harf, index3, widget.dir);
     });
     Timer(Duration(milliseconds: 500), () => playAudio(widget.harf, tacan));
   }
@@ -82,15 +83,15 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       });
       if (i == 0) {
         setState(() {
-          jedan = CardForVjezbeTrue(widget.harf, index1);
+          jedan = CardForVjezbeTrue(widget.harf, index1, widget.dir);
         });
       } else if (i == 1) {
         setState(() {
-          dva = CardForVjezbeTrue(widget.harf, index2);
+          dva = CardForVjezbeTrue(widget.harf, index2, widget.dir);
         });
       } else if (i == 2) {
         setState(() {
-          tri = CardForVjezbeTrue(widget.harf, index3);
+          tri = CardForVjezbeTrue(widget.harf, index3, widget.dir);
         });
       }
       if (indexColor == 5) {
@@ -114,29 +115,29 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       }
       if (i == 0) {
         setState(() {
-          jedan = CardForVjezbaFalse(widget.harf, index1);
+          jedan = CardForVjezbaFalse(widget.harf, index1, widget.dir);
         });
         Timer(Duration(seconds: 1), () {
           setState(() {
-            jedan = CardForVjezbeRegural(widget.harf, index1);
+            jedan = CardForVjezbeRegural(widget.harf, index1, widget.dir);
           });
         });
       } else if (i == 1) {
         setState(() {
-          dva = CardForVjezbaFalse(widget.harf, index2);
+          dva = CardForVjezbaFalse(widget.harf, index2, widget.dir);
         });
         Timer(Duration(seconds: 1), () {
           setState(() {
-            dva = CardForVjezbeRegural(widget.harf, index2);
+            dva = CardForVjezbeRegural(widget.harf, index2, widget.dir);
           });
         });
       } else if (i == 2) {
         setState(() {
-          tri = CardForVjezbaFalse(widget.harf, index3);
+          tri = CardForVjezbaFalse(widget.harf, index3, widget.dir);
         });
         Timer(Duration(seconds: 1), () {
           setState(() {
-            tri = CardForVjezbeRegural(widget.harf, index3);
+            tri = CardForVjezbeRegural(widget.harf, index3, widget.dir);
           });
         });
       }
@@ -163,7 +164,6 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     setHarfs();
     super.initState();
   }
@@ -311,24 +311,26 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         playAudio(widget.harf, tacan);
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: SizeConfig.blockSizeVertical * 7,
-                          vertical: SizeConfig.blockSizeVertical * 1.25,
-                        ),
+                        //padding: EdgeInsets.symmetric(
+                        //  horizontal: SizeConfig.blockSizeVertical * 7,
+                        //  vertical: SizeConfig.blockSizeVertical * 1.25,
+                        //),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           gradient: LinearGradient(
                             colors: [kon_boja, poc_boja],
                           ),
                         ),
-                        child: Text(
-                          'IZGOVOR',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white,
-                            fontSize: 20,
+                        child: Center(
+                          child: Text(
+                            'IZGOVOR',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),

@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:path_provider/path_provider.dart' as path;
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/lekcija_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
@@ -28,7 +27,7 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => LekcijaScreen(widget.harf),
+            builder: (context) => LekcijaScreen(widget.harf, widget.dir),
           ),
         );
       },

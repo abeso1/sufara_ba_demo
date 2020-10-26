@@ -11,32 +11,15 @@ import 'package:path_provider/path_provider.dart' as path;
 
 class LekcijaScreen extends StatefulWidget {
   final HarfModel harf;
+  final String dir;
 
-  LekcijaScreen(this.harf);
+  LekcijaScreen(this.harf, this.dir);
 
   @override
   _LekcijaScreenState createState() => _LekcijaScreenState();
 }
 
 class _LekcijaScreenState extends State<LekcijaScreen> {
-  String directory = '';
-
-  Future<String> getDir() async {
-    String dir = (await path.getApplicationDocumentsDirectory()).path;
-    return dir;
-  }
-
-  @override
-  void initState() {
-    getDir().then((value) {
-      setState(() {
-        directory = value;
-      });
-    });
-    // TODO: implement initState
-    super.initState();
-  }
-
   playAudio(HarfModel harf, int index) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -152,7 +135,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: SvgPicture.file(
                             File(
-                                '$directory/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -163,7 +146,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: SvgPicture.file(
                             File(
-                                '$directory/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -174,7 +157,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: SvgPicture.file(
                             File(
-                                '$directory/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -275,7 +258,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             elevation: 10,
                             child: SvgPicture.file(
                               File(
-                                  '$directory/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg'),
+                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg'),
                               height: SizeConfig.blockSizeVertical * 11,
                               color: Colors.green,
                             ),
@@ -294,7 +277,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => VjezbaScreen(widget.harf),
+                            builder: (context) => VjezbaScreen(widget.harf, widget.dir),
                           ),
                         );
                       },

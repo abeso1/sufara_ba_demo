@@ -1,12 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ribbon/ribbon.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:path_provider/path_provider.dart' as path;
 
 class HarfWidgetForVjezbe extends StatefulWidget {
   final HarfModel harf;
@@ -27,7 +24,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => VjezbaScreen(widget.harf),
+            builder: (context) => VjezbaScreen(widget.harf, widget.dir),
           ),
         );
       },
