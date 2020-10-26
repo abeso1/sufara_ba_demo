@@ -80,7 +80,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   answerQuestion(int i) {
     if (i == tacanBroj) {
-      playSound('/audio/CORRECT.wav');
+      playSound('audio/CORRECT.wav');
       setState(() {
         indexColor++;
       });
@@ -111,7 +111,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         Timer(Duration(seconds: 1), () => setHarfs());
       }
     } else {
-      playSound('/audio/NOT CORRECT.wav');
+      playSound('audio/NOT CORRECT.wav');
       if (indexColor > 0) {
         setState(() {
           indexColor--;
