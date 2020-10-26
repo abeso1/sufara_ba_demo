@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
+  final AudioCache audioCache = AudioCache();
   final String dir;
 
   VjezbaScreen(this.harf, this.dir);
@@ -78,6 +80,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   answerQuestion(int i) {
     if (i == tacanBroj) {
+      playSound('/audio/CORRECT.wav');
       setState(() {
         indexColor++;
       });
@@ -108,6 +111,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         Timer(Duration(seconds: 1), () => setHarfs());
       }
     } else {
+      playSound('/audio/NOT CORRECT.wav');
       if (indexColor > 0) {
         setState(() {
           indexColor--;
@@ -141,7 +145,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           });
         });
       }
-      playAudio(widget.harf, tacan);
+      Timer(Duration(milliseconds: 1100), () {
+        playAudio(widget.harf, tacan);
+      });
     }
   }
 
@@ -160,6 +166,10 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           isLocal: true);
       setState(() {});
     }
+  }
+
+  playSound(String music) async {
+    await widget.audioCache.play(music);
   }
 
   @override

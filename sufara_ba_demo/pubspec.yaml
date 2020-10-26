@@ -72,6 +72,8 @@ flutter:
     - svg/back_img/sufara.ba_logo.png
     - svg/back_img/throat-e.jpg
     - svg/back_img/sufara.ba_logo_splash.png
+    - assets/audio/CORRECT.wav
+    - assets/audio/NOT CORRECT.wav
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
