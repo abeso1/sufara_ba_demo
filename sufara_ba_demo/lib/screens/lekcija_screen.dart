@@ -293,6 +293,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           ),
                         ),
                         child: Text(
+                          //ovo treba centrirati
                           'Započni vježbu',
                           textAlign: TextAlign.center,
                           style: TextStyle(
