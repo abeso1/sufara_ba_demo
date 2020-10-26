@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/hadis_data.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/screens/tabs_screen.dart';
@@ -139,12 +140,18 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(
                 height: SizeConfig.blockSizeVertical * 1,
               ),
-              Image.asset(
-                'svg/back_img/sufara.ba_logo_splash.png',
-                width: SizeConfig.blockSizeHorizontal * 50,
-                height: SizeConfig.blockSizeVertical * 50,
+              SvgPicture.asset(
+                'svg/back_img/sufara.ba_logo_splash.svg',
+                width: SizeConfig.blockSizeHorizontal * 30,
+                height: SizeConfig.blockSizeVertical * 30,
                 fit: BoxFit.fitWidth,
               ),
+              /*Image.asset(
+                'svg/back_img/sufara.png',
+                width: SizeConfig.blockSizeHorizontal * 20,
+                height: SizeConfig.blockSizeVertical * 20,
+                fit: BoxFit.fitWidth,
+              ),*/
               Container(
                 margin: EdgeInsets.symmetric(
                   horizontal: SizeConfig.blockSizeHorizontal * 15,

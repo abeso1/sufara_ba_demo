@@ -57,21 +57,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - svg/1/damma_.svg
-    - svg/1/damma.svg
-    - svg/1/E.svg
-    - svg/1/elif_1.svg
-    - svg/1/elif.svg
-    - svg/1/fetha_.svg
-    - svg/1/I.svg
-    - svg/1/kesra_.svg
-    - svg/1/U.svg
-    - svg/15/vel-fulku.svg
     - svg/back_img/back_img.jpg
     - svg/back_img/back_img_splash.jpg
     - svg/back_img/sufara.ba_logo.png
     - svg/back_img/throat-e.jpg
-    - svg/back_img/sufara.ba_logo_splash.png
+    - svg/back_img/sufara.ba_logo_splash.svg
+    - svg/back_img/sufara.png
     - assets/audio/CORRECT.wav
     - assets/audio/NOT CORRECT.wav
     # - images/a_dot_ham.jpeg
