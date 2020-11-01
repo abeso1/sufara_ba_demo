@@ -38,6 +38,7 @@ dependencies:
   audioplayers: ^0.16.1
   http: ^0.12.2
   dio: ^3.0.10
+  shared_preferences: ^0.5.12+2
   #flutter_signin_button: ^1.1.0
 
 dev_dependencies:

@@ -5,7 +5,10 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
+import 'package:sufara_ba_demo/models/shared_prefs.dart';
+import 'package:sufara_ba_demo/screens/tabs_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
@@ -44,6 +47,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     AlwaysStoppedAnimation(Colors.lightGreen),
     AlwaysStoppedAnimation(Colors.green),
   ];
+  SharedPrefs prefs = SharedPrefs();
 
   setHarfs() {
     int prvi = rng.nextInt(widget.harf.images.length);
@@ -98,6 +102,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         });
       }
       if (indexColor == 5) {
+        int x = int.parse(widget.harf.id);
+        x = x - 2;
+        prefs.setData('vjezba$x');
         showDialog(
             context: context,
             builder: (ctx) {
@@ -105,6 +112,12 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             }).then(
           (value) => {
             Navigator.of(context).pop(),
+            Navigator.of(context).pop(),
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TabsScreens(widget.dir,),
+              ),
+            ),
           },
         );
       } else {
