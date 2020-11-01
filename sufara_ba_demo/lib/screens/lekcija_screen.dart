@@ -59,7 +59,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              //ovaj gradient treba popraviti
               colors: [poc_boja, kon_boja],
             ),
           ),
@@ -76,9 +75,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 bottomRight: Radius.circular(30),
               ),
               gradient: LinearGradient(
-                //ovaj gradient treba popraviti
-                colors: [poc_boja, kon_boja],
-              ),
+                colors: [kon_boja, poc_boja], 
+              )
             ),
             child: Column(
               children: [
@@ -277,7 +275,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => VjezbaScreen(widget.harf, widget.dir),
+                            builder: (context) =>
+                                VjezbaScreen(widget.harf, widget.dir),
                           ),
                         );
                       },
@@ -289,8 +288,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           gradient: LinearGradient(
-                            colors: [kon_boja, poc_boja],
-                          ),
+                            colors: [kon_boja, poc_boja]
+                          )
                         ),
                         child: Text(
                           //ovo treba centrirati
