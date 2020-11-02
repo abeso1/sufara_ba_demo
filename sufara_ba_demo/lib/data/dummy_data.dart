@@ -1080,18 +1080,18 @@ class DUMMY_DATA {
         images: [
           {"name": "eliflaammiim", "audio": "", "desc": ""},
           {"name": "zikraa", "audio": "", "desc": ""},
+          {"name": "fehuve-fii-iseti-radijeh", "audio": "", "desc": ""},
+          {"name": "kaaludullena", "audio": "", "desc": ""},
+          {"name": "kezalik", "audio": "", "desc": ""},
           {"name": "vema-kunnaa", "audio": "", "desc": ""},
           {"name": "fekeferuubih", "audio": "", "desc": ""},
           {"name": "fesevfe-ja", "audio": "", "desc": ""},
           {"name": "rizkan-lil-ibadi", "audio": "", "desc": ""},
           {"name": "kezalikelhuruudz", "audio": "", "desc": ""},
           {"name": "ezzearijati-zervaa", "audio": "", "desc": ""},
-          {"name": "fehuve-fii-iseti-radijeh", "audio": "", "desc": ""},
           {"name": "fedzealehuu-gusaaaen", "audio": "", "desc": ""},
-          {"name": "kezalik", "audio": "", "desc": ""},
           {"name": "ve-evresnaa-ha-benii", "audio": "", "desc": ""},
           {"name": "kale-rabbisrahlii", "audio": "", "desc": ""},
-          {"name": "kaaludullena", "audio": "", "desc": ""},
           {"name": "allahulaailahe-illahu", "audio": "", "desc": ""}
         ]),
   ];

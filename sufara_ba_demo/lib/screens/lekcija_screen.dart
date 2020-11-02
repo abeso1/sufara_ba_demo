@@ -95,7 +95,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     widget.harf.name,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontFamily: 'Roboto',
@@ -104,8 +104,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 ),
 
                 Container(
+                  alignment: Alignment.centerRight,
                   padding: EdgeInsets.only(
-                    left: SizeConfig.blockSizeHorizontal * 45,
+                    //left: SizeConfig.blockSizeHorizontal * 45,
                     right: SizeConfig.blockSizeHorizontal * 3,
                   ),
                   width: SizeConfig.blockSizeHorizontal * 100,
