@@ -50,7 +50,13 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   SharedPrefs prefs = SharedPrefs();
   bool playing = false;
 
-  
+  @override
+  void dispose() {
+    if (widget.player.state == AudioPlayerState.PLAYING) {
+      widget.player.stop();
+    }
+    super.dispose();
+  }
 
   setHarfs() {
     int prvi = rng.nextInt(widget.harf.images.length);

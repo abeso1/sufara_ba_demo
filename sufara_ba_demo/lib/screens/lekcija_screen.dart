@@ -51,6 +51,14 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   }
 
   @override
+  void dispose() {
+    if (widget.player.state == AudioPlayerState.PLAYING) {
+      widget.player.stop();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
