@@ -669,7 +669,7 @@ class DUMMY_DATA {
           {"name": "aal-aane", "audio": "", "desc": ""},
           {"name": "zikraa", "audio": "", "desc": ""},
           {"name": "evlijaainaa", "audio": "", "desc": ""},
-          {"name": "ulaaike", "audio": "", "desc": ""}
+          //{"name": "ulaaike", "audio": "", "desc": ""}
         ]),
     HarfModel(
         id: '12',
@@ -773,7 +773,7 @@ class DUMMY_DATA {
           {"name": "hevaahu", "audio": "", "desc": ""},
           {"name": "ebiihi", "audio": "", "desc": ""},
           {"name": "maaeraahu", "audio": "", "desc": ""},
-          {"name": "ilejhi", "audio": "", "desc": ""}
+          //{"name": "ilejhi", "audio": "", "desc": ""}
         ]),
     HarfModel(
         id: '14',

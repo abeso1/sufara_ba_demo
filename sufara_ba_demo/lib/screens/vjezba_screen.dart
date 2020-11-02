@@ -5,7 +5,6 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/models/shared_prefs.dart';
 import 'package:sufara_ba_demo/screens/tabs_screen.dart';

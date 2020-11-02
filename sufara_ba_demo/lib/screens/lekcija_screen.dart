@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
@@ -20,6 +21,8 @@ class LekcijaScreen extends StatefulWidget {
 }
 
 class _LekcijaScreenState extends State<LekcijaScreen> {
+  int mjesto = 3;
+
   playAudio(HarfModel harf, int index) async {
     AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -59,7 +62,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [poc_boja, kon_boja],
+              colors: [kon_boja, poc_boja],
             ),
           ),
         ),
@@ -70,14 +73,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
             height: SizeConfig.blockSizeVertical * 20,
             width: SizeConfig.blockSizeHorizontal * 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-              gradient: LinearGradient(
-                colors: [kon_boja, poc_boja], 
-              )
-            ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                ),
+                gradient: LinearGradient(
+                  colors: [kon_boja, poc_boja],
+                )),
             child: Column(
               children: [
                 //SizedBox(
@@ -229,7 +231,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   ),
                   //oblici
                   Container(
-                    child: GridView.builder(
+                    child: StaggeredGridView.countBuilder(
                       physics: ScrollPhysics(),
                       padding: EdgeInsets.symmetric(
                         vertical: SizeConfig.blockSizeVertical * 2,
@@ -238,12 +240,52 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: widget.harf.images.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        //childAspectRatio: 3/2,
-                        mainAxisSpacing: SizeConfig.blockSizeVertical * 1,
-                        crossAxisSpacing: SizeConfig.blockSizeHorizontal * 1,
-                      ),
+                      //gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      //  crossAxisCount: 3,
+                      //childAspectRatio: 3/2,
+                      //  mainAxisSpacing: SizeConfig.blockSizeVertical * 1,
+                      //  crossAxisSpacing: SizeConfig.blockSizeHorizontal * 1,
+                      //),
+                      crossAxisCount: 3,
+                      staggeredTileBuilder: (int index) {
+                        print(mjesto);
+                        int x = widget.harf.images[index]['name'].length;
+                        int y = (x / 7).ceil();
+                        if (y > 3) y = 3;
+
+                        int z = 0, w = 0;
+                        int c = index + 1;
+                        if (c < widget.harf.images.length) {
+                          z = widget.harf.images[c]['name'].length;
+                          w = (z / 7).ceil();
+                          if (w > 3) w = 3;
+                        }
+
+                        if(c == widget.harf.images.length) {
+                          return StaggeredTile.fit(mjesto);
+                        }
+
+                        if (mjesto >= y) {
+                          if(w+y>mjesto){
+                            int u = mjesto;
+                            mjesto = 3;
+                            return StaggeredTile.fit(u);
+                          }
+                          mjesto = mjesto - y;
+                          if (mjesto == 0) {
+                            mjesto = 3;
+                          }
+                          return StaggeredTile.fit(y);
+                        }
+                        if (mjesto == 2 && y == 3) {
+                          mjesto = 3;
+                          return StaggeredTile.fit(y);
+                        }
+                        if (mjesto == 3 && y > 1 && (w == 1 || w == 2)) {
+                          return StaggeredTile.fit(3);
+                        }
+                        return StaggeredTile.fit(y);
+                      },
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -256,8 +298,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             elevation: 10,
                             child: SvgPicture.file(
                               File(
-                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg'),
-                              height: SizeConfig.blockSizeVertical * 11,
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
+                              ),
+                              height: SizeConfig.blockSizeVertical * 15,
                               color: Colors.green,
                             ),
                           ),
@@ -286,11 +329,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           vertical: SizeConfig.blockSizeVertical * 2,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          gradient: LinearGradient(
-                            colors: [kon_boja, poc_boja]
-                          )
-                        ),
+                            borderRadius: BorderRadius.circular(15),
+                            gradient:
+                                LinearGradient(colors: [kon_boja, poc_boja])),
                         child: Text(
                           //ovo treba centrirati
                           'Započni vježbu',

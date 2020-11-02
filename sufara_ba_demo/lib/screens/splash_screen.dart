@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/hadis_data.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
-import 'package:sufara_ba_demo/models/shared_prefs.dart';
 import 'package:sufara_ba_demo/screens/tabs_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
