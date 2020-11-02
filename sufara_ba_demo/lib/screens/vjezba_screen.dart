@@ -48,6 +48,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     AlwaysStoppedAnimation(Colors.green),
   ];
   SharedPrefs prefs = SharedPrefs();
+  bool playing = false;
+
+  
 
   setHarfs() {
     int prvi = rng.nextInt(widget.harf.images.length);
@@ -86,6 +89,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     if (widget.player.state == AudioPlayerState.PLAYING) {
       widget.player.stop();
     }
+    //if (widget.audioCache.)
     if (i == tacanBroj) {
       playSound('audio/CORRECT.wav');
       setState(() {
@@ -126,7 +130,14 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           },
         );
       } else {
-        Timer(Duration(seconds: 1), () => setHarfs());
+        Timer(Duration(seconds: 1), () {
+          setHarfs();
+          Timer(Duration(seconds: 1), () {
+            setState(() {
+              playing = false;
+            });
+          });
+        });
       }
     } else {
       playSound('audio/NOT CORRECT.wav');
@@ -165,6 +176,11 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       }
       Timer(Duration(milliseconds: 1100), () {
         playAudio(widget.harf, tacan);
+        Timer(Duration(seconds: 1), () {
+          setState(() {
+            playing = false;
+          });
+        });
       });
     }
   }
@@ -293,7 +309,12 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      answerQuestion(0);
+                      if (!playing) {
+                        setState(() {
+                          playing = true;
+                        });
+                        answerQuestion(0);
+                      }
                     },
                     child: jedan,
                   ),
@@ -302,7 +323,12 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      answerQuestion(1);
+                      if (!playing) {
+                        setState(() {
+                          playing = true;
+                        });
+                        answerQuestion(1);
+                      }
                     },
                     child: dva,
                   ),
@@ -311,7 +337,12 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      answerQuestion(2);
+                      if (!playing) {
+                        setState(() {
+                          playing = true;
+                        });
+                        answerQuestion(2);
+                      }
                     },
                     child: tri,
                   ),
