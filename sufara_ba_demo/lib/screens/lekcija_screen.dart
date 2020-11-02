@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -13,6 +14,7 @@ import 'package:path_provider/path_provider.dart' as path;
 class LekcijaScreen extends StatefulWidget {
   final HarfModel harf;
   final String dir;
+  final AudioPlayer player = AudioPlayer();
 
   LekcijaScreen(this.harf, this.dir);
 
@@ -24,20 +26,28 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   int mjesto = 3;
 
   playAudio(HarfModel harf, int index) async {
-    AudioPlayer player = AudioPlayer();
+    int x = 0;
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('$dir/audio/${harf.id}/${harf.images[index]}.mp3');
-    if (harf.images[index]['audio'].isEmpty) {
-      await player.play(
-          '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
-          isLocal: true);
-      setState(() {});
-    } else {
-      await player.play(
-          '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
-          isLocal: true);
-      setState(() {});
+    if (widget.player.state == AudioPlayerState.PLAYING) {
+      widget.player.getDuration().then((value) => x = value);
     }
+    Timer(
+      Duration(milliseconds: x),
+      () async {
+        if (harf.images[index]['audio'].isEmpty) {
+          await widget.player.play(
+              '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+              isLocal: true);
+          setState(() {});
+        } else {
+          await widget.player.play(
+              '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+              isLocal: true);
+          setState(() {});
+        }
+      },
+    );
   }
 
   @override
@@ -262,12 +272,12 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           if (w > 3) w = 3;
                         }
 
-                        if(c == widget.harf.images.length) {
+                        if (c == widget.harf.images.length) {
                           return StaggeredTile.fit(mjesto);
                         }
 
                         if (mjesto >= y) {
-                          if(w+y>mjesto){
+                          if (w + y > mjesto) {
                             int u = mjesto;
                             mjesto = 3;
                             return StaggeredTile.fit(u);

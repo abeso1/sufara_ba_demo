@@ -19,6 +19,7 @@ class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
   final AudioCache audioCache = AudioCache();
   final String dir;
+  final AudioPlayer player = AudioPlayer();
 
   VjezbaScreen(this.harf, this.dir);
 
@@ -82,6 +83,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   }
 
   answerQuestion(int i) {
+    if (widget.player.state == AudioPlayerState.PLAYING) {
+      widget.player.stop();
+    }
     if (i == tacanBroj) {
       playSound('audio/CORRECT.wav');
       setState(() {
@@ -114,7 +118,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             Navigator.of(context).pop(),
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => TabsScreens(widget.dir,),
+                builder: (context) => TabsScreens(
+                  widget.dir,
+                ),
               ),
             ),
           },
@@ -165,15 +171,17 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   //this functions plays audio in 172 line
   playAudio(HarfModel harf, int index) async {
-    AudioPlayer player = AudioPlayer();
     String dir = (await path.getApplicationDocumentsDirectory()).path;
+    if (widget.player.state == AudioPlayerState.PLAYING) {
+      widget.player.stop();
+    }
     if (harf.images[index]['audio'].isEmpty) {
-      await player.play(
+      await widget.player.play(
           '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
           isLocal: true);
       setState(() {});
     } else {
-      await player.play(
+      await widget.player.play(
           '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
           isLocal: true);
       setState(() {});
