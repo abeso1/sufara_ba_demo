@@ -26,10 +26,18 @@ class _TabsScreensState extends State<TabsScreens> {
           backgroundColor: Colors.white,
           title: Row(
             children: [
-              SvgPicture.asset(
-                'svg/back_img/sufara.ba_logo_splash.svg',
-                width: SizeConfig.blockSizeHorizontal * 13.3,
-                fit: BoxFit.cover,
+              Container(
+                padding: EdgeInsets.fromLTRB(
+                  0,
+                  SizeConfig.blockSizeVertical * 0.65,
+                  0,
+                  0,
+                ),
+                child: SvgPicture.asset(
+                  'svg/back_img/sufara.ba_logo_splash.svg',
+                  width: SizeConfig.blockSizeHorizontal * 13.3,
+                  fit: BoxFit.cover,
+                ),
               ),
               SizedBox(
                 width: SizeConfig.blockSizeHorizontal * 1,
