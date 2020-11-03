@@ -27,6 +27,9 @@ class LekcijaScreen extends StatefulWidget {
 
 class _LekcijaScreenState extends State<LekcijaScreen> {
   //int mjesto = 3;
+  Color firstButton = Colors.blue;
+  Color secondButton = Colors.orange;
+  Color thirdButton = Colors.red;
 
   playAudio(HarfModel harf, int index) async {
     int x = 0;
@@ -208,7 +211,125 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 children: [
-                  //ovdje naslov harfa
+                  //three buttons
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: SizeConfig.blockSizeVertical * 90,
+                        height: SizeConfig.blockSizeVertical * 15,
+                        child: RaisedButton(
+                          color: firstButton,
+                          onPressed: () {
+                            setState(() {
+                              firstButton = Colors.blue;
+                            });
+                          },
+                          hoverColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                Icons.book_outlined,
+                                size: SizeConfig.blockSizeHorizontal * 10,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'OPIS LEKCIJE',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.blockSizeHorizontal * 7,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical * 2,
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeVertical * 90,
+                        height: SizeConfig.blockSizeVertical * 15,
+                        child: RaisedButton(
+                          color: secondButton,
+                          onPressed: () {
+                            setState(() {
+                              secondButton = Colors.orange;
+                            });
+                          },
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.report_outlined,
+                                  size: SizeConfig.blockSizeHorizontal * 10,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  'ISHODISTE',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        SizeConfig.blockSizeHorizontal * 7,
+                                  ),
+                                ),
+                              ]),
+                        ),
+                      ),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical * 2,
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeVertical * 90,
+                        height: SizeConfig.blockSizeVertical * 15,
+                        child: RaisedButton(
+                          color: thirdButton,
+                          onPressed: () {
+                            setState(() {
+                              thirdButton = Colors.red;
+                            });
+                          },
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                Icons.ondemand_video,
+                                size: SizeConfig.blockSizeHorizontal * 10,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'VIDEO LEKCIJA',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.blockSizeHorizontal * 7,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical * 2,
+                      ),
+                    ],
+                  ),
+                  //ovdje naslov harfa/
+                  /*
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeHorizontal * 1,
@@ -252,7 +373,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       height: SizeConfig.blockSizeVertical * 45,
                       fit: BoxFit.fill,
                     ),
-                  ),
+                  ),*/
                   //oblici
                   Container(
                     child: StaggeredGridView.countBuilder(
