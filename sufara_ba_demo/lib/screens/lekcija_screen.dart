@@ -15,6 +15,7 @@ class LekcijaScreen extends StatefulWidget {
   final HarfModel harf;
   final String dir;
   final AudioPlayer player = AudioPlayer();
+  int mjesto = 3;
 
   LekcijaScreen(this.harf, this.dir);
 
@@ -23,7 +24,7 @@ class LekcijaScreen extends StatefulWidget {
 }
 
 class _LekcijaScreenState extends State<LekcijaScreen> {
-  int mjesto = 3;
+  //int mjesto = 3;
 
   playAudio(HarfModel harf, int index) async {
     int x = 0;
@@ -60,6 +61,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    widget.mjesto=3;
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -267,7 +269,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       //),
                       crossAxisCount: 3,
                       staggeredTileBuilder: (int index) {
-                        print(mjesto);
+                        print(widget.mjesto);
                         int x = widget.harf.images[index]['name'].length;
                         int y = (x / 7).ceil();
                         if (y > 3) y = 3;
@@ -281,26 +283,26 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         }
 
                         if (c == widget.harf.images.length) {
-                          return StaggeredTile.fit(mjesto);
+                          return StaggeredTile.fit(widget.mjesto);
                         }
 
-                        if (mjesto >= y) {
-                          if (w + y > mjesto) {
-                            int u = mjesto;
-                            mjesto = 3;
+                        if (widget.mjesto >= y) {
+                          if (w + y > widget.mjesto) {
+                            int u = widget.mjesto;
+                            widget.mjesto = 3;
                             return StaggeredTile.fit(u);
                           }
-                          mjesto = mjesto - y;
-                          if (mjesto == 0) {
-                            mjesto = 3;
+                          widget.mjesto = widget.mjesto - y;
+                          if (widget.mjesto == 0) {
+                            widget.mjesto = 3;
                           }
                           return StaggeredTile.fit(y);
                         }
-                        if (mjesto == 2 && y == 3) {
-                          mjesto = 3;
+                        if (widget.mjesto == 2 && y == 3) {
+                          widget.mjesto = 3;
                           return StaggeredTile.fit(y);
                         }
-                        if (mjesto == 3 && y > 1 && (w == 1 || w == 2)) {
+                        if (widget.mjesto == 3 && y > 1 && (w == 1 || w == 2)) {
                           return StaggeredTile.fit(3);
                         }
                         return StaggeredTile.fit(y);
