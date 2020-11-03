@@ -222,6 +222,43 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           onPressed: () {
                             setState(() {
                               firstButton = Colors.blue;
+                              showDialog(
+                                context: context,
+                                child: AlertDialog(
+                                  title: Text(
+                                    "Opis lekcije",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  content: Container(
+                                    height: SizeConfig.blockSizeVertical * 65,
+                                    child: Column(
+                                      children: [
+                                        widget.opis.getOpis(
+                                            int.parse(widget.harf.id) - 1),
+                                        SizedBox(
+                                          height: SizeConfig.blockSizeHorizontal * 3,
+                                        ),
+                                        RaisedButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          color: kon_boja,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Text(
+                                            'Zatvori prozor',
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
                             });
                           },
                           hoverColor: Colors.blue,
