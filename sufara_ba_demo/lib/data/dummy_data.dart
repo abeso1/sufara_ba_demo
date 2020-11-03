@@ -9,7 +9,7 @@ class DUMMY_DATA {
       lekcijaIliVjezbaIndex: 'Prva slovo arapske abecede',
       lekcija: true,
       opis:
-          'Prvo slovo ili harf u arapskoj abecedi je Elif koji izgleda kao vertikalna crta (pogledaj flash lekciju br. 1 i 2), on je prvi od harfova koji se vežu samo sa svoje desne strane. \nIzgovor ovog glasa kada je sam tj. (sa sukunom) sličan je poluglasu koji se čuje prije naše rijeći \'rt pa bi se moglo reći da se elif sa sukunom uopšte ne čita. \nKada na elifu ili ispod njega dođe neki od znakova za kratke vokale izgovara se samo taj vokal (pogledaj lekciju br.1 i 2).',
+          'Arapsko pismo čine harfovi ( konsonanti ili suglasnici ) i znakovi ( kratki vokali ili samoglasnici ) koji dolaze iznad ili ispod harfova/konsonanata. U prvoj lekciji naučit ćemo znakove ili kratke vokale tj. samoglasnike. Postoje tri kratka vokala/samoglasnika i to E, I, U. i oni uvijek dolaze na nekom od hafova i tada se prvo čita harf pa kratki vokal/samoglasnik, izuzetak je Elif koji se ne čita nego se samo izgovara kratki vokal koji je došao na njemu. Ovi vokali/samoglasnici  imaju i svoja imena pa ih tako nazivamo: ( E - fetha ), ( I - kesra), ( U - damma). U flash animaciji prve lekcije mozemo vidjeti kako izgledaju ( fetha, kesra i damma ) te kako se izgovaraju, vodoravna linija u primjerima predstavlja bilo koji harf.',
       images: [
         {"name": "E", "audio": "", "desc": "e"},
         {"name": "I", "audio": "", "desc": "i"},

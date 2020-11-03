@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
+import 'package:sufara_ba_demo/models/opis_model.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
@@ -16,6 +17,7 @@ class LekcijaScreen extends StatefulWidget {
   final String dir;
   final AudioPlayer player = AudioPlayer();
   int mjesto = 3;
+  final Opis opis = Opis();
 
   LekcijaScreen(this.harf, this.dir);
 
@@ -61,7 +63,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    widget.mjesto=3;
+    widget.mjesto = 3;
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -227,7 +229,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeHorizontal * 1,
                     ),
-                    child: Text(
+                    child: widget.opis.getOpis(int.parse(widget.harf.id) - 1),
+                    /*Text(
                       widget.harf.opis,
                       //ovako izleda bolje nego kad je centriran
                       textAlign: TextAlign.justify,
@@ -236,7 +239,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         fontWeight: FontWeight.w400,
                         fontFamily: 'Roboto',
                       ),
-                    ),
+                    ),*/
                   ),
                   //slika grla
                   Container(
