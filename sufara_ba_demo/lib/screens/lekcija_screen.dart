@@ -5,12 +5,14 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/models/opis_model.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
+import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 
 class LekcijaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -383,7 +385,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         )
                       else
                         SizedBox(),
-                      SizedBox(
+                      if(widget.harf.videoUrl.isNotEmpty) SizedBox(
                         width: SizeConfig.blockSizeVertical * 90,
                         height: SizeConfig.blockSizeVertical * 15,
                         child: RaisedButton(
@@ -392,6 +394,35 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             setState(() {
                               thirdButton = Colors.red;
                             });
+                            showDialog(
+                              context: context,
+                              child: SimpleDialog(
+                                children: [
+                                  Column(
+                                    children: [
+                                      YoutubeDefaultWidget(widget.harf.videoUrl),
+                                      SizedBox(
+                                          height:
+                                              SizeConfig.blockSizeVertical * 2),
+                                      RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        color: kon_boja,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          'Zatvori prozor',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
@@ -416,10 +447,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             ],
                           ),
                         ),
-                      ),
-                      SizedBox(
+                      ) else SizedBox(),
+                      if(widget.harf.videoUrl.isNotEmpty)SizedBox(
                         height: SizeConfig.blockSizeVertical * 2,
-                      ),
+                      ) else SizedBox(),
                       SizedBox(
                         width: SizeConfig.blockSizeVertical * 90,
                         height: SizeConfig.blockSizeVertical * 15,
@@ -545,11 +576,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           if (w > 3) w = 3;
                         }
 
-                        if (y == widget.harf.images.length) {
-                          int l = widget.mjesto;
-                          widget.mjesto = 3;
-                          return StaggeredTile.fit(y);
-                        }
 
                         if (widget.mjesto >= y) {
                           if (w + y > widget.mjesto) {
