@@ -8,6 +8,7 @@ class HarfModel {
   final String lekcijaIliVjezbaIndex;
   final String opis;
   final bool lekcija;
+  final String imageIshodiste;
 
   const HarfModel({
     @required this.id,
@@ -17,5 +18,6 @@ class HarfModel {
     @required this.lekcija,
     @required this.opis,
     @required this.images,
+    @required this.imageIshodiste,
   });
 }
