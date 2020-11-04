@@ -65,6 +65,21 @@ flutter:
     - svg/back_img/throat-e.jpg
     - svg/back_img/sufara.ba_logo_splash.svg
     - svg/back_img/sufara.png
+    - svg/back_img/1.jpg
+    - svg/back_img/2.jpg
+    - svg/back_img/3.jpg
+    - svg/back_img/4.jpg
+    - svg/back_img/7.jpg
+    - svg/back_img/8.jpg
+    - svg/back_img/9.jpg
+    - svg/back_img/10.jpg
+    - svg/back_img/11.jpg
+    - svg/back_img/12.jpg
+    - svg/back_img/13.jpg
+    - svg/back_img/14.jpg
+    - svg/back_img/16.jpg
+    - svg/back_img/17.jpg
+    - svg/back_img/18.jpg
     - assets/audio/CORRECT.wav
     - assets/audio/NOT CORRECT.wav
     # - images/a_dot_ham.jpeg

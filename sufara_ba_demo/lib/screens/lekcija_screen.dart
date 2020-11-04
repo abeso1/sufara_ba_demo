@@ -238,7 +238,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         widget.opis.getOpis(
                                             int.parse(widget.harf.id) - 1),
                                         SizedBox(
-                                          height: SizeConfig.blockSizeHorizontal * 3,
+                                          height:
+                                              SizeConfig.blockSizeHorizontal *
+                                                  3,
                                         ),
                                         RaisedButton(
                                           onPressed: () {
@@ -251,7 +253,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                           ),
                                           child: Text(
                                             'Zatvori prozor',
-                                            style: TextStyle(color: Colors.white),
+                                            style:
+                                                TextStyle(color: Colors.white),
                                           ),
                                         )
                                       ],
@@ -297,6 +300,46 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           onPressed: () {
                             setState(() {
                               secondButton = Colors.orange;
+                              showDialog(
+                                context: context,
+                                child: AlertDialog(
+                                  title: Text(
+                                    "Ishodiste",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  content: Container(
+                                    height: SizeConfig.blockSizeVertical * 65,
+                                    child: Column(
+                                      children: [
+                                        widget.opis.getOpis(
+                                            int.parse(widget.harf.id) - 1),
+                                        SizedBox(
+                                          height:
+                                              SizeConfig.blockSizeHorizontal *
+                                                  3,
+                                        ),
+                                        RaisedButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          color: kon_boja,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Text(
+                                            'Zatvori prozor',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
                             });
                           },
                           shape: RoundedRectangleBorder(
@@ -363,6 +406,51 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 2,
                       ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeVertical * 90,
+                        height: SizeConfig.blockSizeVertical * 15,
+                        child: Container(
+                          //color: Colors.white,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              width: 5,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          child: Row(
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                width: SizeConfig.blockSizeHorizontal * 3,
+                              ),
+                              Icon(
+                                Icons.report_outlined,
+                                size: SizeConfig.blockSizeHorizontal * 10,
+                                color: Colors.blue,
+                              ),
+                              SizedBox(
+                                width: SizeConfig.blockSizeHorizontal * 3,
+                              ),
+                              Flexible(
+                                child: Text(
+                                  'Klikom na harf poslušajte njegov izgovor. ',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize:
+                                        SizeConfig.blockSizeHorizontal * 5,
+                                  ),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                              SizedBox(
+                                width: SizeConfig.blockSizeHorizontal * 3,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
                     ],
                   ),
                   //ovdje naslov harfa/
@@ -443,8 +531,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           if (w > 3) w = 3;
                         }
 
-                        if (c == widget.harf.images.length) {
-                          return StaggeredTile.fit(widget.mjesto);
+                        if (y == widget.harf.images.length) {
+                          int l = widget.mjesto;
+                          widget.mjesto = 3;
+                          return StaggeredTile.fit(y);
                         }
 
                         if (widget.mjesto >= y) {
