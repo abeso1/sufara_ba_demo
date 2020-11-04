@@ -231,34 +231,30 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  content: Container(
-                                    height: SizeConfig.blockSizeVertical * 65,
-                                    child: Column(
-                                      children: [
-                                        widget.opis.getOpis(
-                                            int.parse(widget.harf.id) - 1),
-                                        SizedBox(
-                                          height:
-                                              SizeConfig.blockSizeHorizontal *
-                                                  3,
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      widget.opis.getOpis(
+                                          int.parse(widget.harf.id) - 1),
+                                      SizedBox(
+                                        height:
+                                            SizeConfig.blockSizeHorizontal * 3,
+                                      ),
+                                      RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        color: kon_boja,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                         ),
-                                        RaisedButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          color: kon_boja,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          child: Text(
-                                            'Zatvori prozor',
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                        )
-                                      ],
-                                    ),
+                                        child: Text(
+                                          'Zatvori prozor',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ),
                               );
@@ -292,83 +288,101 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 2,
                       ),
-                      SizedBox(
-                        width: SizeConfig.blockSizeVertical * 90,
-                        height: SizeConfig.blockSizeVertical * 15,
-                        child: RaisedButton(
-                          color: secondButton,
-                          onPressed: () {
-                            setState(() {
-                              secondButton = Colors.orange;
-                              showDialog(
-                                context: context,
-                                child: AlertDialog(
-                                  title: Text(
-                                    "Ishodiste",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
+                      if (widget.harf.imageIshodiste.isNotEmpty)
+                        SizedBox(
+                          width: SizeConfig.blockSizeVertical * 90,
+                          height: SizeConfig.blockSizeVertical * 15,
+                          child: RaisedButton(
+                            color: secondButton,
+                            onPressed: () {
+                              setState(() {
+                                secondButton = Colors.orange;
+                                showDialog(
+                                  context: context,
+                                  child: AlertDialog(
+                                    title: Text(
+                                      "Ishodiste",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize:
+                                            SizeConfig.blockSizeVertical * 4,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    content: Container(
+                                      height: SizeConfig.blockSizeVertical * 48,
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            widget.harf.imageIshodiste,
+                                            width:
+                                                SizeConfig.blockSizeHorizontal *
+                                                    90,
+                                            height:
+                                                SizeConfig.blockSizeVertical *
+                                                    40,
+                                          ),
+                                          SizedBox(
+                                            height:
+                                                SizeConfig.blockSizeHorizontal *
+                                                    1,
+                                          ),
+                                          RaisedButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            color: kon_boja,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: Text(
+                                              'Zatvori prozor',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                  content: Container(
-                                    height: SizeConfig.blockSizeVertical * 65,
-                                    child: Column(
-                                      children: [
-                                        widget.opis.getOpis(
-                                            int.parse(widget.harf.id) - 1),
-                                        SizedBox(
-                                          height:
-                                              SizeConfig.blockSizeHorizontal *
-                                                  3,
-                                        ),
-                                        RaisedButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          color: kon_boja,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          child: Text(
-                                            'Zatvori prozor',
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            });
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              10,
+                                );
+                              });
+                            },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                10,
+                              ),
                             ),
-                          ),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Icon(
-                                  Icons.report_outlined,
-                                  size: SizeConfig.blockSizeHorizontal * 10,
-                                  color: Colors.white,
-                                ),
-                                Text(
-                                  'ISHODISTE',
-                                  style: TextStyle(
+                            child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(
+                                    Icons.report_outlined,
+                                    size: SizeConfig.blockSizeHorizontal * 10,
                                     color: Colors.white,
-                                    fontSize:
-                                        SizeConfig.blockSizeHorizontal * 7,
                                   ),
-                                ),
-                              ]),
-                        ),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical * 2,
-                      ),
+                                  Text(
+                                    'ISHODISTE',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          SizeConfig.blockSizeHorizontal * 7,
+                                    ),
+                                  ),
+                                ]),
+                          ),
+                        )
+                      else
+                        SizedBox(),
+                      if (widget.harf.imageIshodiste.isNotEmpty)
+                        SizedBox(
+                          height: SizeConfig.blockSizeVertical * 2,
+                        )
+                      else
+                        SizedBox(),
                       SizedBox(
                         width: SizeConfig.blockSizeVertical * 90,
                         height: SizeConfig.blockSizeVertical * 15,
