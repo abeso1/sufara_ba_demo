@@ -6,7 +6,7 @@ import 'package:sufara_ba_demo/widgets/harf_for_vjezbe_done.dart';
 import 'package:sufara_ba_demo/widgets/harf_for_vjezbe_regural.dart';
 
 class Vjezbe extends StatelessWidget {
-  final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
+  final List<HarfModel> listHarf = DummyData.listHarfDummyData;
   final String dir;
   SharedPrefs sharedPrefs = SharedPrefs();
   bool neki;

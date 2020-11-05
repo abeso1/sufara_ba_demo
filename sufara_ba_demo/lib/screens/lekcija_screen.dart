@@ -8,6 +8,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/models/opis_model.dart';
+import 'package:sufara_ba_demo/models/opis_model_naslov.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
@@ -20,6 +21,7 @@ class LekcijaScreen extends StatefulWidget {
   final AudioPlayer player = AudioPlayer();
   int mjesto = 3;
   final Opis opis = Opis();
+  final OpisNaslov nalsov = OpisNaslov();
 
   LekcijaScreen(this.harf, this.dir);
 
@@ -122,14 +124,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     widget.harf.name,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: SizeConfig.blockSizeHorizontal * 6.8,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontFamily: 'Roboto',
                     ),
                   ),
                 ),
-
                 Container(
                   alignment: Alignment.centerRight,
                   padding: EdgeInsets.only(
@@ -225,52 +226,52 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           child: RaisedButton(
                             color: firstButton,
                             onPressed: () {
-                              setState(() {
-                                firstButton = Colors.blue;
-                                showDialog(
-                                  context: context,
-                                  child: AlertDialog(
-                                    actions: [
-                                      RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        color: kon_boja,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Text(
-                                          'Zatvori prozor',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ],
-                                    actionsPadding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            SizeConfig.blockSizeHorizontal * 25),
-                                    scrollable: true,
-                                    title: Text(
-                                      "Opis lekcije",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        widget.opis.getOpis(
-                                            int.parse(widget.harf.id) - 1),
-                                        SizedBox(
-                                          height:
-                                              SizeConfig.blockSizeHorizontal *
-                                                  3,
+                              setState(
+                                () {
+                                  firstButton = Colors.blue;
+                                  showDialog(
+                                    context: context,
+                                    child: AlertDialog(
+                                      actions: [
+                                        RaisedButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          color: kon_boja,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Text(
+                                            'Zatvori prozor',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
                                         ),
                                       ],
+                                      actionsPadding: EdgeInsets.fromLTRB(
+                                        SizeConfig.blockSizeHorizontal * 25,
+                                        0,
+                                        SizeConfig.blockSizeHorizontal * 25,
+                                        SizeConfig.blockSizeVertical * 1,
+                                      ),
+                                      scrollable: true,
+                                      title: Center(
+                                        child: widget.nalsov.getOpis(
+                                          int.parse(widget.harf.id) - 1,
+                                        ),
+                                      ),
+                                      content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          widget.opis.getOpis(
+                                              int.parse(widget.harf.id) - 1),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              });
+                                  );
+                                },
+                              );
                             },
                             hoverColor: Colors.blue,
                             shape: RoundedRectangleBorder(
@@ -594,6 +595,12 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
 
                         int z = 0, w = 0;
                         int c = index + 1;
+                        if (c == widget.harf.images.length) {
+                          int u = widget.mjesto;
+                          widget.mjesto = 3;
+                          return StaggeredTile.fit(u);
+                        }
+
                         if (c < widget.harf.images.length) {
                           z = widget.harf.images[c]['name'].length;
                           w = (z / 7).ceil();

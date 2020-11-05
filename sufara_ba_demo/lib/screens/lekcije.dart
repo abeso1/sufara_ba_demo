@@ -5,7 +5,7 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/harf_for_lekcije.dart';
 
 class Lekcije extends StatelessWidget {
-  final List<HarfModel> listHarf = DUMMY_DATA.listHarfDummyData;
+  final List<HarfModel> listHarf = DummyData.listHarfDummyData;
   final String dir;
 
   Lekcije(this.dir);

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube_view/flutter_youtube_view.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:sufara_ba_demo/shared/constants.dart';
 
 class YoutubeDefaultWidget extends StatefulWidget {
   final String video;

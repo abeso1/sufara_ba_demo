@@ -1,6 +1,6 @@
 import 'package:sufara_ba_demo/models/harf_model.dart';
 
-class DUMMY_DATA {
+class DummyData {
   static const List<HarfModel> listHarfDummyData = [
     HarfModel(
       id: '1',
