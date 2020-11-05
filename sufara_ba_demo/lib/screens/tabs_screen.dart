@@ -54,10 +54,10 @@ class _TabsScreensState extends State<TabsScreens> {
             unselectedLabelColor: Colors.grey,
             tabs: [
               Tab(
-                text: 'Lekcije',
+                child: Text('Lekcije', style: TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),)
               ),
               Tab(
-                text: 'Vjezbe',
+                child: Text('Vjezbe', style: TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),),
               ),
             ],
           ),

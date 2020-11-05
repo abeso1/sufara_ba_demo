@@ -243,7 +243,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 //ovaj gradient je popravljen
-                colors: [poc_boja, kon_boja],
+                colors: [kon_boja, poc_boja],
               ),
             ),
           ),
@@ -260,7 +260,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                 ),
                 gradient: LinearGradient(
                   //ovaj gradient je popravljen
-                  colors: [poc_boja, kon_boja],
+                  colors: [kon_boja, poc_boja],
                 ),
               ),
               child: Column(
