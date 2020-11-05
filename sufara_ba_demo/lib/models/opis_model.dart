@@ -1244,6 +1244,480 @@ class Opis {
       textAlign: TextAlign.justify,
     ),
 
+//15 odredeni clan
+    RichText(
+      text: TextSpan(
+        children: <TextSpan>[
+          TextSpan(
+            text:
+                "Učeći Kur'an često ćemo naići na riječi koje počinju određenim članom (EL), tj. Elifom i Lamom. Ovaj određeni član se nekada čita a nekada ne, zavisno od toga koja vrsta harfova je poslije njega (harfovi: kamerije ili šemsije). Međutim mi ćemo ovdje pojednostaviti i kazati da ukoliko ova dva harfa tj. određeni član nema nikakav znak iznad sebe tada se uopšte i ",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "ne čita",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: ", npr: (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "eddaru",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                "). A ako iznad određenog člana stoji neki znak tada ćemo ga i pročitati, npr: (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "el",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "kitabu",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                ").\n\nAko prije riječi kod koje se na početku ne čita elif ili elif i lam (određeni član) ima neka druga riječ, one se moraju u izgovoru spojiti, npr: (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "zali",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "kel",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "kitabu",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: ") ili u primjeru (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "ve mi",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "nenn",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "asi",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                ")\n\nUkoliko spajamo dvije riječi, od kojih se prva završava dugim samoglasnikom ",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "A",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: ", ",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "U",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: " ili ",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "I",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: ", ovi samoglasnici se u izgovoru gube tj, ",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "skraćuju",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: ". Kao u primjerima (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "ejjuh",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "e",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "llezine",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "), (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "inn",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "i",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "ljevme",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: ") ili (",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "z",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "u",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "levtadi",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "), (pogledati primjere u animaciji).",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+      textAlign: TextAlign.justify,
+    ),
+
+//16
+    RichText(
+      text: TextSpan(
+        children: <TextSpan>[
+          TextSpan(
+            text:
+                "Šesnaesta lekcija donosi nam tri nova harfa, prva tri od devet harfova iznad kojih se \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "fetha",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                "\" čita kao kratko \"A\". I ovi harfovi se vežu sa obje svoje strane. Prvi od njih Harf \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "KAF",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "\" izgledom podsjeća na harf \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "FA",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                "\" samo što se iznad njega nalaze dvije tačke, ne postoji u našem jeziku. Prilikom izgovora ovog harfa, jezik se pomjeri nazad, a njegov zadnji dio se uzdigne prema zadnjem nepcu u predjelu resice. Zrak koji naiđe iz pluća savladava već formiranu prepreku, a jezik se naglo spušta. U tom trenutku se čuje eksplozivan šum. Kada je sa sukunom odskaće. Za ovaj harf kažemo da je to tvrdo \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "K",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "\".\n\nHarf \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "SAD",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                "\" ne postoji u našem jeziku, rekli bismo da je to treći oblik slova \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "S",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "\" ili krupno \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "S",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text:
+                "\". Prilikom izgovora ovog harfa prednji dio jezika se prisloniuz iicu donjih sjekutića, zadnji dio jezika se uzdigne prema zadnjem nepcu, a srednji dio jezika je izdubljen. Usne su umjereno ispupčene i zaokrugljene a usneni mišići su olabavljeni. Izgovor mu je prilično sličan našem \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: "S",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "\" s tim što se harf \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "SAD",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "\" izgovara krupnije.\n\nHarf \"",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "DAD",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "\" također ne postoji u našem jeziku, to je krupno \"",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              //fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: "D",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+      textAlign: TextAlign.justify,
+    ),
+
     //19
     RichText(
       text: TextSpan(
