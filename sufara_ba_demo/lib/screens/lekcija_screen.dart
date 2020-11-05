@@ -214,143 +214,217 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 scrollDirection: Axis.vertical,
                 children: [
                   //three buttons
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: SizeConfig.blockSizeVertical * 90,
-                        height: SizeConfig.blockSizeVertical * 15,
-                        child: RaisedButton(
-                          color: firstButton,
-                          onPressed: () {
-                            setState(() {
-                              firstButton = Colors.blue;
-                              showDialog(
-                                context: context,
-                                child: AlertDialog(
-                                  title: Text(
-                                    "Opis lekcije",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  content: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      widget.opis.getOpis(
-                                          int.parse(widget.harf.id) - 1),
-                                      SizedBox(
-                                        height:
-                                            SizeConfig.blockSizeHorizontal * 3,
-                                      ),
-                                      RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        color: kon_boja,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Text(
-                                          'Zatvori prozor',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            });
-                          },
-                          hoverColor: Colors.blue,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              10,
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.book_outlined,
-                                size: SizeConfig.blockSizeHorizontal * 10,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                'OPIS LEKCIJE',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: SizeConfig.blockSizeHorizontal * 7,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical * 2,
-                      ),
-                      if (widget.harf.imageIshodiste.isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: SizeConfig.blockSizeHorizontal *3),
+                    child: Column(
+                      children: [
                         SizedBox(
                           width: SizeConfig.blockSizeVertical * 90,
                           height: SizeConfig.blockSizeVertical * 15,
                           child: RaisedButton(
-                            color: secondButton,
+                            color: firstButton,
                             onPressed: () {
                               setState(() {
-                                secondButton = Colors.orange;
+                                firstButton = Colors.blue;
                                 showDialog(
                                   context: context,
                                   child: AlertDialog(
                                     title: Text(
-                                      "Ishodiste",
+                                      "Opis lekcije",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.red,
-                                        fontSize:
-                                            SizeConfig.blockSizeVertical * 4,
                                       ),
-                                      textAlign: TextAlign.center,
                                     ),
-                                    content: Container(
-                                      height: SizeConfig.blockSizeVertical * 48,
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                            widget.harf.imageIshodiste,
-                                            width:
-                                                SizeConfig.blockSizeHorizontal *
-                                                    90,
-                                            height:
-                                                SizeConfig.blockSizeVertical *
-                                                    40,
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        widget.opis.getOpis(
+                                            int.parse(widget.harf.id) - 1),
+                                        SizedBox(
+                                          height:
+                                              SizeConfig.blockSizeHorizontal * 3,
+                                        ),
+                                        RaisedButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          color: kon_boja,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
-                                          SizedBox(
-                                            height:
-                                                SizeConfig.blockSizeHorizontal *
-                                                    1,
+                                          child: Text(
+                                            'Zatvori prozor',
+                                            style: TextStyle(color: Colors.white),
                                           ),
-                                          RaisedButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            color: kon_boja,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            child: Text(
-                                              'Zatvori prozor',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                          )
-                                        ],
-                                      ),
+                                        )
+                                      ],
                                     ),
                                   ),
                                 );
                               });
+                            },
+                            hoverColor: Colors.blue,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                10,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.book_outlined,
+                                  size: SizeConfig.blockSizeHorizontal * 10,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  'OPIS LEKCIJE',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: SizeConfig.blockSizeHorizontal * 7,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: SizeConfig.blockSizeVertical * 2,
+                        ),
+                        if (widget.harf.imageIshodiste.isNotEmpty)
+                          SizedBox(
+                            width: SizeConfig.blockSizeVertical * 90,
+                            height: SizeConfig.blockSizeVertical * 15,
+                            child: RaisedButton(
+                              color: secondButton,
+                              onPressed: () {
+                                setState(() {
+                                  secondButton = Colors.orange;
+                                  showDialog(
+                                    context: context,
+                                    child: AlertDialog(
+                                      title: Text(
+                                        "Ishodiste",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.red,
+                                          fontSize:
+                                              SizeConfig.blockSizeVertical * 4,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      content: Container(
+                                        height: SizeConfig.blockSizeVertical * 48,
+                                        child: Column(
+                                          children: [
+                                            Image.asset(
+                                              widget.harf.imageIshodiste,
+                                              width:
+                                                  SizeConfig.blockSizeHorizontal *
+                                                      90,
+                                              height:
+                                                  SizeConfig.blockSizeVertical *
+                                                      40,
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  SizeConfig.blockSizeHorizontal *
+                                                      1,
+                                            ),
+                                            RaisedButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              color: kon_boja,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              child: Text(
+                                                'Zatvori prozor',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                });
+                              },
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  10,
+                                ),
+                              ),
+                              child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.report_outlined,
+                                      size: SizeConfig.blockSizeHorizontal * 10,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'ISHODISTE',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            SizeConfig.blockSizeHorizontal * 7,
+                                      ),
+                                    ),
+                                  ]),
+                            ),
+                          )
+                        else
+                          SizedBox(),
+                        if (widget.harf.imageIshodiste.isNotEmpty)
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical * 2,
+                          )
+                        else
+                          SizedBox(),
+                        if(widget.harf.videoUrl.isNotEmpty) SizedBox(
+                          width: SizeConfig.blockSizeVertical * 90,
+                          height: SizeConfig.blockSizeVertical * 15,
+                          child: RaisedButton(
+                            color: thirdButton,
+                            onPressed: () {
+                              setState(() {
+                                thirdButton = Colors.red;
+                              });
+                              showDialog(
+                                context: context,
+                                child: SimpleDialog(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        YoutubeDefaultWidget(widget.harf.videoUrl),
+                                        SizedBox(
+                                            height:
+                                                SizeConfig.blockSizeVertical * 2),
+                                        RaisedButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          color: kon_boja,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Text(
+                                            'Zatvori prozor',
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
@@ -358,145 +432,74 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                               ),
                             ),
                             child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.report_outlined,
-                                    size: SizeConfig.blockSizeHorizontal * 10,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    'ISHODISTE',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeHorizontal * 7,
-                                    ),
-                                  ),
-                                ]),
-                          ),
-                        )
-                      else
-                        SizedBox(),
-                      if (widget.harf.imageIshodiste.isNotEmpty)
-                        SizedBox(
-                          height: SizeConfig.blockSizeVertical * 2,
-                        )
-                      else
-                        SizedBox(),
-                      if(widget.harf.videoUrl.isNotEmpty) SizedBox(
-                        width: SizeConfig.blockSizeVertical * 90,
-                        height: SizeConfig.blockSizeVertical * 15,
-                        child: RaisedButton(
-                          color: thirdButton,
-                          onPressed: () {
-                            setState(() {
-                              thirdButton = Colors.red;
-                            });
-                            showDialog(
-                              context: context,
-                              child: SimpleDialog(
-                                children: [
-                                  Column(
-                                    children: [
-                                      YoutubeDefaultWidget(widget.harf.videoUrl),
-                                      SizedBox(
-                                          height:
-                                              SizeConfig.blockSizeVertical * 2),
-                                      RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        color: kon_boja,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Text(
-                                          'Zatvori prozor',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              10,
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.ondemand_video,
-                                size: SizeConfig.blockSizeHorizontal * 10,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                'VIDEO LEKCIJA',
-                                style: TextStyle(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.ondemand_video,
+                                  size: SizeConfig.blockSizeHorizontal * 10,
                                   color: Colors.white,
-                                  fontSize: SizeConfig.blockSizeHorizontal * 7,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ) else SizedBox(),
-                      if(widget.harf.videoUrl.isNotEmpty)SizedBox(
-                        height: SizeConfig.blockSizeVertical * 2,
-                      ) else SizedBox(),
-                      SizedBox(
-                        width: SizeConfig.blockSizeVertical * 90,
-                        height: SizeConfig.blockSizeVertical * 15,
-                        child: Container(
-                          //color: Colors.white,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                              width: 5,
-                              color: Colors.blue,
+                                Text(
+                                  'VIDEO LEKCIJA',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: SizeConfig.blockSizeHorizontal * 7,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          child: Row(
-                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SizedBox(
-                                width: SizeConfig.blockSizeHorizontal * 3,
-                              ),
-                              Icon(
-                                Icons.report_outlined,
-                                size: SizeConfig.blockSizeHorizontal * 10,
+                        ) else SizedBox(),
+                        if(widget.harf.videoUrl.isNotEmpty)SizedBox(
+                          height: SizeConfig.blockSizeVertical * 2,
+                        ) else SizedBox(),
+                        SizedBox(
+                          width: SizeConfig.blockSizeVertical * 90,
+                          height: SizeConfig.blockSizeVertical * 15,
+                          child: Container(
+                            //color: Colors.white,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                width: 5,
                                 color: Colors.blue,
                               ),
-                              SizedBox(
-                                width: SizeConfig.blockSizeHorizontal * 3,
-                              ),
-                              Flexible(
-                                child: Text(
-                                  'Klikom na harf poslušajte njegov izgovor. ',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize:
-                                        SizeConfig.blockSizeHorizontal * 5,
-                                  ),
-                                  textAlign: TextAlign.justify,
+                            ),
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SizedBox(
+                                  width: SizeConfig.blockSizeHorizontal * 6,
                                 ),
-                              ),
-                              SizedBox(
-                                width: SizeConfig.blockSizeHorizontal * 3,
-                              ),
-                            ],
+                                Icon(
+                                  Icons.report_outlined,
+                                  size: SizeConfig.blockSizeHorizontal * 10,
+                                  color: Colors.blue,
+                                ),
+                                SizedBox(
+                                  width: SizeConfig.blockSizeHorizontal * 1,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    'Klikom na harf poslušajte njegov izgovor. ',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize:
+                                          SizeConfig.blockSizeHorizontal * 5,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: SizeConfig.blockSizeHorizontal * 3,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                   //ovdje naslov harfa/
                   /*
@@ -625,6 +628,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     height: SizeConfig.blockSizeVertical * 8,
                     padding: EdgeInsets.only(
                       left: SizeConfig.blockSizeHorizontal * 45,
+                      right: SizeConfig.blockSizeHorizontal * 3,
                     ),
                     child: GestureDetector(
                       onTap: () {
@@ -644,15 +648,17 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             borderRadius: BorderRadius.circular(15),
                             gradient:
                                 LinearGradient(colors: [kon_boja, poc_boja])),
-                        child: Text(
-                          //ovo treba centrirati
-                          'Započni vježbu',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal,
-                            fontFamily: 'Roboto',
+                        child: Center(
+                          child: Text(
+                            //ovo treba centrirati
+                            'Započni vježbu',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'Roboto',
+                            ),
                           ),
                         ),
                       ),
