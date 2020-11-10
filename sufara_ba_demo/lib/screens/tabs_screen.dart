@@ -22,29 +22,39 @@ class TabsScreens extends StatefulWidget {
 }
 
 class _TabsScreensState extends State<TabsScreens> {
-  void _changeLanguage(Language language, String lang) async {
+  Locale _locale;
+
+  void _changeLanguage(Language language) async {
     Locale _locale = await setLocale(language.languageCode);
     MyApp.setLocale(context, _locale);
-    print("ovdje je  " + lang);
-    print(widget.lang);
-    if (widget.lang == "bosanski" && lang == "english") {
-      print('object');
+  }
+
+  @override
+  void didChangeDependencies() {
+    getLocale().then((locale) {
       setState(() {
-        widget.lang = "english";
-        widget.buttonColorBosanski = Colors.grey[300];
-        widget.buttonColorEnglish = Colors.white;
-        widget.textColorBosanski = Colors.grey;
-        widget.textColorEnglish = Colors.black;
+        this._locale = locale;
       });
-    } else if (widget.lang == "english" && lang == "bosanski") {
-      setState(() {
-        widget.lang = "bosanski";
-        widget.buttonColorBosanski = Colors.white;
-        widget.buttonColorEnglish = Colors.grey[300];
-        widget.textColorBosanski = Colors.black;
-        widget.textColorEnglish = Colors.grey;
-      });
-    }
+      print(_locale.countryCode);
+              if (_locale.countryCode == "US") {
+          setState(() {
+            widget.lang = "english";
+            widget.buttonColorBosanski = Colors.grey[300];
+            widget.buttonColorEnglish = Colors.white;
+            widget.textColorBosanski = Colors.grey;
+            widget.textColorEnglish = Colors.black;
+          });
+        } else if (_locale.countryCode == "BS") {
+          setState(() {
+            widget.lang = "bosanski";
+            widget.buttonColorBosanski = Colors.white;
+            widget.buttonColorEnglish = Colors.grey[300];
+            widget.textColorBosanski = Colors.black;
+            widget.textColorEnglish = Colors.grey;
+          });
+        }
+    });
+    super.didChangeDependencies();
   }
 
   @override
@@ -111,9 +121,11 @@ class _TabsScreensState extends State<TabsScreens> {
                       width: SizeConfig.blockSizeHorizontal * 18,
                       height: SizeConfig.blockSizeVertical * 3,
                       child: RaisedButton(
-                        onPressed: () =>
-                          _changeLanguage(Language(1, "Bosanski", "bs"), "bosanski")
-                        ,
+                        onPressed: () {
+                          _changeLanguage(
+                            Language(1, "Bosanski", "bs"),
+                          );
+                        },
                         child: Text(
                           'Bosanski',
                           style: TextStyle(
@@ -146,9 +158,11 @@ class _TabsScreensState extends State<TabsScreens> {
                       width: SizeConfig.blockSizeHorizontal * 17,
                       height: SizeConfig.blockSizeVertical * 3,
                       child: RaisedButton(
-                        onPressed: () =>
-                          _changeLanguage(Language(2, "English", "en"), "english"),
-                        
+                        onPressed: () {
+                          _changeLanguage(
+                            Language(2, "English", "en"),
+                          );
+                        },
                         child: Text(
                           'English',
                           style: TextStyle(

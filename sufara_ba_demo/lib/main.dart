@@ -41,6 +41,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: _locale,
       supportedLocales: [
         Locale('bs', 'BS'),
         Locale('en', 'US'),

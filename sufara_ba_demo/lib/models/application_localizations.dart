@@ -14,8 +14,8 @@ class DemoLocalization {
   Map<String, String> _localizedValues;
 
   Future<void> load() async {
-    String jsonStringValues =
-        await rootBundle.loadString('assets/language/${locale.languageCode}.json');
+    String jsonStringValues = await rootBundle
+        .loadString('assets/language/${locale.languageCode}.json');
     Map<String, dynamic> mappedJson = json.decode(jsonStringValues);
     _localizedValues =
         mappedJson.map((key, value) => MapEntry(key, value.toString()));
@@ -36,7 +36,7 @@ class _DemoLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return ['en', 'bs'].contains(locale.languageCode);
+    return ['bs', 'en'].contains(locale.languageCode);
   }
 
   @override
