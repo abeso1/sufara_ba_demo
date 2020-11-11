@@ -643,7 +643,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                               ),
                               height: SizeConfig.blockSizeVertical * 15,
-                              color: Colors.green,
+                              //color: Colors.green,
                             ),
                           ),
                         );

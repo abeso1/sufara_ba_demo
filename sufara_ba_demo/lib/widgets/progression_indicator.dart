@@ -49,21 +49,33 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
             }
 
             return Container(
-              height: SizeConfig.blockSizeVertical * 40,
+              height: SizeConfig.blockSizeVertical * 20,
               width: SizeConfig.blockSizeHorizontal * 25,
-              padding: EdgeInsets.all(50),
+              padding: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal * 1,
+                vertical: SizeConfig.blockSizeVertical * 3,
+              ),
               child: Stack(
-                fit: StackFit.expand,
+                //fit: StackFit.expand,
                 children: [
-                  CircularProgressIndicator(
-                    strokeWidth: 20,
-                    value: progress,
+                  Center(
+                    child: Container(
+                      height: SizeConfig.blockSizeVertical * 30,
+                      width: SizeConfig.blockSizeHorizontal * 25,
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 5.5,
+                          value: progress,
+                        ),
+                      ),
+                    ),
                   ),
                   Center(
                     child: Text(
                       '${(progress * 100).toStringAsFixed(0)}%',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 23,
                       ),
                     ),
                   ),
