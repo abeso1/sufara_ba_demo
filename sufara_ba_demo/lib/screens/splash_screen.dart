@@ -36,50 +36,36 @@ class _SplashScreenState extends State<SplashScreen> {
     download.checkFile().then((val) => {
           if (!val)
             {
-              Timer(Duration(seconds: 5), () {
-                getDir().then((value) {
-                  setState(() {
-                    dir = value;
+              Timer(
+                Duration(seconds: 5),
+                () {
+                  getDir().then((value) {
+                    setState(() {
+                      dir = value;
+                    });
                   });
-                });
-                showDialog(
+                  showDialog(
                     context: context,
                     builder: (ctx) {
-                      return CustomAlert();
-                    }).then(
-                  (value) {
-                    if (value == false) {
-                      print('ovo se desi');
+                      return ProgressionIndicator();
+                    },
+                  ).then(
+                    (value) {
                       //Navigator.of(context).pop();
-                      setState(() {
-                        dialog = false;
-                      });
-                    } else {
-                      print('ovo se desi!');
                       showDialog(
                         context: context,
                         builder: (ctx) {
-                          return ProgressionIndicator();
+                          return MessageHadis();
                         },
-                      ).then(
-                        (value) {
-                          //Navigator.of(context).pop();
-                          showDialog(
-                            context: context,
-                            builder: (ctx) {
-                              return MessageHadis();
-                            },
-                          ).then((value) {
-                            setState(() {
-                              done = true;
-                            });
-                          });
-                        },
-                      );
-                    }
-                  },
-                );
-              })
+                      ).then((value) {
+                        setState(() {
+                          done = true;
+                        });
+                      });
+                    },
+                  );
+                },
+              ),
             }
           else if (val)
             {

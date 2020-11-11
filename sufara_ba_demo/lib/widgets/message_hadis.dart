@@ -7,7 +7,7 @@ class MessageHadis extends StatelessWidget {
     SizeConfig().init(context);
     return SimpleDialog(
       title: Text(
-        "Poruka dana",
+        "Hvala na preuzimanju Sufare",
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.w400,
@@ -16,11 +16,11 @@ class MessageHadis extends StatelessWidget {
       ),
       children: [
         Container(
-          height: SizeConfig.blockSizeVertical * 30,
+          height: SizeConfig.blockSizeVertical * 26,
           width: SizeConfig.blockSizeHorizontal * 28,
           padding: EdgeInsets.symmetric(
             horizontal: SizeConfig.blockSizeHorizontal * 3,
-            vertical: SizeConfig.blockSizeVertical * 2,
+            vertical: SizeConfig.blockSizeVertical * 1,
           ),
           child: Column(
             children: [
