@@ -389,14 +389,17 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                           ),
                         ),
                         child: Center(
-                          child: Text(
-                            'IZGOVOR',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              fontSize: 20,
+                          child: FittedBox(
+                            fit: BoxFit.fill,
+                            child: Text(
+                              'IZGOVOR',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),

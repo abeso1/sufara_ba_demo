@@ -6,6 +6,14 @@ class MessageHadis extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SimpleDialog(
+      title: Text(
+        "Poruka dana",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto",
+        ),
+      ),
       children: [
         Container(
           height: SizeConfig.blockSizeVertical * 30,
@@ -43,11 +51,14 @@ class MessageHadis extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text(
-                    'Zatvori prozor',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.white,
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: Text(
+                      'Zatvori prozor',
+                      style: TextStyle(
+                        fontSize: 28,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   onPressed: () {

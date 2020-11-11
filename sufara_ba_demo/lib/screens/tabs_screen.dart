@@ -36,23 +36,23 @@ class _TabsScreensState extends State<TabsScreens> {
         this._locale = locale;
       });
       print(_locale.countryCode);
-              if (_locale.countryCode == "US") {
-          setState(() {
-            widget.lang = "english";
-            widget.buttonColorBosanski = Colors.grey[300];
-            widget.buttonColorEnglish = Colors.white;
-            widget.textColorBosanski = Colors.grey;
-            widget.textColorEnglish = Colors.black;
-          });
-        } else if (_locale.countryCode == "BS") {
-          setState(() {
-            widget.lang = "bosanski";
-            widget.buttonColorBosanski = Colors.white;
-            widget.buttonColorEnglish = Colors.grey[300];
-            widget.textColorBosanski = Colors.black;
-            widget.textColorEnglish = Colors.grey;
-          });
-        }
+      if (_locale.countryCode == "US") {
+        setState(() {
+          widget.lang = "english";
+          widget.buttonColorBosanski = Colors.grey[300];
+          widget.buttonColorEnglish = Colors.white;
+          widget.textColorBosanski = Colors.grey;
+          widget.textColorEnglish = Colors.black;
+        });
+      } else if (_locale.countryCode == "BS") {
+        setState(() {
+          widget.lang = "bosanski";
+          widget.buttonColorBosanski = Colors.white;
+          widget.buttonColorEnglish = Colors.grey[300];
+          widget.textColorBosanski = Colors.black;
+          widget.textColorEnglish = Colors.grey;
+        });
+      }
     });
     super.didChangeDependencies();
   }
@@ -118,7 +118,7 @@ class _TabsScreensState extends State<TabsScreens> {
                           ],
                         ),
                       ),
-                      width: SizeConfig.blockSizeHorizontal * 18,
+                      width: SizeConfig.blockSizeHorizontal * 20,
                       height: SizeConfig.blockSizeVertical * 3,
                       child: RaisedButton(
                         onPressed: () {
@@ -126,11 +126,14 @@ class _TabsScreensState extends State<TabsScreens> {
                             Language(1, "Bosanski", "bs"),
                           );
                         },
-                        child: Text(
-                          'Bosanski',
-                          style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal * 2.5,
-                            color: widget.textColorBosanski,
+                        child: FittedBox(
+                          fit: BoxFit.fill,
+                          child: Text(
+                            'Bosanski',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: widget.textColorBosanski,
+                            ),
                           ),
                         ),
                         color: widget.buttonColorBosanski,
@@ -155,7 +158,7 @@ class _TabsScreensState extends State<TabsScreens> {
                           ],
                         ),
                       ),
-                      width: SizeConfig.blockSizeHorizontal * 17,
+                      width: SizeConfig.blockSizeHorizontal * 18,
                       height: SizeConfig.blockSizeVertical * 3,
                       child: RaisedButton(
                         onPressed: () {
@@ -163,11 +166,14 @@ class _TabsScreensState extends State<TabsScreens> {
                             Language(2, "English", "en"),
                           );
                         },
-                        child: Text(
-                          'English',
-                          style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal * 2.5,
-                            color: widget.textColorEnglish,
+                        child: FittedBox(
+                          fit: BoxFit.fill,
+                          child: Text(
+                            'English',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: widget.textColorEnglish,
+                            ),
                           ),
                         ),
                         color: widget.buttonColorEnglish,

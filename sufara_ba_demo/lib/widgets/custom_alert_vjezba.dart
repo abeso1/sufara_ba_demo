@@ -31,11 +31,14 @@ class CustomAlertVjezba extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text(
-                    'Zatvori prozor',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.white,
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: Text(
+                      'Zatvori prozor',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   onPressed: () {
