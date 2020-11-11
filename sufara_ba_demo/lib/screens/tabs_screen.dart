@@ -35,7 +35,7 @@ class _TabsScreensState extends State<TabsScreens> {
       setState(() {
         this._locale = locale;
       });
-      print(_locale.countryCode);
+      //print(_locale.countryCode);
       if (_locale.countryCode == "US") {
         setState(() {
           widget.lang = "english";
@@ -65,7 +65,7 @@ class _TabsScreensState extends State<TabsScreens> {
       setState(() {
         this._locale = locale;
       });
-      print(_locale.countryCode + "ovdje sam");
+      //print(_locale.countryCode + "ovdje sam");
       if (_locale.countryCode == "US") {
         setState(() {
           widget.lang = "english";

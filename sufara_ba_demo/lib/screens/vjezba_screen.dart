@@ -13,6 +13,7 @@ import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
 
 class VjezbaScreen extends StatefulWidget {
@@ -55,7 +56,19 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     if (widget.player.state == AudioPlayerState.PLAYING) {
       widget.player.stop();
     }
-    super.dispose();
+    print('izlaz iz vjzebe');
+    if (indexColor != 5) {
+      showDialog(
+        context: context,
+        builder: (ctx) {
+          return CustomAlert();
+        },
+      ).then((value) {
+        if (value == true) {
+        } else {}
+      });
+    }
+    //super.dispose();
   }
 
   setHarfs() {

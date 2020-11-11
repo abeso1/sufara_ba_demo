@@ -15,7 +15,6 @@ class Vjezbe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('happende');
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(

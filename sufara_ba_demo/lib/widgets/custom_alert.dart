@@ -17,7 +17,7 @@ class _CustomAlertState extends State<CustomAlert> {
         vertical: SizeConfig.blockSizeVertical * 5,
       ),
       title: Text(
-        'Preuzmi potrebne podatke za aplikaciju?',
+        'Jeste li sigurni da želite napustiti vježbu?',
         textAlign: TextAlign.center,
       ),
       children: [
