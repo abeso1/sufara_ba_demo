@@ -10,7 +10,7 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 class TabsScreens extends StatefulWidget {
   final String dir;
   Color buttonColorBosanski = Colors.white;
-  Color buttonColorEnglish = Colors.grey[300];
+  Color buttonColorEnglish = Colors.transparent;
   Color textColorBosanski = Colors.black;
   Color textColorEnglish = Colors.grey;
   String lang = "bosanski";
@@ -61,6 +61,29 @@ class _TabsScreensState extends State<TabsScreens> {
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
     SizeConfig().init(context);
+    getLocale().then((locale) {
+      setState(() {
+        this._locale = locale;
+      });
+      print(_locale.countryCode + "ovdje sam");
+      if (_locale.countryCode == "US") {
+        setState(() {
+          widget.lang = "english";
+          widget.buttonColorBosanski = Colors.transparent;
+          widget.buttonColorEnglish = Colors.white;
+          widget.textColorBosanski = Colors.grey;
+          widget.textColorEnglish = Colors.black;
+        });
+      } else if (_locale.countryCode == "BS") {
+        setState(() {
+          widget.lang = "bosanski";
+          widget.buttonColorBosanski = Colors.white;
+          widget.buttonColorEnglish = Colors.transparent;
+          widget.textColorBosanski = Colors.black;
+          widget.textColorEnglish = Colors.grey;
+        });
+      }
+    });
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -104,7 +127,7 @@ class _TabsScreensState extends State<TabsScreens> {
                 child: Row(
                   children: [
                     Container(
-                      decoration: BoxDecoration(
+                      /*decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
@@ -117,7 +140,7 @@ class _TabsScreensState extends State<TabsScreens> {
                             Colors.blue[900]
                           ],
                         ),
-                      ),
+                      ),*/
                       width: SizeConfig.blockSizeHorizontal * 20,
                       height: SizeConfig.blockSizeVertical * 3,
                       child: RaisedButton(
@@ -144,8 +167,9 @@ class _TabsScreensState extends State<TabsScreens> {
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(
+                      /*decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Box,
                         gradient: LinearGradient(
                           begin: Alignment.bottomLeft,
                           end: Alignment.topRight,
@@ -157,7 +181,7 @@ class _TabsScreensState extends State<TabsScreens> {
                             Colors.blue[900]
                           ],
                         ),
-                      ),
+                      ),*/
                       width: SizeConfig.blockSizeHorizontal * 18,
                       height: SizeConfig.blockSizeVertical * 3,
                       child: RaisedButton(

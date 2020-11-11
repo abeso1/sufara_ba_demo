@@ -50,10 +50,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
             ),
             location: RibbonLocation.topEnd,
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal * 2,
-                vertical: SizeConfig.blockSizeVertical * 2,
-              ),
+              padding: EdgeInsets.all(8),
               child: Column(
                 children: [
                   Text(

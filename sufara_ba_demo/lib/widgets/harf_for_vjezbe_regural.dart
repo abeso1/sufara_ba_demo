@@ -36,10 +36,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
           //color: Colors.grey[200],
           //shadowColor: Colors.green,
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.blockSizeHorizontal * 2,
-              vertical: SizeConfig.blockSizeVertical * 2,
-            ),
+            padding: EdgeInsets.all(8),
             child: Column(
               children: [
                 Text(
