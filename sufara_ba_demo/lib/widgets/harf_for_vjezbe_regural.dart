@@ -16,10 +16,9 @@ class HarfWidgetForVjezbe extends StatefulWidget {
 }
 
 class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
-
-
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
@@ -37,7 +36,10 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
           //color: Colors.grey[200],
           //shadowColor: Colors.green,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: SizeConfig.blockSizeHorizontal * 2,
+              vertical: SizeConfig.blockSizeVertical * 2,
+            ),
             child: Column(
               children: [
                 Text(
