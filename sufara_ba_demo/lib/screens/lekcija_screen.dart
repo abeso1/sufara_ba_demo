@@ -58,7 +58,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 Timer(Duration(milliseconds: value), () {
                   setState(() {
                     widget.colorIndex = -1;
-                    Navigator.of(context).pop();
                   });
                 });
               });
@@ -73,7 +72,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 Timer(Duration(milliseconds: value), () {
                   setState(() {
                     widget.colorIndex = -1;
-                    Navigator.of(context).pop();
                   });
                 });
               });
