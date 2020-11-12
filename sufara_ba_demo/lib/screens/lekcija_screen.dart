@@ -49,29 +49,34 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         Duration(milliseconds: 0),
         () async {
           if (harf.images[index]['audio'].isEmpty) {
-            await widget.player.play(
-                '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
-                isLocal: true);
-            setState(() {});
-            Timer(Duration(milliseconds: 10), () {
-              widget.player.getDuration().then((value) {
-                Timer(Duration(milliseconds: value), () {
-                  setState(() {
-                    widget.colorIndex = -1;
+            await widget.player
+                .play('$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                    isLocal: true)
+                .then((value) {
+              setState(() {});
+              Timer(Duration(milliseconds: 10), () {
+                widget.player.getDuration().then((value) {
+                  Timer(Duration(milliseconds: value), () {
+                    setState(() {
+                      widget.colorIndex = -1;
+                    });
                   });
                 });
               });
             });
           } else {
-            await widget.player.play(
-                '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
-                isLocal: true);
-            setState(() {});
-            Timer(Duration(milliseconds: 10), () {
-              widget.player.getDuration().then((value) {
-                Timer(Duration(milliseconds: value), () {
-                  setState(() {
-                    widget.colorIndex = -1;
+            await widget.player
+                .play(
+                    '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                    isLocal: true)
+                .then((value) {
+              setState(() {});
+              Timer(Duration(milliseconds: 10), () {
+                widget.player.getDuration().then((value) {
+                  Timer(Duration(milliseconds: value), () {
+                    setState(() {
+                      widget.colorIndex = -1;
+                    });
                   });
                 });
               });
@@ -182,18 +187,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: widget.colorIndex == -1
-                                ? () {
-                                    playAudio(widget.harf, 0);
-                                    //ovo se moze dodati ako ko zeli
-                                    /*showDialog(
+                              ? () {
+                                  playAudio(widget.harf, 0);
+                                  //ovo se moze dodati ako ko zeli
+                                  /*showDialog(
                                       context: context,
                                       builder: (ctx) {
                                         return DialogPicture(
                                             '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
                                       },
                                     );*/
-                                  }
-                                : () {},
+                                }
+                              : () {},
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
@@ -203,18 +208,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: widget.colorIndex == -1
-                                ? () {
-                                    playAudio(widget.harf, 1);
-                                    //ovo se moze dodati ako ko zeli
-                                    /*showDialog(
+                              ? () {
+                                  playAudio(widget.harf, 1);
+                                  //ovo se moze dodati ako ko zeli
+                                  /*showDialog(
                                       context: context,
                                       builder: (ctx) {
                                         return DialogPicture(
                                             '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
                                       },
                                     );*/
-                                  }
-                                : () {},
+                                }
+                              : () {},
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
@@ -224,18 +229,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: widget.colorIndex == -1
-                                ? () {
-                                    playAudio(widget.harf, 2);
-                                    //ovo se moze dodati ako ko zeli
-                                    /*showDialog(
+                              ? () {
+                                  playAudio(widget.harf, 2);
+                                  //ovo se moze dodati ako ko zeli
+                                  /*showDialog(
                                       context: context,
                                       builder: (ctx) {
                                         return DialogPicture(
                                             '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
                                       },
                                     );*/
-                                  }
-                                : () {},
+                                }
+                              : () {},
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
