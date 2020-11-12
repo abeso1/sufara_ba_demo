@@ -7,7 +7,7 @@ class MessageHadis extends StatelessWidget {
     SizeConfig().init(context);
     return SimpleDialog(
       title: Text(
-        "Hvala na preuzimanju Sufare",
+        "Želimo Vam uspješno učenje sufare",
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.w400,

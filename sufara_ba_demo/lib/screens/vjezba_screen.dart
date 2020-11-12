@@ -56,19 +56,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     if (widget.player.state == AudioPlayerState.PLAYING) {
       widget.player.stop();
     }
-    print('izlaz iz vjzebe');
-    if (indexColor != 5) {
-      showDialog(
-        context: context,
-        builder: (ctx) {
-          return CustomAlert();
-        },
-      ).then((value) {
-        if (value == true) {
-        } else {}
-      });
-    }
-    //super.dispose();
+    super.dispose();
   }
 
   setHarfs() {
@@ -236,7 +224,8 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Scaffold(
+    return WillPopScope(
+      child: Scaffold(
         appBar: AppBar(
           leading: BackButton(
             color: Colors.white,
@@ -423,6 +412,21 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               ),
             ),
           ],
-        ));
+        ),
+      ),
+      onWillPop: () => showDialog<bool>(
+        context: context,
+        builder: (ctx) {
+          return CustomAlert();
+        },
+      ).then(
+        (value) {
+          if (value == true) {
+            return true;
+          }
+          return false;
+        },
+      ),
+    );
   }
 }
