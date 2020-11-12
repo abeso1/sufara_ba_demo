@@ -44,6 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     });
                   });
                   showDialog(
+                    barrierDismissible: false,
                     context: context,
                     builder: (ctx) {
                       return ProgressionIndicator();
@@ -52,6 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     (value) {
                       //Navigator.of(context).pop();
                       showDialog(
+                        barrierDismissible: false,
                         context: context,
                         builder: (ctx) {
                           return MessageHadis();

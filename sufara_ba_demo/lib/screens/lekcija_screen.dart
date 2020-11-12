@@ -252,6 +252,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 () {
                                   firstButton = Colors.blue;
                                   showDialog(
+                                    barrierDismissible: false,
                                     context: context,
                                     child: AlertDialog(
                                       actions: [
@@ -334,6 +335,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 setState(() {
                                   secondButton = Colors.orange;
                                   showDialog(
+                                    barrierDismissible: false,
                                     context: context,
                                     child: AlertDialog(
                                       title: Text(
@@ -431,6 +433,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                   thirdButton = Colors.red;
                                 });
                                 showDialog(
+                                  barrierDismissible: false,
                                   context: context,
                                   child: SimpleDialog(
                                     children: [

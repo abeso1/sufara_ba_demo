@@ -120,6 +120,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         x = x - 2;
         prefs.setData('vjezba$x');
         showDialog(
+          barrierDismissible: false,
             context: context,
             builder: (ctx) {
               return CustomAlertVjezba();
@@ -415,6 +416,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         ),
       ),
       onWillPop: () => showDialog<bool>(
+        barrierDismissible: false,
         context: context,
         builder: (ctx) {
           return CustomAlert();
