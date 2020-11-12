@@ -59,21 +59,6 @@ class _CustomAlertState extends State<CustomAlert> {
         SizedBox(
           height: SizeConfig.blockSizeVertical * 3,
         ),
-
-        ///ovo je drugi neki nacin za progression
-        /*progres ? Container(
-          child: SizedBox(
-            width: double.infinity,
-            height: SizeConfig.blockSizeVertical * 3,
-            child: LinearProgressIndicator(
-              minHeight: 10,
-              value: 0.0,
-              backgroundColor: Colors.grey,
-            ),
-          ),
-        ) : Container(
-          height: SizeConfig.blockSizeVertical * 2,
-        ),*/
       ],
     );
   }

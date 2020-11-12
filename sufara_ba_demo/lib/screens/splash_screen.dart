@@ -6,7 +6,6 @@ import 'package:sufara_ba_demo/data/hadis_data.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/screens/tabs_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
-import 'package:sufara_ba_demo/widgets/custom_alert.dart';
 import 'package:sufara_ba_demo/widgets/message_hadis.dart';
 import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;

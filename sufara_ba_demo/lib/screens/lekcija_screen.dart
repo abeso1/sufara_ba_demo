@@ -22,6 +22,7 @@ class LekcijaScreen extends StatefulWidget {
   int mjesto = 3;
   final Opis opis = Opis();
   final OpisNaslov nalsov = OpisNaslov();
+  int colorIndex = -1;
 
   LekcijaScreen(this.harf, this.dir);
 
@@ -36,28 +37,51 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   Color thirdButton = Colors.red;
 
   playAudio(HarfModel harf, int index) async {
-    int x = 0;
+    setState(() {
+      widget.colorIndex = index;
+      print(widget.colorIndex.toString() + " " + index.toString());
+    });
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('$dir/audio/${harf.id}/${harf.images[index]}.mp3');
     if (widget.player.state == AudioPlayerState.PLAYING) {
-      widget.player.getDuration().then((value) => x = value);
+    } else {
+      Timer(
+        Duration(milliseconds: 0),
+        () async {
+          if (harf.images[index]['audio'].isEmpty) {
+            await widget.player.play(
+                '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                isLocal: true);
+            setState(() {});
+            Timer(Duration(milliseconds: 10), () {
+              widget.player.getDuration().then((value) {
+                Timer(Duration(milliseconds: value), () {
+                  setState(() {
+                    widget.colorIndex = -1;
+                    Navigator.of(context).pop();
+                  });
+                });
+              });
+            });
+          } else {
+            await widget.player.play(
+                '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                isLocal: true);
+            setState(() {});
+            Timer(Duration(milliseconds: 10), () {
+              widget.player.getDuration().then((value) {
+                Timer(Duration(milliseconds: value), () {
+                  setState(() {
+                    widget.colorIndex = -1;
+                    Navigator.of(context).pop();
+                  });
+                });
+              });
+            });
+          }
+        },
+      );
     }
-    Timer(
-      Duration(milliseconds: x),
-      () async {
-        if (harf.images[index]['audio'].isEmpty) {
-          await widget.player.play(
-              '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
-              isLocal: true);
-          setState(() {});
-        } else {
-          await widget.player.play(
-              '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
-              isLocal: true);
-          setState(() {});
-        }
-      },
-    );
   }
 
   @override
@@ -523,52 +547,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       ],
                     ),
                   ),
-                  //ovdje naslov harfa/
-                  /*
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 1,
-                    ),
-                    child: Text(
-                      widget.harf.lekcijaIliVjezbaIndex,
-                      style: TextStyle(
-                          fontSize: 26,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  //ovjde ide opis harfa
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 1,
-                    ),
-                    child: widget.opis.getOpis(int.parse(widget.harf.id) - 1),
-                    /*Text(
-                      widget.harf.opis,
-                      //ovako izleda bolje nego kad je centriran
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),*/
-                  ),
-                  //slika grla
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal * 12,
-                      vertical: SizeConfig.blockSizeVertical * 12,
-                    ),
-                    child: Image.asset(
-                      'svg/back_img/throat-e.jpg',
-                      height: SizeConfig.blockSizeVertical * 45,
-                      fit: BoxFit.fill,
-                    ),
-                  ),*/
                   //oblici
                   Container(
                     child: StaggeredGridView.countBuilder(
@@ -580,15 +558,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: widget.harf.images.length,
-                      //gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      //  crossAxisCount: 3,
-                      //childAspectRatio: 3/2,
-                      //  mainAxisSpacing: SizeConfig.blockSizeVertical * 1,
-                      //  crossAxisSpacing: SizeConfig.blockSizeHorizontal * 1,
-                      //),
                       crossAxisCount: 3,
                       staggeredTileBuilder: (int index) {
-                        print(widget.mjesto);
+                        //print(widget.mjesto);
                         int x = widget.harf.images[index]['name'].length;
                         int y = (x / 7).ceil();
                         if (y > 3) y = 3;
@@ -629,21 +601,40 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         return StaggeredTile.fit(y);
                       },
                       itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            playAudio(widget.harf, index);
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            elevation: 10,
-                            child: SvgPicture.file(
-                              File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
+                        return Opacity(
+                          opacity: (widget.colorIndex == -1 ||
+                                  widget.colorIndex == index)
+                              ? 1
+                              : 0.3,
+                          child: GestureDetector(
+                            onTap: widget.colorIndex == -1
+                                ? () {
+                                    playAudio(widget.harf, index);
+                                    //ovo se moze dodati ako ko zeli
+                                    /*showDialog(
+                                      context: context,
+                                      builder: (ctx) {
+                                        return DialogPicture(
+                                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
+                                      },
+                                    );*/
+                                  }
+                                : null,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              height: SizeConfig.blockSizeVertical * 15,
-                              //color: Colors.green,
+                              color: index == widget.colorIndex
+                                  ? kon_boja
+                                  : Colors.white,
+                              elevation: 10,
+                              child: SvgPicture.file(
+                                File(
+                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
+                                ),
+                                height: SizeConfig.blockSizeVertical * 15,
+                                //color: Colors.green,
+                              ),
                             ),
                           ),
                         );
