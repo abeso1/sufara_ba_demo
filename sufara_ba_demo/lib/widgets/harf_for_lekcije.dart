@@ -18,7 +18,6 @@ class HarfWidgetForLekcije extends StatefulWidget {
 }
 
 class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
-
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
@@ -39,28 +38,17 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
             borderRadius: BorderRadius.circular(15),
           ),
           elevation: 15,
-          //shadowColor: Colors.green,
-
-          //*//*Ovako se dodaje ribon na lekcije ako treba */
-
-          //child: Ribbon(
-          //  farLength: 60,
-          //  nearLength: 30,
-          //  title: 'Zavrseno',
-          //  titleStyle: TextStyle(
-          //    color: Colors.green,
-          //  ),
-          //  location: RibbonLocation.topEnd,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              
               Column(
                 children: [
                   Container(
                     width: SizeConfig.blockSizeHorizontal * 20,
                     height: SizeConfig.blockSizeVertical * 13,
                     padding: EdgeInsets.only(
-                      left: SizeConfig.blockSizeHorizontal * 7,
+                      left: SizeConfig.blockSizeHorizontal * 5,
                       top: SizeConfig.blockSizeHorizontal * 1,
                     ),
                     child: SvgPicture.file(
