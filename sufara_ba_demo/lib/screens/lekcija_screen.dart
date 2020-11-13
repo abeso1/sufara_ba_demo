@@ -379,7 +379,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       title: Text(
                                         "Ishodište",
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
+                                          //fontWeight: FontWeight.bold,
                                           color: Colors.red,
                                           fontSize:
                                               SizeConfig.blockSizeVertical * 4,
@@ -389,17 +389,25 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                       content: Container(
                                         height:
-                                            SizeConfig.blockSizeVertical * 48,
+                                            SizeConfig.blockSizeVertical * 50,
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              widget.harf.imageIshodiste,
-                                              width: SizeConfig
-                                                      .blockSizeHorizontal *
-                                                  90,
-                                              height:
-                                                  SizeConfig.blockSizeVertical *
-                                                      40,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  width: SizeConfig.blockSizeVertical * 1,
+                                                  color: Colors.blue[100],
+                                                ),
+                                              ),
+                                              child: Image.asset(
+                                                widget.harf.imageIshodiste,
+                                                width: SizeConfig
+                                                        .blockSizeHorizontal *
+                                                    90,
+                                                height: SizeConfig
+                                                        .blockSizeVertical *
+                                                    40,
+                                              ),
                                             ),
                                             SizedBox(
                                               height: SizeConfig
