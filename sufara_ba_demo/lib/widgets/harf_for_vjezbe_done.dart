@@ -54,7 +54,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
               child: Column(
                 children: [
                   Text(
-                    '${widget.harf.id}. vjezba',
+                    '${widget.harf.id}. vježba',
                     style: TextStyle(
                       color: Colors.grey,
                     ),

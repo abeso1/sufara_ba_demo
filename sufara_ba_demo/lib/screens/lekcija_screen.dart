@@ -300,10 +300,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
-                                          child: Text(
-                                            'Zatvori prozor',
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                          child: FittedBox(
+                                            fit: BoxFit.fill,
+                                            child: Text(
+                                              'Zatvori prozor',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -374,12 +377,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     context: context,
                                     child: AlertDialog(
                                       title: Text(
-                                        "Ishodiste",
+                                        "Ishodište",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.red,
                                           fontSize:
                                               SizeConfig.blockSizeVertical * 4,
+                                          fontFamily: "Roboto",
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -411,10 +415,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                               ),
-                                              child: Text(
-                                                'Zatvori prozor',
-                                                style: TextStyle(
-                                                    color: Colors.white),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Text(
+                                                  'Zatvori prozor',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
                                               ),
                                             )
                                           ],
@@ -439,7 +446,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       color: Colors.white,
                                     ),
                                     Text(
-                                      'ISHODISTE',
+                                      'ISHODIŠTE',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -489,10 +496,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),
-                                            child: Text(
-                                              'Zatvori prozor',
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                                            child: FittedBox(
+                                              fit: BoxFit.fill,
+                                              child: Text(
+                                                'Zatvori prozor',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
                                             ),
                                           )
                                         ],
