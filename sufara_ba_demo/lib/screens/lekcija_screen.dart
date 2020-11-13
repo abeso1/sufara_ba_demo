@@ -159,19 +159,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           width: SizeConfig.safeBlockHorizontal * 1,
                         ),
                         GestureDetector(
-                          onTap: widget.colorIndex == -1
-                              ? () {
+                          onTap: () {
                                   playAudio(widget.harf, 0);
-                                  //ovo se moze dodati ako ko zeli
-                                  /*showDialog(
-                                      context: context,
-                                      builder: (ctx) {
-                                        return DialogPicture(
-                                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
-                                      },
-                                    );*/
-                                }
-                              : () {},
+                                },
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
@@ -180,19 +170,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           ),
                         ),
                         GestureDetector(
-                          onTap: widget.colorIndex == -1
-                              ? () {
+                          onTap: () {
                                   playAudio(widget.harf, 1);
-                                  //ovo se moze dodati ako ko zeli
-                                  /*showDialog(
-                                      context: context,
-                                      builder: (ctx) {
-                                        return DialogPicture(
-                                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
-                                      },
-                                    );*/
-                                }
-                              : () {},
+                                },
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
@@ -201,19 +181,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           ),
                         ),
                         GestureDetector(
-                          onTap: widget.colorIndex == -1
-                              ? () {
+                          onTap: () {
                                   playAudio(widget.harf, 2);
-                                  //ovo se moze dodati ako ko zeli
-                                  /*showDialog(
-                                      context: context,
-                                      builder: (ctx) {
-                                        return DialogPicture(
-                                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
-                                      },
-                                    );*/
-                                }
-                              : () {},
+                                },
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
