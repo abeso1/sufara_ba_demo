@@ -37,10 +37,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   Color thirdButton = Colors.red;
 
   playAudio(HarfModel harf, int index) async {
-    setState(() {
-      widget.colorIndex = index;
-      print(widget.colorIndex.toString() + " " + index.toString());
-    });
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print('$dir/audio/${harf.id}/${harf.images[index]}.mp3');
     if (widget.player.state == AudioPlayerState.PLAYING) {
@@ -49,38 +45,15 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         Duration(milliseconds: 0),
         () async {
           if (harf.images[index]['audio'].isEmpty) {
-            await widget.player
-                .play('$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
-                    isLocal: true)
-                .whenComplete(() {
-              setState(() {});
-              Timer(Duration(milliseconds: 10), () {
-                widget.player.onDurationChanged.listen((val) {
-                  Timer(val, () {
-                    setState(() {
-                      widget.colorIndex = -1;
-                    });
-                  });
-                });
-              });
-            });
+            await widget.player.play(
+                '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                isLocal: true);
+            setState(() {});
           } else {
-            await widget.player
-                .play(
-                    '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
-                    isLocal: true)
-                .whenComplete(() {
-              setState(() {});
-              Timer(Duration(milliseconds: 10), () {
-                widget.player.onDurationChanged.listen((val) {
-                  Timer(val, () {
-                    setState(() {
-                      widget.colorIndex = -1;
-                    });
-                  });
-                });
-              });
-            });
+            await widget.player.play(
+                '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                isLocal: true);
+            setState(() {});
           }
         },
       );
@@ -395,7 +368,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                             Container(
                                               decoration: BoxDecoration(
                                                 border: Border.all(
-                                                  width: SizeConfig.blockSizeVertical * 1,
+                                                  width: SizeConfig
+                                                          .blockSizeVertical *
+                                                      1,
                                                   color: Colors.blue[100],
                                                 ),
                                               ),
@@ -655,40 +630,21 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         return StaggeredTile.fit(y);
                       },
                       itemBuilder: (context, index) {
-                        return Opacity(
-                          opacity: (widget.colorIndex == -1 ||
-                                  widget.colorIndex == index)
-                              ? 1
-                              : 0.3,
-                          child: GestureDetector(
-                            onTap: widget.colorIndex == -1
-                                ? () {
-                                    playAudio(widget.harf, index);
-                                    //ovo se moze dodati ako ko zeli
-                                    /*showDialog(
-                                      context: context,
-                                      builder: (ctx) {
-                                        return DialogPicture(
-                                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg');
-                                      },
-                                    );*/
-                                  }
-                                : null,
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+                        return GestureDetector(
+                          onTap: () {
+                            playAudio(widget.harf, index);
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            elevation: 10,
+                            child: SvgPicture.file(
+                              File(
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                               ),
-                              color: index == widget.colorIndex
-                                  ? kon_boja
-                                  : Colors.white,
-                              elevation: 10,
-                              child: SvgPicture.file(
-                                File(
-                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
-                                ),
-                                height: SizeConfig.blockSizeVertical * 15,
-                                //color: Colors.green,
-                              ),
+                              height: SizeConfig.blockSizeVertical * 15,
+                              //color: Colors.green,
                             ),
                           ),
                         );
