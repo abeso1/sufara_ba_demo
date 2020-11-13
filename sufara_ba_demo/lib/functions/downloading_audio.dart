@@ -22,38 +22,32 @@ class Download extends ChangeNotifier {
       print('postoji');
     }
     //ovo treba
-    return (io.Directory('$dir/audio/1').existsSync() &&
-      io.Directory('$dir/svg/1').existsSync());
-    //return false;
+    //return (io.Directory('$dir/audio/1').existsSync() &&
+        //io.Directory('$dir/svg/1').existsSync());
+    return false;
   }
 
   //ovo radi
   Future<io.File> downloadFile(
       String url, String filename, Function notifyListeners) async {
-    //progress = 0.11;
     var request = await httpClient.getUrl(Uri.parse(url));
-    progress += 0.03;
-    notifyListeners(() {});
+      progress += 0.03;
+      notifyListeners(() {});
     var response = await request.close();
-    print('$progress');
-    progress += 0.03;
-    notifyListeners(() {});
+      progress += 0.03;
+      notifyListeners(() {});
     var bytes = await consolidateHttpClientResponseBytes(response);
-    print('3$progress');
-    progress += 0.03;
-    notifyListeners(() {});
+      progress += 0.03;
+      notifyListeners(() {});
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('4$progress');
-    progress += 0.03;
-    notifyListeners(() {});
+      progress += 0.03;
+      notifyListeners(() {});
     io.File file = new io.File('$dir/$filename');
-    print('5$progress');
-    progress += 0.03;
-    notifyListeners(() {});
+      progress += 0.03;
+      notifyListeners(() {});
     await file.writeAsBytes(bytes);
-    print('6$progress');
-    progress += 0.03;
-    print('$dir/$filename');
+      progress += 0.03;
+      print('$dir/$filename');
     notifyListeners(() {});
     return file;
   }

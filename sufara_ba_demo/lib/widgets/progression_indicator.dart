@@ -26,6 +26,16 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
     // progress = Provider.of<Download>(context, listen: false).progress;
     SizeConfig().init(context);
     return SimpleDialog(
+      title: FittedBox(
+        child: Text(
+          "Preuzimanje potrebnih podataka",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 23,
+            fontFamily: "Roboto",
+          ),
+        ),
+      ),
       children: [
         StatefulBuilder(
           builder: (context, setState) {
@@ -49,44 +59,52 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
             }
 
             return Container(
-              height: 150,
-              width: 150,
+              //height: 150,
+              //width: 150,
               padding: EdgeInsets.symmetric(
-                horizontal: 5,
-                vertical: 5,
+                horizontal: 10,
+                vertical: 10,
               ),
               child: Stack(
                 //fit: StackFit.expand,
                 children: [
                   Center(
                     child: SizedBox(
-                      height: 110,
-                      width: 110,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 12,
+                      height: SizeConfig.blockSizeVertical * 4,
+                      width: SizeConfig.blockSizeHorizontal * 60,
+                      child: LinearProgressIndicator(
+                        minHeight: 10,
                         value: progress,
+                        backgroundColor: Colors.green[100],
                       ),
                     ),
                   ),
-                  Center(
+                  /*(Center(
                     child: Text(
                       '${(progress * 100).toStringAsFixed(0)}%',
                       style: TextStyle(
                         fontSize: 23,
                       ),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             );
           },
         ),
         Container(
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
+          //height: SizeConfig.blockSizeVertical * 9,
+          padding: EdgeInsets.symmetric(
+            horizontal: SizeConfig.blockSizeHorizontal * 9,
+            vertical: SizeConfig.blockSizeVertical * 1,
+          ),
+          child: FittedBox(
+            child: Text(
+              "Saburom je džennet prekriven! \nStrpi se, Allah je na strani strpljivih..",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 13,
+              ),
             ),
           ),
         ),

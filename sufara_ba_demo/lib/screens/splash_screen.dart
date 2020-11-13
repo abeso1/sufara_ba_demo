@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     if (done) {
-      Timer(Duration(seconds: 5), () {
+      Timer(Duration(seconds: 3), () {
         Navigator.of(context).pop(
           MaterialPageRoute(
             builder: (context) => TabsScreens(dir),
@@ -117,7 +117,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             fit: BoxFit.fill,
             colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.12), BlendMode.dstATop),
+                Colors.black.withOpacity(0.10), BlendMode.dstATop),
           ),
         ),
         child: Center(
@@ -139,7 +139,13 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: SizeConfig.blockSizeVertical * 20,
                 fit: BoxFit.fitWidth,
               ),*/
+              SizedBox(
+                height: SizeConfig.blockSizeVertical * 7,
+              ),
               Container(
+                decoration: BoxDecoration(
+                  color: Colors.green[40],
+                ),
                 margin: EdgeInsets.symmetric(
                   horizontal: SizeConfig.blockSizeHorizontal * 15,
                 ),

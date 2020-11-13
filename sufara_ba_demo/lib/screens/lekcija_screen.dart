@@ -52,11 +52,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
             await widget.player
                 .play('$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
                     isLocal: true)
-                .then((value) {
+                .whenComplete(() {
               setState(() {});
               Timer(Duration(milliseconds: 10), () {
-                widget.player.getDuration().then((value) {
-                  Timer(Duration(milliseconds: value), () {
+                widget.player.onDurationChanged.listen((val) {
+                  Timer(val, () {
                     setState(() {
                       widget.colorIndex = -1;
                     });
@@ -69,11 +69,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 .play(
                     '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
                     isLocal: true)
-                .then((value) {
+                .whenComplete(() {
               setState(() {});
               Timer(Duration(milliseconds: 10), () {
-                widget.player.getDuration().then((value) {
-                  Timer(Duration(milliseconds: value), () {
+                widget.player.onDurationChanged.listen((val) {
+                  Timer(val, () {
                     setState(() {
                       widget.colorIndex = -1;
                     });
