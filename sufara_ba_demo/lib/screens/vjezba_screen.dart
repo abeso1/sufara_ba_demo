@@ -233,7 +233,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            '${widget.harf.id}. vjezba',
+            '${widget.harf.id}. vježba',
             //textAlign: TextAlign.right,
             style: TextStyle(
               fontWeight: FontWeight.w300,
@@ -272,7 +272,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         left: SizeConfig.blockSizeHorizontal * 6),
                     width: SizeConfig.blockSizeHorizontal * 100,
                     child: Text(
-                      'Vjezba',
+                      'Vježba',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 30,
