@@ -127,8 +127,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             }).then(
           (value) => {
             Navigator.of(context).pop(),
-            Navigator.of(context).pop(),
-            Navigator.of(context).push(
+            Navigator.of(context).pushReplacement(
               MaterialPageRoute(
                 builder: (context) => TabsScreens(
                   widget.dir,
