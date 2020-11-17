@@ -120,7 +120,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         x = x - 2;
         prefs.setData('vjezba$x');
         showDialog(
-          barrierDismissible: false,
+            barrierDismissible: false,
             context: context,
             builder: (ctx) {
               return CustomAlertVjezba();
@@ -253,7 +253,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         body: Column(
           children: [
             Container(
-              height: SizeConfig.blockSizeVertical * 15,
+              height: SizeConfig.blockSizeVertical * 13,
               width: SizeConfig.blockSizeHorizontal * 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -303,15 +303,66 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                 ],
               ),
             ),
+            //klikom poslusajte
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockSizeVertical * 2,
+                horizontal: SizeConfig.blockSizeHorizontal * 3,
+              ),
+              child: SizedBox(
+                width: SizeConfig.blockSizeVertical * 90,
+                height: SizeConfig.blockSizeVertical * 12,
+                child: Container(
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      width: 5,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  child: Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 6,
+                      ),
+                      Icon(
+                        Icons.report_outlined,
+                        size: SizeConfig.blockSizeHorizontal * 10,
+                        color: Colors.blue,
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 1,
+                      ),
+                      Flexible(
+                        child: Text(
+                          'Poslušajte izgovor i odaberite tačan odgovor.',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: SizeConfig.blockSizeHorizontal * 5,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 3,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             //ovdje idu 3 kartice i button za izgovor
             //ovdje koristim listview samo jer znam da idu 3 slikice one i button
             //mozda ako bude trebalo napravim odvojen ovaj widget
             Container(
               padding: EdgeInsets.symmetric(
-                vertical: SizeConfig.blockSizeVertical * 5,
+                vertical: SizeConfig.blockSizeVertical * 1,
                 horizontal: SizeConfig.safeBlockHorizontal * 15,
               ),
-              height: SizeConfig.blockSizeVertical * 73,
+              height: SizeConfig.blockSizeVertical * 59,
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
                 children: [
@@ -327,7 +378,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     child: jedan,
                   ),
                   SizedBox(
-                    height: SizeConfig.blockSizeVertical * 3,
+                    height: SizeConfig.blockSizeVertical * 1,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -341,7 +392,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     child: dva,
                   ),
                   SizedBox(
-                    height: SizeConfig.blockSizeVertical * 3,
+                    height: SizeConfig.blockSizeVertical * 1,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -355,12 +406,12 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     child: tri,
                   ),
                   SizedBox(
-                    height: SizeConfig.blockSizeVertical * 3,
+                    height: SizeConfig.blockSizeVertical * 1,
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeHorizontal * 2,
-                      vertical: SizeConfig.blockSizeVertical * 2,
+                      vertical: SizeConfig.blockSizeVertical * 1,
                     ),
                     width: SizeConfig.safeBlockHorizontal * 95,
                     child: LinearProgressIndicator(
@@ -370,25 +421,43 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       valueColor: _valueColors[indexColor],
                     ),
                   ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 1,
+                  ),
                   Container(
                     height: SizeConfig.blockSizeVertical * 6,
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeVertical * 7,
                     ),
-                    child: GestureDetector(
-                      onTap: () {
+                    child: RaisedButton(
+                      onPressed: () {
                         playAudio(widget.harf, tacan);
                       },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      padding: EdgeInsets.all(0),
+                      elevation: 5,
                       child: Container(
                         //padding: EdgeInsets.symmetric(
                         //  horizontal: SizeConfig.blockSizeVertical * 7,
                         //  vertical: SizeConfig.blockSizeVertical * 1.25,
                         //),
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           gradient: LinearGradient(
                             colors: [kon_boja, poc_boja],
                           ),
+                          //boxShadow: [
+                          //BoxShadow(
+                          //color: Colors.lightGreen[100],
+                          //blurRadius: 2.0,
+                          //spreadRadius: 0.0,
+                          //offset: Offset(
+                          //    2.0, 2.0), // shadow direction: bottom right
+                          //)
+                          //],
                         ),
                         child: Center(
                           child: FittedBox(
