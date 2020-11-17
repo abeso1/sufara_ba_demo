@@ -126,8 +126,8 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               return CustomAlertVjezba();
             }).then(
           (value) => {
-            Navigator.of(context).pop(),
-            Navigator.of(context).pushReplacement(
+            //Navigator.of(context).pop(),
+            Navigator.of(context).pop(
               MaterialPageRoute(
                 builder: (context) => TabsScreens(
                   widget.dir,
