@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart' as path;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Download extends ChangeNotifier {
   static var httpClient = new io.HttpClient();
@@ -17,14 +18,17 @@ class Download extends ChangeNotifier {
   }
 
   Future<bool> checkFile() async {
-    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    bool povratni = sharedPreferences.getBool('preuzeto') ?? false;
+    return povratni;
+    /*String dir = (await path.getApplicationDocumentsDirectory()).path;
     if (io.Directory('$dir/audio/1').existsSync()) {
       print('postoji');
     }
     //ovo treba
     return (io.Directory('$dir/audio/1').existsSync() &&
         io.Directory('$dir/svg/1').existsSync());
-    //return false;
+    //return false;*/
   }
 
   //ovo radi

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,7 +44,10 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
               progress = download.downloadProgress;
               print(progress);
               if (progress > 0.99290) {
-                Timer(Duration(milliseconds: 200), () {
+                Timer(Duration(milliseconds: 200), () async {
+                  SharedPreferences sharedPreferences =
+                      await SharedPreferences.getInstance();
+                  sharedPreferences.setBool('preuzeto', true);
                   Navigator.of(context).pop();
                 });
               }
@@ -79,14 +83,6 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                       ),
                     ),
                   ),
-                  /*(Center(
-                    child: Text(
-                      '${(progress * 100).toStringAsFixed(0)}%',
-                      style: TextStyle(
-                        fontSize: 23,
-                      ),
-                    ),
-                  ),*/
                 ],
               ),
             );
