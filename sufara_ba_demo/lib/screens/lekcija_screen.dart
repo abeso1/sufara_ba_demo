@@ -160,19 +160,19 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                                  playAudio(widget.harf, 0);
-                                },
+                            playAudio(widget.harf, 2);
+                          },
                           child: SvgPicture.file(
                             File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                                  playAudio(widget.harf, 1);
-                                },
+                            playAudio(widget.harf, 1);
+                          },
                           child: SvgPicture.file(
                             File(
                                 '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
@@ -182,11 +182,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                                  playAudio(widget.harf, 2);
-                                },
+                            playAudio(widget.harf, 0);
+                          },
                           child: SvgPicture.file(
                             File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
+                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
                             width: SizeConfig.blockSizeHorizontal * 16,
                             color: Colors.white,
                           ),
@@ -558,15 +558,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       scrollDirection: Axis.vertical,
                       itemCount: widget.harf.images.length,
                       crossAxisCount: 3,
+                      reverse: true,
                       staggeredTileBuilder: (int index) {
-                        //print(widget.mjesto);
+                        index = widget.harf.images.length - index - 1;
                         int x = widget.harf.images[index]['name'].length;
                         int y = (x / 7).ceil();
                         if (y > 3) y = 3;
-
+                        if (index == 0) return StaggeredTile.fit(widget.mjesto);
                         int z = 0, w = 0;
-                        int c = index + 1;
-                        if (c == widget.harf.images.length) {
+                        int c = index - 1;
+                        if (c == 0) {
                           int u = widget.mjesto;
                           widget.mjesto = 3;
                           return StaggeredTile.fit(u);
@@ -600,6 +601,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         return StaggeredTile.fit(y);
                       },
                       itemBuilder: (context, index) {
+                        index = widget.harf.images.length - index - 1;
                         return GestureDetector(
                           onTap: () {
                             playAudio(widget.harf, index);
