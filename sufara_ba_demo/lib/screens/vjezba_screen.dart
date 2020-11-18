@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
@@ -47,6 +48,14 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     AlwaysStoppedAnimation(Colors.yellow),
     AlwaysStoppedAnimation(Colors.lightGreen),
     AlwaysStoppedAnimation(Colors.green),
+  ];
+  List<Color> _backValueColors = [
+    Colors.red[100],
+    Colors.red[100],
+    Colors.orange[100],
+    Colors.yellow[100],
+    Colors.lightGreen[100],
+    Colors.green[100],
   ];
   SharedPrefs prefs = SharedPrefs();
   bool playing = false;
@@ -414,11 +423,14 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       vertical: SizeConfig.blockSizeVertical * 1,
                     ),
                     width: SizeConfig.safeBlockHorizontal * 95,
-                    child: LinearProgressIndicator(
-                      minHeight: SizeConfig.blockSizeVertical * 2,
-                      backgroundColor: _color,
+                    height: SizeConfig.blockSizeVertical * 4,
+                    child: LiquidLinearProgressIndicator(
+                      //minHeight: SizeConfig.blockSizeVertical * 2,
+                      backgroundColor: _backValueColors[indexColor],
                       value: indexColor / 5,
                       valueColor: _valueColors[indexColor],
+                      direction: Axis.horizontal,
+                      borderRadius: 10,
                     ),
                   ),
                   SizedBox(
@@ -459,20 +471,33 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                           //)
                           //],
                         ),
-                        child: Center(
-                          child: FittedBox(
-                            fit: BoxFit.fill,
-                            child: Text(
-                              'IZGOVOR',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white,
-                                fontSize: 20,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              Icons.replay,
+                              color: Colors.white,
+                              size: SizeConfig.blockSizeVertical * 4.5,
+                            ),
+                            Center(
+                              child: FittedBox(
+                                fit: BoxFit.fill,
+                                child: Text(
+                                  'IZGOVOR',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                            SizedBox(
+                              width: SizeConfig.blockSizeHorizontal * 1,
+                            )
+                          ],
                         ),
                       ),
                     ),
