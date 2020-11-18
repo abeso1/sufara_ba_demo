@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
@@ -16,6 +17,22 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
   String text = 'Preuzimanje podataka...';
   Download download = Download();
   bool isInit = true;
+  List<AlwaysStoppedAnimation<MaterialColor>> _valueColors = [
+    AlwaysStoppedAnimation(Colors.red),
+    //AlwaysStoppedAnimation(Colors.red),
+    AlwaysStoppedAnimation(Colors.orange),
+    AlwaysStoppedAnimation(Colors.yellow),
+    AlwaysStoppedAnimation(Colors.lightGreen),
+    AlwaysStoppedAnimation(Colors.green),
+  ];
+  List<Color> _backValueColors = [
+    Colors.red[100],
+    //Colors.red[100],
+    Colors.orange[100],
+    Colors.yellow[100],
+    Colors.lightGreen[100],
+    Colors.green[100],
+  ];
 
   @override
   void initState() {
@@ -76,10 +93,21 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                     child: SizedBox(
                       height: SizeConfig.blockSizeVertical * 4,
                       width: SizeConfig.blockSizeHorizontal * 60,
-                      child: LinearProgressIndicator(
-                        minHeight: 10,
-                        value: progress,
-                        backgroundColor: Colors.green[100],
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                        child: LinearProgressIndicator(
+                          backgroundColor:
+                              _backValueColors[((progress * 100) / 20).floor()],
+                          valueColor:
+                              _valueColors[((progress * 100) / 20).floor()],
+                          //minHeight: 10,
+                          //borderRadius: 15,
+                          //direction: Axis.horizontal,
+                          value: progress,
+                          //backgroundColor: Colors.green[100],
+                        ),
                       ),
                     ),
                   ),
