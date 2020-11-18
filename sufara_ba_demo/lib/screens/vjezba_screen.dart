@@ -59,6 +59,15 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     Colors.lightGreen[100],
     Colors.green[100],
   ];
+  List<Color> _borderColors = [
+    Colors.red,
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.lightGreen,
+    Colors.green,
+  ];
+
   SharedPrefs prefs = SharedPrefs();
   bool playing = false;
 
@@ -465,7 +474,8 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                               ],
                             ),
                             //strokeWidth: 10,
-                            // borderColor: Colors.red,
+                            borderWidth: 3,
+                            borderColor: _borderColors[indexColor],
                             // borderWidth: 5.0,
                             // direction: Axis.vertical,
                             //borderRadius: 10,
