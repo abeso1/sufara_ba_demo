@@ -97,14 +97,14 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
                         ),
-                        child: LiquidLinearProgressIndicator(
+                        child: LinearProgressIndicator(
                           backgroundColor:
                               _backValueColors[((progress * 100) / 20).floor()],
                           valueColor:
                               _valueColors[((progress * 100) / 20).floor()],
                           //minHeight: 10,
                           //borderRadius: 15,
-                          direction: Axis.horizontal,
+                          //direction: Axis.horizontal,
                           value: progress,
                           //backgroundColor: Colors.green[100],
                         ),

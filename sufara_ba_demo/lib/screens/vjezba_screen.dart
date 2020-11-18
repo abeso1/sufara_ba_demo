@@ -1,3 +1,4 @@
+  
 import 'dart:async';
 import 'dart:math';
 
@@ -366,7 +367,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       ),
                       Flexible(
                         child: Text(
-                          'Poslušajte izgovor i odaberite tacan odgovor.',
+                          'Poslušajte izgovor i odaberite tačan odgovor.',
                           style: TextStyle(
                             color: Colors.blue,
                             fontSize: SizeConfig.blockSizeHorizontal * 5,
@@ -437,122 +438,88 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     height: SizeConfig.blockSizeVertical * 1,
                   ),
                   Container(
-                    //width: SizeConfig.safeBlockHorizontal * 50,
-                    //height: SizeConfig.blockSizeVertical * 4,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: SizeConfig.blockSizeHorizontal * 5,
-                        ),
-                        Container(
-                          //padding: EdgeInsets.symmetric(
-                          //  horizontal: SizeConfig.blockSizeHorizontal * 2,
-                          //  vertical: SizeConfig.blockSizeVertical * 1,
-                          //),
-                          width: 50,
-                          height: 50,
-                          child: LiquidCircularProgressIndicator(
-                            //minHeight: SizeConfig.blockSizeVertical * 2,
-                            backgroundColor: _backValueColors[indexColor],
-                            value: indexColor / 5,
-                            valueColor: _valueColors[indexColor],
-                            center: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                SizedBox(
-                                  width: SizeConfig.blockSizeHorizontal * 3,
-                                ),
-                                Text(
-                                  indexColor.toString(),
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Text(
-                                  "/5",
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                              ],
-                            ),
-                            //strokeWidth: 10,
-                            borderWidth: 3,
-                            borderColor: _borderColors[indexColor],
-                            // borderWidth: 5.0,
-                            // direction: Axis.vertical,
-                            //borderRadius: 10,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal * 2,
+                      vertical: SizeConfig.blockSizeVertical * 1,
+                    ),
+                    width: SizeConfig.safeBlockHorizontal * 95,
+                    height: SizeConfig.blockSizeVertical * 4,
+                    child: LiquidLinearProgressIndicator(
+                      //minHeight: SizeConfig.blockSizeVertical * 2,
+                      backgroundColor: _backValueColors[indexColor],
+                      value: indexColor / 5,
+                      valueColor: _valueColors[indexColor],
+                      direction: Axis.horizontal,
+                      borderRadius: 10,
+                    ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 1,
+                  ),
+                  Container(
+                    height: SizeConfig.blockSizeVertical * 6,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeVertical * 7,
+                    ),
+                    child: RaisedButton(
+                      onPressed: () {
+                        playAudio(widget.harf, tacan);
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      padding: EdgeInsets.all(0),
+                      elevation: 5,
+                      child: Container(
+                        //padding: EdgeInsets.symmetric(
+                        //  horizontal: SizeConfig.blockSizeVertical * 7,
+                        //  vertical: SizeConfig.blockSizeVertical * 1.25,
+                        //),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: LinearGradient(
+                            colors: [kon_boja, poc_boja],
                           ),
+                          //boxShadow: [
+                          //BoxShadow(
+                          //color: Colors.lightGreen[100],
+                          //blurRadius: 2.0,
+                          //spreadRadius: 0.0,
+                          //offset: Offset(
+                          //    2.0, 2.0), // shadow direction: bottom right
+                          //)
+                          //],
                         ),
-                        SizedBox(
-                          width: SizeConfig.blockSizeHorizontal * 4,
-                        ),
-                        Container(
-                          height: SizeConfig.blockSizeVertical * 6,
-                          width: SizeConfig.blockSizeHorizontal * 45,
-                          //padding: EdgeInsets.symmetric(
-                          //horizontal: SizeConfig.blockSizeVertical * 7,
-                          //),
-                          child: RaisedButton(
-                            onPressed: () {
-                              playAudio(widget.harf, tacan);
-                            },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              Icons.replay,
+                              color: Colors.white,
+                              size: SizeConfig.blockSizeVertical * 4.5,
                             ),
-                            padding: EdgeInsets.all(0),
-                            elevation: 5,
-                            child: Container(
-                              //padding: EdgeInsets.symmetric(
-                              //  horizontal: SizeConfig.blockSizeVertical * 7,
-                              //  vertical: SizeConfig.blockSizeVertical * 1.25,
-                              //),
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                gradient: LinearGradient(
-                                  colors: [kon_boja, poc_boja],
-                                ),
-                                //boxShadow: [
-                                //BoxShadow(
-                                //color: Colors.lightGreen[100],
-                                //blurRadius: 2.0,
-                                //spreadRadius: 0.0,
-                                //offset: Offset(
-                                //    2.0, 2.0), // shadow direction: bottom right
-                                //)
-                                //],
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.replay,
+                            Center(
+                              child: FittedBox(
+                                fit: BoxFit.fill,
+                                child: Text(
+                                  'IZGOVOR',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.normal,
                                     color: Colors.white,
-                                    size: SizeConfig.blockSizeVertical * 4.5,
+                                    fontSize: 20,
                                   ),
-                                  Center(
-                                    child: FittedBox(
-                                      fit: BoxFit.fill,
-                                      child: Text(
-                                        'IZGOVOR',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontFamily: 'Roboto',
-                                          fontWeight: FontWeight.normal,
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: SizeConfig.blockSizeHorizontal * 1,
-                                  )
-                                ],
+                                ),
                               ),
                             ),
-                          ),
+                            SizedBox(
+                              width: SizeConfig.blockSizeHorizontal * 1,
+                            )
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ],
