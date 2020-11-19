@@ -86,15 +86,35 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       index1 = prvi;
     });
     int drugi = prvi;
-    while (drugi == prvi) {
+    bool nastavi = true;
+    while (drugi == prvi || nastavi) {
       drugi = rng.nextInt(widget.harf.images.length);
+      if(widget.harf.images[drugi]['name'] == widget.harf.images[prvi]['name'] || widget.harf.images[drugi]['name'] == widget.harf.images[prvi]['audio'] || widget.harf.images[drugi]['audio'] == widget.harf.images[prvi]['name']){
+        nastavi = true;
+      }
+      else{
+        nastavi = false;
+      }
     }
     setState(() {
       index2 = drugi;
     });
     int treci = prvi;
-    while (treci == prvi || treci == drugi) {
+    nastavi = true;
+    while (treci == prvi || treci == drugi || nastavi) {
       treci = rng.nextInt(widget.harf.images.length);
+      if(widget.harf.images[treci]['name'] == widget.harf.images[prvi]['name'] || widget.harf.images[treci]['name'] == widget.harf.images[prvi]['audio'] || widget.harf.images[treci]['audio'] == widget.harf.images[prvi]['name']){
+        nastavi = true;
+      }
+      else{
+        nastavi = false;
+      }
+      if(widget.harf.images[treci]['name'] == widget.harf.images[drugi]['name'] || widget.harf.images[treci]['name'] == widget.harf.images[drugi]['audio'] || widget.harf.images[treci]['audio'] == widget.harf.images[drugi]['name']){
+        nastavi = true;
+      }
+      else{
+        nastavi = false;
+      }
     }
     setState(() {
       index3 = treci;

@@ -35,6 +35,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   Color firstButton = Colors.blue;
   Color secondButton = Colors.orange;
   Color thirdButton = Colors.red;
+  TransformationController controller = TransformationController();
 
   playAudio(HarfModel harf, int index) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -344,14 +345,21 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                   color: Colors.blue[100],
                                                 ),
                                               ),
-                                              child: Image.asset(
-                                                widget.harf.imageIshodiste,
-                                                width: SizeConfig
-                                                        .blockSizeHorizontal *
-                                                    90,
-                                                height: SizeConfig
-                                                        .blockSizeVertical *
-                                                    40,
+                                              child: InteractiveViewer(
+                                                transformationController: controller,
+                                                onInteractionEnd: (ScaleEndDetails endDetails) {
+                                                  controller.value = Matrix4.identity();
+                                                },
+                                                //constrained: false,
+                                                child: Image.asset(
+                                                  widget.harf.imageIshodiste,
+                                                  width: SizeConfig
+                                                          .blockSizeHorizontal *
+                                                      90,
+                                                  height: SizeConfig
+                                                          .blockSizeVertical *
+                                                      40,
+                                                ),
                                               ),
                                             ),
                                             SizedBox(
