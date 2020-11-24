@@ -212,7 +212,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
               DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
         });
       }
-      if (indexColor == 10) {
+      if (indexColor == 20) {
         int x = 23;
         x = x - 2;
         prefs.setData('vjezba$x');
@@ -521,9 +521,9 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                     child: LiquidLinearProgressIndicator(
                       //minHeight: SizeConfig.blockSizeVertical * 2,
                       backgroundColor:
-                          _backValueColors[(indexColor / 2).floor()],
-                      value: indexColor / 10,
-                      valueColor: _valueColors[(indexColor / 2).floor()],
+                          _backValueColors[(indexColor / 4).floor()],
+                      value: indexColor / 20,
+                      valueColor: _valueColors[(indexColor / 4).floor()],
                       direction: Axis.horizontal,
                       borderRadius: 10,
                     ),

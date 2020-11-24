@@ -164,7 +164,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           tri = CardForVjezbeTrue(widget.harf, index3, widget.dir);
         });
       }
-      if (indexColor == 5) {
+      if (indexColor == 10) {
         int x = int.parse(widget.harf.id);
         x = x - 2;
         prefs.setData('vjezba$x');
@@ -466,9 +466,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     height: SizeConfig.blockSizeVertical * 4,
                     child: LiquidLinearProgressIndicator(
                       //minHeight: SizeConfig.blockSizeVertical * 2,
-                      backgroundColor: _backValueColors[indexColor],
-                      value: indexColor / 5,
-                      valueColor: _valueColors[indexColor],
+                      backgroundColor: _backValueColors[(indexColor/2).floor()],
+                      value: indexColor / 10,
+                      valueColor: _valueColors[(indexColor/2).floor()],
                       direction: Axis.horizontal,
                       borderRadius: 10,
                     ),
