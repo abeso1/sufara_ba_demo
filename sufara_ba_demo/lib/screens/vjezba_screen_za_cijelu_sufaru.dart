@@ -41,9 +41,9 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
   Widget jedan;
   Widget dva;
   Widget tri;
-  int lekcija1;
-  int lekcija2;
-  int lekcija3;
+  int lekcija1 = 0;
+  int lekcija2 = 0;
+  int lekcija3 = 0;
   Color _color = Colors.grey;
   int indexColor = 0;
   List<AlwaysStoppedAnimation<MaterialColor>> _valueColors = [
@@ -83,10 +83,29 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
   }
 
   setHarfs() {
+    int lek1 = 0;
+    int lek2 = 0;
+    int lek3 = 0;
+       ///////ovo treba popraviti kada dodu svi fajlovi
+    while (lek1 == 0 || lek1 ==20 || lek1==5) {
+      lek1 = rng.nextInt(22);
+    }
+    while (lek2 == 0|| lek2 ==20 || lek2==5) {
+      lek2 = rng.nextInt(22);
+    }
+    while (lek3 == 0|| lek3 ==20 || lek3==5) {
+      lek3 = rng.nextInt(22);
+    }
     setState(() {
-      lekcija1 = rng.nextInt(22);
-      lekcija2 = rng.nextInt(22);
-      lekcija3 = rng.nextInt(22);
+      lekcija1 = lek1;
+      lekcija2 = lek2;
+      lekcija3 = lek3;
+      print("lekcija1 " +
+          lekcija1.toString() +
+          " lekcija2 " +
+          lekcija2.toString() +
+          " lekcija3 " +
+          lekcija3.toString());
     });
     int prvi = rng.nextInt(DummyData.listHarfDummyData[lekcija1].images.length);
     setState(() {
@@ -184,14 +203,16 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
         });
       } else if (i == 1) {
         setState(() {
-          dva = CardForVjezbeTrue(DummyData.listHarfDummyData[lekcija2], index2, widget.dir);
+          dva = CardForVjezbeTrue(
+              DummyData.listHarfDummyData[lekcija2], index2, widget.dir);
         });
       } else if (i == 2) {
         setState(() {
-          tri = CardForVjezbeTrue(DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
+          tri = CardForVjezbeTrue(
+              DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
         });
       }
-      if (indexColor == 5) {
+      if (indexColor == 10) {
         int x = 23;
         x = x - 2;
         prefs.setData('vjezba$x');
@@ -231,29 +252,35 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
       }
       if (i == 0) {
         setState(() {
-          jedan = CardForVjezbaFalse(DummyData.listHarfDummyData[lekcija1], index1, widget.dir);
+          jedan = CardForVjezbaFalse(
+              DummyData.listHarfDummyData[lekcija1], index1, widget.dir);
         });
         Timer(Duration(seconds: 1), () {
           setState(() {
-            jedan = CardForVjezbeRegural(DummyData.listHarfDummyData[lekcija1], index1, widget.dir);
+            jedan = CardForVjezbeRegural(
+                DummyData.listHarfDummyData[lekcija1], index1, widget.dir);
           });
         });
       } else if (i == 1) {
         setState(() {
-          dva = CardForVjezbaFalse(DummyData.listHarfDummyData[lekcija2], index2, widget.dir);
+          dva = CardForVjezbaFalse(
+              DummyData.listHarfDummyData[lekcija2], index2, widget.dir);
         });
         Timer(Duration(seconds: 1), () {
           setState(() {
-            dva = CardForVjezbeRegural(DummyData.listHarfDummyData[lekcija2], index2, widget.dir);
+            dva = CardForVjezbeRegural(
+                DummyData.listHarfDummyData[lekcija2], index2, widget.dir);
           });
         });
       } else if (i == 2) {
         setState(() {
-          tri = CardForVjezbaFalse(DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
+          tri = CardForVjezbaFalse(
+              DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
         });
         Timer(Duration(seconds: 1), () {
           setState(() {
-            tri = CardForVjezbeRegural(DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
+            tri = CardForVjezbeRegural(
+                DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
           });
         });
       }
@@ -493,9 +520,10 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                     height: SizeConfig.blockSizeVertical * 4,
                     child: LiquidLinearProgressIndicator(
                       //minHeight: SizeConfig.blockSizeVertical * 2,
-                      backgroundColor: _backValueColors[indexColor],
-                      value: indexColor / 5,
-                      valueColor: _valueColors[indexColor],
+                      backgroundColor:
+                          _backValueColors[(indexColor / 2).floor()],
+                      value: indexColor / 10,
+                      valueColor: _valueColors[(indexColor / 2).floor()],
                       direction: Axis.horizontal,
                       borderRadius: 10,
                     ),
@@ -510,7 +538,8 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                     ),
                     child: RaisedButton(
                       onPressed: () {
-                        playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan);
+                        playAudio(
+                            DummyData.listHarfDummyData[tacnaLekcija], tacan);
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
