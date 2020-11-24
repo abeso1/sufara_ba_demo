@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
