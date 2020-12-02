@@ -1,4 +1,3 @@
-  
 import 'dart:async';
 import 'dart:math';
 
@@ -89,10 +88,14 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     bool nastavi = true;
     while (drugi == prvi || nastavi) {
       drugi = rng.nextInt(widget.harf.images.length);
-      if(widget.harf.images[drugi]['name'] == widget.harf.images[prvi]['name'] || widget.harf.images[drugi]['name'] == widget.harf.images[prvi]['audio'] || widget.harf.images[drugi]['audio'] == widget.harf.images[prvi]['name']){
+      if (widget.harf.images[drugi]['name'] ==
+              widget.harf.images[prvi]['name'] ||
+          widget.harf.images[drugi]['name'] ==
+              widget.harf.images[prvi]['audio'] ||
+          widget.harf.images[drugi]['audio'] ==
+              widget.harf.images[prvi]['name']) {
         nastavi = true;
-      }
-      else{
+      } else {
         nastavi = false;
       }
     }
@@ -103,16 +106,24 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     nastavi = true;
     while (treci == prvi || treci == drugi || nastavi) {
       treci = rng.nextInt(widget.harf.images.length);
-      if(widget.harf.images[treci]['name'] == widget.harf.images[prvi]['name'] || widget.harf.images[treci]['name'] == widget.harf.images[prvi]['audio'] || widget.harf.images[treci]['audio'] == widget.harf.images[prvi]['name']){
+      if (widget.harf.images[treci]['name'] ==
+              widget.harf.images[prvi]['name'] ||
+          widget.harf.images[treci]['name'] ==
+              widget.harf.images[prvi]['audio'] ||
+          widget.harf.images[treci]['audio'] ==
+              widget.harf.images[prvi]['name']) {
         nastavi = true;
-      }
-      else{
+      } else {
         nastavi = false;
       }
-      if(widget.harf.images[treci]['name'] == widget.harf.images[drugi]['name'] || widget.harf.images[treci]['name'] == widget.harf.images[drugi]['audio'] || widget.harf.images[treci]['audio'] == widget.harf.images[drugi]['name']){
+      if (widget.harf.images[treci]['name'] ==
+              widget.harf.images[drugi]['name'] ||
+          widget.harf.images[treci]['name'] ==
+              widget.harf.images[drugi]['audio'] ||
+          widget.harf.images[treci]['audio'] ==
+              widget.harf.images[drugi]['name']) {
         nastavi = true;
-      }
-      else{
+      } else {
         nastavi = false;
       }
     }
@@ -320,11 +331,12 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     padding: EdgeInsets.only(
                         left: SizeConfig.blockSizeHorizontal * 6),
                     width: SizeConfig.blockSizeHorizontal * 100,
+                    height: SizeConfig.blockSizeVertical * 5,
                     child: Text(
                       'Vježba',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 30,
+                        fontSize: SizeConfig.blockSizeVertical * 4.4,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                         fontFamily: 'Roboto',
@@ -335,17 +347,23 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     height: SizeConfig.blockSizeVertical * 1,
                   ),
                   Container(
+                    height: SizeConfig.blockSizeVertical * 5,
                     padding: EdgeInsets.only(
-                        left: SizeConfig.blockSizeHorizontal * 6),
+                      left: SizeConfig.blockSizeHorizontal * 6,
+                      //right: SizeConfig.blockSizeHorizontal * 5,
+                    ),
                     width: SizeConfig.blockSizeHorizontal * 100,
-                    child: Text(
-                      widget.harf.name,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
+                    child: Flexible(
+                      //fit: BoxFit.fitHeight,
+                      child: Text(
+                        widget.harf.name,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: SizeConfig.blockSizeVertical * 4,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                          fontFamily: 'Roboto',
+                        ),
                       ),
                     ),
                   ),
@@ -355,7 +373,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             //klikom poslusajte
             Padding(
               padding: EdgeInsets.symmetric(
-                vertical: SizeConfig.blockSizeVertical * 2,
+                vertical: SizeConfig.blockSizeVertical * 1,
                 horizontal: SizeConfig.blockSizeHorizontal * 3,
               ),
               child: SizedBox(
@@ -408,10 +426,10 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
             //mozda ako bude trebalo napravim odvojen ovaj widget
             Container(
               padding: EdgeInsets.symmetric(
-                vertical: SizeConfig.blockSizeVertical * 1,
+                //vertical: SizeConfig.blockSizeVertical * 1,
                 horizontal: SizeConfig.safeBlockHorizontal * 15,
               ),
-              height: SizeConfig.blockSizeVertical * 59,
+              height: SizeConfig.blockSizeVertical * 56,
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
                 children: [
@@ -466,9 +484,10 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     height: SizeConfig.blockSizeVertical * 4,
                     child: LiquidLinearProgressIndicator(
                       //minHeight: SizeConfig.blockSizeVertical * 2,
-                      backgroundColor: _backValueColors[(indexColor/2).floor()],
+                      backgroundColor:
+                          _backValueColors[(indexColor / 2).floor()],
                       value: indexColor / 10,
-                      valueColor: _valueColors[(indexColor/2).floor()],
+                      valueColor: _valueColors[(indexColor / 2).floor()],
                       direction: Axis.horizontal,
                       borderRadius: 10,
                     ),

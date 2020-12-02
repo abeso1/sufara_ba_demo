@@ -378,7 +378,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                       'Vježba',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 30,
+                        fontSize: SizeConfig.blockSizeVertical * 5,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                         fontFamily: 'Roboto',
@@ -396,7 +396,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                       "Cijela Sufara",
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: SizeConfig.blockSizeVertical * 4.4,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                         fontFamily: 'Roboto',
@@ -409,7 +409,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
             //klikom poslusajte
             Padding(
               padding: EdgeInsets.symmetric(
-                vertical: SizeConfig.blockSizeVertical * 2,
+                vertical: SizeConfig.blockSizeVertical * 1,
                 horizontal: SizeConfig.blockSizeHorizontal * 3,
               ),
               child: SizedBox(
@@ -462,10 +462,10 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
             //mozda ako bude trebalo napravim odvojen ovaj widget
             Container(
               padding: EdgeInsets.symmetric(
-                vertical: SizeConfig.blockSizeVertical * 1,
+                //vertical: SizeConfig.blockSizeVertical * 1,
                 horizontal: SizeConfig.safeBlockHorizontal * 15,
               ),
-              height: SizeConfig.blockSizeVertical * 59,
+              height: SizeConfig.blockSizeVertical * 56,
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
                 children: [
