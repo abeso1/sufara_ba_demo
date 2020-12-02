@@ -27,7 +27,10 @@ class Lekcije extends StatelessWidget {
       ),
       // ovdje ide listview
       child: ListView.builder(
-        padding: const EdgeInsets.all(25),
+        padding: EdgeInsets.symmetric(
+          vertical: SizeConfig.blockSizeVertical * 3,
+          horizontal: SizeConfig.blockSizeHorizontal * 4,
+        ),
         itemCount: listHarf.length,
         itemBuilder: (context, index) {
           return HarfWidgetForLekcije(listHarf[index], dir);

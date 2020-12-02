@@ -31,7 +31,10 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(
+          vertical: SizeConfig.blockSizeVertical * 1,
+          horizontal: SizeConfig.blockSizeHorizontal * 1,
+        ),
         height: SizeConfig.blockSizeVertical * 18,
         child: Card(
           shape: RoundedRectangleBorder(

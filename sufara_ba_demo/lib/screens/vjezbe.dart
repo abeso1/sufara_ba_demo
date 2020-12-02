@@ -52,11 +52,14 @@ class Vjezbe extends StatelessWidget {
               clipBehavior: Clip.none,
               physics: ScrollPhysics(),
               shrinkWrap: true,
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockSizeVertical * 3,
+                horizontal: SizeConfig.blockSizeHorizontal * 4,
+              ),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
+                crossAxisSpacing: SizeConfig.blockSizeVertical * 2,
+                mainAxisSpacing: SizeConfig.blockSizeHorizontal * 3,
               ),
               itemBuilder: (context, index) {
                 int i = index - 1;

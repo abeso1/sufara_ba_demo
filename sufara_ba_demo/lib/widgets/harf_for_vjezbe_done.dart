@@ -53,14 +53,17 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
               padding: EdgeInsets.all(8),
               child: Column(
                 children: [
-                  Text(
-                    '${widget.harf.id}. vježba',
-                    style: TextStyle(
-                      color: Colors.grey,
+                  Flexible(
+                    //fit: BoxFit.fill,
+                    child: Text(
+                      '${widget.harf.id}. vježba',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: SizeConfig.blockSizeVertical * 1,
                   ),
                   SvgPicture.file(
                     File(
@@ -69,7 +72,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
                     height: SizeConfig.blockSizeVertical * 10,
                   ),
                   SizedBox(
-                    height: 10,
+                    height: SizeConfig.blockSizeVertical * 2,
                   ),
                   FittedBox(
                     fit: BoxFit.fill,
