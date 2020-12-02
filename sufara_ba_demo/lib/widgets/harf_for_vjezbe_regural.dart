@@ -35,26 +35,30 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
           elevation: 15,
           //color: Colors.grey[200],
           //shadowColor: Colors.green,
-          child: Padding(
+          child: Container(
             padding: EdgeInsets.all(8),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
-                                  child: Text(
+                  child: Text(
                     '${widget.harf.id}. vježba',
                     style: TextStyle(
                       color: Colors.grey,
                     ),
                   ),
                 ),
+                //SizedBox(
+                //  height: SizeConfig.blockSizeVertical * 2,
+                //),
                 SizedBox(
-                  height: SizeConfig.blockSizeVertical * 2,
-                ),
-                SvgPicture.file(
-                  File(
-                      '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
-                  color: Colors.green,
-                  height: SizeConfig.blockSizeVertical * 10,
+                  height: SizeConfig.blockSizeVertical * 13,
+                  child: SvgPicture.file(
+                    File(
+                        '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                    color: Colors.green,
+                    width: SizeConfig.blockSizeHorizontal * 13,
+                  ),
                 ),
                 SizedBox(
                   height: SizeConfig.blockSizeVertical * 1,

@@ -52,6 +52,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
             child: Padding(
               padding: EdgeInsets.all(8),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Flexible(
                     //fit: BoxFit.fill,
@@ -62,17 +63,20 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
                       ),
                     ),
                   ),
+                  //SizedBox(
+                  //  height: SizeConfig.blockSizeVertical * 1,
+                  //),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 13,
+                    child: SvgPicture.file(
+                      File(
+                          '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                      color: Colors.green,
+                      height: SizeConfig.blockSizeVertical * 13,
+                    ),
+                  ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 1,
-                  ),
-                  SvgPicture.file(
-                    File(
-                        '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
-                    color: Colors.green,
-                    height: SizeConfig.blockSizeVertical * 10,
-                  ),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 2,
                   ),
                   FittedBox(
                     fit: BoxFit.fill,

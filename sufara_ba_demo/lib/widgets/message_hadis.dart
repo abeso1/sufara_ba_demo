@@ -33,16 +33,17 @@ class MessageHadis extends StatelessWidget {
                   horizontal: SizeConfig.blockSizeHorizontal * 2,
                   vertical: SizeConfig.blockSizeVertical * 1,
                 ),
-                child: Flexible(
-                  child: Text(
-                    'Učite Kur\'an, jer će, uistinu, on doći na Sudnji dan kao zagovornik onima koji ga budu učili.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      //fontSize: 16,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.normal,
-                    ),
+
+                //child: Flexible(
+                child: Text(
+                  'Učite Kur\'an, jer će, uistinu, on doći na Sudnji dan kao zagovornik onima koji ga budu učili.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeVertical * 2.8,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal,
                   ),
+                  //),
                 ),
               ),
               SizedBox(

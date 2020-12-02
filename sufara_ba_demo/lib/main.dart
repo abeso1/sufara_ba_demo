@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sufara_ba_demo/data/language_constants.dart';
 import 'package:sufara_ba_demo/models/application_localizations.dart';
 import 'package:sufara_ba_demo/screens/splash_screen.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   //SharedPreferences.setMockInitialValues({});
@@ -40,6 +41,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
     return MaterialApp(
       locale: _locale,
       supportedLocales: [

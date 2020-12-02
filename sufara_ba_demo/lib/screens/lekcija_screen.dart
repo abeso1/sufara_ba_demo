@@ -205,10 +205,12 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              height: SizeConfig.blockSizeVertical * 68.2,
-              padding: EdgeInsets.symmetric(
-                vertical: SizeConfig.blockSizeVertical * 3,
-                horizontal: SizeConfig.blockSizeHorizontal * 3,
+              height: SizeConfig.blockSizeVertical * 64.5,
+              padding: EdgeInsets.fromLTRB(
+                SizeConfig.blockSizeHorizontal * 3,
+                SizeConfig.blockSizeVertical * 2,
+                SizeConfig.blockSizeHorizontal * 3,
+                0,
               ),
               width: SizeConfig.blockSizeHorizontal * 100,
               child: ListView(
@@ -231,35 +233,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 () {
                                   firstButton = Colors.blue;
                                   showDialog(
-                                    barrierDismissible: false,
+                                    //barrierDismissible: false,
                                     context: context,
                                     child: AlertDialog(
-                                      actions: [
-                                        RaisedButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          color: kon_boja,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          child: FittedBox(
-                                            fit: BoxFit.fill,
-                                            child: Text(
-                                              'Zatvori prozor',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      actionsPadding: EdgeInsets.fromLTRB(
-                                        SizeConfig.blockSizeHorizontal * 25,
-                                        0,
-                                        SizeConfig.blockSizeHorizontal * 25,
-                                        SizeConfig.blockSizeVertical * 1,
-                                      ),
                                       scrollable: true,
                                       title: Center(
                                         child: widget.nalsov.getOpis(
@@ -271,6 +247,30 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         children: [
                                           widget.opis.getOpis(
                                               int.parse(widget.harf.id) - 1),
+                                          SizedBox(
+                                            height:
+                                                SizeConfig.blockSizeVertical *
+                                                    2,
+                                          ),
+                                          RaisedButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            color: kon_boja,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: FittedBox(
+                                              fit: BoxFit.fill,
+                                              child: Text(
+                                                'Zatvori prozor',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -333,7 +333,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                       content: Container(
                                         height:
-                                            SizeConfig.blockSizeVertical * 50,
+                                            SizeConfig.blockSizeVertical * 52.8,
                                         child: Column(
                                           children: [
                                             Container(
@@ -346,16 +346,20 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                 ),
                                               ),
                                               child: InteractiveViewer(
-                                                transformationController: controller,
-                                                onInteractionEnd: (ScaleEndDetails endDetails) {
-                                                  controller.value = Matrix4.identity();
+                                                transformationController:
+                                                    controller,
+                                                onInteractionEnd:
+                                                    (ScaleEndDetails
+                                                        endDetails) {
+                                                  controller.value =
+                                                      Matrix4.identity();
                                                 },
                                                 //constrained: false,
                                                 child: Image.asset(
                                                   widget.harf.imageIshodiste,
-                                                  width: SizeConfig
-                                                          .blockSizeHorizontal *
-                                                      90,
+                                                  //width: SizeConfig
+                                                  //        .blockSizeHorizontal *
+                                                  //    90,
                                                   height: SizeConfig
                                                           .blockSizeVertical *
                                                       40,
@@ -365,7 +369,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                             SizedBox(
                                               height: SizeConfig
                                                       .blockSizeHorizontal *
-                                                  1,
+                                                  2,
                                             ),
                                             RaisedButton(
                                               onPressed: () {
@@ -653,10 +657,20 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           vertical: SizeConfig.blockSizeVertical * 2,
                         ),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            gradient:
-                                LinearGradient(colors: [kon_boja, poc_boja])),
-                        child: Center(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient:
+                              LinearGradient(colors: [kon_boja, poc_boja]),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: FittedBox(
                           child: Text(
                             //ovo treba centrirati
                             'Započni vježbu',
@@ -671,6 +685,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
                   ),
                 ],
               ),

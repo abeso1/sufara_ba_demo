@@ -353,7 +353,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       //right: SizeConfig.blockSizeHorizontal * 5,
                     ),
                     width: SizeConfig.blockSizeHorizontal * 100,
-                    child: Flexible(
+                    //child: Flexible(
                       //fit: BoxFit.fitHeight,
                       child: Text(
                         widget.harf.name,
@@ -364,7 +364,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                           color: Colors.white,
                           fontFamily: 'Roboto',
                         ),
-                      ),
+                      //),
                     ),
                   ),
                 ],
