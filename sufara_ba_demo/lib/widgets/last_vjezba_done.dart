@@ -90,11 +90,14 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
                           margin: EdgeInsets.all(
                             SizeConfig.blockSizeVertical * 1.5,
                           ),
-                          child: Text(
-                            '${23}. vjezba',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.grey,
+                          child: FittedBox(
+                            fit: BoxFit.fitHeight,
+                            child: Text(
+                              '${23}. vjezba',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ),

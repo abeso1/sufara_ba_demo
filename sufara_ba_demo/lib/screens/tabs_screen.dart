@@ -212,23 +212,32 @@ class _TabsScreensState extends State<TabsScreens> {
               )
             ],
           ),
-          bottom: TabBar(
-            labelColor: Colors.green[800],
-            unselectedLabelColor: Colors.grey,
-            tabs: [
-              Tab(
-                  child: Text(
-                getTranslated(context, 'lekcijaTabText'),
-                style: TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
-              )),
-              Tab(
-                child: Text(
-                  getTranslated(context, 'vjezbeTabText'),
-                  style:
-                      TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
+          bottom: PreferredSize(
+            preferredSize: Size(100,SizeConfig.blockSizeVertical * 7),
+            child: Container(
+              height: SizeConfig.blockSizeVertical * 5,
+              child: TabBar(
+                labelPadding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.blockSizeVertical * 0.5,
                 ),
+                labelColor: Colors.green[800],
+                unselectedLabelColor: Colors.grey,
+                tabs: [
+                  Tab(
+                      child: Text(
+                    getTranslated(context, 'lekcijaTabText'),
+                    style: TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
+                  )),
+                  Tab(
+                    child: Text(
+                      getTranslated(context, 'vjezbeTabText'),
+                      style:
+                          TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
         body: TabBarView(children: [

@@ -44,7 +44,6 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              
               Column(
                 children: [
                   Container(
@@ -68,43 +67,40 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
               //  width: SizeConfig.blockSizeHorizontal * 1,
               //),
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: SizeConfig.blockSizeHorizontal * 34,
-                        height: SizeConfig.blockSizeVertical * 3,
-                        margin: EdgeInsets.all(
-                          SizeConfig.blockSizeVertical * 1.5,
-                        ),
-                        child: Text(
-                          '${widget.harf.id}. lekcija',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        width: SizeConfig.blockSizeHorizontal * 43,
-                        child: FittedBox(
-                          fit: BoxFit.fill,
-                          child: Text(
-                            widget.harf.name,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 26,
-                            ),
-                          ),
+                  Container(
+                    width: SizeConfig.blockSizeHorizontal * 34,
+                    height: SizeConfig.blockSizeVertical * 3,
+                    margin: EdgeInsets.all(
+                      SizeConfig.blockSizeVertical * 1.5,
+                    ),
+                    child: FittedBox(
+                      fit: BoxFit.fitHeight,
+                      child: Text(
+                        '${widget.harf.id}. lekcija',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.grey,
                         ),
                       ),
-                    ],
+                    ),
                   ),
+                  Container(
+                    width: SizeConfig.blockSizeHorizontal * 43,
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        widget.harf.name,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical * 1,),
                 ],
               ),
               SizedBox(
