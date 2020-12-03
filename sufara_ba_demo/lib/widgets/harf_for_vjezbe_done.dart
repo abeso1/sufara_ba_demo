@@ -50,29 +50,35 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
             ),
             location: RibbonLocation.topEnd,
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockSizeVertical * 1,
+                horizontal: SizeConfig.blockSizeHorizontal * 2,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Flexible(
-                    //fit: BoxFit.fill,
-                    child: Text(
-                      '${widget.harf.id}. vježba',
-                      style: TextStyle(
-                        color: Colors.grey,
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                    child: FittedBox(
+                      fit: BoxFit.fitHeight,
+                      child: Text(
+                        '${widget.harf.id}. vježba',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                   ),
                   //SizedBox(
                   //  height: SizeConfig.blockSizeVertical * 1,
                   //),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 13,
+                  Expanded(
+                    //fit: BoxFit.fill,
                     child: SvgPicture.file(
                       File(
                           '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
                       color: Colors.green,
-                      height: SizeConfig.blockSizeVertical * 13,
+                      height: SizeConfig.blockSizeVertical * 20,
                     ),
                   ),
                   SizedBox(
@@ -82,7 +88,10 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
                     fit: BoxFit.fill,
                     child: Text(
                       widget.harf.name,
-                      style: TextStyle(color: Colors.black, fontSize: 25),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: SizeConfig.blockSizeVertical * 6,
+                      ),
                     ),
                   ),
                 ],

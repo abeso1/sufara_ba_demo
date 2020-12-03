@@ -36,28 +36,35 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
           //color: Colors.grey[200],
           //shadowColor: Colors.green,
           child: Container(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockSizeVertical * 1,
+                horizontal: SizeConfig.blockSizeHorizontal * 2,
+              ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Flexible(
-                  child: Text(
-                    '${widget.harf.id}. vježba',
-                    style: TextStyle(
-                      color: Colors.grey,
+                SizedBox(
+                  height: SizeConfig.blockSizeVertical * 3,
+                  child: FittedBox(
+                    fit: BoxFit.fitHeight,
+                    child: Text(
+                      '${widget.harf.id}. vježba',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                 ),
                 //SizedBox(
                 //  height: SizeConfig.blockSizeVertical * 2,
                 //),
-                SizedBox(
-                  height: SizeConfig.blockSizeVertical * 13,
+                Expanded(
+                    //fit: BoxFit.fill,
                   child: SvgPicture.file(
                     File(
                         '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
                     color: Colors.green,
-                    width: SizeConfig.blockSizeHorizontal * 13,
+                    width: SizeConfig.blockSizeHorizontal * 20,
                   ),
                 ),
                 SizedBox(
@@ -67,7 +74,10 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                   fit: BoxFit.fill,
                   child: Text(
                     widget.harf.name,
-                    style: TextStyle(color: Colors.black, fontSize: 25),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: SizeConfig.blockSizeVertical*6,
+                    ),
                   ),
                 ),
               ],
