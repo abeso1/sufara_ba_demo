@@ -36,6 +36,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   Color secondButton = Colors.orange;
   Color thirdButton = Colors.red;
   TransformationController controller = TransformationController();
+  bool showContainer = false;
 
   playAudio(HarfModel harf, int index) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -231,7 +232,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             onPressed: () {
                               setState(
                                 () {
-                                  firstButton = Colors.blue;
+                                  if (showContainer)
+                                    showContainer = false;
+                                  else
+                                    showContainer = true;
+                                  /*firstButton = Colors.blue;
                                   showDialog(
                                     //barrierDismissible: false,
                                     context: context,
@@ -274,7 +279,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         ],
                                       ),
                                     ),
-                                  );
+                                  );*/
                                 },
                               );
                             },
@@ -307,6 +312,22 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 2,
                         ),
+                        showContainer
+                            ? Container(
+                                child: Column(
+                                  children: [
+                                    widget.nalsov.getOpis(
+                                      int.parse(widget.harf.id) - 1,
+                                    ),
+                                    widget.opis
+                                        .getOpis(int.parse(widget.harf.id) - 1),
+                                    SizedBox(
+                                      height: SizeConfig.blockSizeVertical * 2,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : Container(),
                         if (widget.harf.imageIshodiste.isNotEmpty)
                           SizedBox(
                             width: SizeConfig.blockSizeVertical * 90,
