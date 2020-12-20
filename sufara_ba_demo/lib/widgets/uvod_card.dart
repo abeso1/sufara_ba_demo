@@ -7,28 +7,23 @@ import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/screens/lekcija_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 
-class HarfWidgetForLekcije extends StatefulWidget {
-  final HarfModel harf;
-  final String dir;
-
-  HarfWidgetForLekcije(this.harf, this.dir);
-
+class UvodCard extends StatefulWidget {
   @override
   _HarfWidgetForLekcijeState createState() => _HarfWidgetForLekcijeState();
 }
 
-class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
+class _HarfWidgetForLekcijeState extends State<UvodCard> {
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
     SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => LekcijaScreen(widget.harf, widget.dir),
-          ),
-        );
+        //Navigator.of(context).push(
+        //  MaterialPageRoute(
+        //      builder: (context) => LekcijaScreen(widget.harf, widget.dir),
+        //),
+        //);
       },
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -49,19 +44,18 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
                 children: [
                   Container(
                     width: SizeConfig.blockSizeHorizontal * 20,
-                    height: SizeConfig.blockSizeVertical * 13,
+                    height: SizeConfig.blockSizeVertical * 15,
                     padding: EdgeInsets.only(
-                      //left: SizeConfig.blockSizeHorizontal * 5,
+                      //left: SizeConfig.blockSizeHorizontal * 1,
                       top: SizeConfig.blockSizeHorizontal * 1,
                     ),
-                    child: SvgPicture.file(
-                      File(
-                          '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
-                      //width: SizeConfig.blockSizeHorizontal * 34,
-                      //height: SizeConfig.blockSizeVertical * 1,
-                      color: Colors.green,
+                    child: SvgPicture.asset(
+                      'svg/back_img/sufara.ba_logo_splash.svg',
+                      //width: SizeConfig.blockSizeHorizontal * 30,
+                      //height: SizeConfig.blockSizeVertical * 30,
+                      //fit: BoxFit.fitWidth,
                     ),
-                  )
+                  ),
                 ],
               ),
               //SizedBox(
@@ -79,7 +73,7 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
                     child: FittedBox(
                       fit: BoxFit.fitHeight,
                       child: Text(
-                        '${widget.harf.id}. lekcija',
+                        'Uvodna lekcija',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.grey,
@@ -88,20 +82,22 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
                     ),
                   ),
                   Container(
-                    width: SizeConfig.blockSizeHorizontal * 43,
+                    width: SizeConfig.blockSizeHorizontal * 30,
                     child: FittedBox(
-                      fit: BoxFit.fill,
+                      //fit: BoxFit.fill,
                       child: Text(
-                        widget.harf.name,
+                        "Uvod",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 26,
+                          fontSize: 16,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical * 1,),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 1,
+                  ),
                 ],
               ),
               SizedBox(
