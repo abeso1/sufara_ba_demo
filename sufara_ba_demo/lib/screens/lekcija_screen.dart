@@ -13,6 +13,7 @@ import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
+import 'package:sufara_ba_demo/widgets/table_izgovor.dart';
 import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 
 class LekcijaScreen extends StatefulWidget {
@@ -578,6 +579,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         )
                       ],
                     ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockSizeVertical * 3,
+                      horizontal: SizeConfig.blockSizeHorizontal * 3,
+                    ),
+                    child: TableIzgovor(widget.dir),
                   ),
                   //oblici
                   Container(
