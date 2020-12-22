@@ -322,8 +322,32 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     ),
                                     widget.opis
                                         .getOpis(int.parse(widget.harf.id) - 1),
-                                    SizedBox(
-                                      height: SizeConfig.blockSizeVertical * 2,
+                                    Container(
+                                      width: double.infinity,
+                                      padding: EdgeInsets.fromLTRB(
+                                        0,
+                                        SizeConfig.blockSizeHorizontal * 3,
+                                        0,
+                                        0,
+                                      ),
+                                      child: Text(
+                                        widget.harf.name,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.green[700],
+                                          fontSize:
+                                              SizeConfig.blockSizeVertical * 3,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                        0,
+                                        SizeConfig.blockSizeHorizontal * 1,
+                                        0,
+                                        SizeConfig.blockSizeVertical * 3,
+                                      ),
+                                      child: TableIzgovor(widget.dir),
                                     ),
                                   ],
                                 ),
@@ -579,13 +603,6 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         )
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockSizeVertical * 3,
-                      horizontal: SizeConfig.blockSizeHorizontal * 3,
-                    ),
-                    child: TableIzgovor(widget.dir),
                   ),
                   //oblici
                   Container(

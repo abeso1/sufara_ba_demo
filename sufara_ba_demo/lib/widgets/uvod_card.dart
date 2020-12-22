@@ -82,7 +82,7 @@ class _HarfWidgetForLekcijeState extends State<UvodCard> {
                     ),
                   ),
                   Container(
-                    width: SizeConfig.blockSizeHorizontal * 30,
+                    width: SizeConfig.blockSizeHorizontal * 20,
                     child: FittedBox(
                       //fit: BoxFit.fill,
                       child: Text(
