@@ -44,10 +44,10 @@ class _HarfWidgetForLekcijeState extends State<UvodCard> {
                 children: [
                   Container(
                     width: SizeConfig.blockSizeHorizontal * 20,
-                    height: SizeConfig.blockSizeVertical * 15,
+                    height: SizeConfig.blockSizeVertical * 14,
                     padding: EdgeInsets.only(
                       //left: SizeConfig.blockSizeHorizontal * 1,
-                      top: SizeConfig.blockSizeHorizontal * 1,
+                      top: SizeConfig.blockSizeHorizontal * 0.5,
                     ),
                     child: SvgPicture.asset(
                       'svg/back_img/sufara.ba_logo_splash.svg',
@@ -71,12 +71,13 @@ class _HarfWidgetForLekcijeState extends State<UvodCard> {
                       SizeConfig.blockSizeVertical * 1.5,
                     ),
                     child: FittedBox(
-                      fit: BoxFit.fitHeight,
+                      fit: BoxFit.scaleDown,
                       child: Text(
                         'Uvodna lekcija',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.grey,
+                          fontSize: 26,
                         ),
                       ),
                     ),
