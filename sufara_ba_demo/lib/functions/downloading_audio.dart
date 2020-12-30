@@ -42,7 +42,7 @@ class Download extends ChangeNotifier {
       progress += 0.03;
       notifyListeners(() {});
     await file.writeAsBytes(bytes);
-      progress += 0.03;
+      progress += 0.025;
       print('$dir/$filename');
     notifyListeners(() {});
     return file;
@@ -76,7 +76,7 @@ class Download extends ChangeNotifier {
     downloadFile(
             //ovaj firebaseov link radi, ali za samo mali broj korisnika
             //'https://firebasestorage.googleapis.com/v0/b/sufaramobile.appspot.com/o/audio.zip?alt=media&token=016531db-bde8-4bb3-82f2-7bc8ddf770a9',
-            'https://drive.google.com/u/1/uc?id=14IvtFtMmhs49opKX0Sts8UihRlDICqik&export=download',
+            'https://drive.google.com/u/0/uc?id=1SD00lG0UoXZzLZqcogMX2KBYLb3_G4jQ&export=download',//https://drive.google.com/u/0/uc?id=15gHE1TB3R-ov6cCLZOKDkNKqWdZBCMNU&export=download
             'audio.zip',
             notifyListeners)
         .then(
@@ -88,7 +88,7 @@ class Download extends ChangeNotifier {
 
   Future<bool> downloadAndUnzipSvg(Function notifyListeners) async {
     downloadFile(
-            'https://drive.google.com/u/1/uc?id=120Z6q-ZAwt4fazv2WV86P-OZNLX_r8bB&export=download',
+            'https://drive.google.com/u/0/uc?id=1oKBnEF531qaYS57U1uOX6guOiJUQfQA7&export=download',
             'svg.zip',
             notifyListeners)
         .then(
