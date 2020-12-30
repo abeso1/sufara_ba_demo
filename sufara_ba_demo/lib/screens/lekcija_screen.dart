@@ -220,101 +220,61 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 scrollDirection: Axis.vertical,
                 children: [
                   //three buttons
-                  Padding(
+                  Container(
+                    decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                     padding: EdgeInsets.symmetric(
                         horizontal: SizeConfig.blockSizeHorizontal * 3),
                     child: Column(
                       children: [
-                        SizedBox(
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.blue,
+                          ),
+
+                          //color: Colors.blue,
                           width: SizeConfig.blockSizeVertical * 90,
-                          height: SizeConfig.blockSizeVertical * 15,
-                          child: RaisedButton(
-                            color: firstButton,
-                            onPressed: () {
-                              setState(
-                                () {
-                                  if (showContainer)
-                                    showContainer = false;
-                                  else
-                                    showContainer = true;
-                                  /*firstButton = Colors.blue;
-                                  showDialog(
-                                    //barrierDismissible: false,
-                                    context: context,
-                                    child: AlertDialog(
-                                      scrollable: true,
-                                      title: Center(
-                                        child: widget.nalsov.getOpis(
-                                          int.parse(widget.harf.id) - 1,
-                                        ),
-                                      ),
-                                      content: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          widget.opis.getOpis(
-                                              int.parse(widget.harf.id) - 1),
-                                          SizedBox(
-                                            height:
-                                                SizeConfig.blockSizeVertical *
-                                                    2,
-                                          ),
-                                          RaisedButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            color: kon_boja,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            child: FittedBox(
-                                              fit: BoxFit.fill,
-                                              child: Text(
-                                                'Zatvori prozor',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                          //height: SizeConfig.blockSizeVertical * 15,
+                          child: ExpansionTile(
+                            backgroundColor: Colors.blue,
+                            title: Container(
+                              padding: EdgeInsets.fromLTRB(
+                                SizeConfig.blockSizeHorizontal * 11,
+                                0,
+                                0,
+                                0,
+                              ),
+                              height: SizeConfig.blockSizeVertical * 15,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(
+                                    Icons.book_outlined,
+                                    size: SizeConfig.blockSizeHorizontal * 10,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    'OPIS LEKCIJE',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          SizeConfig.blockSizeHorizontal * 7,
                                     ),
-                                  );*/
-                                },
-                              );
-                            },
-                            hoverColor: Colors.blue,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                10,
+                                  ),
+                                ],
                               ),
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Icon(
-                                  Icons.book_outlined,
-                                  size: SizeConfig.blockSizeHorizontal * 10,
-                                  color: Colors.white,
+                            children: [
+                              Container(
+                                color: Colors.white,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: SizeConfig.blockSizeVertical * 1,
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal * 2,
                                 ),
-                                Text(
-                                  'OPIS LEKCIJE',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:
-                                        SizeConfig.blockSizeHorizontal * 7,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: SizeConfig.blockSizeVertical * 2,
-                        ),
-                        showContainer
-                            ? Container(
                                 child: Column(
                                   children: [
                                     widget.nalsov.getOpis(
@@ -351,8 +311,13 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     ),
                                   ],
                                 ),
-                              )
-                            : Container(),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: SizeConfig.blockSizeVertical * 2,
+                        ),
                         if (widget.harf.imageIshodiste.isNotEmpty)
                           SizedBox(
                             width: SizeConfig.blockSizeVertical * 90,
