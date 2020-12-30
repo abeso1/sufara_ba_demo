@@ -41,7 +41,6 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   Widget jedan;
   Widget dva;
   Widget tri;
-  Color _color = Colors.grey;
   int indexColor = 0;
   List<AlwaysStoppedAnimation<MaterialColor>> _valueColors = [
     AlwaysStoppedAnimation(Colors.red),
@@ -58,14 +57,6 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     Colors.yellow[100],
     Colors.lightGreen[100],
     Colors.green[100],
-  ];
-  List<Color> _borderColors = [
-    Colors.red,
-    Colors.red,
-    Colors.orange,
-    Colors.yellow,
-    Colors.lightGreen,
-    Colors.green,
   ];
 
   SharedPrefs prefs = SharedPrefs();

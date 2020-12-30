@@ -7,7 +7,7 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 
 class TableIzgovor extends StatelessWidget {
-  String dir;
+  final String dir;
 
   TableIzgovor(this.dir);
 
@@ -111,7 +111,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '${dir}/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
+                      '$dir/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -120,7 +120,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '${dir}/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
+                      '$dir/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -129,7 +129,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '${dir}/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
+                      '$dir/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -138,7 +138,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '${dir}/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
+                      '$dir/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -147,7 +147,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '${dir}/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
+                      '$dir/svg/${1}/${DummyData.listHarfDummyData[0].images[0]["name"]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
