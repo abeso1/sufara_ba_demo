@@ -10,6 +10,8 @@ class HarfModel {
   final bool lekcija;
   final String imageIshodiste;
   final String videoUrl;
+  final List<Map<String, String>> topIcons;
+  final Map<String, String> tabela;
 
   const HarfModel({
     @required this.id,
@@ -21,5 +23,7 @@ class HarfModel {
     @required this.images,
     @required this.imageIshodiste,
     @required this.videoUrl,
+    @required this.topIcons,
+    @required this.tabela
   });
 }

@@ -19,13 +19,15 @@ import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 class LekcijaScreen extends StatefulWidget {
   final HarfModel harf;
   final String dir;
+  Opis opis;
   final AudioPlayer player = AudioPlayer();
   int mjesto = 3;
-  final Opis opis = Opis();
   final OpisNaslov nalsov = OpisNaslov();
   int colorIndex = -1;
 
-  LekcijaScreen(this.harf, this.dir);
+  LekcijaScreen(this.harf, this.dir){
+    opis = Opis(this.dir);
+  }
 
   @override
   _LekcijaScreenState createState() => _LekcijaScreenState();
@@ -170,16 +172,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             children: [
                               SvgPicture.file(
                                 File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg'),
                                 width: SizeConfig.blockSizeHorizontal * 16,
                                 color: Colors.white,
                               ),
-                              widget.harf.images[2]['desc'].length == 0
+                              widget.harf.topIcons[2]['desc'].length == 0
                                   ? Container()
                                   : Text(
-                                      widget.harf.images[2]['desc'],
+                                      widget.harf.topIcons[2]['desc'],
                                       style: TextStyle(
-                                        fontSize: 26,
+                                        fontSize: 30,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -194,16 +196,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             children: [
                               SvgPicture.file(
                                 File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[1]['name']}.svg'),
                                 width: SizeConfig.blockSizeHorizontal * 16,
                                 color: Colors.white,
                               ),
-                              widget.harf.images[1]['desc'].length == 0
+                              widget.harf.topIcons[1]['desc'].length == 0
                                   ? Container()
                                   : Text(
-                                      widget.harf.images[1]['desc'],
+                                      widget.harf.topIcons[1]['desc'],
                                       style: TextStyle(
-                                        fontSize: 26,
+                                        fontSize: 30,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -218,16 +220,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             children: [
                               SvgPicture.file(
                                 File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[0]['name']}.svg'),
                                 width: SizeConfig.blockSizeHorizontal * 16,
                                 color: Colors.white,
                               ),
-                              widget.harf.images[0]['desc'].length == 0
+                              widget.harf.topIcons[0]['desc'].length == 0
                                   ? Container()
                                   : Text(
-                                      widget.harf.images[0]['desc'],
+                                      widget.harf.topIcons[0]['desc'],
                                       style: TextStyle(
-                                        fontSize: 26,
+                                        fontSize: 30,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -331,7 +333,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         0,
                                       ),
                                       child: Text(
-                                        widget.harf.name,
+                                        widget.harf.tabela["ime"],
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.green[700],
@@ -347,7 +349,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         0,
                                         SizeConfig.blockSizeVertical * 3,
                                       ),
-                                      child: TableIzgovor(widget.dir),
+                                      child: TableIzgovor(widget.dir, widget.harf),
                                     ),
                                   ],
                                 ),
