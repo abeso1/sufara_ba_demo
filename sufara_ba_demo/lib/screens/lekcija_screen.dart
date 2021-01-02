@@ -25,7 +25,7 @@ class LekcijaScreen extends StatefulWidget {
   final OpisNaslov nalsov = OpisNaslov();
   int colorIndex = -1;
 
-  LekcijaScreen(this.harf, this.dir){
+  LekcijaScreen(this.harf, this.dir) {
     opis = Opis(this.dir);
   }
 
@@ -279,109 +279,123 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           //color: Colors.blue,
                           width: SizeConfig.blockSizeVertical * 90,
                           //height: SizeConfig.blockSizeVertical * 15,
-                          child: ExpansionTile(
-                            backgroundColor: Colors.blue,
-                            title: Container(
-                              padding: EdgeInsets.fromLTRB(
-                                SizeConfig.blockSizeHorizontal * 11,
-                                0,
-                                0,
-                                0,
-                              ),
-                              height: SizeConfig.blockSizeVertical * 15,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.book_outlined,
-                                    size: SizeConfig.blockSizeHorizontal * 10,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    'OPIS LEKCIJE',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeHorizontal * 7,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            children: [
-                              Container(
-                                color: Colors.white,
-                                padding: EdgeInsets.symmetric(
-                                  vertical: SizeConfig.blockSizeVertical * 1,
-                                  horizontal:
-                                      SizeConfig.blockSizeHorizontal * 2,
+                          child: Theme(
+                            data: Theme.of(context).copyWith(accentColor: Colors.white, unselectedWidgetColor:  Colors.white),
+                            child: ExpansionTile(
+                              backgroundColor: Colors.blue,
+                              title: Container(
+                                padding: EdgeInsets.fromLTRB(
+                                  SizeConfig.blockSizeHorizontal * 11,
+                                  0,
+                                  0,
+                                  0,
                                 ),
+                                height: SizeConfig.blockSizeVertical * 15,
                                 child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    widget.nalsov.getOpis(
-                                      int.parse(widget.harf.id) - 1,
+                                    Icon(
+                                      Icons.book_outlined,
+                                      size: SizeConfig.blockSizeHorizontal * 10,
+                                      color: Colors.white,
                                     ),
-                                    widget.opis
-                                        .getOpis(int.parse(widget.harf.id) - 1),
-                                    Container(
-                                      width: double.infinity,
-                                      padding: EdgeInsets.fromLTRB(
-                                        0,
-                                        SizeConfig.blockSizeHorizontal * 3,
-                                        0,
-                                        0,
-                                      ),
-                                      child: Text(
-                                        widget.harf.tabela["ime"],
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.green[700],
-                                          fontSize:
-                                              SizeConfig.blockSizeVertical * 3,
-                                        ),
+                                    Text(
+                                      'OPIS LEKCIJE',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            SizeConfig.blockSizeHorizontal * 7,
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(
-                                        0,
-                                        SizeConfig.blockSizeHorizontal * 1,
-                                        0,
-                                        SizeConfig.blockSizeVertical * 3,
-                                      ),
-                                      child: TableIzgovor(widget.dir, widget.harf, ""),
-                                    ),
-                                    widget.harf.tabela["ime2"].length != 0 ? Container(
-                                      width: double.infinity,
-                                      padding: EdgeInsets.fromLTRB(
-                                        0,
-                                        SizeConfig.blockSizeHorizontal * 3,
-                                        0,
-                                        0,
-                                      ),
-                                      child: Text(
-                                        widget.harf.tabela["ime2"],
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.green[700],
-                                          fontSize:
-                                              SizeConfig.blockSizeVertical * 3,
-                                        ),
-                                      ),
-                                    ) : Container(),
-                                    widget.harf.tabela["ime2"].length != 0 ? Padding(
-                                      padding: EdgeInsets.fromLTRB(
-                                        0,
-                                        SizeConfig.blockSizeHorizontal * 1,
-                                        0,
-                                        SizeConfig.blockSizeVertical * 3,
-                                      ),
-                                      child: TableIzgovor(widget.dir, widget.harf, "2"),
-                                    ) : Container(),
                                   ],
                                 ),
                               ),
-                            ],
+                              children: [
+                                Container(
+                                  color: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: SizeConfig.blockSizeVertical * 1,
+                                    horizontal:
+                                        SizeConfig.blockSizeHorizontal * 2,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      widget.nalsov.getOpis(
+                                        int.parse(widget.harf.id) - 1,
+                                      ),
+                                      widget.opis.getOpis(
+                                          int.parse(widget.harf.id) - 1),
+                                      Container(
+                                        width: double.infinity,
+                                        padding: EdgeInsets.fromLTRB(
+                                          0,
+                                          SizeConfig.blockSizeHorizontal * 3,
+                                          0,
+                                          0,
+                                        ),
+                                        child: Text(
+                                          widget.harf.tabela["ime"],
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.green[700],
+                                            fontSize:
+                                                SizeConfig.blockSizeVertical *
+                                                    3,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.fromLTRB(
+                                          0,
+                                          SizeConfig.blockSizeHorizontal * 1,
+                                          0,
+                                          SizeConfig.blockSizeVertical * 3,
+                                        ),
+                                        child: TableIzgovor(
+                                            widget.dir, widget.harf, ""),
+                                      ),
+                                      widget.harf.tabela["ime2"].length != 0
+                                          ? Container(
+                                              width: double.infinity,
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                SizeConfig.blockSizeHorizontal *
+                                                    3,
+                                                0,
+                                                0,
+                                              ),
+                                              child: Text(
+                                                widget.harf.tabela["ime2"],
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                  color: Colors.green[700],
+                                                  fontSize: SizeConfig
+                                                          .blockSizeVertical *
+                                                      3,
+                                                ),
+                                              ),
+                                            )
+                                          : Container(),
+                                      widget.harf.tabela["ime2"].length != 0
+                                          ? Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                SizeConfig.blockSizeHorizontal *
+                                                    1,
+                                                0,
+                                                SizeConfig.blockSizeVertical *
+                                                    3,
+                                              ),
+                                              child: TableIzgovor(
+                                                  widget.dir, widget.harf, "2"),
+                                            )
+                                          : Container(),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(
