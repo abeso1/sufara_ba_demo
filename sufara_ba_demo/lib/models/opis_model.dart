@@ -328,8 +328,7 @@ class Opis {
               ),
             ),
             TextSpan(
-              text:
-                  '\n\nIzgovara se ',
+              text: '\n\nIzgovara se ',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -337,8 +336,7 @@ class Opis {
               ),
             ),
             TextSpan(
-              text:
-                  ' kao W u engleskoj riječi World ',
+              text: ' kao W u engleskoj riječi World ',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -355,8 +353,7 @@ class Opis {
               ),
             ),
             TextSpan(
-              text:
-                  ' veže samo sa svoje desne strane, ',
+              text: ' veže samo sa svoje desne strane, ',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -373,8 +370,7 @@ class Opis {
               ),
             ),
             TextSpan(
-              text:
-                  ' kada je na njemu sukun tada se izgovara samo “W”. ',
+              text: ' kada je na njemu sukun tada se izgovara samo “W”. ',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -390,43 +386,94 @@ class Opis {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "Harf Dal izgleda kao jedna savijena linija u obliku luka čiji je donji dio više vodoravan, izgovara se kao naše slovo \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "D",
+              text: 'Harf DAL ',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.red,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
               text:
-                  "\". Veže se samo sa svoje desne strane. Pri izgovoru koristi se gornji dio jezika koji je prislonjen uz korijen sjekutića.\n\nHarf  Zal  izgleda isto kao i harf  Dal  samo što se iznad njega nalazi jedna tačka po kojoj ga razlikujemo od harfa  Dal. Izgovara se tako da vrhom jezika dodirnemo gornje prednje zube ( sjekutiće ) i izgovorimo \"",
+                  'izgleda kao jedna savijena linija u obliku luka čiji je donji dio više vodoravan, izgovara se kao naše slovo “D“. Veže se samo sa svoje desne strane. Pri izgovoru koristi se gornji dio jezika koji je prislonjen uz korijen sjekutića.\n\n',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 16,
                 color: Colors.black,
+                //fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
-              text: "Z",
+              text: 'Harf ZAL ',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.red,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: ' izgleda isto kao i harf Dal samo što se ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'iznad njega nalazi jedna tačka. \n\n',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'Izgovara se tako da ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text:
+                  'vrhom jezika dodirnemo gornje prednje zube (sjekutiće ) i izgovorimo “Z”. ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
               text:
-                  "\".  Tačka iznad ovog harfa je sastavni dio harfa kao i kod mnogih drugih harfova koji ih imaju na sebi. Za ovaj harf kažemo da je to mehko \"Z\". Veže se samo sa svoje desne strane i ne postoji u našem jeziku.",
+                  ' Tačka iznad ovog harfa je sastavni dio harfa kao i kod mnogih drugih harfova koji ih imaju na sebi.\n\n Za ovaj harf kažemo da je to ',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 16,
                 color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'mehko “Z”. ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'Veže se samo sa svoje desne strane i ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'ne postoji u našem jeziku.',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -438,43 +485,102 @@ class Opis {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "Harf  Ra  izgleda kao jedna polusavijena linija u obliku luka čiji je donji dio više opružen prema dole u odnosu na harf  Dal i Zal. Izgovara se kao naše slovo \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "R",
+              text: 'Harf RA ',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.red,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
               text:
-                  "\" stim da kada je na njemu fetha ili damma izgovara se krupnije a kada je sa kesrom izgovara se tanko, pri izgovoru se koristi vrh jezika i nepce. Veže se samo sa svoje desne strane.\n\nHarf  Za ima isti izgled kao i harf  Ra stim što se iznad ovog harfa nalazi jedna tačka koja je sastavni dio harfa. Izgovara se kao naše slovo \"",
+                  'izgleda kao jedna polusavijena linija u obliku luka ',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 16,
                 color: Colors.black,
+                //fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
-              text: "Z",
+              text: 'čiji je donji dio više opružen prema dole u odnosu na harf  Dal i Zal.\n\n',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.red,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'Izgovara se kao naše slovo “R” sa tim da se sa ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'fethom ili dammom izgovara krupnije, a kada je sa kesrom izgovara se tanko, ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'pri izgovoru se koristi vrh jezika i nepce.\n\nVeže se samo sa svoje desne strane. ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text:
+                  'Harf ZA ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
               text:
-                  "\". tj. sastavljenih zuba. I ovaj harf također spada u grupu harfova koji se vežu samo sa svoje desne strane. Za njega kažemo da je to oštro \"Z\".",
+                  '  ima isti izgled kao i harf Ra sa tim što se ',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 16,
                 color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'iznad ovog harfa nalazi jedna tačka ',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'koja je sastavni dio harfa.',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'Harf Z bilo to mehka, oštra ili kasnije krupna verzija uvijek na sebi ima jednu tačku.\n\n',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: 'Izgovara se kao naše slovo “Z“. tj. sastavljenih zuba. I ovaj harf takoder spada u grupu harfova koji se vežu samo sa svoje desne strane. Za njega kažemo da je to oštro “Z”.',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                //fontWeight: FontWeight.bold,
               ),
             ),
           ],

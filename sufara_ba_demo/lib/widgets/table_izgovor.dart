@@ -10,8 +10,9 @@ import 'package:sufara_ba_demo/shared/constants.dart';
 class TableIzgovor extends StatelessWidget {
   final String dir;
   final HarfModel harf;
+  String broj = "";
 
-  TableIzgovor(this.dir, this.harf);
+  TableIzgovor(this.dir, this.harf ,this.broj );
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +118,7 @@ class TableIzgovor extends StatelessWidget {
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      harf.tabela["izgovor"],
+                      harf.tabela["izgovor" + broj],
                       style: TextStyle(
                         color: Colors.green[300],
                         fontWeight: FontWeight.bold,
@@ -130,7 +131,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '$dir/svg/${harf.id}/${harf.tabela["kraj"]}.svg'),
+                      '$dir/svg/${harf.id}/${harf.tabela["kraj" + broj]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -139,7 +140,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '$dir/svg/${harf.id}/${harf.tabela["sredina"]}.svg'),
+                      '$dir/svg/${harf.id}/${harf.tabela["sredina" + broj]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -148,7 +149,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '$dir/svg/${harf.id}/${harf.tabela["pocetak"]}.svg'),
+                      '$dir/svg/${harf.id}/${harf.tabela["pocetak" + broj]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -157,7 +158,7 @@ class TableIzgovor extends StatelessWidget {
               TableCell(
                 child: SvgPicture.file(
                   File(
-                      '$dir/svg/${harf.id}/${harf.tabela["sami"]}.svg'),
+                      '$dir/svg/${harf.id}/${harf.tabela["sami" + broj]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,

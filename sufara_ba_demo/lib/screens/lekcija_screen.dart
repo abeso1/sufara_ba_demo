@@ -349,8 +349,35 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         0,
                                         SizeConfig.blockSizeVertical * 3,
                                       ),
-                                      child: TableIzgovor(widget.dir, widget.harf),
+                                      child: TableIzgovor(widget.dir, widget.harf, ""),
                                     ),
+                                    widget.harf.tabela["ime2"].length != 0 ? Container(
+                                      width: double.infinity,
+                                      padding: EdgeInsets.fromLTRB(
+                                        0,
+                                        SizeConfig.blockSizeHorizontal * 3,
+                                        0,
+                                        0,
+                                      ),
+                                      child: Text(
+                                        widget.harf.tabela["ime2"],
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.green[700],
+                                          fontSize:
+                                              SizeConfig.blockSizeVertical * 3,
+                                        ),
+                                      ),
+                                    ) : Container(),
+                                    widget.harf.tabela["ime2"].length != 0 ? Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                        0,
+                                        SizeConfig.blockSizeHorizontal * 1,
+                                        0,
+                                        SizeConfig.blockSizeVertical * 3,
+                                      ),
+                                      child: TableIzgovor(widget.dir, widget.harf, "2"),
+                                    ) : Container(),
                                   ],
                                 ),
                               ),

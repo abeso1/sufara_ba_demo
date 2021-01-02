@@ -34,6 +34,7 @@ class DummyData {
           "sredina": "elif_1",
           "pocetak": "elif",
           "sami": "elif",
+          "ime2": ""
         }),
     HarfModel(
       id: '2',
@@ -44,13 +45,14 @@ class DummyData {
       videoUrl: '8t02EmG-FAk',
       lekcija: true,
       tabela: {
-          "ime": "HARF WAW",
-          "izgovor": "WE,WI,WU",
-          "kraj": "v",
-          "sredina": "v",
-          "pocetak": "v",
-          "sami": "v",
-        },
+        "ime": "HARF WAW",
+        "izgovor": "W",
+        "kraj": "v",
+        "sredina": "v",
+        "pocetak": "v",
+        "sami": "v",
+        "ime2": ""
+      },
       opis:
           'Prvo slovo ili harf u arapskoj abecedi je Elif koji izgleda kao vertikalna crta (pogledaj flash lekciju br. 1 i 2), on je prvi od harfova koji se vežu samo sa svoje desne strane. Izgovor ovog glasa kada je sam tj. (sa sukunom) sličan je poluglasu koji se čuje prije naše rijeći \'rt pa bi se moglo reći da se elif sa sukunom uopšte ne čita. Kada na elifu ili ispod njega dođe neki od znakova za kratke vokale izgovara se samo taj vokal (pogledaj lekciju br.1 i 2).',
       images: [
@@ -103,8 +105,25 @@ class DummyData {
         videoUrl: 'Ique5Et1QWQ',
         opis:
             'Prvo slovo ili harf u arapskoj abecedi je Elif koji izgleda kao vertikalna crta (pogledaj flash lekciju br. 1 i 2), on je prvi od harfova koji se vežu samo sa svoje desne strane. Izgovor ovog glasa kada je sam tj. (sa sukunom) sličan je poluglasu koji se čuje prije naše rijeći \'rt pa bi se moglo reći da se elif sa sukunom uopšte ne čita. Kada na elifu ili ispod njega dođe neki od znakova za kratke vokale izgovara se samo taj vokal (pogledaj lekciju br.1 i 2).',
-        topIcons: [],
-        tabela: {},
+        topIcons: [
+          {"name": "de", "audio": "", "desc": ""},
+          {"name": "di", "audio": "", "desc": ""},
+          {"name": "zu", "audio": "", "desc": ""},
+        ],
+        tabela: {
+          "ime": "HARF DAL",
+          "izgovor": "D",
+          "kraj": "t-3",
+          "sredina": "t-3",
+          "pocetak": "t-1",
+          "sami": "t-1",
+          "ime2": "HARF ZAL",
+          "izgovor2": "Z",
+          "kraj2": "t-7",
+          "sredina2": "t-7",
+          "pocetak2": "t-5",
+          "sami2": "t-5",
+        },
         images: [
           {"name": "de", "audio": "", "desc": ""},
           {"name": "di", "audio": "", "desc": ""},
@@ -143,8 +162,25 @@ class DummyData {
         lekcija: true,
         imageIshodiste: 'svg/back_img/4.jpg',
         videoUrl: 'aDNexuBU5j8',
-        topIcons: [],
-        tabela: {},
+        topIcons: [
+          {"name": "ru", "audio": "", "desc": ""},
+          {"name": "ri", "audio": "", "desc": ""},
+          {"name": "ze", "audio": "", "desc": ""},
+        ],
+        tabela: {
+          "ime": "HARF RA",
+          "izgovor": "R",
+          "kraj": "t-3",
+          "sredina": "t-3",
+          "pocetak": "t-1",
+          "sami": "t-1",
+          "ime2": "HARF ZA",
+          "izgovor2": "Z",
+          "kraj2": "t-7",
+          "sredina2": "t-7",
+          "pocetak2": "t-5",
+          "sami2": "t-5",
+        },
         opis:
             'Prvo slovo ili harf u arapskoj abecedi je Elif koji izgleda kao vertikalna crta (pogledaj flash lekciju br. 1 i 2), on je prvi od harfova koji se vežu samo sa svoje desne strane. Izgovor ovog glasa kada je sam tj. (sa sukunom) sličan je poluglasu koji se čuje prije naše rijeći \'rt pa bi se moglo reći da se elif sa sukunom uopšte ne čita. Kada na elifu ili ispod njega dođe neki od znakova za kratke vokale izgovara se samo taj vokal (pogledaj lekciju br.1 i 2).',
         images: [
