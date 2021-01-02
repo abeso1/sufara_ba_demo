@@ -137,8 +137,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 Container(
                   alignment: Alignment.centerRight,
                   padding: EdgeInsets.only(
-                    //left: SizeConfig.blockSizeHorizontal * 45,
+                    left: SizeConfig.blockSizeHorizontal * 3,
                     right: SizeConfig.blockSizeHorizontal * 3,
+                    top: SizeConfig.blockSizeVertical * 1,
                   ),
                   width: SizeConfig.blockSizeHorizontal * 100,
                   child: Container(
@@ -148,7 +149,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       color: Colors.white24,
                     ),
                     //color: Colors.white24,
-                    width: SizeConfig.blockSizeHorizontal * 55,
+                    //width: SizeConfig.blockSizeHorizontal * 70,
                     height: SizeConfig.blockSizeVertical * 13,
                     /*child: SvgPicture.asset(
                       widget.harf.imageUrl,
@@ -165,33 +166,72 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           onTap: () {
                             playAudio(widget.harf, 2);
                           },
-                          child: SvgPicture.file(
-                            File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
-                            width: SizeConfig.blockSizeHorizontal * 16,
-                            color: Colors.white,
+                          child: Row(
+                            children: [
+                              SvgPicture.file(
+                                File(
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[2]['name']}.svg'),
+                                width: SizeConfig.blockSizeHorizontal * 16,
+                                color: Colors.white,
+                              ),
+                              widget.harf.images[2]['desc'].length == 0
+                                  ? Container()
+                                  : Text(
+                                      widget.harf.images[2]['desc'],
+                                      style: TextStyle(
+                                        fontSize: 26,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                            ],
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
                             playAudio(widget.harf, 1);
                           },
-                          child: SvgPicture.file(
-                            File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
-                            width: SizeConfig.blockSizeHorizontal * 16,
-                            color: Colors.white,
+                          child: Row(
+                            children: [
+                              SvgPicture.file(
+                                File(
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[1]['name']}.svg'),
+                                width: SizeConfig.blockSizeHorizontal * 16,
+                                color: Colors.white,
+                              ),
+                              widget.harf.images[1]['desc'].length == 0
+                                  ? Container()
+                                  : Text(
+                                      widget.harf.images[1]['desc'],
+                                      style: TextStyle(
+                                        fontSize: 26,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                            ],
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
                             playAudio(widget.harf, 0);
                           },
-                          child: SvgPicture.file(
-                            File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
-                            width: SizeConfig.blockSizeHorizontal * 16,
-                            color: Colors.white,
+                          child: Row(
+                            children: [
+                              SvgPicture.file(
+                                File(
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]['name']}.svg'),
+                                width: SizeConfig.blockSizeHorizontal * 16,
+                                color: Colors.white,
+                              ),
+                              widget.harf.images[0]['desc'].length == 0
+                                  ? Container()
+                                  : Text(
+                                      widget.harf.images[0]['desc'],
+                                      style: TextStyle(
+                                        fontSize: 26,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                            ],
                           ),
                         ),
                         SizedBox(
@@ -643,7 +683,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                         children: [
                                           SvgPicture.file(
                                             File(
