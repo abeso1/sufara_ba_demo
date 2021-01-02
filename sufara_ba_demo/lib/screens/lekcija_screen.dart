@@ -222,8 +222,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                   //three buttons
                   Container(
                     decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     padding: EdgeInsets.symmetric(
                         horizontal: SizeConfig.blockSizeHorizontal * 3),
                     child: Column(
@@ -584,7 +584,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       reverse: true,
                       staggeredTileBuilder: (int index) {
                         index = widget.harf.images.length - index - 1;
-                        int x = widget.harf.images[index]['name'].length;
+                        int x = widget.harf.images[index]['name'].length +
+                            widget.harf.images[index]['desc'].length * 7;
                         int y = (x / 7).ceil();
                         if (y > 3) y = 3;
                         if (index == 0) return StaggeredTile.fit(widget.mjesto);
@@ -597,7 +598,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         }
 
                         if (c < widget.harf.images.length) {
-                          z = widget.harf.images[c]['name'].length;
+                          z = widget.harf.images[c]['name'].length +
+                              widget.harf.images[c]['desc'].length * 7;
                           w = (z / 7).ceil();
                           if (w > 3) w = 3;
                         }
@@ -634,13 +636,43 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             elevation: 10,
-                            child: SvgPicture.file(
-                              File(
-                                '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
-                              ),
-                              height: SizeConfig.blockSizeVertical * 15,
-                              //color: Colors.green,
-                            ),
+                            child: widget.harf.images[index]['desc'].length != 0
+                                ? Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                        children: [
+                                          SvgPicture.file(
+                                            File(
+                                              '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
+                                            ),
+                                            height:
+                                                SizeConfig.blockSizeVertical *
+                                                    15,
+                                          ),
+                                          FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text(
+                                              widget.harf.images[index]['desc'],
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 34,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  )
+                                : SvgPicture.file(
+                                    File(
+                                      '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
+                                    ),
+                                    height: SizeConfig.blockSizeVertical * 15,
+                                  ),
                           ),
                         );
                       },
