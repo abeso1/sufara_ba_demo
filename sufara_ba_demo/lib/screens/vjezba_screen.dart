@@ -79,12 +79,14 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     bool nastavi = true;
     while (drugi == prvi || nastavi) {
       drugi = rng.nextInt(widget.harf.images.length);
-      if (widget.harf.images[drugi]['name'] ==
-              widget.harf.images[prvi]['name'] ||
-          widget.harf.images[drugi]['name'] ==
-              widget.harf.images[prvi]['audio'] ||
-          widget.harf.images[drugi]['audio'] ==
-              widget.harf.images[prvi]['name']) {
+      if (widget.harf.images[drugi]['name'].toLowerCase() ==
+              widget.harf.images[prvi]['name'].toLowerCase() ||
+          widget.harf.images[drugi]['name'].toLowerCase() ==
+              widget.harf.images[prvi]['audio'].toLowerCase() ||
+          widget.harf.images[drugi]['audio'].toLowerCase() ==
+              widget.harf.images[prvi]['name'].toLowerCase() ||
+          widget.harf.images[drugi]['audio'].toLowerCase() ==
+              widget.harf.images[prvi]['audio'].toLowerCase()) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -97,22 +99,19 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     nastavi = true;
     while (treci == prvi || treci == drugi || nastavi) {
       treci = rng.nextInt(widget.harf.images.length);
-      if (widget.harf.images[treci]['name'] ==
-              widget.harf.images[prvi]['name'] ||
-          widget.harf.images[treci]['name'] ==
-              widget.harf.images[prvi]['audio'] ||
-          widget.harf.images[treci]['audio'] ==
-              widget.harf.images[prvi]['name']) {
+      if (widget.harf.images[treci]['name'].toLowerCase() ==
+              widget.harf.images[prvi]['name'].toLowerCase() ||
+          widget.harf.images[treci]['name'].toLowerCase() ==
+              widget.harf.images[prvi]['audio'].toLowerCase() ||
+          widget.harf.images[treci]['audio'].toLowerCase() ==
+              widget.harf.images[prvi]['name'].toLowerCase()) {
         nastavi = true;
-      } else {
-        nastavi = false;
-      }
-      if (widget.harf.images[treci]['name'] ==
-              widget.harf.images[drugi]['name'] ||
-          widget.harf.images[treci]['name'] ==
-              widget.harf.images[drugi]['audio'] ||
-          widget.harf.images[treci]['audio'] ==
-              widget.harf.images[drugi]['name']) {
+      } else if (widget.harf.images[treci]['name'].toLowerCase() ==
+              widget.harf.images[drugi]['name'].toLowerCase() ||
+          widget.harf.images[treci]['name'].toLowerCase() ==
+              widget.harf.images[drugi]['audio'].toLowerCase() ||
+          widget.harf.images[treci]['audio'].toLowerCase() ==
+              widget.harf.images[drugi]['name'].toLowerCase()) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -345,16 +344,16 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     ),
                     width: SizeConfig.blockSizeHorizontal * 100,
                     //child: Flexible(
-                      //fit: BoxFit.fitHeight,
-                      child: Text(
-                        widget.harf.name,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: SizeConfig.blockSizeVertical * 4,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontFamily: 'Roboto',
-                        ),
+                    //fit: BoxFit.fitHeight,
+                    child: Text(
+                      widget.harf.name,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: SizeConfig.blockSizeVertical * 4,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                      ),
                       //),
                     ),
                   ),

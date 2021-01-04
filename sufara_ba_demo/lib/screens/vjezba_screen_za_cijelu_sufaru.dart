@@ -77,14 +77,14 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     int lek1 = 0;
     int lek2 = 0;
     int lek3 = 0;
-       ///////ovo treba popraviti kada dodu svi fajlovi
-    while (lek1 == 0 || lek1 ==20 || lek1==5) {
+    ///////ovo treba popraviti kada dodu svi fajlovi
+    while (lek1 == 0 || lek1 == 20) {
       lek1 = rng.nextInt(22);
     }
-    while (lek2 == 0|| lek2 ==20 || lek2==5) {
+    while (lek2 == 0 || lek2 == 20) {
       lek2 = rng.nextInt(22);
     }
-    while (lek3 == 0|| lek3 ==20 || lek3==5) {
+    while (lek3 == 0 || lek3 == 20) {
       lek3 = rng.nextInt(22);
     }
     setState(() {
@@ -106,12 +106,22 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     bool nastavi = true;
     while (drugi == prvi || nastavi) {
       drugi = rng.nextInt(DummyData.listHarfDummyData[lekcija2].images.length);
-      if (DummyData.listHarfDummyData[lekcija2].images[drugi]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name'] ||
-          DummyData.listHarfDummyData[lekcija2].images[drugi]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio'] ||
-          DummyData.listHarfDummyData[lekcija2].images[drugi]['audio'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']) {
+      if (DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                  .toLowerCase()) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -124,22 +134,31 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     nastavi = true;
     while (treci == prvi || treci == drugi || nastavi) {
       treci = rng.nextInt(DummyData.listHarfDummyData[lekcija3].images.length);
-      if (DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['audio'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']) {
+      if (DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase()) {
         nastavi = true;
-      } else {
-        nastavi = false;
-      }
-      if (DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija2].images[drugi]['name'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija2].images[drugi]['audio'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['audio'] ==
-              DummyData.listHarfDummyData[lekcija2].images[drugi]['name']) {
+      } else if (DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase()) {
         nastavi = true;
       } else {
         nastavi = false;
