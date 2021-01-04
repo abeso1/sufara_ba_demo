@@ -41,9 +41,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   TransformationController controller = TransformationController();
   bool showContainer = false;
 
-  playAudio(HarfModel harf, int index) async {
+  playAudio(HarfModel harf, int index, {bool isTop = false}) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print('$dir/audio/${harf.id}/${harf.images[index]}.mp3');
+    print(isTop
+                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
+                    : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3');
     if (widget.player.state == AudioPlayerState.PLAYING) {
     } else {
       Timer(
@@ -51,12 +53,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         () async {
           if (harf.images[index]['audio'].isEmpty) {
             await widget.player.play(
-                '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                isTop
+                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
+                    : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
                 isLocal: true);
             setState(() {});
           } else {
             await widget.player.play(
-                '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                isTop
+                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
+                    : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
                 isLocal: true);
             setState(() {});
           }
@@ -166,7 +172,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            playAudio(widget.harf, 2);
+                            playAudio(widget.harf, 2, isTop: true);
                           },
                           child: Row(
                             children: [
@@ -190,7 +196,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            playAudio(widget.harf, 1);
+                            playAudio(widget.harf, 1, isTop: true);
                           },
                           child: Row(
                             children: [
@@ -214,7 +220,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            playAudio(widget.harf, 0);
+                            playAudio(widget.harf, 0, isTop: true);
                           },
                           child: Row(
                             children: [
@@ -280,7 +286,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           width: SizeConfig.blockSizeVertical * 90,
                           //height: SizeConfig.blockSizeVertical * 15,
                           child: Theme(
-                            data: Theme.of(context).copyWith(accentColor: Colors.white, unselectedWidgetColor:  Colors.white),
+                            data: Theme.of(context).copyWith(
+                                accentColor: Colors.white,
+                                unselectedWidgetColor: Colors.white),
                             child: ExpansionTile(
                               backgroundColor: Colors.blue,
                               title: Container(
@@ -326,7 +334,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                       widget.opis.getOpis(
                                           int.parse(widget.harf.id) - 1),
-                                      Container(
+                                      widget.harf.tabela["ime"].length != 0 ? Container(
                                         width: double.infinity,
                                         padding: EdgeInsets.fromLTRB(
                                           0,
@@ -344,8 +352,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                     3,
                                           ),
                                         ),
-                                      ),
-                                      Padding(
+                                      ) : Container(),
+                                       widget.harf.tabela["ime"].length != 0 ? Padding(
                                         padding: EdgeInsets.fromLTRB(
                                           0,
                                           SizeConfig.blockSizeHorizontal * 1,
@@ -354,7 +362,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         ),
                                         child: TableIzgovor(
                                             widget.dir, widget.harf, ""),
-                                      ),
+                                      ) : Container(),
                                       widget.harf.tabela["ime2"].length != 0
                                           ? Container(
                                               width: double.infinity,

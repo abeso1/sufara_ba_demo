@@ -68,7 +68,7 @@ class _LekcijaScreenState extends State<UvodnaLekcija> {
                   width: SizeConfig.blockSizeHorizontal * 100,
                   //height: SizeConfig.blockSizeVertical * 35,
                   child: Text(
-                    "Uvodna lekcija",
+                    "Uvod",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: SizeConfig.blockSizeHorizontal * 6.8,
