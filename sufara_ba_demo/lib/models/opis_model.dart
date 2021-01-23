@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:io';
 
+import 'package:sufara_ba_demo/widgets/lekcija_10_tabela.dart';
+
 class Opis {
   String dir;
   List<Widget> listOfOpis;
@@ -694,309 +696,306 @@ class Opis {
             ),
             textAlign: TextAlign.justify,
           ),
-          Table(
-            border: TableBorder.all(
-                color: Colors.black, width: 1, style: BorderStyle.solid),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Fetha',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Fetha',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/5/e.svg'),
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: 40,
-                        //color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'tenvin',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/5/en.svg'),
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: 40,
-                        //color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'čita se ',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'EN',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.red,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'npr. ',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SvgPicture.file(
-                            File('$dir/svg/5/den.svg'),
-                            //width: SizeConfig.blockSizeHorizontal * 34,
-                            height: 40,
-                            //color: Colors.green,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Kesra',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/e.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/5/i.svg'),
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: 40,
-                        //color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'tenvin',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/5/in.svg'),
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: 40,
-                        //color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'čita se ',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'IN',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.red,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'npr. ',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SvgPicture.file(
-                            File('$dir/svg/5/din.svg'),
-                            //width: SizeConfig.blockSizeHorizontal * 34,
-                            height: 40,
-                            //color: Colors.green,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Damma',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'tenvin',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/5/u.svg'),
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: 40,
-                        //color: Colors.green,
-                      ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/en.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'čita se ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'tenvin',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'EN',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.red,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'npr. ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/5/un.svg'),
-                        //width: SizeConfig.blockSizeHorizontal * 34,
-                        height: 40,
-                        //color: Colors.green,
-                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.file(
+                  File('$dir/svg/5/den.svg'),
+                  //width: SizeConfig.blockSizeHorizontal * 34,
+                  height: 40,
+                  //color: Colors.green,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Kesra',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'čita se ',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'UN',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.red,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/i.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'tenvin',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'npr. ',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SvgPicture.file(
-                            File('$dir/svg/5/dun.svg'),
-                            //width: SizeConfig.blockSizeHorizontal * 34,
-                            height: 40,
-                            //color: Colors.green,
-                          ),
-                        ],
-                      ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/in.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'čita se ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
                     ),
                   ),
-                ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'IN',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.red,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'npr. ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.file(
+                  File('$dir/svg/5/din.svg'),
+                  //width: SizeConfig.blockSizeHorizontal * 34,
+                  height: 40,
+                  //color: Colors.green,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Damma',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/u.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'tenvin',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/un.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'čita se ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'UN',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.red,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'npr. ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.file(
+                  File('$dir/svg/5/dun.svg'),
+                  //width: SizeConfig.blockSizeHorizontal * 34,
+                  height: 40,
+                  //color: Colors.green,
+                ),
               ),
             ],
           ),
@@ -1182,74 +1181,80 @@ class Opis {
         textAlign: TextAlign.justify,
       ),
 //10
-      RichText(
-        text: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text: '\nHEMZE',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+      Column(
+        children: [
+          RichText(
+            text: TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text: '\nHEMZE',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      'Hemze je harf koji ne postoji u našem jeziku i to je zapravo',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      'drugi oblik “Elifa”. \n\nNe spaja se sa drugim harfovima, može stajati SAM, a može imati i nosioca jednog od tri harfa: Elif, Vav ili Ja, ',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      ', to su harfovi na kojima može doći hemze, ali se oni u tom slučaju ne čitaju. ',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      'Kada se na hemzetu nalaze Fetha, Kesra ili Damma tada se Hemze ponaša poput Elifa tj. samo se izgovori znak koji je došao na njemu.',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      '. A kada Hemze dođe sa sukunom tada se u izgovoru glasnice čvrsto pripoje, a disanje na trenutak prekine. Zrak koji nailazi iz pluća naglo otvara formiranu prepreku i na taj način proizvodi eksplozivan šum. Tom prilikom treba paziti da Hemze sa sukunom prilikom izgovora ne odskaće.\n\n',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      'MEDD (〜)\n\nMedd (dužina) je znak koji dolazi samo iznad dugih vokala A, I ili U, koji označava da se taj dugi vokal treba dva puta duže učiti, to jest 4 hareketa.\n\nInače postoji više različitih dužina o kojima će se govoriti u lekcijama Tedžvida (tedžvid.ba) nakon što se završe sve lekcije sufare.',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-            TextSpan(
-              text:
-                  'Hemze je harf koji ne postoji u našem jeziku i to je zapravo',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  'drugi oblik “Elifa”. \n\nNe spaja se sa drugim harfovima, može stajati SAM, a može imati i nosioca jednog od tri harfa: Elif, Vav ili Ja, ',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  ', to su harfovi na kojima može doći hemze, ali se oni u tom slučaju ne čitaju. ',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  'Kada se na hemzetu nalaze Fetha, Kesra ili Damma tada se Hemze ponaša poput Elifa tj. samo se izgovori znak koji je došao na njemu.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  '. A kada Hemze dođe sa sukunom tada se u izgovoru glasnice čvrsto pripoje, a disanje na trenutak prekine. Zrak koji nailazi iz pluća naglo otvara formiranu prepreku i na taj način proizvodi eksplozivan šum. Tom prilikom treba paziti da Hemze sa sukunom prilikom izgovora ne odskaće.\n\n',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  'MEDD (〜)\n\nMedd (dužina) je znak koji dolazi samo iznad dugih vokala A, I ili U, koji označava da se taj dugi vokal treba dva puta duže učiti, to jest 4 hareketa.\n\nInače postoji više različitih dužina o kojima će se govoriti u lekcijama Tedžvida (tedžvid.ba) nakon što se završe sve lekcije sufare.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-        textAlign: TextAlign.justify,
+            textAlign: TextAlign.justify,
+          ),
+          SizedBox(height: 10),
+          Tabela10(dir),
+        ],
       ),
 //11
       RichText(
@@ -1434,89 +1439,11 @@ class Opis {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "Među harfovima koji se vežu sa obje svoje strane su i sljedeća dva harfa koja ćemo ako Bog da naučiti u ovoj lekciji. I ova dva harfa kao i predhodna postoje u našem jeziku i njihov izgovor ne predstavlja poseban problem. Harf  \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "FA",
+              text: "Harf “FA” se izgovara kao naše “F“ ili “V”.\n\nU toku izgovora ovog harfa, gornji sjekutići se prislone na unutarnju stranu donje usne. Ivice zuba vrše blagi pritisak na usnu, i na taj način se proizvodi ribajući šum.\n\nHARF DŽIM (DŽ)\n\nHarf “DŽIM” se izgovara malo mekše od našeg slova “DŽ”, a tvrđe od slova “Đ”.\n\nU toku izgovora ovog harfa, usne se razvuku, a vrh jezika se prisloni uz korjen donjih zuba. U tom trenutku se na tvrdom nepcu, formira neka vrsta polu-pregrade. Zrak iz pluća polahko savladava tu pregradu, izazivajući trenje na korijenu donjih zuba.",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.red,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" se izgovara kao naše \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "F",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". U toku izgovora ovog harfa, gornji sjekutići se prislone na unutarnju stranu donje usne. Ivice zuba vrše blagi pritisak na usnu, i na taj način se proizvodi ribajući šum.\n\nHarf  \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "DŽIM",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" se izgovara poput našeg slova \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "DŽ",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" ali ipak malo mekše, stim da ne bi smio preći u mehko \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "Đ",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". U toku izgovora ovog harfa, vrh jezika se prisloni uz korjen donjih zuba. U tom trenutku se na tvrdom nepcu, formira neka vrsta polu-pregrade. Zrak iz pluća polahko savladava tu pregradu, izazivajući trenje  na korijenu donjih zuba.",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
               ),
             ),
           ],
@@ -1817,176 +1744,7 @@ class Opis {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "Šesnaesta lekcija donosi nam tri nova harfa, prva tri od devet harfova iznad kojih se \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "fetha",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" čita kao kratko \"A\". I ovi harfovi se vežu sa obje svoje strane. Prvi od njih Harf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "KAF",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" izgledom podsjeća na harf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "FA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" samo što se iznad njega nalaze dvije tačke, ne postoji u našem jeziku. Prilikom izgovora ovog harfa, jezik se pomjeri nazad, a njegov zadnji dio se uzdigne prema zadnjem nepcu u predjelu resice. Zrak koji naiđe iz pluća savladava već formiranu prepreku, a jezik se naglo spušta. U tom trenutku se čuje eksplozivan šum. Kada je sa sukunom odskaće. Za ovaj harf kažemo da je to tvrdo \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "K",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\".\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "SAD",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" ne postoji u našem jeziku, rekli bismo da je to treći oblik slova \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "S",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" ili krupno \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "S",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". Prilikom izgovora ovog harfa prednji dio jezika se prisloniuz iicu donjih sjekutića, zadnji dio jezika se uzdigne prema zadnjem nepcu, a srednji dio jezika je izdubljen. Usne su umjereno ispupčene i zaokrugljene a usneni mišići su olabavljeni. Izgovor mu je prilično sličan našem \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "S",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" s tim što se harf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "SAD",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" izgovara krupnije.\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "DAD",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" također ne postoji u našem jeziku, to je krupno \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "D",
+              text: "HARF QAF (KRUPNO Q)\n\nHarf “QAF” izgledom podsjeća na harf “FA” samo što se iznad njega nalaze dvije tačke, ne postoji u našem jeziku. \n\nPrilikom izgovora ovog harfa, krajnji dio jezika se uzdigne nazad i sa zadnjim dijelom mehkog nepca pravi potpunu pregradu te zrak koji naiđe iz pluća savladava već formiranu prepreku dok se jezik naglo spušta pa se izgovori krupno Q. U tom trenutku se čuje eksplozivan šum. \n\nKada je sa sukunom odskaće.\n\nHARF SAD (KRUPNO S)\n\nHarf “SAD” ne postoji u našem jeziku, i to je treći oblik slova “S” ili krupno “S“. \n\nPrilikom izgovora ovog harfa vrh jezika je položen iza donjih zubi, zadnji dio jezika se uzdigne prema mehkom nepcu, dok su usne umjereno ispupčene i zaokrugljene, a usneni mišići su olabavljeni i izgovori se krupno “S”.\n\nHARF DAD (KRUPNO D)\n\nHarf “DAD” također ne postoji u našem jeziku.\n\nPrilikom izgovora ovog harfa, oba ruba jezika priljube se uz gornje kutnjake, zadnji dio jezika se podiže unatrag prema zadnjem nepcu, usne se umjereno zaokruže sa nešto većim otvorom usta i izgovori se krupno “D”.",
               style: TextStyle(
                 fontSize: 15,
                 color: Colors.black,
@@ -2004,241 +1762,11 @@ class Opis {
           children: <TextSpan>[
             TextSpan(
               text:
-                  "I u ovoj lekciji imamo tri nova harfa, tri krupna harfa iznad kojih se kratki vokal \"",
+                  "HARF TA (KRUPNO T)\n\nHarf “TA” ne postoji u našem jeziku. \n\nU toku izgovora ovog harfa, vrh jezika je priljubljen uz korjen i desni gornjih sjekutića, zadnji dio jezika se podigne unazad prema zadnjem nepcu, a usne su umjereno ispupčene i zaokrugljene. Usneni mišici se olabave.\n\nKada je sa sukunom ovaj harf u izgovoru odskaće.\n\nHARF ZA (KRUPNO Z)\n\nHarf “ZA” također ne postoji u našem jeziku, za njega bismo rekli da je to tvrdi oblik harfa “ZAL“. Izgleda poput harfa “TA” s tim što iznad ima jednu tačku. \n\nU toku izgovora ovog harfa,vrh jezika se stavi između  gornjih i donjih sjekutića i tu se formira tjesnac pa se izgovori krupno “Z”. Usne su zaokruljene i ispupčene. \n\nU toku izgovora ovog harfa,vrh jezika se stavi između  gornjih i donjih sjekutića i tu se formira tjesnac pa se izgovori krupno “Z”. Usne su zaokruljene i ispupčene. \n\nIzgovor ovog hrfa donekle odgovara harfu “ZAL“. A izgovara se krupno i tupo, pokupljenih usnana i povučenog jezika.\n\nHARF HA (KRUPNO H)\n\nHarf “HA”, kao i prethodna dva harfa, ne postoji u našem jeziku, to je drugi oblik slova “H“.\n\nRekli bismo da je to krupno i hrapavo “H“. Izgleda poput harfa “DŽIM” ali razlika je u tome što je kod njega tačka iznad. \n\nU toku izgovora ovog harfa, zadnji dio jezika se podigne prema mehkom nepcu. Trenjem zraka iz pluća kroz suženi prostor u ždrijelu, proizvodi se hrapav šum sličan hrkanju.\n\nIzgovor ovog harfa odgovara njemačkom izgovoru slova “CH” u riječi: “ACHTUNG” – pažnja.",
               style: TextStyle(
                 fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "E",
-              style: TextStyle(
-                fontSize: 16,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" ili (fetha) čita kao kratko \n",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "A",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" a ukoliko su sa sukunom a prije njih fetha i ta fetha se čita kao \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "A",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". Vežu se sa obje svoje strane. Prvi od ova tri harfa je:\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "TA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" ne postoji u našem jeziku, rekli bismo da je to krupno \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "T",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". U toku izgovora ovog harfa, vrh jezika se prisloni na osnovu gornjih sjekutića, prednji dio jezika se pripoji uz korjen gornjih zuba, zadnji dio jezika se podigne unazad prema zadnjem nepcu, a usne su umjereno ispupčene i zaokrugljene. Usneni mišići se olabave. Samo donekle odgovara našem slovu \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "T",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". Kada je sa sukunom ovaj harf u izgovoru odskače.\"\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "ZA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" također ne postoji u našem jeziku, za njega bismo rekli da je to tvrdi oblik harfa \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "ZAL",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\". Izgleda poput harfa \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "TA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" s tim što iznad ima jednu tačku. U toku izgovora ovog harfa,vrh jezika se stavi između  gornjih i donjih zuba. Njegov zadnji dio se podigne prema mehkom nepcu, pri čemu, zadnji dio jezika postaje udubljen, a usne su zaokrugljene i ispupčene. Izgovor ovog hrfa donekle odgovara harfu \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "ZAL",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\"A izgovara se krupno i tupo, pokupljenih usni i povučenog jezika.\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "HA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" kao i predhodna dva harfa ne postoji u našem jeziku, to je drugi oblik slova \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "H",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\". Rekli bismo da je to krupno i hrapavo \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "H",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\". Izgleda poput harfa \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "DŽIM",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" ali razlika je u tome što je kod njega tačka iznad. U toku izgovora ovog harfa, zadnji dio jezika se podigne prema mehkom nepcu. Trenjem zraka iz pluća kroz suženi prostor u ždrijelu, proizvodi se hrapav šum sličan hrkanju. Izgovor ovog harfa odgovara njemačkom izgovoru slova \"CH\" u rijeći: \"ACHTUNG\" - pažnja.\"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -2252,206 +1780,11 @@ class Opis {
           children: <TextSpan>[
             TextSpan(
               text:
-                  "U osamnaestoj lekciji naučit ćemo preostala tri harfa, tri krupna harfa iznad kojih se kratki vokal \"",
+                  "U ovoj lekciji naučit ćemo zadnja tri harfa iznad kojih se kratki vokal “E” tj. (fetha) čita kao “A“.\n\nHARF HA (OŠTRO H)\n\nHarf “HA” ne postoji u našem jeziku i to je treći oblik slova “H“. Izgleda poput harfova “DŽIM” i “HA” samo što ovaj harf nema tačku ni ispod ni iznad sebe. Za njega kažemo da je to oštro “H“.\n\nTokom izgovora ovog harfa ždrijelni kanal se suzi. Zrak koji se potisne iz pluća, nailazi na tjesan prolaz, pri čemu nastaje oštar šum. Prilikom samog izgovora jezik se mora ukrutiti i povuci nazad. Izgovor ovog harfa je približno sličan našem “H“, s tim što se izgovara stisnutog grla.\n\nHARF AJN (‘A)\n\nHarf “‘AJN” je grleni glas koji ne postoji u našem jeziku i jedan je od najtežih harfova za izgovor. \n\nU toku izgovora ovog harfa zadnji dio jezika povlačimo prema mehkom nepcu i tu pravimo potpunu pregradu. Nakon što se potisne zrak iz pluća i pregrada se u ždrijelnom kanalu otvori, jezik se mora naglo pomjeriti naprijed, a usneni mišici su zategnuti. Izgovor ovog glasa odgovara izgovoru polovice glasa “A“. Izgovara se otvorenih usta tako da se zrak propusti kroz stisnuto grlo. \n\nHARF GAJN (G)\n\nHarf “GAJN” izgleda slično kao harf “AJN” samo što ima tačku iznad sebe. \n\nPrilikom izgovora ovog harfa, zadnji dio jezika se mora pomjeriti prema mehkom nepcu. Kada naiđe zrak iz pluća, čuje se hrapav, zvučan šum koji je sličan gugutanju bebe ili goluba. Izgovor ovog harfa donekle odgovara našem slovu “G”, a izgovara se duboko jakim grlenim glasom. Kada je sa sukunom treba paziti da ne odskaće.",
               style: TextStyle(
                 fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "E",
-              style: TextStyle(
-                fontSize: 16,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" tj. (fetha) čita kao \n",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "A",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". Kada su sa sukunom a prije njih fetha i ta fetha se čita kao \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "A",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\". Vežu se sa obje svoje strane. Prvi od ova tri harfa je:\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "HA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" ne postoji u našem jeziku i to je treći oblik slova \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "H",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\". Izgleda poput harfova  \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "DŽIM",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" i \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "HA",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" samo što ovaj harf nema tačku ni ispod ni iznad sebe. Za njega kažemo da je to oštro \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "H",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\".  Toku izgovora ovog harfa ždrijelni kanal se suzi. Zrak koji se potisne iz pluća, nailazi na tjesan prolaz, pri čemu nastaje oštar šum. Prilikom samog izgovora jezik se mora ukrutiti i povući nazad. Izgovor ovog harfa je približno sličan našem \"H\", s tim što se izgovara stisnutog grla.\"\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "AJN",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" također ne postoji u našem jeziku i jedan je od najtežih harfova za izgovor. U toku izgovora ovog harfa, korjen i zadnji dio jezika se povuku nazad. Nakon što se potisne zrak iz pluća i pregrada se u ždriječnom kanalu otvori, jezik se mora naglo pomjeriti naprijed, a usneni mišići su zategnuti. Izgovor ovog glasa odgovara izgovoru polovie glasa \"A\". Izgovara se otvorenih usta tako da se zrak propusti kroz stisnuto grlo.\n\nHarf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "GAJN",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" izgleda slično kao harf \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "AJN",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" samo što ima tačku iznad sebe. Prilikom izgovora ovog harfa, zadnji dio jezika se mora pomjeriti prema mehkom nepcu. Kada naiđe zrak iz pluća, čuje se hrapav, zvučan šum koji je sličan gugutanju bebe ili goluba. Izgovor ovog harfa donekle odgovara našem slovu \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "G",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" a izgovara se duboko jakim grlenim glasom. Kada je sa sukunom treba paziti da ne odskače.",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -2464,27 +1797,11 @@ class Opis {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "Arapsko pismo jedno je od svjetskih pisama. Njime se služe mnogi islamski narodi. Kako je to pismo kojim je napisan Kur'ani Kerim, svaki musliman treba da ga nauči. Arapsko pismo ima ",
+              text: "\nArapsko pismo jedno je od svjetskih pisama. Njime se služe mnogi islamski narodi. Kako je to pismo kojim je napisan Kur’ani Kerim, svaki musliman treba da ga nauči. \n\nArapsko pismo ima 28 slova (harfova). Piše se i čita s desna na lijevo. Nema malih, velikih, štampanih i pisanih slova. Razlike u pisanju postoje samo zavisno od položaja slova u riječi: da li je slovo samo, na početku, u sredini ili na kraju riječi i da li se može spajati sa svoje obje ili samo sa svoje desne strane. Slova se obično spajaju vodoravnom linijom. \n\nSva arapska slova su suglasnici – konsonanti, za samoglasnike – vokale postoje posebni znaci koji nisu slova. Posebnu pažnju treba obratiti na izgled i izgovor svakog slova jer se neka slično pišu ili izgovaraju. Nekih glasova nema u našem jeziku pa je za njihov izgovor potrebna stručna pomoć muallima. U lekciji ispod možete vidjeti kompletnu arapsku abecedu svih 28 harfova i među njima hemze kao drugi oblikk elifa, klikom na neki od harfova čut ćete njihovo ime.",
               style: TextStyle(
                 fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "28",
-              style: TextStyle(
-                fontSize: 16,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  " slova (harfova). Piše se i čita s desna na lijevo. Nema malih, velikih, štampanih i pisanih slova. Razlike u pisanju postoje samo zavisno od položaja slova u riječi: da li je slovo samo, na početku, u sredini ili na kraju riječi i da li se može spajati sa svoje obje ili samo sa svoje desne strane. Slova se obično spajaju vodoravnom linijom. Sva arapska slova su suglasnici - konsonanti, za samoglasnike – vokale postoje posebni znaci koji nisu slova. Posebnu pažnju treba obratiti na izgled i izgovor svakog slova jer se neka lično pišu ili izgovaraju. Nekih glasova nema u našem jeziku pa je za njihov izgovor potrebna stručna pomoć muallima. U animiranoj lekciji ispod možete vidjeti kompletnu arapsku abecedu svih 28 harfova i među njima hemze kao drugi oblikk elifa, klikom na neki od harfova čut ćete njihovo ime.",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
               ),
             ),
           ],
@@ -2498,10 +1815,11 @@ class Opis {
           children: <TextSpan>[
             TextSpan(
               text:
-                  "Dvadeset i devet sura u Kur'anu počinje skračenicama ili pojedinačnim harfovima. Ne računajući one koje se ponavljaju više puta u Kur'anu se nalazi četrnaest skračenica, a u njima je zastpljeno četrnaest konsonanata: (n, s, h, k, y, m, l, h, s,r, k, elif, t.). U jednoj skračenici može biti od jedan do pet glasova. Kod svih skračenica izgovara se samo ime tih slova, kao što možete vidjeti u animiranoj lekciji ispod.",
+                  "\nDvadeset i devet sura u Kur’anu počinje skraćenicama ili pojedinačnim harfovima. Ne računajući one koje se ponavljaju više puta u Kur’anu se nalazi četrnaest skraćenica, a u njima je zastupljeno četrnaest konsonanata: (n, s, h, k, y, m, l, h, s,r, k, elif, t.). U jednoj skraćenici može biti od jedan do pet harfova. Kod svih skraćenica izgovara se samo ime tih harfova/slova, kao što možete vidjeti u lekciji.",
               style: TextStyle(
                 fontSize: 15,
                 color: Colors.black,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -2515,10 +1833,11 @@ class Opis {
           children: <TextSpan>[
             TextSpan(
               text:
-                  "Budući da je broj stranica, ajeta, džuzova i hizbova u Kur'ani Kerimu pisan arapskim brojevima potrebno je da naučimo i arapske brojeve kada smo već savladali arapska slova ili harfove. U ovoj lekciji mi nećemo učiti kako se brojevi izgovaraju u arapskom jeziku nego ćemo naučiti prepoznavati arapske brojeve kako bismo znali pronaći željenu stranicu ili broj ajeta u Kur'anu. Arapski brojevi se pišu i čitaju slijeva na desno kao i naši brojevi. U animiranoj lekciji ispod možete vidjeti upoređene nađe i arapske brojeve.",
+                  "\nBudući da je broj stranica, ajeta, džuzova i hizbova u Kur’ani Kerimu pisan arapskim brojevima potrebno je da naučimo i arapske brojeve kada smo već savladali arapska slova ili harfove. U ovoj lekciji mi nećemo učiti kako se brojevi izgovaraju u arapskom jeziku nego ćemo naučiti prepoznavati arapske brojeve kako bismo znali pronaci željenu stranicu ili broj ajeta u Kur’anu.\n\nArapski brojevi se pišu i čitaju sa lijeva na desno kao i naši brojevi. U ovoj lekciji možete vidjeti upoređene naše i arapske brojeve.",
               style: TextStyle(
                 fontSize: 15,
                 color: Colors.black,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -2532,294 +1851,11 @@ class Opis {
           children: <TextSpan>[
             TextSpan(
               text:
-                  "Učeći Kur'an naići ćemo na sitno napisane harfove iznad riječi u ajetima, to su znaci za stajanje. Oni imaju za cilj da pomognu i olakšaju učenje Kur'ana. Pored okruglog i često ukrašenog znaka koji stoji na kraju ajeta – rečenica i označava tačku, ostale znakove koji su iznad riječi svrstavamo u četiri kategorije:",
+                  "\nUčeći Kur'an naići ćemo na sitno napisane harfove iznad riječi u ajetima, to su znaci za stajanje. Oni imaju za cilj da pomognu i olakšaju učenje Kur'ana. Pored okruglog i često ukrašenog znaka koji stoji na kraju ajeta – rečenica i označava tačku, ostale znakove koji su iznad riječi svrstavamo u četiri kategorije:\n\n\t•\tZnakove na kojima se mora stati,\n\t•\tZnakove na kojima treba stati (bolje je stati),\n\t•\tZnakove na kojima je bolje preći, nastaviti učenje,\n\t•\tZnak da ne treba stati, ako se stane ponoviti riječ ili dvije.\n\nKada riječ na kojoj se zastaje ima na zadnjem harfu znak \"Fethe\", \"Kesre\", \"Damme\" ili tenvin \"In\" ili \"Un\", tada će se taj harf učiti kao da je na njemu sukun, npr: (selamun-selam), ili (kitabun-kitab). Međutim, ako se riječ završava tenvinom \"En\", tada se staje kao da je na kraju \"dugo A\", npr: (tevvaben-tevvabaa). U slučajevima kada se riječ na kojoj želimo stati završava sa kruglim \"T\" sa bilo kojim znakovima na njemu tada će se to \"T\" čitati kao \"H\" sa sukunom, npr: (ihvetun-ihveh) ili (tevbetun-tevbeh). Ispod možete vidjeti ove znakove u primjeni.",
               style: TextStyle(
                 fontSize: 15,
-                color: Colors.black,
-              ),
-            ),
-            TextSpan(
-              text: "\n\t ●	Znakove na kojima se ",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "mora",
-              style: TextStyle(
-                fontSize: 16,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: " stati,",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\n\t ●	Znakove na kojima ",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "treba",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "stati (bolje je stati),",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\n\t ●	Znakove na kojima je ",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "bolje preći",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: ", nastaviti učenje,",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\n\t ●	Znakove da ",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "ne treba ",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: " stati, ako se stane ponoviti riječ ili dvije,",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\n\nKada riječ na kojoj se zastaje ima na zadnjem harfu znak \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "Fethe",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\", \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "Kesre",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\", \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "Damme",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" ili tenvin \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "In",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" ili \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "Un",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" , tada će se taj harf učiti kao da je na njemu ",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "sukun",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\", npr: (selamun-selam), ili (kitabun-kitab). Međutim, ako se riječ završava tenvinom \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "En",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\", tada se staje kao da je na kraju \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "dugo A",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\", npr: (tevvaben-tevvabaa). U slučajevima kada se riječ na kojoj želimo stati završava sa kruglim \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "T",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" sa bilo kojim znakovima na njemu tada će se to \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "T",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "\" čitati kao  \"",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text: "H",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextSpan(
-              text:
-                  "\" sa sukunom, npr: (ihvetun-ihveh) ili (tevbetun-tevbeh). U animmiranoj lekciji ispod možete vidjeti ove znakove u primjeni.",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                //fontWeight: FontWeight.bold,
               ),
             ),
           ],

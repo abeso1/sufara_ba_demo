@@ -51,7 +51,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
       Timer(
         Duration(milliseconds: 0),
         () async {
-          if (harf.images[index]['audio'].isEmpty) {
+          if (harf.images[index]['audio'].isEmpty || isTop && harf.topIcons[index]['audio'].isEmpty) {
             await widget.player.play(
                 isTop
                     ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
@@ -61,8 +61,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           } else {
             await widget.player.play(
                 isTop
-                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
-                    : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['audio']}.mp3'
+                    : '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
                 isLocal: true);
             setState(() {});
           }
@@ -170,28 +170,31 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         SizedBox(
                           width: SizeConfig.safeBlockHorizontal * 1,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            playAudio(widget.harf, 2, isTop: true);
-                          },
-                          child: Row(
-                            children: [
-                              SvgPicture.file(
-                                File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg'),
-                                width: SizeConfig.blockSizeHorizontal * 16,
-                                color: Colors.white,
-                              ),
-                              widget.harf.topIcons[2]['desc'].length == 0
-                                  ? Container()
-                                  : Text(
-                                      widget.harf.topIcons[2]['desc'],
-                                      style: TextStyle(
-                                        fontSize: 30,
-                                        color: Colors.white,
+                        FittedBox(
+                          fit: BoxFit.contain,
+                                                  child: GestureDetector(
+                            onTap: () {
+                              playAudio(widget.harf, 2, isTop: true);
+                            },
+                            child: Row(
+                              children: [
+                                SvgPicture.file(
+                                  File(
+                                      '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg'),
+                                  width: SizeConfig.blockSizeHorizontal * 16,
+                                  color: Colors.white,
+                                ),
+                                widget.harf.topIcons[2]['desc'].length == 0
+                                    ? Container()
+                                    : Text(
+                                        widget.harf.topIcons[2]['desc'],
+                                        style: TextStyle(
+                                          fontSize: 30,
+                                          color: Colors.white,
+                                        ),
                                       ),
-                                    ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         GestureDetector(
@@ -612,7 +615,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           )
                         else
                           SizedBox(),
-                        SizedBox(
+                        widget.harf.id != "21" ? SizedBox(
                           width: SizeConfig.blockSizeVertical * 90,
                           height: SizeConfig.blockSizeVertical * 15,
                           child: Container(
@@ -656,7 +659,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                               ],
                             ),
                           ),
-                        )
+                        ) : Container()
                       ],
                     ),
                   ),
