@@ -44,14 +44,15 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   playAudio(HarfModel harf, int index, {bool isTop = false}) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print(isTop
-                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
-                    : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3');
+        ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
+        : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3');
     if (widget.player.state == AudioPlayerState.PLAYING) {
     } else {
       Timer(
         Duration(milliseconds: 0),
         () async {
-          if (harf.images[index]['audio'].isEmpty || isTop && harf.topIcons[index]['audio'].isEmpty) {
+          if (harf.images[index]['audio'].isEmpty ||
+              isTop && harf.topIcons[index]['audio'].isEmpty) {
             await widget.player.play(
                 isTop
                     ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
@@ -170,31 +171,28 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         SizedBox(
                           width: SizeConfig.safeBlockHorizontal * 1,
                         ),
-                        FittedBox(
-                          fit: BoxFit.contain,
-                                                  child: GestureDetector(
-                            onTap: () {
-                              playAudio(widget.harf, 2, isTop: true);
-                            },
-                            child: Row(
-                              children: [
-                                SvgPicture.file(
-                                  File(
-                                      '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg'),
-                                  width: SizeConfig.blockSizeHorizontal * 16,
-                                  color: Colors.white,
-                                ),
-                                widget.harf.topIcons[2]['desc'].length == 0
-                                    ? Container()
-                                    : Text(
-                                        widget.harf.topIcons[2]['desc'],
-                                        style: TextStyle(
-                                          fontSize: 30,
-                                          color: Colors.white,
-                                        ),
+                        GestureDetector(
+                          onTap: () {
+                            playAudio(widget.harf, 2, isTop: true);
+                          },
+                          child: Row(
+                            children: [
+                              SvgPicture.file(
+                                File(
+                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg'),
+                                width: SizeConfig.blockSizeHorizontal * 16,
+                                color: Colors.white,
+                              ),
+                              widget.harf.topIcons[2]['desc'].length == 0
+                                  ? Container()
+                                  : Text(
+                                      widget.harf.topIcons[2]['desc'],
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        color: Colors.white,
                                       ),
-                              ],
-                            ),
+                                    ),
+                            ],
                           ),
                         ),
                         GestureDetector(
@@ -337,35 +335,42 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                       widget.opis.getOpis(
                                           int.parse(widget.harf.id) - 1),
-                                      widget.harf.tabela["ime"].length != 0 ? Container(
-                                        width: double.infinity,
-                                        padding: EdgeInsets.fromLTRB(
-                                          0,
-                                          SizeConfig.blockSizeHorizontal * 3,
-                                          0,
-                                          0,
-                                        ),
-                                        child: Text(
-                                          widget.harf.tabela["ime"],
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.green[700],
-                                            fontSize:
+                                      widget.harf.tabela["ime"].length != 0
+                                          ? Container(
+                                              width: double.infinity,
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                SizeConfig.blockSizeHorizontal *
+                                                    3,
+                                                0,
+                                                0,
+                                              ),
+                                              child: Text(
+                                                widget.harf.tabela["ime"],
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                  color: Colors.green[700],
+                                                  fontSize: SizeConfig
+                                                          .blockSizeVertical *
+                                                      3,
+                                                ),
+                                              ),
+                                            )
+                                          : Container(),
+                                      widget.harf.tabela["ime"].length != 0
+                                          ? Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                SizeConfig.blockSizeHorizontal *
+                                                    1,
+                                                0,
                                                 SizeConfig.blockSizeVertical *
                                                     3,
-                                          ),
-                                        ),
-                                      ) : Container(),
-                                       widget.harf.tabela["ime"].length != 0 ? Padding(
-                                        padding: EdgeInsets.fromLTRB(
-                                          0,
-                                          SizeConfig.blockSizeHorizontal * 1,
-                                          0,
-                                          SizeConfig.blockSizeVertical * 3,
-                                        ),
-                                        child: TableIzgovor(
-                                            widget.dir, widget.harf, ""),
-                                      ) : Container(),
+                                              ),
+                                              child: TableIzgovor(
+                                                  widget.dir, widget.harf, ""),
+                                            )
+                                          : Container(),
                                       widget.harf.tabela["ime2"].length != 0
                                           ? Container(
                                               width: double.infinity,
@@ -400,6 +405,42 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                               ),
                                               child: TableIzgovor(
                                                   widget.dir, widget.harf, "2"),
+                                            )
+                                          : Container(),
+                                          widget.harf.tabela["ime2"].length != 0
+                                          ? Container(
+                                              width: double.infinity,
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                SizeConfig.blockSizeHorizontal *
+                                                    3,
+                                                0,
+                                                0,
+                                              ),
+                                              child: Text(
+                                                widget.harf.tabela["ime3"],
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                  color: Colors.green[700],
+                                                  fontSize: SizeConfig
+                                                          .blockSizeVertical *
+                                                      3,
+                                                ),
+                                              ),
+                                            )
+                                          : Container(),
+                                      widget.harf.tabela["ime3"].length != 0
+                                          ? Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                SizeConfig.blockSizeHorizontal *
+                                                    1,
+                                                0,
+                                                SizeConfig.blockSizeVertical *
+                                                    3,
+                                              ),
+                                              child: TableIzgovor(
+                                                  widget.dir, widget.harf, "3"),
                                             )
                                           : Container(),
                                     ],
@@ -615,51 +656,58 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           )
                         else
                           SizedBox(),
-                        widget.harf.id != "21" ? SizedBox(
-                          width: SizeConfig.blockSizeVertical * 90,
-                          height: SizeConfig.blockSizeVertical * 15,
-                          child: Container(
-                            //color: Colors.white,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                width: 5,
-                                color: Colors.blue,
-                              ),
-                            ),
-                            child: Row(
-                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                SizedBox(
-                                  width: SizeConfig.blockSizeHorizontal * 6,
-                                ),
-                                Icon(
-                                  Icons.report_outlined,
-                                  size: SizeConfig.blockSizeHorizontal * 10,
-                                  color: Colors.blue,
-                                ),
-                                SizedBox(
-                                  width: SizeConfig.blockSizeHorizontal * 1,
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    'Klikom na harf poslušajte njegov izgovor. ',
-                                    style: TextStyle(
+                        widget.harf.id != "21"
+                            ? SizedBox(
+                                width: SizeConfig.blockSizeVertical * 90,
+                                height: SizeConfig.blockSizeVertical * 15,
+                                child: Container(
+                                  //color: Colors.white,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                      width: 5,
                                       color: Colors.blue,
-                                      fontSize:
-                                          SizeConfig.blockSizeHorizontal * 5,
                                     ),
-                                    textAlign: TextAlign.center,
+                                  ),
+                                  child: Row(
+                                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            SizeConfig.blockSizeHorizontal * 6,
+                                      ),
+                                      Icon(
+                                        Icons.report_outlined,
+                                        size:
+                                            SizeConfig.blockSizeHorizontal * 10,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(
+                                        width:
+                                            SizeConfig.blockSizeHorizontal * 1,
+                                      ),
+                                      Flexible(
+                                        child: Text(
+                                          'Klikom na harf poslušajte njegov izgovor. ',
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize:
+                                                SizeConfig.blockSizeHorizontal *
+                                                    5,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width:
+                                            SizeConfig.blockSizeHorizontal * 3,
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                SizedBox(
-                                  width: SizeConfig.blockSizeHorizontal * 3,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ) : Container()
+                              )
+                            : Container()
                       ],
                     ),
                   ),

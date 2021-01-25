@@ -86,7 +86,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           widget.harf.images[drugi]['audio'].toLowerCase() ==
               widget.harf.images[prvi]['name'].toLowerCase() ||
           widget.harf.images[drugi]['audio'].toLowerCase() ==
-              widget.harf.images[prvi]['audio'].toLowerCase()) {
+              widget.harf.images[prvi]['audio'].toLowerCase() && widget.harf.id != "21") {
         nastavi = true;
       } else {
         nastavi = false;
@@ -139,7 +139,11 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       dva = CardForVjezbeRegural(widget.harf, index2, widget.dir);
       tri = CardForVjezbeRegural(widget.harf, index3, widget.dir);
     });
-    Timer(Duration(milliseconds: 500), () => playAudio(widget.harf, tacan));
+    Timer(Duration(milliseconds: 500), () {
+      if (widget.harf.id != "21") {
+        playAudio(widget.harf, tacan);
+      }
+    });
   }
 
   answerQuestion(int i) {
@@ -395,7 +399,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       ),
                       Flexible(
                         child: Text(
-                          'Poslušajte izgovor i odaberite tačan odgovor.',
+                          widget.harf.id != "21" ? 'Poslušajte izgovor i odaberite tačan odgovor.' : "Koji od ponuđeni brojeva predstavlja broj " + widget.harf.images[tacan]["name"],
                           style: TextStyle(
                             color: Colors.blue,
                             fontSize: SizeConfig.blockSizeHorizontal * 5,
@@ -485,7 +489,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 1,
                   ),
-                  Container(
+                  widget.harf.id != "21" ? Container(
                     height: SizeConfig.blockSizeVertical * 6,
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeVertical * 7,
@@ -550,7 +554,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         ),
                       ),
                     ),
-                  ),
+                  ) : Container(),
                 ],
               ),
             ),

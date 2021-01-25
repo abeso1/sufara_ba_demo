@@ -114,7 +114,7 @@ class _TabsScreensState extends State<TabsScreens> {
                 fit: BoxFit.cover,
               ),
               Spacer(),
-              Container(
+              /*Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[300],
                   borderRadius: BorderRadius.circular(22),
@@ -209,11 +209,11 @@ class _TabsScreensState extends State<TabsScreens> {
                     ),
                   ],
                 ),
-              )
+              )*/
             ],
           ),
           bottom: PreferredSize(
-            preferredSize: Size(100,SizeConfig.blockSizeVertical * 7),
+            preferredSize: Size(100,SizeConfig.blockSizeVertical * 5.5),
             child: Container(
               height: SizeConfig.blockSizeVertical * 5,
               child: TabBar(
