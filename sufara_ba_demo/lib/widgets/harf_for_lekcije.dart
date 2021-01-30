@@ -90,7 +90,7 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
                   Container(
                     width: SizeConfig.blockSizeHorizontal * 43,
                     child: FittedBox(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.scaleDown,
                       child: Text(
                         widget.harf.name,
                         textAlign: TextAlign.center,

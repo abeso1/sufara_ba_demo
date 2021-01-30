@@ -5,50 +5,26 @@ class CustomAlertVjezba extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return SimpleDialog(
+    return AlertDialog(
       title: Text(
-        'Uspjesno ste polozili vjezbu!',
+        'Uspješno ste položili vježbu!',
         textAlign: TextAlign.center,
       ),
-      children: [
+      actionsPadding: EdgeInsets.only(bottom: 10),
+      actions: [
         Container(
-          height: SizeConfig.blockSizeVertical * 15,
-          width: SizeConfig.blockSizeHorizontal * 28,
-          padding: EdgeInsets.symmetric(
-            horizontal: SizeConfig.blockSizeHorizontal * 3,
-            vertical: SizeConfig.blockSizeVertical * 2,
-          ),
-          child: Column(
-            children: [
-              SizedBox(
-                height: SizeConfig.blockSizeVertical * 2,
-              ),
-              Container(
-                width: SizeConfig.blockSizeHorizontal * 35,
-                height: SizeConfig.blockSizeVertical * 7,
-                child: RaisedButton(
-                  color: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: Text(
-                      'Zatvori prozor',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ),
-            ],
+          width: 120,
+          child: RaisedButton(
+            color: Colors.green,
+            child: Text(
+              'Zatvori prozor',
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
         ),
+        SizedBox(width: 10),
       ],
     );
   }

@@ -95,16 +95,16 @@ class _SplashScreenState extends State<SplashScreen> {
     SizeConfig().init(context);
     if (done) {
       Timer(Duration(seconds: 3), () {
-        Navigator.of(context).pop(
+        Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => TabsScreens(dir),
           ),
         );
-        Navigator.of(context).push(
+        /*Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => TabsScreens(dir),
           ),
-        );
+        );*/
       });
     }
 

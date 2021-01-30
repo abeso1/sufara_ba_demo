@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
+import 'package:sufara_ba_demo/widgets/vjezbaInit.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -46,7 +48,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     AlwaysStoppedAnimation(Colors.red),
     AlwaysStoppedAnimation(Colors.red),
     AlwaysStoppedAnimation(Colors.orange),
-    AlwaysStoppedAnimation(Colors.yellow),
+    AlwaysStoppedAnimation(Colors.amber),
     AlwaysStoppedAnimation(Colors.lightGreen),
     AlwaysStoppedAnimation(Colors.green),
   ];
@@ -70,7 +72,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     super.dispose();
   }
 
-  setHarfs() {
+  setHarfs({bool init = false}) {
     int prvi = rng.nextInt(widget.harf.images.length);
     setState(() {
       index1 = prvi;
@@ -79,6 +81,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     bool nastavi = true;
     while (drugi == prvi || nastavi) {
       drugi = rng.nextInt(widget.harf.images.length);
+      print("ovdje sam 1");
       if (widget.harf.images[drugi]['name'].toLowerCase() ==
               widget.harf.images[prvi]['name'].toLowerCase() ||
           widget.harf.images[drugi]['name'].toLowerCase() ==
@@ -86,7 +89,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           widget.harf.images[drugi]['audio'].toLowerCase() ==
               widget.harf.images[prvi]['name'].toLowerCase() ||
           widget.harf.images[drugi]['audio'].toLowerCase() ==
-              widget.harf.images[prvi]['audio'].toLowerCase() && widget.harf.id != "21") {
+                  widget.harf.images[prvi]['audio'].toLowerCase() &&
+              widget.harf.id != "21" &&
+              widget.harf.images[drugi]['audio'].length != 0) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -99,6 +104,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     nastavi = true;
     while (treci == prvi || treci == drugi || nastavi) {
       treci = rng.nextInt(widget.harf.images.length);
+      print("ovdje sam 2");
       if (widget.harf.images[treci]['name'].toLowerCase() ==
               widget.harf.images[prvi]['name'].toLowerCase() ||
           widget.harf.images[treci]['name'].toLowerCase() ==
@@ -140,7 +146,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
       tri = CardForVjezbeRegural(widget.harf, index3, widget.dir);
     });
     Timer(Duration(milliseconds: 500), () {
-      if (widget.harf.id != "21") {
+      if (widget.harf.id != "21" && !init) {
         playAudio(widget.harf, tacan);
       }
     });
@@ -271,13 +277,26 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   @override
   void initState() {
-    setHarfs();
+    widget.harf.id != "21" ? setHarfs(init:true) : setHarfs();
+    if (widget.harf.id != "21") {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (ctx) {
+            return VjezbaInit(widget.harf.id);
+          },
+        ).then((value) => playAudio(widget.harf, tacan));
+      });
+    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    Future.delayed(Duration.zero, () {});
+
     return WillPopScope(
       child: Scaffold(
         appBar: AppBar(
@@ -286,13 +305,16 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           ),
           elevation: 0,
           centerTitle: true,
-          title: Text(
-            '${widget.harf.id}. vježba',
-            //textAlign: TextAlign.right,
-            style: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontFamily: 'Roboto',
-              color: Colors.white,
+          title: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              '${widget.harf.id}. vježba',
+              //textAlign: TextAlign.right,
+              style: TextStyle(
+                fontWeight: FontWeight.w300,
+                fontFamily: 'Roboto',
+                color: Colors.white,
+              ),
             ),
           ),
           flexibleSpace: Container(
@@ -326,15 +348,23 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         left: SizeConfig.blockSizeHorizontal * 6),
                     width: SizeConfig.blockSizeHorizontal * 100,
                     height: SizeConfig.blockSizeVertical * 5,
-                    child: Text(
-                      'Vježba',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: SizeConfig.blockSizeVertical * 4.4,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            'Vježba',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: SizeConfig.blockSizeVertical * 4.4,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                              fontFamily: 'Roboto',
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -349,16 +379,28 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     width: SizeConfig.blockSizeHorizontal * 100,
                     //child: Flexible(
                     //fit: BoxFit.fitHeight,
-                    child: Text(
-                      widget.harf.name,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: SizeConfig.blockSizeVertical * 4,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          FittedBox(
+                            fit: BoxFit.fill,
+                            child: AutoSizeText(
+                              widget.harf.name,
+                              textAlign: TextAlign.left,
+                              maxLines: 2,
+                              style: TextStyle(
+                                fontSize: SizeConfig.blockSizeVertical * 4,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                                fontFamily: 'Roboto',
+                              ),
+                              //),
+                            ),
+                          ),
+                        ],
                       ),
-                      //),
                     ),
                   ),
                 ],
@@ -398,13 +440,17 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                         width: SizeConfig.blockSizeHorizontal * 1,
                       ),
                       Flexible(
-                        child: Text(
-                          widget.harf.id != "21" ? 'Poslušajte izgovor i odaberite tačan odgovor.' : "Koji od ponuđeni brojeva predstavlja broj " + widget.harf.images[tacan]["name"],
+                        child: AutoSizeText(
+                          widget.harf.id != "21"
+                              ? 'Poslušajte izgovor i odaberite tačan odgovor.'
+                              : "Koji od ponuđeni brojeva predstavlja broj " +
+                                  widget.harf.images[tacan]["name"],
                           style: TextStyle(
                             color: Colors.blue,
                             fontSize: SizeConfig.blockSizeHorizontal * 5,
                           ),
                           textAlign: TextAlign.center,
+                          maxLines: 2,
                         ),
                       ),
                       SizedBox(
@@ -489,72 +535,78 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 1,
                   ),
-                  widget.harf.id != "21" ? Container(
-                    height: SizeConfig.blockSizeVertical * 6,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeVertical * 7,
-                    ),
-                    child: RaisedButton(
-                      onPressed: () {
-                        playAudio(widget.harf, tacan);
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      padding: EdgeInsets.all(0),
-                      elevation: 5,
-                      child: Container(
-                        //padding: EdgeInsets.symmetric(
-                        //  horizontal: SizeConfig.blockSizeVertical * 7,
-                        //  vertical: SizeConfig.blockSizeVertical * 1.25,
-                        //),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          gradient: LinearGradient(
-                            colors: [kon_boja, poc_boja],
+                  widget.harf.id != "21"
+                      ? Container(
+                          height: SizeConfig.blockSizeVertical * 6,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: SizeConfig.blockSizeVertical * 7,
                           ),
-                          //boxShadow: [
-                          //BoxShadow(
-                          //color: Colors.lightGreen[100],
-                          //blurRadius: 2.0,
-                          //spreadRadius: 0.0,
-                          //offset: Offset(
-                          //    2.0, 2.0), // shadow direction: bottom right
-                          //)
-                          //],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.replay,
-                              color: Colors.white,
-                              size: SizeConfig.blockSizeVertical * 4.5,
+                          child: RaisedButton(
+                            onPressed: () {
+                              playAudio(widget.harf, tacan);
+                            },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
                             ),
-                            Center(
-                              child: FittedBox(
-                                fit: BoxFit.fill,
-                                child: Text(
-                                  'IZGOVOR',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
+                            padding: EdgeInsets.all(0),
+                            elevation: 5,
+                            child: Container(
+                              //padding: EdgeInsets.symmetric(
+                              //  horizontal: SizeConfig.blockSizeVertical * 7,
+                              //  vertical: SizeConfig.blockSizeVertical * 1.25,
+                              //),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                gradient: LinearGradient(
+                                  colors: [kon_boja, poc_boja],
                                 ),
+                                //boxShadow: [
+                                //BoxShadow(
+                                //color: Colors.lightGreen[100],
+                                //blurRadius: 2.0,
+                                //spreadRadius: 0.0,
+                                //offset: Offset(
+                                //    2.0, 2.0), // shadow direction: bottom right
+                                //)
+                                //],
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Icon(
+                                      Icons.replay,
+                                      color: Colors.white,
+                                      size: SizeConfig.blockSizeVertical * 4.5,
+                                    ),
+                                  ),
+                                  Center(
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        'IZGOVOR',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: SizeConfig.blockSizeHorizontal * 1,
+                                  )
+                                ],
                               ),
                             ),
-                            SizedBox(
-                              width: SizeConfig.blockSizeHorizontal * 1,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ) : Container(),
+                          ),
+                        )
+                      : Container(),
                 ],
               ),
             ),

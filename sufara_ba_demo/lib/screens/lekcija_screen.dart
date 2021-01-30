@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/models/opis_model.dart';
 import 'package:sufara_ba_demo/models/opis_model_naslov.dart';
+import 'package:sufara_ba_demo/models/shared_prefs.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
@@ -40,19 +42,23 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   Color thirdButton = Colors.red;
   TransformationController controller = TransformationController();
   bool showContainer = false;
+  SharedPrefs sharedPrefs = SharedPrefs();
 
   playAudio(HarfModel harf, int index, {bool isTop = false}) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
     print(isTop
         ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
         : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3');
+    if (harf.images[index]['audio'] == "x") {
+      return;
+    }
     if (widget.player.state == AudioPlayerState.PLAYING) {
     } else {
       Timer(
         Duration(milliseconds: 0),
         () async {
-          if (harf.images[index]['audio'].isEmpty ||
-              isTop && harf.topIcons[index]['audio'].isEmpty) {
+          if ((harf.images[index]['audio'].isEmpty && !isTop) ||
+              (isTop && harf.topIcons[index]['audio'].isEmpty)) {
             await widget.player.play(
                 isTop
                     ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
@@ -82,6 +88,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int vjezbaId = int.parse(widget.harf.id);
     widget.mjesto = 3;
     SizeConfig().init(context);
     return Scaffold(
@@ -91,13 +98,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         ),
         elevation: 0,
         centerTitle: true,
-        title: Text(
-          '${widget.harf.id}. lekcija',
-          //textAlign: TextAlign.right,
-          style: TextStyle(
-            fontWeight: FontWeight.w300,
-            fontFamily: 'Roboto',
-            color: Colors.white,
+        title: FittedBox(
+          fit: BoxFit.fitHeight,
+          child: Text(
+            '${widget.harf.id}. lekcija',
+            //textAlign: TextAlign.right,
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontFamily: 'Roboto',
+              color: Colors.white,
+            ),
           ),
         ),
         flexibleSpace: Container(
@@ -132,15 +142,23 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 6),
                   width: SizeConfig.blockSizeHorizontal * 100,
                   //height: SizeConfig.blockSizeVertical * 35,
-                  child: Text(
-                    widget.harf.name,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: SizeConfig.blockSizeHorizontal * 6.8,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontFamily: 'Roboto',
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          widget.harf.name,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockSizeHorizontal * 6.8,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: 'Roboto',
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -309,12 +327,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       size: SizeConfig.blockSizeHorizontal * 10,
                                       color: Colors.white,
                                     ),
-                                    Text(
-                                      'OPIS LEKCIJE',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            SizeConfig.blockSizeHorizontal * 7,
+                                    FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        'OPIS LEKCIJE',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              SizeConfig.blockSizeHorizontal *
+                                                  7,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -407,7 +429,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                   widget.dir, widget.harf, "2"),
                                             )
                                           : Container(),
-                                          widget.harf.tabela["ime2"].length != 0
+                                      widget.harf.tabela["ime2"].length != 0
                                           ? Container(
                                               width: double.infinity,
                                               padding: EdgeInsets.fromLTRB(
@@ -636,12 +658,15 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     size: SizeConfig.blockSizeHorizontal * 10,
                                     color: Colors.white,
                                   ),
-                                  Text(
-                                    'VIDEO LEKCIJA',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeHorizontal * 7,
+                                  FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(
+                                      'VIDEO LEKCIJA',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            SizeConfig.blockSizeHorizontal * 7,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -688,8 +713,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                             SizeConfig.blockSizeHorizontal * 1,
                                       ),
                                       Flexible(
-                                        child: Text(
+                                        child: AutoSizeText(
                                           'Klikom na harf poslušajte njegov izgovor. ',
+                                          maxLines: 2,
                                           style: TextStyle(
                                             color: Colors.blue,
                                             fontSize:
@@ -821,56 +847,66 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                     ),
                   ),
                   //zapocni vjezbu
-                  Container(
-                    height: SizeConfig.blockSizeVertical * 8,
-                    padding: EdgeInsets.only(
-                      left: SizeConfig.blockSizeHorizontal * 45,
-                      right: SizeConfig.blockSizeHorizontal * 3,
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                VjezbaScreen(widget.harf, widget.dir),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: SizeConfig.blockSizeVertical * 1,
-                          vertical: SizeConfig.blockSizeVertical * 2,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          gradient:
-                              LinearGradient(colors: [kon_boja, poc_boja]),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                  FutureBuilder(
+                      future: sharedPrefs
+                          .readData("vjezba" + (vjezbaId - 3).toString()),
+                      builder: (context, snapshot) {
+                        if (snapshot.data == true || vjezbaId == 1) {
+                          return Container(
+                            height: SizeConfig.blockSizeVertical * 8,
+                            padding: EdgeInsets.only(
+                              left: SizeConfig.blockSizeHorizontal * 45,
+                              right: SizeConfig.blockSizeHorizontal * 3,
                             ),
-                          ],
-                        ),
-                        child: FittedBox(
-                          child: Text(
-                            //ovo treba centrirati
-                            'Započni vježbu',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.normal,
-                              fontFamily: 'Roboto',
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        VjezbaScreen(widget.harf, widget.dir),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: SizeConfig.blockSizeVertical * 1,
+                                  vertical: SizeConfig.blockSizeVertical * 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  gradient: LinearGradient(
+                                      colors: [kon_boja, poc_boja]),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: Offset(
+                                          0, 3), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    //ovo treba centrirati
+                                    'Započni vježbu',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'Roboto',
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                          );
+                        } else {
+                          return Container();
+                        }
+                      }),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 3,
                   ),

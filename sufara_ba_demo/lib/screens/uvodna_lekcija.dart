@@ -20,13 +20,16 @@ class _LekcijaScreenState extends State<UvodnaLekcija> {
         ),
         elevation: 0,
         centerTitle: true,
-        title: Text(
-          'Uvodna lekcija',
-          //textAlign: TextAlign.right,
-          style: TextStyle(
-            fontWeight: FontWeight.w300,
-            fontFamily: 'Roboto',
-            color: Colors.white,
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'Uvodna lekcija',
+            //textAlign: TextAlign.right,
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontFamily: 'Roboto',
+              color: Colors.white,
+            ),
           ),
         ),
         flexibleSpace: Container(
@@ -67,15 +70,23 @@ class _LekcijaScreenState extends State<UvodnaLekcija> {
                       EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 6),
                   width: SizeConfig.blockSizeHorizontal * 100,
                   //height: SizeConfig.blockSizeVertical * 35,
-                  child: Text(
-                    "Uvod",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: SizeConfig.blockSizeHorizontal * 6.8,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontFamily: 'Roboto',
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          "Uvod",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockSizeHorizontal * 6.8,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: 'Roboto',
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

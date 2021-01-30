@@ -17,6 +17,8 @@ import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert_vjezba_posljednja.dart';
+import 'package:sufara_ba_demo/widgets/vjezbaInit.dart';
 
 class VjezbaScreenCijelaSufara extends StatefulWidget {
   final AudioCache audioCache = AudioCache();
@@ -49,7 +51,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     AlwaysStoppedAnimation(Colors.red),
     AlwaysStoppedAnimation(Colors.red),
     AlwaysStoppedAnimation(Colors.orange),
-    AlwaysStoppedAnimation(Colors.yellow),
+    AlwaysStoppedAnimation(Colors.amber),
     AlwaysStoppedAnimation(Colors.lightGreen),
     AlwaysStoppedAnimation(Colors.green),
   ];
@@ -73,7 +75,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     super.dispose();
   }
 
-  setHarfs() {
+  setHarfs({bool init = false}) {
     int lek1 = 0;
     int lek2 = 0;
     int lek3 = 0;
@@ -119,9 +121,12 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
               DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
                   .toLowerCase() ||
           DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
-                  .toLowerCase() ==
+                      .toLowerCase() ==
+                  DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                      .toLowerCase() &&
               DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
-                  .toLowerCase()) {
+                      .length !=
+                  0) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -193,7 +198,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
           DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
     });
     Timer(Duration(milliseconds: 500),
-        () => playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan));
+        () => !init ? playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan) : {});
   }
 
   answerQuestion(int i) {
@@ -230,7 +235,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
             barrierDismissible: false,
             context: context,
             builder: (ctx) {
-              return CustomAlertVjezba();
+              return CustomAlertVjezbaZadnja();
             }).then(
           (value) => {
             //Navigator.of(context).pop(),
@@ -330,7 +335,17 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
 
   @override
   void initState() {
-    setHarfs();
+    setHarfs(init: true);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (ctx) {
+          return VjezbaInit("23");
+        },
+      ).then((value) =>
+          playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan));
+    });
     super.initState();
   }
 
@@ -345,13 +360,16 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
           ),
           elevation: 0,
           centerTitle: true,
-          title: Text(
-            '${23}. vježba',
-            //textAlign: TextAlign.right,
-            style: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontFamily: 'Roboto',
-              color: Colors.white,
+          title: FittedBox(
+            fit: BoxFit.fill,
+            child: Text(
+              '${23}. vježba',
+              //textAlign: TextAlign.right,
+              style: TextStyle(
+                fontWeight: FontWeight.w300,
+                fontFamily: 'Roboto',
+                color: Colors.white,
+              ),
             ),
           ),
           flexibleSpace: Container(
