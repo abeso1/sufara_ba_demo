@@ -16,7 +16,6 @@ import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
-import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba_posljednja.dart';
 import 'package:sufara_ba_demo/widgets/vjezbaInit.dart';
 

@@ -29,7 +29,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
     //this need to be added so i can use size config
     SizeConfig().init(context);
     return FutureBuilder(
-        future: sharedPrefs.readData("vjezba" + (vjezbaId - 2).toString()),
+        future: sharedPrefs.readData("vjezba" + (23 - 3).toString()),
         builder: (context, snapshot) {
           if (snapshot.data == true) {
             return GestureDetector(

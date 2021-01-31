@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/hadis_data.dart';
 import 'package:sufara_ba_demo/functions/downloading_audio.dart';
+import 'package:sufara_ba_demo/models/checkInternet.dart';
 import 'package:sufara_ba_demo/screens/tabs_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert_no_internet.dart';
 import 'package:sufara_ba_demo/widgets/message_hadis.dart';
 import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;
@@ -32,41 +34,54 @@ class _SplashScreenState extends State<SplashScreen> {
     setState(() {
       hadis = Hadis.listHadis[rng.nextInt(20)].name;
     });
+
     download.checkFile().then((val) => {
           if (!val)
             {
-              Timer(
-                Duration(seconds: 5),
-                () {
-                  getDir().then((value) {
-                    setState(() {
-                      dir = value;
-                    });
-                  });
-                  showDialog(
-                    barrierDismissible: false,
-                    context: context,
-                    builder: (ctx) {
-                      return ProgressionIndicator();
-                    },
-                  ).then(
-                    (value) {
-                      //Navigator.of(context).pop();
+              CheckForInternetService().checkForInternet().then((value9) {
+                if (value9) {
+                  Timer(
+                    Duration(seconds: 5),
+                    () {
+                      getDir().then((value) {
+                        setState(() {
+                          dir = value;
+                        });
+                      });
                       showDialog(
                         barrierDismissible: false,
                         context: context,
                         builder: (ctx) {
-                          return MessageHadis();
+                          return ProgressionIndicator();
                         },
-                      ).then((value) {
-                        setState(() {
-                          done = true;
-                        });
-                      });
+                      ).then(
+                        (value) {
+                          //Navigator.of(context).pop();
+                          showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (ctx) {
+                              return MessageHadis();
+                            },
+                          ).then((value) {
+                            setState(() {
+                              done = true;
+                            });
+                          });
+                        },
+                      );
                     },
                   );
-                },
-              ),
+                } else {
+                  showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (ctx) {
+                      return NoInternetConnection(download : true);
+                    },
+                  );
+                }
+              }),
             }
           else if (val)
             {
@@ -84,6 +99,7 @@ class _SplashScreenState extends State<SplashScreen> {
               })
             }
         });
+
     //print(file.toString());
     super.initState();
   }

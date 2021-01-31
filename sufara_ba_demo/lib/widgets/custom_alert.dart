@@ -16,7 +16,7 @@ class _CustomAlertState extends State<CustomAlert> {
       titlePadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       title: Text(
         'Jeste li sigurni da želite napustiti vježbu?',
-        textAlign: TextAlign.justify,
+        textAlign: TextAlign.center,
       ),
       actions: [
         Container(

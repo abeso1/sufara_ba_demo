@@ -277,7 +277,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   @override
   void initState() {
-    widget.harf.id != "21" ? setHarfs(init:true) : setHarfs();
+    widget.harf.id != "21" ? setHarfs(init: true) : setHarfs();
     if (widget.harf.id != "21") {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         showDialog(
@@ -379,28 +379,33 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                     width: SizeConfig.blockSizeHorizontal * 100,
                     //child: Flexible(
                     //fit: BoxFit.fitHeight,
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FittedBox(
-                            fit: BoxFit.fill,
-                            child: AutoSizeText(
-                              widget.harf.name,
-                              textAlign: TextAlign.left,
-                              maxLines: 2,
-                              style: TextStyle(
-                                fontSize: SizeConfig.blockSizeVertical * 4,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white,
-                                fontFamily: 'Roboto',
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              FittedBox(
+                                fit: BoxFit.fill,
+                                child: AutoSizeText(
+                                  widget.harf.name,
+                                  textAlign: TextAlign.left,
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                    fontSize: SizeConfig.blockSizeVertical * 4,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white,
+                                    fontFamily: 'Roboto',
+                                  ),
+                                  //),
+                                ),
                               ),
-                              //),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

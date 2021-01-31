@@ -63,7 +63,7 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                 Timer(Duration(milliseconds: 200), () async {
                   SharedPreferences sharedPreferences =
                       await SharedPreferences.getInstance();
-                  sharedPreferences.setBool('preuzeto', true);
+                  sharedPreferences.setBool('preuzetoje', true);
                   Navigator.of(context).pop();
                 });
               }

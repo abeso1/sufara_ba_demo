@@ -6,6 +6,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sufara_ba_demo/models/checkInternet.dart';
 
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/models/opis_model.dart';
@@ -15,6 +16,7 @@ import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
+import 'package:sufara_ba_demo/widgets/custom_alert_no_internet.dart';
 import 'package:sufara_ba_demo/widgets/table_izgovor.dart';
 import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 
@@ -607,42 +609,56 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 setState(() {
                                   thirdButton = Colors.red;
                                 });
-                                showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  child: SimpleDialog(
-                                    children: [
-                                      Column(
+                                CheckForInternetService()
+                                    .checkForInternet()
+                                    .then((value9) {
+                                  if (value9) {
+                                    showDialog(
+                                      barrierDismissible: false,
+                                      context: context,
+                                      child: SimpleDialog(
                                         children: [
-                                          YoutubeDefaultWidget(
-                                              widget.harf.videoUrl),
-                                          SizedBox(
-                                              height:
-                                                  SizeConfig.blockSizeVertical *
+                                          Column(
+                                            children: [
+                                              YoutubeDefaultWidget(
+                                                  widget.harf.videoUrl),
+                                              SizedBox(
+                                                  height: SizeConfig
+                                                          .blockSizeVertical *
                                                       2),
-                                          RaisedButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            color: kon_boja,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            child: FittedBox(
-                                              fit: BoxFit.fill,
-                                              child: Text(
-                                                'Zatvori prozor',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          )
+                                              RaisedButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                color: kon_boja,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: FittedBox(
+                                                  fit: BoxFit.fill,
+                                                  child: Text(
+                                                    'Zatvori prozor',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                );
+                                    );
+                                  } else {
+                                    showDialog(
+                                      barrierDismissible: false,
+                                      context: context,
+                                      builder: (ctx) {
+                                        return NoInternetConnection();
+                                      },
+                                    );
+                                  }
+                                });
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
