@@ -372,7 +372,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.sufaraBaDemoApp;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.sufara.sufara_ba_demo;
+>>>>>>> 983ff5694480e3ed063f0e48896c257b292ea829
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -512,7 +516,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.sufaraBaDemoApp;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.sufara.sufara_ba_demo;
+>>>>>>> 983ff5694480e3ed063f0e48896c257b292ea829
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -546,7 +554,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.sufaraBaDemoApp;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.sufara.sufara_ba_demo;
+>>>>>>> 983ff5694480e3ed063f0e48896c257b292ea829
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";

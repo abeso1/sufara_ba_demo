@@ -16,7 +16,8 @@ import 'package:sufara_ba_demo/widgets/card_for_vjezba_false.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_regural.dart';
 import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
-import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert_vjezba_posljednja.dart';
+import 'package:sufara_ba_demo/widgets/vjezbaInit.dart';
 
 class VjezbaScreenCijelaSufara extends StatefulWidget {
   final AudioCache audioCache = AudioCache();
@@ -44,13 +45,12 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
   int lekcija1 = 0;
   int lekcija2 = 0;
   int lekcija3 = 0;
-  Color _color = Colors.grey;
   int indexColor = 0;
   List<AlwaysStoppedAnimation<MaterialColor>> _valueColors = [
     AlwaysStoppedAnimation(Colors.red),
     AlwaysStoppedAnimation(Colors.red),
     AlwaysStoppedAnimation(Colors.orange),
-    AlwaysStoppedAnimation(Colors.yellow),
+    AlwaysStoppedAnimation(Colors.amber),
     AlwaysStoppedAnimation(Colors.lightGreen),
     AlwaysStoppedAnimation(Colors.green),
   ];
@@ -61,14 +61,6 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     Colors.yellow[100],
     Colors.lightGreen[100],
     Colors.green[100],
-  ];
-  List<Color> _borderColors = [
-    Colors.red,
-    Colors.red,
-    Colors.orange,
-    Colors.yellow,
-    Colors.lightGreen,
-    Colors.green,
   ];
 
   SharedPrefs prefs = SharedPrefs();
@@ -82,18 +74,18 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     super.dispose();
   }
 
-  setHarfs() {
+  setHarfs({bool init = false}) {
     int lek1 = 0;
     int lek2 = 0;
     int lek3 = 0;
-       ///////ovo treba popraviti kada dodu svi fajlovi
-    while (lek1 == 0 || lek1 ==20 || lek1==5) {
+    ///////ovo treba popraviti kada dodu svi fajlovi
+    while (lek1 == 0 || lek1 == 20) {
       lek1 = rng.nextInt(22);
     }
-    while (lek2 == 0|| lek2 ==20 || lek2==5) {
+    while (lek2 == 0 || lek2 == 20) {
       lek2 = rng.nextInt(22);
     }
-    while (lek3 == 0|| lek3 ==20 || lek3==5) {
+    while (lek3 == 0 || lek3 == 20) {
       lek3 = rng.nextInt(22);
     }
     setState(() {
@@ -115,12 +107,25 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     bool nastavi = true;
     while (drugi == prvi || nastavi) {
       drugi = rng.nextInt(DummyData.listHarfDummyData[lekcija2].images.length);
-      if (DummyData.listHarfDummyData[lekcija2].images[drugi]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name'] ||
-          DummyData.listHarfDummyData[lekcija2].images[drugi]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio'] ||
-          DummyData.listHarfDummyData[lekcija2].images[drugi]['audio'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']) {
+      if (DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
+                      .toLowerCase() ==
+                  DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                      .toLowerCase() &&
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                      .length !=
+                  0) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -133,22 +138,31 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
     nastavi = true;
     while (treci == prvi || treci == drugi || nastavi) {
       treci = rng.nextInt(DummyData.listHarfDummyData[lekcija3].images.length);
-      if (DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['audio'] ==
-              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']) {
+      if (DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['audio']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija1].images[prvi]['name']
+                  .toLowerCase()) {
         nastavi = true;
-      } else {
-        nastavi = false;
-      }
-      if (DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija2].images[drugi]['name'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['name'] ==
-              DummyData.listHarfDummyData[lekcija2].images[drugi]['audio'] ||
-          DummyData.listHarfDummyData[lekcija3].images[treci]['audio'] ==
-              DummyData.listHarfDummyData[lekcija2].images[drugi]['name']) {
+      } else if (DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['name']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija2].images[drugi]['audio']
+                  .toLowerCase() ||
+          DummyData.listHarfDummyData[lekcija3].images[treci]['audio']
+                  .toLowerCase() ==
+              DummyData.listHarfDummyData[lekcija2].images[drugi]['name']
+                  .toLowerCase()) {
         nastavi = true;
       } else {
         nastavi = false;
@@ -183,7 +197,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
           DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
     });
     Timer(Duration(milliseconds: 500),
-        () => playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan));
+        () => !init ? playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan) : {});
   }
 
   answerQuestion(int i) {
@@ -220,7 +234,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
             barrierDismissible: false,
             context: context,
             builder: (ctx) {
-              return CustomAlertVjezba();
+              return CustomAlertVjezbaZadnja();
             }).then(
           (value) => {
             //Navigator.of(context).pop(),
@@ -320,7 +334,17 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
 
   @override
   void initState() {
-    setHarfs();
+    setHarfs(init: true);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (ctx) {
+          return VjezbaInit("23");
+        },
+      ).then((value) =>
+          playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan));
+    });
     super.initState();
   }
 
@@ -335,13 +359,16 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
           ),
           elevation: 0,
           centerTitle: true,
-          title: Text(
-            '${23}. vježba',
-            //textAlign: TextAlign.right,
-            style: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontFamily: 'Roboto',
-              color: Colors.white,
+          title: FittedBox(
+            fit: BoxFit.fill,
+            child: Text(
+              '${23}. vježba',
+              //textAlign: TextAlign.right,
+              style: TextStyle(
+                fontWeight: FontWeight.w300,
+                fontFamily: 'Roboto',
+                color: Colors.white,
+              ),
             ),
           ),
           flexibleSpace: Container(

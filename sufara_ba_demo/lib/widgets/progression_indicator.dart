@@ -59,11 +59,11 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
             if (progress < 100) {
               progress = download.downloadProgress;
               print(progress);
-              if (progress > 0.99290) {
+              if (progress > 0.9975) {
                 Timer(Duration(milliseconds: 200), () async {
                   SharedPreferences sharedPreferences =
                       await SharedPreferences.getInstance();
-                  sharedPreferences.setBool('preuzeto', true);
+                  sharedPreferences.setBool('preuzetoje', true);
                   Navigator.of(context).pop();
                 });
               }

@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 
-class MessageHadis extends StatelessWidget {
+class CustomAlertVjezbaLocked extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return AlertDialog(
       title: Text(
-        "Želimo Vam uspješno učenje Sufare",
-        textAlign: TextAlign.start,
-        style: TextStyle(fontSize: 20),
+        'Ova vježba je trenutno zaključana. Položite sve prethodne vježbe da bi otključali ovu.',
+        textAlign: TextAlign.center,
       ),
-      content: Text(
-        "'Učite Kur\'an, jer će, uistinu, on doći na Sudnji dan kao zagovornik onima koji ga budu učili.'",
-        style: TextStyle(fontSize: 16),
-      ),
-      actionsPadding: EdgeInsets.only(bottom: 10, right: 20),
+      actionsPadding: EdgeInsets.only(bottom: 10),
       actions: [
         Container(
+          width: 120,
           child: RaisedButton(
             color: Colors.green,
             child: Text(
@@ -27,8 +23,8 @@ class MessageHadis extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          width: 120,
         ),
+        SizedBox(width: 10),
       ],
     );
   }

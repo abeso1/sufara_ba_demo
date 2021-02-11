@@ -811,7 +811,7 @@ RichText(
       text: TextSpan(
         children: <TextSpan>[
           TextSpan(
-            text: 'ZAKOVI ZA STAJANJE U KUR\'ANU',
+            text: 'ZNAKOVI ZA STAJANJE U KUR\'ANU',
             style: TextStyle(
               fontSize: 16,
               color: Colors.black,

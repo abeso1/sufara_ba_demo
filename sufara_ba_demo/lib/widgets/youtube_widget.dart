@@ -50,9 +50,9 @@ class _MyAppState extends State<YoutubeDefaultWidget>
     this._controller = controller;
   }
 
-  void _loadOrCueVideo() {
-    _controller.loadOrCueVideo('gcj2RUWQZ60', _currentVideoSecond);
-  }
+  //void _loadOrCueVideo() {
+  //  _controller.loadOrCueVideo('gcj2RUWQZ60', _currentVideoSecond);
+  //}
 
   @override
   Widget build(BuildContext context) {

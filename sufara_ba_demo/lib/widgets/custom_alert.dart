@@ -12,52 +12,48 @@ class _CustomAlertState extends State<CustomAlert> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return SimpleDialog(
-      titlePadding: EdgeInsets.symmetric(
-        vertical: SizeConfig.blockSizeVertical * 5,
-      ),
+    return AlertDialog(
+      titlePadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       title: Text(
         'Jeste li sigurni da želite napustiti vježbu?',
         textAlign: TextAlign.center,
       ),
-      children: [
-        //SizedBox(
-        //  height: SizeConfig.blockSizeVertical * 3,
-        //),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RaisedButton(
-              color: Colors.green,
-              onPressed: () async {
-                setState(() {
-                  progres = true;
-                });
-                //_download.downloadAndUnzip().then((value) {
-                Navigator.of(context).pop(true);
-                //});
-              },
-              child: Text(
-                'Da',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+      actions: [
+        Container(
+          width: 80,
+          child: RaisedButton(
+            color: Colors.green,
+            onPressed: () async {
+              setState(() {
+                progres = true;
+              });
+              //_download.downloadAndUnzip().then((value) {
+              Navigator.of(context).pop(true);
+              //});
+            },
+            child: Text(
+              'Da',
+              style: TextStyle(
+                color: Colors.white,
               ),
             ),
-            SizedBox(
-              width: SizeConfig.blockSizeHorizontal * 10,
-            ),
-            RaisedButton(
-              color: Colors.grey[200],
-              onPressed: () {
-                Navigator.of(context).pop(false);
-              },
-              child: Text('Odustani'),
-            ),
-          ],
+          ),
         ),
         SizedBox(
-          height: SizeConfig.blockSizeVertical * 3,
+          width: 10,
+        ),
+        Container(
+          width: 80,
+          child: RaisedButton(
+            color: Colors.grey[200],
+            onPressed: () {
+              Navigator.of(context).pop(false);
+            },
+            child: Text('Odustani'),
+          ),
+        ),
+        SizedBox(
+          width: 8,
         ),
       ],
     );

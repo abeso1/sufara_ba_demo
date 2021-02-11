@@ -69,7 +69,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
                       ),
                       child: SvgPicture.file(
                         File(
-                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                            '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]["name"]}.svg'),
                         //width: SizeConfig.blockSizeHorizontal * 34,
                         //height: SizeConfig.blockSizeVertical * 1,
                         color: Colors.green,
