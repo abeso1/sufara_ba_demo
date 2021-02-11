@@ -571,7 +571,7 @@ class DummyData {
     ),
     HarfModel(
         id: '11',
-        name: 'Harf Lan i Kaf',
+        name: 'Harf Lam i Kaf',
         imageUrl: 'le-ke',
         lekcijaIliVjezbaIndex: 'Jedanaesta lekcija',
         tabela: {
