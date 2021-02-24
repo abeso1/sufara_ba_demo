@@ -46,6 +46,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                 //color: Colors.grey[200],
                 //shadowColor: Colors.green,
                 child: Stack(
+                  alignment: Alignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(
@@ -119,6 +120,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                 //color: Colors.grey[200],
                 //shadowColor: Colors.green,
                 child: Stack(
+                  alignment: Alignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(

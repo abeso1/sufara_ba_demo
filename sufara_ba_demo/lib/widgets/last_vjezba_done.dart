@@ -49,7 +49,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
           child: Ribbon(
             farLength: 60,
             nearLength: 30,
-            title: 'Zavrseno',
+            title: 'Završeno',
             color: Colors.green[300],
             titleStyle: TextStyle(
               color: Colors.white,
@@ -108,7 +108,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
                         Container(
                           width: SizeConfig.blockSizeHorizontal * 43,
                           child: FittedBox(
-                            fit: BoxFit.fill,
+                            fit: BoxFit.scaleDown,
                             child: Text(
                               "Cijela Sufara",
                               textAlign: TextAlign.center,

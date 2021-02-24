@@ -123,7 +123,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
       body: Column(
         children: [
           Container(
-            height: SizeConfig.blockSizeVertical * 20,
+            height: SizeConfig.screenWidth > 850 ?  SizeConfig.blockSizeVertical * 28 : SizeConfig.screenWidth > 500
+                ? SizeConfig.blockSizeVertical * 22
+                : SizeConfig.blockSizeVertical * 20,
             width: SizeConfig.blockSizeHorizontal * 100,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -276,7 +278,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              height: SizeConfig.blockSizeVertical * 64.5,
+              height: SizeConfig.screenWidth > 850 ? SizeConfig.blockSizeVertical * 60 : SizeConfig.blockSizeVertical * 64.5,
               padding: EdgeInsets.fromLTRB(
                 SizeConfig.blockSizeHorizontal * 3,
                 SizeConfig.blockSizeVertical * 2,
@@ -314,12 +316,14 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                               backgroundColor: Colors.blue,
                               title: Container(
                                 padding: EdgeInsets.fromLTRB(
-                                  SizeConfig.blockSizeHorizontal * 11,
+                                  SizeConfig.screenWidth > 500
+                                      ? SizeConfig.blockSizeHorizontal * 5
+                                      : SizeConfig.blockSizeHorizontal * 11,
                                   0,
                                   0,
                                   0,
                                 ),
-                                height: SizeConfig.blockSizeVertical * 15,
+                                height:  SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 28 :SizeConfig.blockSizeVertical * 15,
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -480,7 +484,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         if (widget.harf.imageIshodiste.isNotEmpty)
                           SizedBox(
                             width: SizeConfig.blockSizeVertical * 90,
-                            height: SizeConfig.blockSizeVertical * 15,
+                            height: SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 28 : SizeConfig.blockSizeVertical * 15,
                             child: RaisedButton(
                               color: secondButton,
                               onPressed: () {
@@ -602,7 +606,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         if (widget.harf.videoUrl.isNotEmpty)
                           SizedBox(
                             width: SizeConfig.blockSizeVertical * 90,
-                            height: SizeConfig.blockSizeVertical * 15,
+                            height: SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 28 : SizeConfig.blockSizeVertical * 15,
                             child: RaisedButton(
                               color: thirdButton,
                               onPressed: () {

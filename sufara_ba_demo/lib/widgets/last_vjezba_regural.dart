@@ -106,7 +106,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                               Container(
                                 width: SizeConfig.blockSizeHorizontal * 43,
                                 child: FittedBox(
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.scaleDown,
                                   child: Text(
                                     "Cijela Sufara",
                                     textAlign: TextAlign.center,
@@ -208,7 +208,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                                   Container(
                                     width: SizeConfig.blockSizeHorizontal * 43,
                                     child: FittedBox(
-                                      fit: BoxFit.fill,
+                                      fit: BoxFit.scaleDown,
                                       child: Text(
                                         "Cijela Sufara",
                                         textAlign: TextAlign.center,

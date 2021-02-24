@@ -438,7 +438,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       ),
                       Icon(
                         Icons.report_outlined,
-                        size: SizeConfig.blockSizeHorizontal * 10,
+                        size: SizeConfig.screenWidth > 500
+                            ? SizeConfig.blockSizeHorizontal * 6
+                            : SizeConfig.blockSizeHorizontal * 10,
                         color: Colors.blue,
                       ),
                       SizedBox(
@@ -544,7 +546,9 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                       ? Container(
                           height: SizeConfig.blockSizeVertical * 6,
                           padding: EdgeInsets.symmetric(
-                            horizontal: SizeConfig.blockSizeVertical * 7,
+                            horizontal: SizeConfig.screenWidth > 850
+                                ? SizeConfig.blockSizeVertical * 27
+                                : SizeConfig.blockSizeVertical * 7,
                           ),
                           child: RaisedButton(
                             onPressed: () {

@@ -20,7 +20,8 @@ class Download extends ChangeNotifier {
   Future<bool> checkFile() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     bool povratni = sharedPreferences.getBool('preuzetoje') ?? false;
-    return povratni;
+    //return povratni;
+    return false;
   }
 
   //ovo radi

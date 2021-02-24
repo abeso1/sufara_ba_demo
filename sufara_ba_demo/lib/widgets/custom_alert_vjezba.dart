@@ -8,7 +8,7 @@ class CustomAlertVjezba extends StatelessWidget {
     return AlertDialog(
       title: Text(
         'Uspješno ste položili vježbu!',
-        textAlign: TextAlign.center,
+        textAlign: TextAlign.start,
       ),
       actionsPadding: EdgeInsets.only(bottom: 10),
       actions: [

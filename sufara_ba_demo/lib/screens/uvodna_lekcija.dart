@@ -13,6 +13,7 @@ class _LekcijaScreenState extends State<UvodnaLekcija> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    print(SizeConfig.screenWidth);
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -49,7 +50,7 @@ class _LekcijaScreenState extends State<UvodnaLekcija> {
               0,
               0,
             ),
-            height: SizeConfig.blockSizeVertical * 10,
+            height: SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 15 :  SizeConfig.blockSizeVertical * 10,
             width: SizeConfig.blockSizeHorizontal * 100,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -95,7 +96,7 @@ class _LekcijaScreenState extends State<UvodnaLekcija> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              height: SizeConfig.blockSizeVertical * 77,
+              height:SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 72 :  SizeConfig.blockSizeVertical * 77,
               padding: EdgeInsets.fromLTRB(
                 SizeConfig.blockSizeHorizontal * 3,
                 SizeConfig.blockSizeVertical * 2,

@@ -6,9 +6,12 @@ class CustomAlertVjezbaZadnja extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return AlertDialog(
-      title: Text(
-        'Svaka Vam čast. Uz Allahovu pomoć uspjeli ste naučiti sve harfove. Sada možete da učite u Kur\'anu. Allah Vam dao svako dobro i uputio Vas na pravi put.',
-        textAlign: TextAlign.center,
+      title: Container(
+        width: 400,
+        child: Text(
+          'Svaka Vam čast. Uz Allahovu pomoć uspjeli ste naučiti sve harfove. Sada možete da učite u Kur\'anu. Allah Vam dao svako dobro i uputio Vas na pravi put.',
+          textAlign: TextAlign.start,
+        ),
       ),
       actionsPadding: EdgeInsets.only(bottom: 10),
       actions: [
