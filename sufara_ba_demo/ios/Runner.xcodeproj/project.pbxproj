@@ -356,7 +356,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = ZLT5WBJYFB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -372,11 +372,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-<<<<<<< HEAD
+				MARKETING_VERSION = 2.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.sufaraBaDemoApp;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = com.sufara.sufara_ba_demo;
->>>>>>> 983ff5694480e3ed063f0e48896c257b292ea829
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -500,7 +497,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = ZLT5WBJYFB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -516,11 +513,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-<<<<<<< HEAD
+				MARKETING_VERSION = 2.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.sufaraBaDemoApp;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = com.sufara.sufara_ba_demo;
->>>>>>> 983ff5694480e3ed063f0e48896c257b292ea829
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -538,7 +532,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = ZLT5WBJYFB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -554,11 +548,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-<<<<<<< HEAD
+				MARKETING_VERSION = 2.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.sufaraBaDemoApp;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = com.sufara.sufara_ba_demo;
->>>>>>> 983ff5694480e3ed063f0e48896c257b292ea829
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
