@@ -41,7 +41,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
           child: Ribbon(
             farLength: 60,
             nearLength: 30,
-            title: 'Zavrseno',
+            title: 'Završeno',
             color: Colors.green[300],
             titleStyle: TextStyle(
               //backgroundColor: Colors.red,

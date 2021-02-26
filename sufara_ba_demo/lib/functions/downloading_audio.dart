@@ -21,6 +21,7 @@ class Download extends ChangeNotifier {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     bool povratni = sharedPreferences.getBool('preuzetoje') ?? false;
     return povratni;
+    //return false;
   }
 
   //ovo radi

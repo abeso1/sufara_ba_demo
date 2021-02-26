@@ -10,9 +10,12 @@ class VjezbaInit extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return AlertDialog(
-      title: Text(
-        'Dobro došli u vježbu broj $vjezbaId. Ne zaboravite da pojačate zvuk na Vašem telefonu i neka Vam je s hajrom!',
-        textAlign: TextAlign.center,
+      title: Container(
+        width: 400,
+        child: Text(
+          'Dobro došli u vježbu broj $vjezbaId. Ne zaboravite da pojačate zvuk na Vašem telefonu i neka Vam je s hajrom!',
+          textAlign: TextAlign.left,
+        ),
       ),
       actionsPadding: EdgeInsets.only(bottom: 10),
       actions: [

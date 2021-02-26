@@ -86,164 +86,179 @@ class _TabsScreensState extends State<TabsScreens> {
     });
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-        //ovdje se treba staviti logo Sufara.ba(psotavljen)
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.fromLTRB(
-                  0,
-                  SizeConfig.blockSizeVertical * 0.65,
-                  0,
-                  0,
-                ),
-                child: SvgPicture.asset(
-                  'svg/back_img/sufara.ba_logo_splash.svg',
-                  width: SizeConfig.blockSizeHorizontal * 13.3,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(
-                width: SizeConfig.blockSizeHorizontal * 1,
-              ),
-              Image.asset(
-                'svg/back_img/sufara.png',
-                width: SizeConfig.blockSizeHorizontal * 18,
-                fit: BoxFit.cover,
-              ),
-              Spacer(),
-              /*Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(22),
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.blockSizeHorizontal * 1,
-                  vertical: SizeConfig.blockSizeVertical * 0.5,
-                ),
-                //width: SizeConfig.blockSizeHorizontal * 40,
-                child: Row(
-                  children: [
-                    Container(
-                      /*decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [
-                            Colors.white,
-                            Colors.white,
-                            Colors.white,
-                            Colors.yellow[200],
-                            Colors.blue[900]
-                          ],
-                        ),
-                      ),*/
-                      width: SizeConfig.blockSizeHorizontal * 20,
-                      height: SizeConfig.blockSizeVertical * 3,
-                      child: RaisedButton(
-                        onPressed: () {
-                          _changeLanguage(
-                            Language(1, "Bosanski", "bs"),
-                          );
-                        },
-                        child: FittedBox(
-                          fit: BoxFit.fill,
-                          child: Text(
-                            'Bosanski',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: widget.textColorBosanski,
-                            ),
-                          ),
-                        ),
-                        color: widget.buttonColorBosanski,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
+      child: Stack(
+        children: [
+          Scaffold(
+            //ovdje se treba staviti logo Sufara.ba(psotavljen)
+            appBar: AppBar(
+              backgroundColor: Colors.white,
+              title: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(
+                      0,
+                      SizeConfig.blockSizeVertical * 0.65,
+                      0,
+                      0,
                     ),
-                    Container(
-                      /*decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Box,
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
-                          colors: [
-                            Colors.white,
-                            Colors.white,
-                            Colors.white,
-                            Colors.red[200],
-                            Colors.blue[900]
-                          ],
-                        ),
-                      ),*/
-                      width: SizeConfig.blockSizeHorizontal * 18,
-                      height: SizeConfig.blockSizeVertical * 3,
-                      child: RaisedButton(
-                        onPressed: () {
-                          _changeLanguage(
-                            Language(2, "English", "en"),
-                          );
-                        },
-                        child: FittedBox(
-                          fit: BoxFit.fill,
-                          child: Text(
-                            'English',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: widget.textColorEnglish,
-                            ),
-                          ),
-                        ),
-                        color: widget.buttonColorEnglish,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        elevation: 0,
-                      ),
-                    ),
-                  ],
-                ),
-              )*/
-            ],
-          ),
-          bottom: PreferredSize(
-            preferredSize: Size(100,SizeConfig.blockSizeVertical * 5.5),
-            child: Container(
-              height: SizeConfig.blockSizeVertical * 5,
-              child: TabBar(
-                labelPadding: EdgeInsets.symmetric(
-                  vertical: SizeConfig.blockSizeVertical * 0.5,
-                ),
-                labelColor: Colors.green[800],
-                unselectedLabelColor: Colors.grey,
-                tabs: [
-                  Tab(
-                      child: Text(
-                    getTranslated(context, 'lekcijaTabText'),
-                    style: TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
-                  )),
-                  Tab(
-                    child: Text(
-                      getTranslated(context, 'vjezbeTabText'),
-                      style:
-                          TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
+                    child: SvgPicture.asset(
+                      'svg/back_img/sufara.ba_logo_splash.svg',
+                      width: SizeConfig.blockSizeHorizontal * 13.3,
+                      fit: BoxFit.fitHeight,
                     ),
                   ),
+                  SizedBox(
+                    width: SizeConfig.blockSizeHorizontal * 1,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Image.asset(
+                      'svg/back_img/sufara.png',
+                      width: SizeConfig.blockSizeHorizontal * 18,
+                      fit: BoxFit.scaleDown,
+                    ),
+                  ),
+                  Spacer(),
+                  /*Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(22),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal * 1,
+                      vertical: SizeConfig.blockSizeVertical * 0.5,
+                    ),
+                    //width: SizeConfig.blockSizeHorizontal * 40,
+                    child: Row(
+                      children: [
+                        Container(
+                          /*decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Colors.white,
+                                Colors.white,
+                                Colors.white,
+                                Colors.yellow[200],
+                                Colors.blue[900]
+                              ],
+                            ),
+                          ),*/
+                          width: SizeConfig.blockSizeHorizontal * 20,
+                          height: SizeConfig.blockSizeVertical * 3,
+                          child: RaisedButton(
+                            onPressed: () {
+                              _changeLanguage(
+                                Language(1, "Bosanski", "bs"),
+                              );
+                            },
+                            child: FittedBox(
+                              fit: BoxFit.fill,
+                              child: Text(
+                                'Bosanski',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: widget.textColorBosanski,
+                                ),
+                              ),
+                            ),
+                            color: widget.buttonColorBosanski,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          /*decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Box,
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                              colors: [
+                                Colors.white,
+                                Colors.white,
+                                Colors.white,
+                                Colors.red[200],
+                                Colors.blue[900]
+                              ],
+                            ),
+                          ),*/
+                          width: SizeConfig.blockSizeHorizontal * 18,
+                          height: SizeConfig.blockSizeVertical * 3,
+                          child: RaisedButton(
+                            onPressed: () {
+                              _changeLanguage(
+                                Language(2, "English", "en"),
+                              );
+                            },
+                            child: FittedBox(
+                              fit: BoxFit.fill,
+                              child: Text(
+                                'English',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: widget.textColorEnglish,
+                                ),
+                              ),
+                            ),
+                            color: widget.buttonColorEnglish,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            elevation: 0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )*/
                 ],
               ),
+              bottom: PreferredSize(
+                preferredSize: Size(
+                    100,
+                    SizeConfig.screenWidth > 850
+                        ? SizeConfig.blockSizeVertical * 8
+                        : SizeConfig.blockSizeVertical * 5.5),
+                child: Container(
+                  height:  SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 7 : SizeConfig.blockSizeVertical * 5,
+                  child: TabBar(
+                    labelPadding: SizeConfig.screenWidth > 850
+                        ? EdgeInsets.zero
+                        : EdgeInsets.symmetric(
+                            vertical: SizeConfig.blockSizeVertical * 0.5,
+                          ),
+                    labelColor: Colors.green[800],
+                    unselectedLabelColor: Colors.grey,
+                    tabs: [
+                      Tab(
+                          child: Text(
+                        getTranslated(context, 'lekcijaTabText'),
+                        style:
+                            TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
+                      )),
+                      Tab(
+                        child: Text(
+                          getTranslated(context, 'vjezbeTabText'),
+                          style: TextStyle(
+                              fontSize: SizeConfig.blockSizeHorizontal * 4),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
+            body: TabBarView(children: [
+              Lekcije(widget.dir),
+              Vjezbe(widget.dir),
+            ]),
           ),
-        ),
-        body: TabBarView(children: [
-          Lekcije(widget.dir),
-          Vjezbe(widget.dir),
-        ]),
+          
+        ],
       ),
     );
   }

@@ -59,7 +59,9 @@ class _MyAppState extends State<YoutubeDefaultWidget>
     SizeConfig().init(context);
     return Container(
       height: SizeConfig.blockSizeVertical * 30,
-      //width: SizeConfig.blockSizeHorizontal * 90,
+      width: SizeConfig.screenWidth > 500
+          ? SizeConfig.blockSizeHorizontal * 60
+          : SizeConfig.screenWidth,
       padding:
           EdgeInsets.symmetric(horizontal: SizeConfig.blockSizeHorizontal * 3),
       child: FlutterYoutubeView(

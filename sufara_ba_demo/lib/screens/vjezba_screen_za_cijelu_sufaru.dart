@@ -196,8 +196,11 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
       tri = CardForVjezbeRegural(
           DummyData.listHarfDummyData[lekcija3], index3, widget.dir);
     });
-    Timer(Duration(milliseconds: 500),
-        () => !init ? playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan) : {});
+    Timer(
+        Duration(milliseconds: 500),
+        () => !init
+            ? playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan)
+            : {});
   }
 
   answerQuestion(int i) {
@@ -460,7 +463,9 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                       ),
                       Icon(
                         Icons.report_outlined,
-                        size: SizeConfig.blockSizeHorizontal * 10,
+                        size: SizeConfig.screenWidth > 500
+                            ? SizeConfig.blockSizeHorizontal * 6
+                            : SizeConfig.blockSizeHorizontal * 10,
                         color: Colors.blue,
                       ),
                       SizedBox(
@@ -559,9 +564,10 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                     height: SizeConfig.blockSizeVertical * 1,
                   ),
                   Container(
-                    height: SizeConfig.blockSizeVertical * 6,
                     padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeVertical * 7,
+                      horizontal: SizeConfig.screenWidth > 850
+                          ? SizeConfig.blockSizeVertical * 27
+                          : SizeConfig.blockSizeVertical * 7,
                     ),
                     child: RaisedButton(
                       onPressed: () {

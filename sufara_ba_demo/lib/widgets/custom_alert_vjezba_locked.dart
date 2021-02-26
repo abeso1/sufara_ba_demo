@@ -6,9 +6,12 @@ class CustomAlertVjezbaLocked extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return AlertDialog(
-      title: Text(
-        'Ova vježba je trenutno zaključana. Položite sve prethodne vježbe da bi otključali ovu.',
-        textAlign: TextAlign.center,
+      title: Container(
+        width: 400,
+        child: Text(
+          'Ova vježba je trenutno zaključana. Položite sve prethodne vježbe da bi otključali ovu.',
+          textAlign: TextAlign.left,
+        ),
       ),
       actionsPadding: EdgeInsets.only(bottom: 10),
       actions: [
