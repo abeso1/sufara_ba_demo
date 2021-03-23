@@ -8,6 +8,7 @@ class CustomAlertVjezba extends StatelessWidget {
     return AlertDialog(
       title: Text(
         'Uspješno ste položili vježbu!',
+        style: TextStyle(fontSize: 18),
         textAlign: TextAlign.start,
       ),
       actionsPadding: EdgeInsets.only(bottom: 10),
@@ -16,8 +17,11 @@ class CustomAlertVjezba extends StatelessWidget {
           width: 120,
           child: RaisedButton(
             color: Colors.green,
-            child: Text(
-              'Zatvori prozor',
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Zatvori prozor',
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pop();

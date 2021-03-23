@@ -23,8 +23,11 @@ class MessageHadis extends StatelessWidget {
         Container(
           child: RaisedButton(
             color: Colors.green,
-            child: Text(
-              'Zatvori prozor',
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Zatvori prozor',
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pop();

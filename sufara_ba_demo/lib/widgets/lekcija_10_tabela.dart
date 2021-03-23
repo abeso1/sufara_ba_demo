@@ -49,11 +49,14 @@ class _Tabela10State extends State<Tabela10> {
               child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    child: Text(
-                      "NE ČITA SE",
-                      textAlign: TextAlign.center,
-                      maxLines: 3,
-                      style: TextStyle(color: poc_boja, fontSize: 16),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "NE\nČITA\nSE",
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                        style: TextStyle(color: poc_boja, fontSize: 16),
+                      ),
                     ),
                   )),
             ),

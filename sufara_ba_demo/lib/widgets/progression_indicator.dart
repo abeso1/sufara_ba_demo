@@ -63,7 +63,7 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                 Timer(Duration(milliseconds: 200), () async {
                   SharedPreferences sharedPreferences =
                       await SharedPreferences.getInstance();
-                  sharedPreferences.setBool('preuzetoje', true);
+                  sharedPreferences.setBool('preuzetoje2', true);
                   Navigator.of(context).pop();
                 });
               }
@@ -90,7 +90,7 @@ class _ProgressionIndicatorState extends State<ProgressionIndicator> {
                 children: [
                   Center(
                     child: SizedBox(
-                      height: SizeConfig.blockSizeVertical * 4,
+                      height: SizeConfig.blockSizeVertical * 2.8,
                       width: SizeConfig.blockSizeHorizontal * 60,
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(

@@ -45,7 +45,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
             borderRadius: BorderRadius.circular(15),
           ),
           color: Colors.grey[200],
-          elevation: 15,
+          elevation: 8,
           child: Ribbon(
             farLength: 60,
             nearLength: 30,

@@ -12,7 +12,6 @@ class Vjezbe extends StatelessWidget {
   final List<HarfModel> listHarf = DummyData.listHarfDummyData;
   final String dir;
   SharedPrefs sharedPrefs = SharedPrefs();
-  bool neki;
 
   Vjezbe(this.dir);
 

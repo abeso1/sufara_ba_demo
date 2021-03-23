@@ -48,7 +48,7 @@ class DialogPicture extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: FittedBox(
-                    fit: BoxFit.fill,
+                    fit: BoxFit.scaleDown,
                     child: Text(
                       'Zatvori prozor',
                       style: TextStyle(

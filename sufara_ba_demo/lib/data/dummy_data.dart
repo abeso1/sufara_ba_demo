@@ -1153,7 +1153,7 @@ class DummyData {
     HarfModel(
         id: '19',
         name: 'Arapska abeceda',
-        imageUrl: 'hemze',
+        imageUrl: 'daad',
         lekcijaIliVjezbaIndex: 'Devetnaesta lekcija',
         lekcija: true,
         imageIshodiste: '',

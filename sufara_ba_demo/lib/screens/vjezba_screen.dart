@@ -394,7 +394,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
                                   textAlign: TextAlign.left,
                                   maxLines: 2,
                                   style: TextStyle(
-                                    fontSize: SizeConfig.blockSizeVertical * 4,
+                                    fontSize: SizeConfig.blockSizeVertical * 3,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
                                     fontFamily: 'Roboto',

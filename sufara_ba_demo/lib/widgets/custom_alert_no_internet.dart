@@ -26,12 +26,15 @@ class NoInternetConnection extends StatelessWidget {
         Container(
           child: RaisedButton(
             color: Colors.green,
-            child: Text(
-              Platform.isIOS
-                  ? 'Zatvori prozor'
-                  : download
-                      ? "Zatvori aplikaciju"
-                      : "Zatvori prozor",
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                Platform.isIOS
+                    ? 'Zatvori prozor'
+                    : download
+                        ? "Zatvori aplikaciju"
+                        : "Zatvori prozor",
+              ),
             ),
             onPressed: () {
               if (Platform.isIOS || !download) {

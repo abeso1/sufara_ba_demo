@@ -110,7 +110,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     if (done) {
-      Timer(Duration(seconds: 3), () {
+      Timer(Duration(seconds: 1), () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => TabsScreens(dir),
@@ -171,7 +171,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.normal,
-                      fontSize: 22,
+                      fontSize: SizeConfig.blockSizeVertical * 3,
                       color: Colors.green),
                 ),
               ),

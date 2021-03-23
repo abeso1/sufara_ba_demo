@@ -35,7 +35,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          elevation: 15,
+          elevation: 8,
           color: Colors.grey[200],
           //shadowColor: Colors.green,
           child: Ribbon(

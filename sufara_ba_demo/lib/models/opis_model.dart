@@ -1196,7 +1196,7 @@ class Opis {
                 ),
                 TextSpan(
                   text:
-                      'Hemze je harf koji ne postoji u našem jeziku i to je zapravo',
+                      '\n\nHemze je harf koji ne postoji u našem jeziku i to je zapravo',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
@@ -1737,7 +1737,7 @@ class Opis {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    ' inniljevme ili ',
+                    ' inniljevme ili',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -1767,7 +1767,7 @@ class Opis {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    ' zulevtadi.\n\n',
+                    ' zulevtadi.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,

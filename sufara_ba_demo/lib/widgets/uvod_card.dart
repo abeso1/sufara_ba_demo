@@ -31,7 +31,7 @@ class _HarfWidgetForLekcijeState extends State<UvodCard> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          elevation: 15,
+          elevation: 8,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

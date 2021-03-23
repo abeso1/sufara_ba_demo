@@ -10,6 +10,7 @@ class CustomAlertVjezbaZadnja extends StatelessWidget {
         width: 400,
         child: Text(
           'Svaka Vam čast. Uz Allahovu pomoć uspjeli ste naučiti sve harfove. Sada možete da učite u Kur\'anu. Allah Vam dao svako dobro i uputio Vas na pravi put.',
+          style: TextStyle(fontSize: 18),
           textAlign: TextAlign.start,
         ),
       ),
@@ -19,8 +20,11 @@ class CustomAlertVjezbaZadnja extends StatelessWidget {
           width: 120,
           child: RaisedButton(
             color: Colors.green,
-            child: Text(
-              'Zatvori prozor',
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Zatvori prozor',
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pop();

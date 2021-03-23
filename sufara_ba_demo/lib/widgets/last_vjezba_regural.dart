@@ -25,7 +25,6 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
   SharedPrefs sharedPrefs = SharedPrefs();
   @override
   Widget build(BuildContext context) {
-    int vjezbaId = int.parse(widget.harf.id);
     //this need to be added so i can use size config
     SizeConfig().init(context);
     return FutureBuilder(
@@ -52,7 +51,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  elevation: 15,
+                  elevation: 8,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -152,7 +151,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  elevation: 15,
+                  elevation: 8,
                   child: Stack(
                     children: [
                       Row(

@@ -42,7 +42,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                elevation: 15,
+                elevation: 8,
                 //color: Colors.grey[200],
                 //shadowColor: Colors.green,
                 child: Stack(
@@ -116,7 +116,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                elevation: 15,
+                elevation: 8,
                 //color: Colors.grey[200],
                 //shadowColor: Colors.green,
                 child: Stack(

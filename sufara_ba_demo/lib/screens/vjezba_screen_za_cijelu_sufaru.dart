@@ -426,7 +426,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                       "Cijela Sufara",
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: SizeConfig.blockSizeVertical * 4.4,
+                        fontSize: SizeConfig.blockSizeVertical * 3,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                         fontFamily: 'Roboto',
