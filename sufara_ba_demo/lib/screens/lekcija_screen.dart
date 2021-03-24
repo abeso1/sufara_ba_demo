@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
@@ -28,8 +30,10 @@ class LekcijaScreen extends StatefulWidget {
   int mjesto = 3;
   final OpisNaslov nalsov = OpisNaslov();
   int colorIndex = -1;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  LekcijaScreen(this.harf, this.dir) {
+  LekcijaScreen(this.harf, this.dir, this.analytics, this.observer) {
     opis = Opis(this.dir);
   }
 
@@ -45,6 +49,20 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   TransformationController controller = TransformationController();
   bool showContainer = false;
   SharedPrefs sharedPrefs = SharedPrefs();
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+    );
+    print('logEvent succeeded');
+  }
+
+  /*Future<void> _sendSetCurrentScreen(String screen) async {
+    await widget.analytics.setCurrentScreen(
+      screenName: screen,
+      screenClassOverride: "AnalyticsDemoLekcija",
+    );
+  }*/
 
   playAudio(HarfModel harf, int index, {bool isTop = false}) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -86,6 +104,12 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
       widget.player.stop();
     }
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    _sendAnalyticsEvent("lekcija_screen_${widget.harf.id}");
+    super.initState();
   }
 
   @override
@@ -902,10 +926,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             ),
                             child: GestureDetector(
                               onTap: () {
+                                _sendAnalyticsEvent(
+                                    'entering_vjezba_through_lekcija_${widget.harf.id}');
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        VjezbaScreen(widget.harf, widget.dir),
+                                    builder: (context) => VjezbaScreen(
+                                      widget.harf,
+                                      widget.dir,
+                                      widget.analytics,
+                                      widget.observer,
+                                    ),
+                                    settings:
+                                        RouteSettings(name: 'VjezbaScreen'),
                                   ),
                                 );
                               },

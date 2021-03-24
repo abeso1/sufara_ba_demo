@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ribbon/ribbon.dart';
@@ -10,8 +12,10 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 class HarfWidgetForVjezbeDone extends StatefulWidget {
   final HarfModel harf;
   final String dir;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  HarfWidgetForVjezbeDone(this.harf, this.dir);
+  HarfWidgetForVjezbeDone(this.harf, this.dir, this.analytics, this.observer);
 
   @override
   _HarfWidgetForVjezbeDoneState createState() =>
@@ -19,14 +23,28 @@ class HarfWidgetForVjezbeDone extends StatefulWidget {
 }
 
 class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+    );
+    print('logEvent succeeded');
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
+        _sendAnalyticsEvent('entering_vjezba_${widget.harf.id}');
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => VjezbaScreen(widget.harf, widget.dir),
+            builder: (context) => VjezbaScreen(
+              widget.harf,
+              widget.dir,
+              widget.analytics,
+              widget.observer,
+            ),
+            settings: RouteSettings(name: 'VjezbaScreen'),
           ),
         );
       },

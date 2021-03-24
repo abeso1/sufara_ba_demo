@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/hadis_data.dart';
@@ -13,6 +15,10 @@ import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;
 
 class SplashScreen extends StatefulWidget {
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
+
+  SplashScreen(this.analytics, this.observer);
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -35,6 +41,10 @@ class _SplashScreenState extends State<SplashScreen> {
       hadis = Hadis.listHadis[rng.nextInt(20)].name;
     });
 
+    widget.analytics
+        .logEvent(name: "splash_screen")
+        .then((value) => print('splash_screen_sent'));
+
     download.checkFile().then((val) => {
           if (!val)
             {
@@ -42,12 +52,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 if (value9) {
                   Timer(
                     Duration(seconds: 5),
-                    () {
+                    () async {
                       getDir().then((value) {
                         setState(() {
                           dir = value;
                         });
                       });
+                      await widget.analytics
+                          .logEvent(name: 'downloading_files');
                       showDialog(
                         barrierDismissible: false,
                         context: context,
@@ -77,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     barrierDismissible: false,
                     context: context,
                     builder: (ctx) {
-                      return NoInternetConnection(download : true);
+                      return NoInternetConnection(download: true);
                     },
                   );
                 }
@@ -113,7 +125,12 @@ class _SplashScreenState extends State<SplashScreen> {
       Timer(Duration(seconds: 1), () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => TabsScreens(dir),
+            builder: (context) => TabsScreens(
+              dir,
+              widget.analytics,
+              widget.observer,
+            ),
+            settings: RouteSettings(name: 'TabsScreen'),
           ),
         );
         /*Navigator.of(context).push(

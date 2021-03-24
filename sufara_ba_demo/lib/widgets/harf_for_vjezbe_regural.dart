@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
@@ -11,8 +13,10 @@ import 'package:sufara_ba_demo/widgets/lockedVjezba.dart';
 class HarfWidgetForVjezbe extends StatefulWidget {
   final HarfModel harf;
   final String dir;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  HarfWidgetForVjezbe(this.harf, this.dir);
+  HarfWidgetForVjezbe(this.harf, this.dir, this.analytics, this.observer);
 
   @override
   _HarfWidgetForVjezbeState createState() => _HarfWidgetForVjezbeState();
@@ -20,6 +24,14 @@ class HarfWidgetForVjezbe extends StatefulWidget {
 
 class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
   SharedPrefs sharedPrefs = SharedPrefs();
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+    );
+    print('logEvent succeeded');
+  }
+
   @override
   Widget build(BuildContext context) {
     int vjezbaId = int.parse(widget.harf.id);
@@ -31,9 +43,12 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
         if (snapshot.data == true || vjezbaId == 1) {
           return GestureDetector(
             onTap: () {
+              _sendAnalyticsEvent('entering_vjezba_${widget.harf.id}');
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => VjezbaScreen(widget.harf, widget.dir),
+                  builder: (context) => VjezbaScreen(widget.harf, widget.dir,
+                      widget.analytics, widget.observer),
+                  settings: RouteSettings(name: 'VjezbaScreen'),
                 ),
               );
             },
@@ -104,6 +119,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
         } else {
           return GestureDetector(
             onTap: () {
+              _sendAnalyticsEvent('cant_enter_vjezba_${widget.harf.id}');
               showDialog(
                   barrierDismissible: false,
                   context: context,

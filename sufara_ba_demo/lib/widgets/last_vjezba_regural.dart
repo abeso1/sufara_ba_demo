@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/dummy_data.dart';
@@ -14,8 +16,10 @@ import 'package:sufara_ba_demo/widgets/lockedVjezba.dart';
 class LastVjezbaRegural extends StatefulWidget {
   final HarfModel harf = DummyData.listHarfDummyData[0];
   final String dir;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  LastVjezbaRegural(this.dir);
+  LastVjezbaRegural(this.dir, this.analytics, this.observer);
 
   @override
   _HarfWidgetForLekcijeState createState() => _HarfWidgetForLekcijeState();
@@ -23,6 +27,14 @@ class LastVjezbaRegural extends StatefulWidget {
 
 class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
   SharedPrefs sharedPrefs = SharedPrefs();
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+    );
+    print('logEvent succeeded');
+  }
+
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
@@ -33,9 +45,15 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
           if (snapshot.data == true) {
             return GestureDetector(
               onTap: () {
+                _sendAnalyticsEvent("entering_last_vjezba_cijela_sufara");
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => VjezbaScreenCijelaSufara(widget.dir),
+                    builder: (context) => VjezbaScreenCijelaSufara(
+                      widget.dir,
+                      analytics: widget.analytics,
+                      observer: widget.observer,
+                    ),
+                    settings: RouteSettings(name: 'VjezbaCijelaSufaraRegular'),
                   ),
                 );
               },
@@ -132,6 +150,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
           } else {
             return GestureDetector(
               onTap: () {
+                _sendAnalyticsEvent("cant_enter_last_vjezba_cijela_sufara");
                 showDialog(
                     barrierDismissible: false,
                     context: context,

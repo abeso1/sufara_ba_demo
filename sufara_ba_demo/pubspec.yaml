@@ -45,7 +45,8 @@ dependencies:
   flutter_youtube_view: ^1.1.9
   liquid_progress_indicator: ^0.3.2
   auto_size_text: ^2.1.0
-  #flutter_signin_button: ^1.1.0
+  firebase_analytics: ^6.0.0
+  firebase_crashlytics: ^0.2.1
 
 dev_dependencies:
   flutter_test:

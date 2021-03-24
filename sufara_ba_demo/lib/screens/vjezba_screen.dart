@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
@@ -24,8 +26,10 @@ class VjezbaScreen extends StatefulWidget {
   final AudioCache audioCache = AudioCache();
   final String dir;
   final AudioPlayer player = AudioPlayer();
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  VjezbaScreen(this.harf, this.dir);
+  VjezbaScreen(this.harf, this.dir, this.analytics, this.observer);
 
   @override
   _VjezbaScreenState createState() => _VjezbaScreenState();
@@ -63,6 +67,20 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   SharedPrefs prefs = SharedPrefs();
   bool playing = false;
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+    );
+    print('logEvent succeeded');
+  }
+
+  /*Future<void> _sendSetCurrentScreen(String screen) async {
+    await widget.analytics.setCurrentScreen(
+      screenName: screen,
+      screenClassOverride: "AnalyticsDemoVjezba",
+    );
+  }*/
 
   @override
   void dispose() {
@@ -179,6 +197,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         int x = int.parse(widget.harf.id);
         x = x - 2;
         prefs.setData('vjezba$x');
+        _sendAnalyticsEvent('uradena_vjezba_${widget.harf.id}');
         showDialog(
             barrierDismissible: false,
             context: context,
@@ -191,7 +210,10 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
               MaterialPageRoute(
                 builder: (context) => TabsScreens(
                   widget.dir,
+                  widget.analytics,
+                  widget.observer,
                 ),
+                settings: RouteSettings(name: 'TabsScreen'),
               ),
             ),
           },
@@ -289,6 +311,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
         ).then((value) => playAudio(widget.harf, tacan));
       });
     }
+    _sendAnalyticsEvent('screen_vjezba_${widget.harf.id}');
     super.initState();
   }
 
@@ -296,7 +319,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     Future.delayed(Duration.zero, () {});
-
+    //_sendSetCurrentScreen('vjezba_screen ${widget.harf.name}');
     return WillPopScope(
       child: Scaffold(
         appBar: AppBar(

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,23 +12,39 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 class HarfWidgetForLekcije extends StatefulWidget {
   final HarfModel harf;
   final String dir;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  HarfWidgetForLekcije(this.harf, this.dir);
+  HarfWidgetForLekcije(this.harf, this.dir, this.analytics, this.observer);
 
   @override
   _HarfWidgetForLekcijeState createState() => _HarfWidgetForLekcijeState();
 }
 
 class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+    );
+    print('logEvent succeeded');
+  }
+
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
     SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
+        _sendAnalyticsEvent('entering_lekcija_${widget.harf.id}');
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => LekcijaScreen(widget.harf, widget.dir),
+            builder: (context) => LekcijaScreen(
+              widget.harf,
+              widget.dir,
+              widget.analytics,
+              widget.observer,
+            ),
+            settings: RouteSettings(name: 'LekcijaScreen'),
           ),
         );
       },
@@ -101,7 +119,9 @@ class _HarfWidgetForLekcijeState extends State<HarfWidgetForLekcije> {
                       ),
                     ),
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical * 1,),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 1,
+                  ),
                 ],
               ),
               SizedBox(
