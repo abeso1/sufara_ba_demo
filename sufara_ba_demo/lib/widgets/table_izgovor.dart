@@ -23,13 +23,14 @@ class TableIzgovor extends StatelessWidget {
             color: Colors.black, width: 1, style: BorderStyle.solid),
         children: [
           TableRow(
-            decoration: BoxDecoration(color: Colors.grey[400]),
+            decoration: BoxDecoration(color: grey_color),
             children: [
               TableCell(
-                verticalAlignment: TableCellVerticalAlignment.baseline,
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
                     child: FittedBox(
@@ -46,9 +47,11 @@ class TableIzgovor extends StatelessWidget {
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
                     child: FittedBox(
@@ -65,9 +68,11 @@ class TableIzgovor extends StatelessWidget {
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
                     child: FittedBox(
@@ -84,9 +89,11 @@ class TableIzgovor extends StatelessWidget {
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
                     child: FittedBox(
@@ -103,9 +110,11 @@ class TableIzgovor extends StatelessWidget {
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
                     child: FittedBox(

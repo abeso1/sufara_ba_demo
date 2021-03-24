@@ -55,7 +55,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
             borderRadius: BorderRadius.circular(15),
           ),
           elevation: 8,
-          color: Colors.grey[200],
+          color: Colors.white,
           //shadowColor: Colors.green,
           child: Ribbon(
             farLength: 60,

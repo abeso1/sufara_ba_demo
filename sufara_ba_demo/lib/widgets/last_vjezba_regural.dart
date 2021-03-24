@@ -12,6 +12,7 @@ import 'package:sufara_ba_demo/screens/vjezba_screen_za_cijelu_sufaru.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba_locked.dart';
 import 'package:sufara_ba_demo/widgets/lockedVjezba.dart';
+import 'package:sufara_ba_demo/shared/constants.dart';
 
 class LastVjezbaRegural extends StatefulWidget {
   final HarfModel harf = DummyData.listHarfDummyData[0];
@@ -191,7 +192,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                                       '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]["name"]}.svg'),
                                   //width: SizeConfig.blockSizeHorizontal * 34,
                                   //height: SizeConfig.blockSizeVertical * 1,
-                                  color: Colors.green,
+                                  color: Colors.grey
                                 ),
                               )
                             ],
@@ -232,7 +233,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                                         "Cijela Sufara",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color: Colors.black,
+                                          color: name_color,
                                           fontSize: 26,
                                         ),
                                       ),

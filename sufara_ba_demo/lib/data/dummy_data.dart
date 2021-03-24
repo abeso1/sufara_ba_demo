@@ -5,7 +5,7 @@ class DummyData {
     HarfModel(
         id: '1',
         name: 'Kratki vokali',
-        imageUrl: 'fetha_',
+        imageUrl: 'U',
         lekcijaIliVjezbaIndex: 'Prva slovo arapske abecede',
         lekcija: true,
         imageIshodiste: '',

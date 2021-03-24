@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sufara_ba_demo/models/harf_model.dart';
 import 'package:sufara_ba_demo/models/shared_prefs.dart';
+import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:sufara_ba_demo/screens/vjezba_screen.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba_locked.dart';
@@ -167,7 +168,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                             child: SvgPicture.file(
                               File(
                                   '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
-                              color: Colors.green,
+                              color: Colors.grey,
                               width: SizeConfig.blockSizeHorizontal * 20,
                             ),
                           ),
@@ -179,7 +180,7 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                             child: Text(
                               widget.harf.name,
                               style: TextStyle(
-                                color: Colors.black,
+                                color: name_color,
                                 fontSize: SizeConfig.blockSizeVertical * 6,
                               ),
                             ),

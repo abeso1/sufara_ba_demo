@@ -23,7 +23,9 @@ class _CustomAlertState extends State<CustomAlert> {
         Container(
           width: 80,
           child: RaisedButton(
-            color: Colors.green,
+            shape: Border.all(color: Colors.grey[300]),
+            elevation: 0,
+            color: Colors.white,
             onPressed: () async {
               setState(() {
                 progres = true;
@@ -37,7 +39,7 @@ class _CustomAlertState extends State<CustomAlert> {
               child: Text(
                 'Da',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.grey,
                 ),
               ),
             ),
@@ -49,7 +51,7 @@ class _CustomAlertState extends State<CustomAlert> {
         Container(
           width: 80,
           child: RaisedButton(
-            color: Colors.grey[200],
+            color: Colors.green,
             onPressed: () {
               Navigator.of(context).pop(false);
             },
