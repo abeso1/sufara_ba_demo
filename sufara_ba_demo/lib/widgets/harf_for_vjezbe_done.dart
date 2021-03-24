@@ -26,6 +26,7 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
   Future<void> _sendAnalyticsEvent(String event) async {
     await widget.analytics.logEvent(
       name: event,
+      parameters: {},
     );
     print('logEvent succeeded');
   }

@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     widget.analytics
-        .logEvent(name: "splash_screen")
+        .logEvent(name: "splash_screen", parameters: {},)
         .then((value) => print('splash_screen_sent'));
 
     download.checkFile().then((val) => {
@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         });
                       });
                       await widget.analytics
-                          .logEvent(name: 'downloading_files');
+                          .logEvent(name: 'downloading_files', parameters: {},);
                       showDialog(
                         barrierDismissible: false,
                         context: context,

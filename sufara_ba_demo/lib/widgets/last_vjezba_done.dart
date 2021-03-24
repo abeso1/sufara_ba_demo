@@ -27,6 +27,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
   Future<void> _sendAnalyticsEvent(String event) async {
     await widget.analytics.logEvent(
       name: event,
+      parameters: {},
     );
     print('logEvent succeeded');
   }

@@ -29,6 +29,7 @@ class _VjezbeState extends State<Vjezbe> {
   Future<void> _sendAnalyticsEvent(String event) async {
     await widget.analytics.logEvent(
       name: event,
+      parameters: {},
     );
     print('logEvent succeeded');
   }
