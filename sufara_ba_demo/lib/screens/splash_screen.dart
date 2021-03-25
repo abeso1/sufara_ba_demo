@@ -29,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool done = false;
   String dir;
   String hadis;
+  int duzina = 3;
 
   Future<String> getDir() async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -55,6 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     () async {
                       getDir().then((value) {
                         setState(() {
+                          duzina = 1;
                           dir = value;
                         });
                       });
@@ -122,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     if (done) {
-      Timer(Duration(seconds: 1), () {
+      Timer(Duration(seconds: duzina), () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => TabsScreens(

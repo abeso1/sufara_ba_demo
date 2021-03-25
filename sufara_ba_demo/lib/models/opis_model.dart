@@ -276,7 +276,7 @@ class Opis {
                 ),
                 TextSpan(
                   text:
-                      'uvijeni oblik – hemze o kojem će biti više riječi u lekciji broj 10.',
+                      ' uvijeni oblik – hemze o kojem će biti više riječi u lekciji broj 10.',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
@@ -538,7 +538,7 @@ class Opis {
               ),
             ),
             TextSpan(
-              text: 'Harf ZA ',
+              text: '\n\nHarf ZA ',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -546,7 +546,7 @@ class Opis {
               ),
             ),
             TextSpan(
-              text: '  ima isti izgled kao i harf Ra sa tim što se ',
+              text: 'ima isti izgled kao i harf Ra sa tim što se ',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -1018,7 +1018,7 @@ class Opis {
                 ),
                 TextSpan(
                   text:
-                      '\n\nU ovoj lekciji ćemo uvesti mjernu dužinu za vokale. Dužina kratkih vokala/hereketa iz prve lekcije traje praktično koliko treba da se u mirnom stanju ruke podigne i spusti kažiprst i to trajanje se se zove JEDNO HAREKE (“pokret”,”sekundu”). Dakle izgovori e,i,u,we,du,zi,ru,re, iz prethodnih lekcija traju jedno hareke.\n\n',
+                      '\n\nU ovoj lekciji ćemo uvesti mjernu dužinu za vokale. Dužina kratkih vokala/hereketa iz prve lekcije traje praktično koliko treba da se u mirnom stanju ruke podigne i spusti kažiprst i to trajanje se se zove JEDNO HAREKE (“pokret”, ”sekundu”). Dakle izgovori e, i, u, we, du, zi, ru, re iz prethodnih lekcija traju jedno hareke.\n\n',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
@@ -1422,7 +1422,7 @@ class Opis {
           SizedBox(height: 20),
           Container(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.zero,
               child: Text(
                 'b.) Također, vokali na harfu “HA”, koji je na kraju neke riječi ',
                 style: TextStyle(
@@ -1490,7 +1490,7 @@ class Opis {
           ),
           Container(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.zero,
               child: Text(
                 'uvijek su suprotne dužine u odnosu na vokal koji je ispred njih. Ako je ispred harf sa vokalom od jednog hareketa - onda se hu/hi izgovara dva hareketa kao huu/hii. I suprotno, ako je ispred obična dužina od dva hareketa - beniihi, onda se hu/hi izgovara jedno hareke kao hu/hi.',
                 style: TextStyle(
@@ -1502,12 +1502,12 @@ class Opis {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.zero,
             child: RichText(
               text: TextSpan(
                 children: <TextSpan>[
                   TextSpan(
-                    text: 'Na primjer (arapski lehuu) - le',
+                    text: '\nNa primjer (arapski lehuu) - le',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -1589,7 +1589,7 @@ class Opis {
             alignment: WrapAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.zero,
                 child: Text(
                   'b.) Ako prije riječi sa određenim članom ima neka druga riječ, one se moraju u izgovoru spojiti, npr: ',
                   style: TextStyle(
@@ -1672,10 +1672,11 @@ class Opis {
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.zero,
                   child: Text(
                     'c.) Ukoliko spajamo dvije riječi, od kojih se prva završava dugim samoglasnikom A,U ili i, ovi samoglasnici se u izgovoru gube tj, skraćuju. Kao u primjerima',
                     style: TextStyle(
@@ -1784,7 +1785,7 @@ class Opis {
             children: [
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.zero,
                   child: Text(
                     'Elif bez znaka se često sreće nakon dugog vokala U, ali se ne čita, kao u riječi: ',
                     style: TextStyle(
