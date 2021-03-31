@@ -122,7 +122,9 @@ class _TabsScreensState extends State<TabsScreens> {
                     ),
                     child: SvgPicture.asset(
                       'svg/back_img/sufara.ba_logo_splash.svg',
-                      width: SizeConfig.blockSizeHorizontal * 13.3,
+                      width: SizeConfig.screenWidth > 500
+                          ? SizeConfig.blockSizeHorizontal * 5
+                          : SizeConfig.blockSizeHorizontal * 13,
                       fit: BoxFit.fitHeight,
                     ),
                   ),
@@ -130,10 +132,12 @@ class _TabsScreensState extends State<TabsScreens> {
                     width: SizeConfig.blockSizeHorizontal * 1,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Image.asset(
                       'svg/back_img/sufara.png',
-                      width: SizeConfig.blockSizeHorizontal * 18,
+                      width: SizeConfig.screenWidth > 500
+                          ? SizeConfig.blockSizeHorizontal * 11
+                          : SizeConfig.blockSizeHorizontal * 18,
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -256,16 +260,22 @@ class _TabsScreensState extends State<TabsScreens> {
                     unselectedLabelColor: Colors.grey,
                     tabs: [
                       Tab(
-                          child: Text(
-                        getTranslated(context, 'lekcijaTabText'),
-                        style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal * 4),
-                      )),
-                      Tab(
+                          child: FittedBox(
+                        fit: BoxFit.scaleDown,
                         child: Text(
-                          getTranslated(context, 'vjezbeTabText'),
+                          getTranslated(context, 'lekcijaTabText'),
                           style: TextStyle(
                               fontSize: SizeConfig.blockSizeHorizontal * 4),
+                        ),
+                      )),
+                      Tab(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            getTranslated(context, 'vjezbeTabText'),
+                            style: TextStyle(
+                                fontSize: SizeConfig.blockSizeHorizontal * 4),
+                          ),
                         ),
                       ),
                     ],

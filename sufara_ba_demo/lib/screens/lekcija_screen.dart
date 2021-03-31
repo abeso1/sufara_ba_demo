@@ -51,10 +51,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   SharedPrefs sharedPrefs = SharedPrefs();
 
   Future<void> _sendAnalyticsEvent(String event) async {
-    await widget.analytics.logEvent(
-      name: event,
-      parameters: {}
-    );
+    await widget.analytics.logEvent(name: event, parameters: {});
     print('logEvent succeeded');
   }
 
@@ -149,7 +146,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
         children: [
           Container(
             height: SizeConfig.screenWidth > 850
-                ? SizeConfig.blockSizeVertical * 28
+                ? SizeConfig.blockSizeVertical * 25
                 : SizeConfig.screenWidth > 500
                     ? SizeConfig.blockSizeVertical * 22
                     : SizeConfig.blockSizeVertical * 20,
@@ -361,7 +358,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                   children: [
                                     Icon(
                                       Icons.book_outlined,
-                                      size: SizeConfig.blockSizeHorizontal * 10,
+                                      size: SizeConfig.screenWidth > 500
+                                          ? SizeConfig.blockSizeHorizontal * 7
+                                          : SizeConfig.blockSizeHorizontal * 10,
                                       color: Colors.white,
                                     ),
                                     FittedBox(
@@ -626,7 +625,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                   children: [
                                     Icon(
                                       Icons.report_outlined,
-                                      size: SizeConfig.blockSizeHorizontal * 10,
+                                      size: SizeConfig.screenWidth > 500
+                                          ? SizeConfig.blockSizeHorizontal * 7
+                                          : SizeConfig.blockSizeHorizontal * 10,
                                       color: Colors.white,
                                     ),
                                     Text(
@@ -722,7 +723,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 children: [
                                   Icon(
                                     Icons.ondemand_video,
-                                    size: SizeConfig.blockSizeHorizontal * 10,
+                                    size: SizeConfig.screenWidth > 500
+                                        ? SizeConfig.blockSizeHorizontal * 7
+                                        : SizeConfig.blockSizeHorizontal * 10,
                                     color: Colors.white,
                                   ),
                                   FittedBox(
@@ -771,8 +774,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                       Icon(
                                         Icons.report_outlined,
-                                        size:
-                                            SizeConfig.blockSizeHorizontal * 10,
+                                        size: SizeConfig.screenWidth > 500
+                                            ? SizeConfig.blockSizeHorizontal * 7
+                                            : SizeConfig.blockSizeHorizontal *
+                                                10,
                                         color: Colors.blue,
                                       ),
                                       SizedBox(
@@ -884,8 +889,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                             File(
                                               '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                             ),
-                                            height:
-                                                SizeConfig.blockSizeVertical *
+                                            height: SizeConfig.screenWidth > 500
+                                                ? SizeConfig.blockSizeVertical *
+                                                    25
+                                                : SizeConfig.blockSizeVertical *
                                                     15,
                                           ),
                                           FittedBox(
@@ -906,7 +913,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     File(
                                       '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                     ),
-                                    height: SizeConfig.blockSizeVertical * 15,
+                                    height: SizeConfig.screenWidth > 500
+                                        ? SizeConfig.blockSizeVertical * 25
+                                        : SizeConfig.blockSizeVertical * 15,
                                   ),
                           ),
                         );
