@@ -1,4 +1,4 @@
-# sufara_ba_demo
+# Sufara.ba
 Mobile app for Sufara.ba 
 
 This is oficial code repository of Sufara.ba android and iOS application made in Flutter.
