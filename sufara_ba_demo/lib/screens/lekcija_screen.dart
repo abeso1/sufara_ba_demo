@@ -19,6 +19,7 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:sufara_ba_demo/widgets/custom_alert_no_internet.dart';
+import 'package:sufara_ba_demo/widgets/lekcija_21_euza.dart';
 import 'package:sufara_ba_demo/widgets/table_izgovor.dart';
 import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 
@@ -316,6 +317,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 children: [
+                  widget.harf.id == "21" ? Euza(widget.dir) : SizedBox(),
                   //three buttons
                   Container(
                     decoration: BoxDecoration(
@@ -809,6 +811,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       ],
                     ),
                   ),
+
                   //oblici
                   Container(
                     child: StaggeredGridView.countBuilder(

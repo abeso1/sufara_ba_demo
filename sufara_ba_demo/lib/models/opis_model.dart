@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'dart:io';
 
 import 'package:sufara_ba_demo/widgets/lekcija_10_tabela.dart';
@@ -696,8 +697,20 @@ class Opis {
             ),
             textAlign: TextAlign.justify,
           ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: SizeConfig.blockSizeHorizontal * 100,
+            height: 1,
+            color: Colors.black,
+          ),
+          SizedBox(
+            height: 10,
+          ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
@@ -800,6 +813,7 @@ class Opis {
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
@@ -902,6 +916,7 @@ class Opis {
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
@@ -1029,8 +1044,14 @@ class Opis {
             ),
             textAlign: TextAlign.justify,
           ),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
@@ -1268,14 +1289,34 @@ class Opis {
               ),
             ],
           ),
+          SizedBox(height: 20),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'b) Dugo U nastaje ako se slovu koje već ima kratko U ',
+                    'b) Dugo U nastaje ako se slovu koje već ima',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    ' kratko U ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -1415,6 +1456,12 @@ class Opis {
               ),
             ],
           ),
+          SizedBox(height: 20),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
           RichText(
             text: TextSpan(
               children: <TextSpan>[
@@ -1507,6 +1554,7 @@ class Opis {
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
@@ -1571,6 +1619,7 @@ class Opis {
                   ),
                 ),
               ),
+              Container(width: SizeConfig.blockSizeHorizontal * 100),
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -1793,6 +1842,11 @@ class Opis {
             ),
             textAlign: TextAlign.justify,
           ),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             alignment: WrapAlignment.center,
@@ -1967,6 +2021,11 @@ class Opis {
               ),
             ],
           ),
+          SizedBox(height: 20),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
           RichText(
             text: TextSpan(
               children: <TextSpan>[
@@ -2000,6 +2059,12 @@ class Opis {
             ),
             textAlign: TextAlign.justify,
           ),
+          SizedBox(height: 30),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             alignment: WrapAlignment.center,
@@ -2200,6 +2265,12 @@ class Opis {
               ),
             ],
           ),
+          SizedBox(height: 20),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
         ],
       ),
 //10
@@ -2287,6 +2358,12 @@ class Opis {
             ),
             textAlign: TextAlign.justify,
           ),
+          SizedBox(height: 5),
+          Container(
+              height: 1,
+              width: SizeConfig.blockSizeHorizontal * 100,
+              color: Colors.black),
+          SizedBox(height: 20),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
@@ -2719,7 +2796,7 @@ class Opis {
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: ' leh',
+                        text: ' le',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -2727,7 +2804,7 @@ class Opis {
                         ),
                       ),
                       TextSpan(
-                        text: 'uu',
+                        text: 'huu',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.red,
@@ -3157,39 +3234,925 @@ class Opis {
       ),
 
       //21
-      RichText(
-        text: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "\nBudući da je broj stranica, ajeta, džuzova i hizbova u Kur’ani Kerimu pisan arapskim brojevima potrebno je da naučimo i arapske brojeve kada smo već savladali arapska slova ili harfove. U ovoj lekciji mi nećemo učiti kako se brojevi izgovaraju u arapskom jeziku nego ćemo naučiti prepoznavati arapske brojeve kako bismo znali pronaci željenu stranicu ili broj ajeta u Kur’anu.\n\nArapski brojevi se pišu i čitaju sa lijeva na desno kao i naši brojevi. U ovoj lekciji možete vidjeti upoređene naše i arapske brojeve.",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+      Column(
+        children: [
+          RichText(
+            text: TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text:
+                      "\nBudući da je broj stranica, ajeta, džuzova i hizbova u Kur’ani Kerimu pisan arapskim brojevima potrebno je da naučimo i arapske brojeve kada smo već savladali arapska slova ili harfove. U ovoj lekciji mi nećemo učiti kako se brojevi izgovaraju u arapskom jeziku nego ćemo naučiti prepoznavati arapske brojeve kako bismo znali pronaci željenu stranicu ili broj ajeta u Kur’anu.\n\nArapski brojevi se pišu i čitaju sa lijeva na desno kao i naši brojevi. U ovoj lekciji možete vidjeti upoređene naše i arapske brojeve.",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-        textAlign: TextAlign.justify,
+            textAlign: TextAlign.justify,
+          ),
+        ],
       ),
 
       //22
-      RichText(
-        text: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "\nUčeći Kur'an naići ćemo na sitno napisane harfove iznad riječi u ajetima, to su znaci za stajanje. Oni imaju za cilj da pomognu i olakšaju učenje Kur'ana. Pored okruglog i često ukrašenog znaka koji stoji na kraju ajeta – rečenica i označava tačku, ostale znakove koji su iznad riječi svrstavamo u četiri kategorije:\n\n\t•\tZnakove na kojima se mora stati,\n\t•\tZnakove na kojima treba stati (bolje je stati),\n\t•\tZnakove na kojima je bolje preći, nastaviti učenje,\n\t•\tZnak da ne treba stati, ako se stane ponoviti riječ ili dvije.\n\nKada riječ na kojoj se zastaje ima na zadnjem harfu znak \"Fethe\", \"Kesre\", \"Damme\" ili tenvin \"In\" ili \"Un\", tada će se taj harf učiti kao da je na njemu sukun, npr: (selamun-selam), ili (kitabun-kitab). Međutim, ako se riječ završava tenvinom \"En\", tada se staje kao da je na kraju \"dugo A\", npr: (tevvaben-tevvabaa). U slučajevima kada se riječ na kojoj želimo stati završava sa kruglim \"T\" sa bilo kojim znakovima na njemu tada će se to \"T\" čitati kao \"H\" sa sukunom, npr: (ihvetun-ihveh) ili (tevbetun-tevbeh). Ispod možete vidjeti ove znakove u primjeni.",
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          RichText(
+            text: TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text:
+                      "\nUčeći Kur'an naići ćemo na sitno napisane harfove iznad riječi u ajetima, to su znaci za stajanje. Oni imaju za cilj da pomognu i olakšaju učenje Kur'ana. Pored okruglog i često ukrašenog znaka koji stoji na kraju ajeta – rečenica i označava tačku, ostale znakove koji su iznad riječi svrstavamo u četiri kategorije:",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-        textAlign: TextAlign.justify,
+            textAlign: TextAlign.justify,
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "\t•\tZnakove na kojima se mora stati  - ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice39.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "\t•\tZnakove na kojima treba stati (bolje je stati) - ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice38.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 12, 8, 0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice29.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice28.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice27.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "\t•\tZnakove na kojima je bolje preći, nastaviti",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " učenje - ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice26.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice25.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice24.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice23.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "\t•\tZnak da ne treba stati, ako se stane ponoviti",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " riječ ili dvije - ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice22.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            height: 1,
+            width: SizeConfig.blockSizeHorizontal * 100,
+            color: Colors.black,
+          ),
+          Container(
+            height: 10,
+            width: SizeConfig.blockSizeHorizontal * 100,
+            //color: Colors.black,
+          ),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Kada riječ na kojoj ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "se zastaje ima na ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "zadnjem harfu znak ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/e.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/i.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/u.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/in.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/un2.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  "tada će se taj",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " harf učiti",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " kao da je na njemu sukun, npr:",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice31.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ">",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice30.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  "Međutim, ako se riječ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " završava tenvinom ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/5/en.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " , tada se staje kao  ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  "da je na kraju \"dugo A\" ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " npr: ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice33.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " > ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice32.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            height: 1,
+            width: SizeConfig.blockSizeHorizontal * 100,
+            color: Colors.black,
+          ),
+          Container(
+            height: 10,
+            width: SizeConfig.blockSizeHorizontal * 100,
+            //color: Colors.black,
+          ),
+          Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Ako se riječ završava dugim vokalima A, I ili U,",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " kod stajanja nema nikakve promjene, ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "kao što možemo vidjeti u sljedećim primjerima:  ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice36.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice35.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ",",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice34.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            height: 1,
+            width: SizeConfig.blockSizeHorizontal * 100,
+            color: Colors.black,
+          ),
+          Container(
+            height: 10,
+            width: SizeConfig.blockSizeHorizontal * 100,
+            //color: Colors.black,
+          ),
+          Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "U slučajevima kada se riječ na kojoj",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " želimo stati završava sa okruglim \"T\" ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice21.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " sa bilo kojim znakovima na njemu tada ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " će se to \"T\" čitati kao \"H\"  ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice37.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " sa sukunom, npr:",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice20.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ">",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice19.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " ili ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice18.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  ">",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: SvgPicture.file(
+                    File('$dir/svg/22/slice17.svg'),
+                    //width: SizeConfig.blockSizeHorizontal * 34,
+                    height: 40,
+                    //color: Colors.green,
+                  ),
+                ),
+              ),
+              Container(
+                height: 1,
+                width: SizeConfig.blockSizeHorizontal * 100,
+                //color: Colors.black,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  "Ispod možete vidjeti ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  "ove znakove u primjeni.",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     ];
   }
