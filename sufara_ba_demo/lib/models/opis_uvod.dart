@@ -130,7 +130,7 @@ class OpisUvod {
             ),
           ),
           TextSpan(
-            text: '6 harfova koji se vežu samo sa lijeve strane. \n',
+            text: '6 harfova koji se vežu samo sa desne strane. \n',
             style: TextStyle(
               fontSize: 15,
               color: Colors.black,

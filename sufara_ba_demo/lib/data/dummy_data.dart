@@ -53,7 +53,7 @@ class DummyData {
         "pocetak": "t-5",
         "sami": "t-5",
         "ime2": "",
-        "ime3": ""
+        "ime3": "",
       },
       opis:
           'Prvo slovo ili harf u arapskoj abecedi je Elif koji izgleda kao vertikalna crta (pogledaj flash lekciju br. 1 i 2), on je prvi od harfova koji se vežu samo sa svoje desne strane. Izgovor ovog glasa kada je sam tj. (sa sukunom) sličan je poluglasu koji se čuje prije naše rijeći \'rt pa bi se moglo reći da se elif sa sukunom uopšte ne čita. Kada na elifu ili ispod njega dođe neki od znakova za kratke vokale izgovara se samo taj vokal (pogledaj lekciju br.1 i 2).',
@@ -71,10 +71,10 @@ class DummyData {
         //{"name": "e", "audio": "", "desc": ""},
         //{"name": "i-1", "audio": "i", "desc": ""},
         {"name": "u", "audio": "", "desc": ""},
-        {"name": "ve", "audio": "", "desc": "ve"},
-        {"name": "vi", "audio": "", "desc": "vi"},
-        {"name": "vu", "audio": "", "desc": "vu"},
-        {"name": "v", "audio": "", "desc": "v"},
+        {"name": "ve", "audio": "", "desc": "we"},
+        {"name": "vi", "audio": "", "desc": "wi"},
+        {"name": "vu", "audio": "", "desc": "wu"},
+        {"name": "v", "audio": "", "desc": "w"},
         {"name": "ve-1", "audio": "ve", "desc": ""},
         {"name": "vi-1", "audio": "vi", "desc": ""},
         {"name": "vu-1", "audio": "vu", "desc": ""},
@@ -92,9 +92,9 @@ class DummyData {
         {"name": "uv-vi", "audio": "", "desc": ""}
       ],
       topIcons: [
-        {"name": "ve", "audio": "", "desc": "ve"},
-        {"name": "vi", "audio": "", "desc": "vi"},
-        {"name": "vu", "audio": "", "desc": "vu"},
+        {"name": "ve", "audio": "", "desc": "we"},
+        {"name": "vi", "audio": "", "desc": "wi"},
+        {"name": "vu", "audio": "", "desc": "wu"},
       ],
     ),
     HarfModel(
@@ -217,7 +217,7 @@ class DummyData {
         ]),
     HarfModel(
         id: '5',
-        name: 'Tenvin tesdid',
+        name: 'Tenvin tešdid',
         imageUrl: 'en',
         lekcijaIliVjezbaIndex: 'Peta lekcija',
         lekcija: true,
@@ -333,7 +333,7 @@ class DummyData {
         "kraj2": "nun-4",
         "sredina2": "nun-3",
         "pocetak2": "nun-2",
-        "sami2": "nun-1",
+        "sami2": "nun",
         "ime3": ""
       },
       topIcons: [
@@ -793,7 +793,7 @@ class DummyData {
         ]),
     HarfModel(
       id: '14',
-      name: 'Harf Fa i Dzim',
+      name: 'Harf Fa i Džim',
       imageUrl: 'uffin',
       lekcijaIliVjezbaIndex: 'Četranesta lekcija',
       lekcija: true,
@@ -905,14 +905,14 @@ class DummyData {
         ]),
     HarfModel(
       id: '16',
-      name: 'Harf Kaf, Sad i Dad',
+      name: 'Harf Qaf, Sad i Dad',
       imageUrl: 'sidkan',
       lekcijaIliVjezbaIndex: 'Šesnaesta lekcija',
       lekcija: true,
       imageIshodiste: 'svg/back_img/16.jpg',
       videoUrl: '40JbH4k4uZE',
       tabela: {
-        "ime": "HARF KAF",
+        "ime": "HARF QAF",
         "izgovor": "K",
         "kraj": "t4",
         "sredina": "t3",
@@ -1188,7 +1188,7 @@ class DummyData {
           {"name": "ajn", "audio": "", "desc": "Ajn"},
           {"name": "gajn", "audio": "", "desc": "Gajn"},
           {"name": "faa", "audio": "", "desc": "Fa"},
-          {"name": "kaaf", "audio": "", "desc": "Kaf"},
+          {"name": "kaaf", "audio": "", "desc": "Qaf"},
           {"name": "kaaf-mehko", "audio": "", "desc": "Kaf"},
           {"name": "laam", "audio": "", "desc": "Lam"},
           {"name": "miim", "audio": "", "desc": "Mim"},
@@ -1204,7 +1204,7 @@ class DummyData {
       lekcijaIliVjezbaIndex: 'Dvadeseta lekcija',
       lekcija: true,
       imageIshodiste: '',
-      tabela: {"ime": "", "ime2": "", "ime3" : ""},
+      tabela: {"ime": "", "ime2": "", "ime3": ""},
       videoUrl: '',
       opis:
           'Prvo slovo ili harf u arapskoj abecedi je Elif koji izgleda kao vertikalna crta (pogledaj flash lekciju br. 1 i 2), on je prvi od harfova koji se vežu samo sa svoje desne strane. Izgovor ovog glasa kada je sam tj. (sa sukunom) sličan je poluglasu koji se čuje prije naše rijeći \'rt pa bi se moglo reći da se elif sa sukunom uopšte ne čita. Kada na elifu ili ispod njega dođe neki od znakova za kratke vokale izgovara se samo taj vokal (pogledaj lekciju br.1 i 2).',

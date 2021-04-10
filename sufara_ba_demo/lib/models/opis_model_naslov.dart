@@ -597,7 +597,7 @@ class OpisNaslov {
             ),
           ),
           TextSpan(
-            text: 'KAF ',
+            text: 'QAF ',
             style: TextStyle(
               fontSize: 16,
               color: Colors.red,
