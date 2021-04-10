@@ -42,6 +42,7 @@ class _EuzaState extends State<Euza> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),

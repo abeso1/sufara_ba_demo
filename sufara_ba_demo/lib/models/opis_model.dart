@@ -1855,7 +1855,20 @@ class Opis {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Dugo I nastaje tako što se slovu koje već ',
+                    'Dugo I nastaje tako što se ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    ' slovu koje već ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -2123,7 +2136,20 @@ class Opis {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    ' dođe poslije slova sa znakom E ',
+                    ' dođe poslije slova sa ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'znakom E ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -2173,7 +2199,20 @@ class Opis {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    '  sa znakom E, čita kao dugo A. ',
+                    '  sa znakom E,',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    ' čita kao dugo A. ',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -2442,6 +2481,7 @@ class Opis {
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
               Container(
                 child: Padding(
@@ -3279,9 +3319,20 @@ class Opis {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
                 child: Text(
-                  "\t•\tZnakove na kojima se mora stati  - ",
+                  "\t•\tZnakove na kojima se mora",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+                child: Text(
+                  " stati  - ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3306,9 +3357,20 @@ class Opis {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
                 child: Text(
-                  "\t•\tZnakove na kojima treba stati (bolje je stati) - ",
+                  "\t•\tZnakove na kojima treba stati ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+                child: Text(
+                  "(bolje je stati) - ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3401,7 +3463,7 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "\t•\tZnakove na kojima je bolje preći, nastaviti",
+                  "\t•\tZnakove na kojima je bolje preći, ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3412,7 +3474,18 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  " učenje - ",
+                  "nastaviti ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "učenje - ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3505,7 +3578,18 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "\t•\tZnak da ne treba stati, ako se stane ponoviti",
+                  "\t•\tZnak da ne treba stati, ako se ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "stane ponoviti",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3554,7 +3638,7 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Kada riječ na kojoj ",
+                  "Kada riječ na ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3565,7 +3649,18 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "se zastaje ima na ",
+                  " kojoj se ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " zastaje ima na ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3708,7 +3803,18 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
-                  " kao da je na njemu sukun, npr:",
+                  " kao da je na",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  " njemu sukun, npr:",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3749,10 +3855,22 @@ class Opis {
                   ),
                 ),
               ),
+              Container(width: SizeConfig.blockSizeHorizontal * 100),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
-                  "Međutim, ako se riječ",
+                  "Međutim, ako ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  "se riječ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3867,7 +3985,7 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Ako se riječ završava dugim vokalima A, I ili U,",
+                  "Ako se riječ završava dugim",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3878,7 +3996,7 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  " kod stajanja nema nikakve promjene, ",
+                  " vokalima A, I ili U,",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3889,7 +4007,40 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "kao što možemo vidjeti u sljedećim primjerima:  ",
+                  " kod stajanja ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "nema nikakve promjene, ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "kao što možemo vidjeti ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "u sljedećim primjerima:  ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3971,7 +4122,7 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "U slučajevima kada se riječ na kojoj",
+                  "U slučajevima kada",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -3982,7 +4133,29 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  " želimo stati završava sa okruglim \"T\" ",
+                  " se riječ na kojoj",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " želimo stati završava",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  " sa okruglim \"T\" ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -4004,7 +4177,18 @@ class Opis {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  " sa bilo kojim znakovima na njemu tada ",
+                  " sa bilo kojim ",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "znakovima na njemu tada ",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.black,
@@ -4138,7 +4322,6 @@ class Opis {
                   ),
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
