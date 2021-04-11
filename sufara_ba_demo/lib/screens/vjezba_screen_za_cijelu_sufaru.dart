@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:flutter/material.dart';
@@ -23,7 +25,9 @@ class VjezbaScreenCijelaSufara extends StatefulWidget {
   final AudioCache audioCache = AudioCache();
   final String dir;
   final AudioPlayer player = AudioPlayer();
-  VjezbaScreenCijelaSufara(this.dir);
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
+  VjezbaScreenCijelaSufara(this.dir, {this.analytics, this.observer});
 
   @override
   _VjezbaScreenState createState() => _VjezbaScreenState();
@@ -65,6 +69,21 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
 
   SharedPrefs prefs = SharedPrefs();
   bool playing = false;
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+      parameters: {},
+    );
+    print('logEvent succeeded');
+  }
+
+  /*Future<void> _sendSetCurrentScreen(String screen) async {
+    await widget.analytics.setCurrentScreen(
+      screenName: screen,
+      screenClassOverride: "AnalyticsDemoVjezbaEnd",
+    );
+  }*/
 
   @override
   void dispose() {
@@ -233,6 +252,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
         int x = 23;
         x = x - 2;
         prefs.setData('vjezba$x');
+        _sendAnalyticsEvent('vjezba_za_cijelu_sufaru_gotova');
         showDialog(
             barrierDismissible: false,
             context: context,
@@ -245,7 +265,10 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
               MaterialPageRoute(
                 builder: (context) => TabsScreens(
                   widget.dir,
+                  widget.analytics,
+                  widget.observer,
                 ),
+                settings: RouteSettings(name: 'TabsScreen'),
               ),
             ),
           },
@@ -348,11 +371,13 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
       ).then((value) =>
           playAudio(DummyData.listHarfDummyData[tacnaLekcija], tacan));
     });
+    _sendAnalyticsEvent('screen_vjezba_cijela_sufara');
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    //_sendSetCurrentScreen('vjezba_cijela_sufara');
     SizeConfig().init(context);
     return WillPopScope(
       child: Scaffold(
@@ -426,7 +451,7 @@ class _VjezbaScreenState extends State<VjezbaScreenCijelaSufara> {
                       "Cijela Sufara",
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: SizeConfig.blockSizeVertical * 4.4,
+                        fontSize: SizeConfig.blockSizeVertical * 3,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                         fontFamily: 'Roboto',

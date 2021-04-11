@@ -11,7 +11,7 @@ class TableIzgovor extends StatelessWidget {
   final HarfModel harf;
   String broj = "";
 
-  TableIzgovor(this.dir, this.harf ,this.broj );
+  TableIzgovor(this.dir, this.harf, this.broj);
 
   @override
   Widget build(BuildContext context) {
@@ -23,84 +23,108 @@ class TableIzgovor extends StatelessWidget {
             color: Colors.black, width: 1, style: BorderStyle.solid),
         children: [
           TableRow(
-            decoration: BoxDecoration(color: Colors.grey[400]),
+            decoration: BoxDecoration(color: grey_color),
             children: [
               TableCell(
-                verticalAlignment: TableCellVerticalAlignment.baseline,
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
-                    child: Text(
-                      "IZGOVOR",
-                      style: TextStyle(
-                        color: poc_boja,
-                        fontWeight: FontWeight.bold,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "IZGOVOR",
+                        style: TextStyle(
+                          color: poc_boja,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
-                    child: Text(
-                      "KRAJ",
-                      style: TextStyle(
-                        color: poc_boja,
-                        fontWeight: FontWeight.bold,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "KRAJ",
+                        style: TextStyle(
+                          color: poc_boja,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
-                    child: Text(
-                      "SREDINA",
-                      style: TextStyle(
-                        color: poc_boja,
-                        fontWeight: FontWeight.bold,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "SREDINA",
+                        style: TextStyle(
+                          color: poc_boja,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
-                    child: Text(
-                      "POČETAK",
-                      style: TextStyle(
-                        color: poc_boja,
-                        fontWeight: FontWeight.bold,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "POČETAK",
+                        style: TextStyle(
+                          color: poc_boja,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
               TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: SizeConfig.blockSizeVertical * 2,
+                    horizontal: 10,
                   ),
                   child: Center(
-                    child: Text(
-                      "SAMI",
-                      style: TextStyle(
-                        color: poc_boja,
-                        fontWeight: FontWeight.bold,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "SAMI",
+                        style: TextStyle(
+                          color: poc_boja,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -129,8 +153,7 @@ class TableIzgovor extends StatelessWidget {
               ),
               TableCell(
                 child: SvgPicture.file(
-                  File(
-                      '$dir/svg/${harf.id}/${harf.tabela["kraj" + broj]}.svg'),
+                  File('$dir/svg/${harf.id}/${harf.tabela["kraj" + broj]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
@@ -156,8 +179,7 @@ class TableIzgovor extends StatelessWidget {
               ),
               TableCell(
                 child: SvgPicture.file(
-                  File(
-                      '$dir/svg/${harf.id}/${harf.tabela["sami" + broj]}.svg'),
+                  File('$dir/svg/${harf.id}/${harf.tabela["sami" + broj]}.svg'),
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,

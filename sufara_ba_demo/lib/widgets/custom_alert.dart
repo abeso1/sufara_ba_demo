@@ -16,13 +16,16 @@ class _CustomAlertState extends State<CustomAlert> {
       titlePadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       title: Text(
         'Jeste li sigurni da želite napustiti vježbu?',
+        style: TextStyle(fontSize: 18),
         textAlign: TextAlign.start,
       ),
       actions: [
         Container(
           width: 80,
           child: RaisedButton(
-            color: Colors.green,
+            shape: Border.all(color: Colors.grey[300]),
+            elevation: 0,
+            color: Colors.white,
             onPressed: () async {
               setState(() {
                 progres = true;
@@ -31,10 +34,13 @@ class _CustomAlertState extends State<CustomAlert> {
               Navigator.of(context).pop(true);
               //});
             },
-            child: Text(
-              'Da',
-              style: TextStyle(
-                color: Colors.white,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Da',
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
               ),
             ),
           ),
@@ -45,11 +51,14 @@ class _CustomAlertState extends State<CustomAlert> {
         Container(
           width: 80,
           child: RaisedButton(
-            color: Colors.grey[200],
+            color: Colors.green,
             onPressed: () {
               Navigator.of(context).pop(false);
             },
-            child: Text('Odustani'),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text('Odustani'),
+            ),
           ),
         ),
         SizedBox(

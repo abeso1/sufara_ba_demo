@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ribbon/ribbon.dart';
@@ -12,23 +14,39 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 class LastVjezbaDone extends StatefulWidget {
   final HarfModel harf = DummyData.listHarfDummyData[0];
   final String dir;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  LastVjezbaDone(this.dir);
+  LastVjezbaDone(this.dir, this.analytics, this.observer);
 
   @override
   _HarfWidgetForLekcijeState createState() => _HarfWidgetForLekcijeState();
 }
 
 class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+      parameters: {},
+    );
+    print('logEvent succeeded');
+  }
+
   @override
   Widget build(BuildContext context) {
     //this need to be added so i can use size config
     SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
+        _sendAnalyticsEvent('entering_last_vjezba_which_is_done');
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => VjezbaScreenCijelaSufara(widget.dir),
+            builder: (context) => VjezbaScreenCijelaSufara(
+              widget.dir,
+              analytics: widget.analytics,
+              observer: widget.observer,
+            ),
+            settings: RouteSettings(name: 'VjezbaCijelaSufaraDone'),
           ),
         );
       },
@@ -45,7 +63,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaDone> {
             borderRadius: BorderRadius.circular(15),
           ),
           color: Colors.grey[200],
-          elevation: 15,
+          elevation: 8,
           child: Ribbon(
             farLength: 60,
             nearLength: 30,

@@ -10,6 +10,7 @@ class CustomAlertVjezbaLocked extends StatelessWidget {
         width: 400,
         child: Text(
           'Ova vježba je trenutno zaključana. Položite sve prethodne vježbe da bi otključali ovu.',
+          style: TextStyle(fontSize: 18),
           textAlign: TextAlign.left,
         ),
       ),
@@ -19,8 +20,11 @@ class CustomAlertVjezbaLocked extends StatelessWidget {
           width: 120,
           child: RaisedButton(
             color: Colors.green,
-            child: Text(
-              'Zatvori prozor',
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Zatvori prozor',
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pop();

@@ -1,8 +1,8 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sufara_ba_demo/data/language_constants.dart';
-import 'package:sufara_ba_demo/main.dart';
-import 'package:sufara_ba_demo/models/language.dart';
 import 'package:sufara_ba_demo/screens/lekcije.dart';
 import 'package:sufara_ba_demo/screens/vjezbe.dart';
 import 'package:sufara_ba_demo/settings/size_config.dart';
@@ -14,8 +14,10 @@ class TabsScreens extends StatefulWidget {
   Color textColorBosanski = Colors.black;
   Color textColorEnglish = Colors.grey;
   String lang = "bosanski";
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  TabsScreens(this.dir);
+  TabsScreens(this.dir, this.analytics, this.observer);
 
   @override
   _TabsScreensState createState() => _TabsScreensState();
@@ -24,9 +26,26 @@ class TabsScreens extends StatefulWidget {
 class _TabsScreensState extends State<TabsScreens> {
   Locale _locale;
 
-  void _changeLanguage(Language language) async {
-    Locale _locale = await setLocale(language.languageCode);
-    MyApp.setLocale(context, _locale);
+  /*Future<void> _sendSetCurrentScreen(String screen) async {
+    await widget.analytics.setCurrentScreen(
+      screenName: screen,
+      screenClassOverride: "AnalyticsDemoTabs",
+    );
+  }*/
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(
+      name: event,
+      parameters: {},
+    );
+    print('logEvent succeeded');
+  }
+
+  @override
+  void initState() {
+    //_sendSetCurrentScreen('tabs_screen');
+    _sendAnalyticsEvent('screen_tabs');
+    super.initState();
   }
 
   @override
@@ -103,7 +122,9 @@ class _TabsScreensState extends State<TabsScreens> {
                     ),
                     child: SvgPicture.asset(
                       'svg/back_img/sufara.ba_logo_splash.svg',
-                      width: SizeConfig.blockSizeHorizontal * 13.3,
+                      width: SizeConfig.screenWidth > 500
+                          ? SizeConfig.blockSizeHorizontal * 5
+                          : SizeConfig.blockSizeHorizontal * 13,
                       fit: BoxFit.fitHeight,
                     ),
                   ),
@@ -111,10 +132,12 @@ class _TabsScreensState extends State<TabsScreens> {
                     width: SizeConfig.blockSizeHorizontal * 1,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Image.asset(
                       'svg/back_img/sufara.png',
-                      width: SizeConfig.blockSizeHorizontal * 18,
+                      width: SizeConfig.screenWidth > 500
+                          ? SizeConfig.blockSizeHorizontal * 11
+                          : SizeConfig.blockSizeHorizontal * 18,
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -224,7 +247,9 @@ class _TabsScreensState extends State<TabsScreens> {
                         ? SizeConfig.blockSizeVertical * 8
                         : SizeConfig.blockSizeVertical * 5.5),
                 child: Container(
-                  height:  SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 7 : SizeConfig.blockSizeVertical * 5,
+                  height: SizeConfig.screenWidth > 850
+                      ? SizeConfig.blockSizeVertical * 7
+                      : SizeConfig.blockSizeVertical * 5,
                   child: TabBar(
                     labelPadding: SizeConfig.screenWidth > 850
                         ? EdgeInsets.zero
@@ -235,16 +260,22 @@ class _TabsScreensState extends State<TabsScreens> {
                     unselectedLabelColor: Colors.grey,
                     tabs: [
                       Tab(
-                          child: Text(
-                        getTranslated(context, 'lekcijaTabText'),
-                        style:
-                            TextStyle(fontSize: SizeConfig.blockSizeHorizontal * 4),
-                      )),
-                      Tab(
+                          child: FittedBox(
+                        fit: BoxFit.scaleDown,
                         child: Text(
-                          getTranslated(context, 'vjezbeTabText'),
+                          getTranslated(context, 'lekcijaTabText'),
                           style: TextStyle(
                               fontSize: SizeConfig.blockSizeHorizontal * 4),
+                        ),
+                      )),
+                      Tab(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            getTranslated(context, 'vjezbeTabText'),
+                            style: TextStyle(
+                                fontSize: SizeConfig.blockSizeHorizontal * 4),
+                          ),
                         ),
                       ),
                     ],
@@ -253,11 +284,18 @@ class _TabsScreensState extends State<TabsScreens> {
               ),
             ),
             body: TabBarView(children: [
-              Lekcije(widget.dir),
-              Vjezbe(widget.dir),
+              Lekcije(
+                widget.dir,
+                widget.analytics,
+                widget.observer,
+              ),
+              Vjezbe(
+                widget.dir,
+                widget.analytics,
+                widget.observer,
+              ),
             ]),
           ),
-          
         ],
       ),
     );

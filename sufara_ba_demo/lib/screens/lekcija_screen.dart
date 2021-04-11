@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,6 +19,7 @@ import 'package:sufara_ba_demo/settings/size_config.dart';
 import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:sufara_ba_demo/widgets/custom_alert_no_internet.dart';
+import 'package:sufara_ba_demo/widgets/lekcija_21_euza.dart';
 import 'package:sufara_ba_demo/widgets/table_izgovor.dart';
 import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 
@@ -28,8 +31,10 @@ class LekcijaScreen extends StatefulWidget {
   int mjesto = 3;
   final OpisNaslov nalsov = OpisNaslov();
   int colorIndex = -1;
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
 
-  LekcijaScreen(this.harf, this.dir) {
+  LekcijaScreen(this.harf, this.dir, this.analytics, this.observer) {
     opis = Opis(this.dir);
   }
 
@@ -45,6 +50,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   TransformationController controller = TransformationController();
   bool showContainer = false;
   SharedPrefs sharedPrefs = SharedPrefs();
+
+  Future<void> _sendAnalyticsEvent(String event) async {
+    await widget.analytics.logEvent(name: event, parameters: {});
+    print('logEvent succeeded');
+  }
+
+  /*Future<void> _sendSetCurrentScreen(String screen) async {
+    await widget.analytics.setCurrentScreen(
+      screenName: screen,
+      screenClassOverride: "AnalyticsDemoLekcija",
+    );
+  }*/
 
   playAudio(HarfModel harf, int index, {bool isTop = false}) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
@@ -89,6 +106,12 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   }
 
   @override
+  void initState() {
+    _sendAnalyticsEvent("lekcija_screen_${widget.harf.id}");
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     int vjezbaId = int.parse(widget.harf.id);
     widget.mjesto = 3;
@@ -123,9 +146,11 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
       body: Column(
         children: [
           Container(
-            height: SizeConfig.screenWidth > 850 ?  SizeConfig.blockSizeVertical * 28 : SizeConfig.screenWidth > 500
-                ? SizeConfig.blockSizeVertical * 22
-                : SizeConfig.blockSizeVertical * 20,
+            height: SizeConfig.screenWidth > 850
+                ? SizeConfig.blockSizeVertical * 25
+                : SizeConfig.screenWidth > 500
+                    ? SizeConfig.blockSizeVertical * 22
+                    : SizeConfig.blockSizeVertical * 20,
             width: SizeConfig.blockSizeHorizontal * 100,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -155,7 +180,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           widget.harf.name,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal * 6.8,
+                            fontSize: SizeConfig.blockSizeVertical * 3,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Roboto',
@@ -278,7 +303,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              height: SizeConfig.screenWidth > 850 ? SizeConfig.blockSizeVertical * 60 : SizeConfig.blockSizeVertical * 64.5,
+              height: SizeConfig.screenWidth > 850
+                  ? SizeConfig.blockSizeVertical * 60
+                  : SizeConfig.blockSizeVertical * 64.5,
               padding: EdgeInsets.fromLTRB(
                 SizeConfig.blockSizeHorizontal * 3,
                 SizeConfig.blockSizeVertical * 2,
@@ -290,6 +317,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 children: [
+                  widget.harf.id == "21" ? Euza(widget.dir) : SizedBox(),
                   //three buttons
                   Container(
                     decoration: BoxDecoration(
@@ -323,14 +351,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                   0,
                                   0,
                                 ),
-                                height:  SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 28 :SizeConfig.blockSizeVertical * 15,
+                                height: SizeConfig.screenWidth > 850
+                                    ? SizeConfig.blockSizeVertical * 28
+                                    : SizeConfig.blockSizeVertical * 15,
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Icon(
                                       Icons.book_outlined,
-                                      size: SizeConfig.blockSizeHorizontal * 10,
+                                      size: SizeConfig.screenWidth > 500
+                                          ? SizeConfig.blockSizeHorizontal * 7
+                                          : SizeConfig.blockSizeHorizontal * 10,
                                       color: Colors.white,
                                     ),
                                     FittedBox(
@@ -399,6 +431,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                   widget.dir, widget.harf, ""),
                                             )
                                           : Container(),
+                                      SizedBox(
+                                        height:
+                                            SizeConfig.blockSizeVertical * 1,
+                                      ),
                                       widget.harf.tabela["ime2"].length != 0
                                           ? Container(
                                               width: double.infinity,
@@ -457,6 +493,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                               ),
                                             )
                                           : Container(),
+                                      SizedBox(
+                                        height:
+                                            SizeConfig.blockSizeVertical * 1,
+                                      ),
                                       widget.harf.tabela["ime3"].length != 0
                                           ? Padding(
                                               padding: EdgeInsets.fromLTRB(
@@ -471,6 +511,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                   widget.dir, widget.harf, "3"),
                                             )
                                           : Container(),
+                                      SizedBox(
+                                        height:
+                                            SizeConfig.blockSizeVertical * 1,
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -484,7 +528,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         if (widget.harf.imageIshodiste.isNotEmpty)
                           SizedBox(
                             width: SizeConfig.blockSizeVertical * 90,
-                            height: SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 28 : SizeConfig.blockSizeVertical * 15,
+                            height: SizeConfig.screenWidth > 850
+                                ? SizeConfig.blockSizeVertical * 28
+                                : SizeConfig.blockSizeVertical * 15,
                             child: RaisedButton(
                               color: secondButton,
                               onPressed: () {
@@ -555,7 +601,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                     BorderRadius.circular(10),
                                               ),
                                               child: FittedBox(
-                                                fit: BoxFit.fill,
+                                                fit: BoxFit.scaleDown,
                                                 child: Text(
                                                   'Zatvori prozor',
                                                   style: TextStyle(
@@ -581,7 +627,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                   children: [
                                     Icon(
                                       Icons.report_outlined,
-                                      size: SizeConfig.blockSizeHorizontal * 10,
+                                      size: SizeConfig.screenWidth > 500
+                                          ? SizeConfig.blockSizeHorizontal * 7
+                                          : SizeConfig.blockSizeHorizontal * 10,
                                       color: Colors.white,
                                     ),
                                     Text(
@@ -606,7 +654,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                         if (widget.harf.videoUrl.isNotEmpty)
                           SizedBox(
                             width: SizeConfig.blockSizeVertical * 90,
-                            height: SizeConfig.screenWidth > 850 ?SizeConfig.blockSizeVertical * 28 : SizeConfig.blockSizeVertical * 15,
+                            height: SizeConfig.screenWidth > 850
+                                ? SizeConfig.blockSizeVertical * 28
+                                : SizeConfig.blockSizeVertical * 15,
                             child: RaisedButton(
                               color: thirdButton,
                               onPressed: () {
@@ -640,7 +690,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                                       BorderRadius.circular(10),
                                                 ),
                                                 child: FittedBox(
-                                                  fit: BoxFit.fill,
+                                                  fit: BoxFit.scaleDown,
                                                   child: Text(
                                                     'Zatvori prozor',
                                                     style: TextStyle(
@@ -675,7 +725,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                 children: [
                                   Icon(
                                     Icons.ondemand_video,
-                                    size: SizeConfig.blockSizeHorizontal * 10,
+                                    size: SizeConfig.screenWidth > 500
+                                        ? SizeConfig.blockSizeHorizontal * 7
+                                        : SizeConfig.blockSizeHorizontal * 10,
                                     color: Colors.white,
                                   ),
                                   FittedBox(
@@ -724,8 +776,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                       Icon(
                                         Icons.report_outlined,
-                                        size:
-                                            SizeConfig.blockSizeHorizontal * 10,
+                                        size: SizeConfig.screenWidth > 500
+                                            ? SizeConfig.blockSizeHorizontal * 7
+                                            : SizeConfig.blockSizeHorizontal *
+                                                10,
                                         color: Colors.blue,
                                       ),
                                       SizedBox(
@@ -757,6 +811,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                       ],
                     ),
                   ),
+
                   //oblici
                   Container(
                     child: StaggeredGridView.countBuilder(
@@ -823,7 +878,7 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            elevation: 10,
+                            elevation: 3,
                             child: widget.harf.images[index]['desc'].length != 0
                                 ? Row(
                                     mainAxisAlignment:
@@ -837,8 +892,10 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                             File(
                                               '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                             ),
-                                            height:
-                                                SizeConfig.blockSizeVertical *
+                                            height: SizeConfig.screenWidth > 500
+                                                ? SizeConfig.blockSizeVertical *
+                                                    25
+                                                : SizeConfig.blockSizeVertical *
                                                     15,
                                           ),
                                           FittedBox(
@@ -859,7 +916,9 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                     File(
                                       '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                     ),
-                                    height: SizeConfig.blockSizeVertical * 15,
+                                    height: SizeConfig.screenWidth > 500
+                                        ? SizeConfig.blockSizeVertical * 25
+                                        : SizeConfig.blockSizeVertical * 15,
                                   ),
                           ),
                         );
@@ -880,10 +939,18 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                             ),
                             child: GestureDetector(
                               onTap: () {
+                                _sendAnalyticsEvent(
+                                    'entering_vjezba_through_lekcija_${widget.harf.id}');
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        VjezbaScreen(widget.harf, widget.dir),
+                                    builder: (context) => VjezbaScreen(
+                                      widget.harf,
+                                      widget.dir,
+                                      widget.analytics,
+                                      widget.observer,
+                                    ),
+                                    settings:
+                                        RouteSettings(name: 'VjezbaScreen'),
                                   ),
                                 );
                               },

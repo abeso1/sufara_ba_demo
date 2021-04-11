@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 
 ///funkcija za provjeru interneta slanjem request-a na google.com
 

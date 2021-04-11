@@ -19,7 +19,7 @@ class Download extends ChangeNotifier {
 
   Future<bool> checkFile() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    bool povratni = sharedPreferences.getBool('preuzetoje') ?? false;
+    bool povratni = sharedPreferences.getBool('preuzetoje2') ?? false;
     return povratni;
     //return false;
   }

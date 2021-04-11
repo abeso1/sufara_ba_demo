@@ -45,15 +45,18 @@ class _Tabela10State extends State<Tabela10> {
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
               alignment: Alignment.center,
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    child: Text(
-                      "NE ČITA SE",
-                      textAlign: TextAlign.center,
-                      maxLines: 3,
-                      style: TextStyle(color: poc_boja, fontSize: 16),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "NE\nČITA\nSE",
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                        style: TextStyle(color: poc_boja, fontSize: 16),
+                      ),
                     ),
                   )),
             ),
@@ -115,12 +118,12 @@ class _Tabela10State extends State<Tabela10> {
           TableCell(
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.grey,
+                  color: grey_color,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -197,12 +200,12 @@ class _Tabela10State extends State<Tabela10> {
           TableCell(
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.grey,
+                  color: grey_color,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -279,12 +282,12 @@ class _Tabela10State extends State<Tabela10> {
           TableCell(
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.grey,
+                  color: grey_color,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -361,12 +364,12 @@ class _Tabela10State extends State<Tabela10> {
           TableCell(
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.grey,
+                  color: grey_color,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -443,12 +446,12 @@ class _Tabela10State extends State<Tabela10> {
           TableCell(
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.grey,
+                  color: grey_color,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -525,12 +528,12 @@ class _Tabela10State extends State<Tabela10> {
           TableCell(
             verticalAlignment: TableCellVerticalAlignment.fill,
             child: Container(
-              color: Colors.grey,
+              color: grey_color,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.grey,
+                  color: grey_color,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
