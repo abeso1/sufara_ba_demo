@@ -110,7 +110,7 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                                 child: FittedBox(
                                   fit: BoxFit.fitHeight,
                                   child: Text(
-                                    '${23}. vjezba',
+                                    '${23}. vježba',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.grey,
