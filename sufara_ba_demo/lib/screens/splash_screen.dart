@@ -26,7 +26,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Download download = Download();
   bool dialog = true;
-  bool done = false;
+  bool done = true;
   String dir;
   String hadis;
   int duzina = 3;
@@ -42,77 +42,10 @@ class _SplashScreenState extends State<SplashScreen> {
       hadis = Hadis.listHadis[rng.nextInt(20)].name;
     });
 
-    widget.analytics
-        .logEvent(name: "splash_screen", parameters: {},)
-        .then((value) => print('splash_screen_sent'));
-
-    download.checkFile().then((val) => {
-          if (!val)
-            {
-              CheckForInternetService().checkForInternet().then((value9) {
-                if (value9) {
-                  Timer(
-                    Duration(seconds: 5),
-                    () async {
-                      getDir().then((value) {
-                        setState(() {
-                          duzina = 1;
-                          dir = value;
-                        });
-                      });
-                      await widget.analytics
-                          .logEvent(name: 'downloading_files', parameters: {},);
-                      showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (ctx) {
-                          return ProgressionIndicator();
-                        },
-                      ).then(
-                        (value) {
-                          //Navigator.of(context).pop();
-                          showDialog(
-                            barrierDismissible: false,
-                            context: context,
-                            builder: (ctx) {
-                              return MessageHadis();
-                            },
-                          ).then((value) {
-                            setState(() {
-                              done = true;
-                            });
-                          });
-                        },
-                      );
-                    },
-                  );
-                } else {
-                  showDialog(
-                    barrierDismissible: false,
-                    context: context,
-                    builder: (ctx) {
-                      return NoInternetConnection(download: true);
-                    },
-                  );
-                }
-              }),
-            }
-          else if (val)
-            {
-              getDir().then((value) {
-                setState(() {
-                  dir = value;
-                });
-              }),
-              Timer(Duration(seconds: 5), () {
-                done = true;
-              }),
-              setState(() {
-                dialog = false;
-                done = true;
-              })
-            }
-        });
+    widget.analytics.logEvent(
+      name: "splash_screen",
+      parameters: {},
+    ).then((value) => print('splash_screen_sent'));
 
     //print(file.toString());
     super.initState();

@@ -93,9 +93,8 @@ class _HarfWidgetForVjezbeDoneState extends State<HarfWidgetForVjezbeDone> {
                   //),
                   Expanded(
                     //fit: BoxFit.fill,
-                    child: SvgPicture.file(
-                      File(
-                          '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                    child: SvgPicture.asset(
+                      'assets/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg',
                       color: Colors.green,
                       height: SizeConfig.blockSizeVertical * 20,
                     ),

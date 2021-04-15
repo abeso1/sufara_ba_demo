@@ -14,7 +14,7 @@ class MessageHadis extends StatelessWidget {
       content: Container(
         width: 400,
         child: Text(
-          "Učite Kur\'an, jer će, uistinu, on doći na Sudnji dan kao zagovornik onima koji ga budu učili.",
+          "Uspješno ste preuzeli potrebne podatke!",
           style: TextStyle(fontSize: 16),
         ),
       ),

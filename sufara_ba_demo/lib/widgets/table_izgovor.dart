@@ -152,34 +152,32 @@ class TableIzgovor extends StatelessWidget {
                 ),
               ),
               TableCell(
-                child: SvgPicture.file(
-                  File('$dir/svg/${harf.id}/${harf.tabela["kraj" + broj]}.svg'),
+                child: SvgPicture.asset(
+                  'assets/svg/${harf.id}/${harf.tabela["kraj" + broj]}.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
                 ),
               ),
               TableCell(
-                child: SvgPicture.file(
-                  File(
-                      '$dir/svg/${harf.id}/${harf.tabela["sredina" + broj]}.svg'),
+                child: SvgPicture.asset(
+                  'assets/svg/${harf.id}/${harf.tabela["sredina" + broj]}.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
                 ),
               ),
               TableCell(
-                child: SvgPicture.file(
-                  File(
-                      '$dir/svg/${harf.id}/${harf.tabela["pocetak" + broj]}.svg'),
+                child: SvgPicture.asset(
+                  'assets/svg/${harf.id}/${harf.tabela["pocetak" + broj]}.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,
                 ),
               ),
               TableCell(
-                child: SvgPicture.file(
-                  File('$dir/svg/${harf.id}/${harf.tabela["sami" + broj]}.svg'),
+                child: SvgPicture.asset(
+                  'assets/svg/${harf.id}/${harf.tabela["sami" + broj]}.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: SizeConfig.blockSizeVertical * 15,
                   //color: Colors.green,

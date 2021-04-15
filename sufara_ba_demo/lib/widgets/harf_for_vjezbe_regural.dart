@@ -90,9 +90,8 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                           //),
                           Expanded(
                             //fit: BoxFit.fill,
-                            child: SvgPicture.file(
-                              File(
-                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                            child: SvgPicture.asset(
+                              'assets/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg',
                               color: Colors.green,
                               width: SizeConfig.blockSizeHorizontal * 20,
                             ),
@@ -165,9 +164,8 @@ class _HarfWidgetForVjezbeState extends State<HarfWidgetForVjezbe> {
                           //),
                           Expanded(
                             //fit: BoxFit.fill,
-                            child: SvgPicture.file(
-                              File(
-                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg'),
+                            child: SvgPicture.asset(
+                              'assets/svg/${widget.harf.id}/${widget.harf.imageUrl}.svg',
                               color: Colors.grey,
                               width: SizeConfig.blockSizeHorizontal * 20,
                             ),

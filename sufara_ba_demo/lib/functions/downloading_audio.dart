@@ -28,19 +28,19 @@ class Download extends ChangeNotifier {
   Future<io.File> downloadFile(
       String url, String filename, Function notifyListeners) async {
     var request = await httpClient.getUrl(Uri.parse(url));
-      progress += 0.03;
+      progress += 0.13;
       notifyListeners(() {});
     var response = await request.close();
-      progress += 0.03;
+      progress += 0.13;
       notifyListeners(() {});
     var bytes = await consolidateHttpClientResponseBytes(response);
-      progress += 0.03;
+      progress += 0.13;
       notifyListeners(() {});
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-      progress += 0.03;
+      progress += 0.11;
       notifyListeners(() {});
     io.File file = new io.File('$dir/$filename');
-      progress += 0.03;
+      progress += 0.11;
       notifyListeners(() {});
     await file.writeAsBytes(bytes);
       progress += 0.025;

@@ -8,6 +8,7 @@ import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:sufara_ba_demo/models/checkInternet.dart';
 
 import 'package:sufara_ba_demo/models/harf_model.dart';
@@ -20,6 +21,9 @@ import 'package:sufara_ba_demo/shared/constants.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:sufara_ba_demo/widgets/custom_alert_no_internet.dart';
 import 'package:sufara_ba_demo/widgets/lekcija_21_euza.dart';
+import 'package:sufara_ba_demo/widgets/doyYouWantToDownloadFiles.dart';
+import 'package:sufara_ba_demo/widgets/message_hadis.dart';
+import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 import 'package:sufara_ba_demo/widgets/table_izgovor.dart';
 import 'package:sufara_ba_demo/widgets/youtube_widget.dart';
 
@@ -50,10 +54,16 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
   TransformationController controller = TransformationController();
   bool showContainer = false;
   SharedPrefs sharedPrefs = SharedPrefs();
+  Download download = Download();
 
   Future<void> _sendAnalyticsEvent(String event) async {
     await widget.analytics.logEvent(name: event, parameters: {});
     print('logEvent succeeded');
+  }
+
+  Future<String> getDir() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    return dir;
   }
 
   /*Future<void> _sendSetCurrentScreen(String screen) async {
@@ -65,35 +75,130 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
 
   playAudio(HarfModel harf, int index, {bool isTop = false}) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
-    print(isTop
-        ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
-        : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3');
     if (harf.images[index]['audio'] == "x") {
-      return;
-    }
-    if (widget.player.state == AudioPlayerState.PLAYING) {
     } else {
-      Timer(
-        Duration(milliseconds: 0),
-        () async {
-          if ((harf.images[index]['audio'].isEmpty && !isTop) ||
-              (isTop && harf.topIcons[index]['audio'].isEmpty)) {
-            await widget.player.play(
-                isTop
-                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
-                    : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
-                isLocal: true);
-            setState(() {});
-          } else {
-            await widget.player.play(
-                isTop
-                    ? '$dir/audio/${harf.id}/${harf.topIcons[index]['audio']}.mp3'
-                    : '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
-                isLocal: true);
-            setState(() {});
-          }
-        },
-      );
+      download.checkFile().then((val) => {
+            if (!val)
+              {
+                CheckForInternetService().checkForInternet().then((value9) {
+                  if (value9) {
+                    Timer(
+                      Duration(seconds: 0),
+                      () async {
+                        getDir().then((value) {
+                          setState(() {
+                            //duzina = 1;
+                            dir = value;
+                          });
+                        });
+                        await widget.analytics.logEvent(
+                          name: 'downloading_files',
+                          parameters: {},
+                        );
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (ctx) {
+                            return DoYouWantToDownloadFiles();
+                          },
+                        ).then((value) {
+                          if (value) {
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (ctx) {
+                                return ProgressionIndicator();
+                              },
+                            ).then(
+                              (value) {
+                                //Navigator.of(context).pop();
+                                showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (ctx) {
+                                    return MessageHadis();
+                                  },
+                                ).then((value) {
+                                  if (harf.images[index]['audio'] == "x") {
+                                  } else if (widget.player.state ==
+                                      AudioPlayerState.PLAYING) {
+                                  } else {
+                                    Timer(
+                                      Duration(milliseconds: 0),
+                                      () async {
+                                        if ((harf.images[index]['audio']
+                                                    .isEmpty &&
+                                                !isTop) ||
+                                            (isTop &&
+                                                harf.topIcons[index]['audio']
+                                                    .isEmpty)) {
+                                          await widget.player.play(
+                                              isTop
+                                                  ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
+                                                  : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                                              isLocal: true);
+                                          setState(() {});
+                                        } else {
+                                          await widget.player.play(
+                                              isTop
+                                                  ? '$dir/audio/${harf.id}/${harf.topIcons[index]['audio']}.mp3'
+                                                  : '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                                              isLocal: true);
+                                          setState(() {});
+                                        }
+                                      },
+                                    );
+                                  }
+                                });
+                              },
+                            );
+                          } else {}
+                        });
+                      },
+                    );
+                  } else {
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (ctx) {
+                        return NoInternetConnection(download: true);
+                      },
+                    );
+                  }
+                }),
+              }
+            else if (val)
+              {
+                if (harf.images[index]['audio'] == "x")
+                  {}
+                else if (widget.player.state == AudioPlayerState.PLAYING)
+                  {}
+                else
+                  {
+                    Timer(
+                      Duration(milliseconds: 0),
+                      () async {
+                        if ((harf.images[index]['audio'].isEmpty && !isTop) ||
+                            (isTop && harf.topIcons[index]['audio'].isEmpty)) {
+                          await widget.player.play(
+                              isTop
+                                  ? '$dir/audio/${harf.id}/${harf.topIcons[index]['name']}.mp3'
+                                  : '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                              isLocal: true);
+                          setState(() {});
+                        } else {
+                          await widget.player.play(
+                              isTop
+                                  ? '$dir/audio/${harf.id}/${harf.topIcons[index]['audio']}.mp3'
+                                  : '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                              isLocal: true);
+                          setState(() {});
+                        }
+                      },
+                    ),
+                  }
+              }
+          });
     }
   }
 
@@ -224,9 +329,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.file(
-                                File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg'),
+                              SvgPicture.asset(
+                                'assets/svg/${widget.harf.id}/${widget.harf.topIcons[2]['name']}.svg',
                                 width: SizeConfig.blockSizeHorizontal * 16,
                                 color: Colors.white,
                               ),
@@ -248,9 +352,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.file(
-                                File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[1]['name']}.svg'),
+                              SvgPicture.asset(
+                                'assets/svg/${widget.harf.id}/${widget.harf.topIcons[1]['name']}.svg',
                                 width: SizeConfig.blockSizeHorizontal * 16,
                                 color: Colors.white,
                               ),
@@ -272,9 +375,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.file(
-                                File(
-                                    '${widget.dir}/svg/${widget.harf.id}/${widget.harf.topIcons[0]['name']}.svg'),
+                              SvgPicture.asset(
+                                'assets/svg/${widget.harf.id}/${widget.harf.topIcons[0]['name']}.svg',
                                 width: SizeConfig.blockSizeHorizontal * 16,
                                 color: Colors.white,
                               ),
@@ -888,10 +990,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          SvgPicture.file(
-                                            File(
-                                              '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
-                                            ),
+                                          SvgPicture.asset(
+                                            'assets/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                             height: SizeConfig.screenWidth > 500
                                                 ? SizeConfig.blockSizeVertical *
                                                     25
@@ -912,10 +1012,8 @@ class _LekcijaScreenState extends State<LekcijaScreen> {
                                       ),
                                     ],
                                   )
-                                : SvgPicture.file(
-                                    File(
-                                      '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
-                                    ),
+                                : SvgPicture.asset(
+                                    'assets/svg/${widget.harf.id}/${widget.harf.images[index]['name']}.svg',
                                     height: SizeConfig.screenWidth > 500
                                         ? SizeConfig.blockSizeVertical * 25
                                         : SizeConfig.blockSizeVertical * 15,

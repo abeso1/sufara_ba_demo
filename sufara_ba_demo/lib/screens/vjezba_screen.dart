@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:sufara_ba_demo/functions/downloading_audio.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
@@ -20,6 +21,11 @@ import 'package:sufara_ba_demo/widgets/card_for_vjezbe_true.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert.dart';
 import 'package:sufara_ba_demo/widgets/custom_alert_vjezba.dart';
 import 'package:sufara_ba_demo/widgets/vjezbaInit.dart';
+import 'package:sufara_ba_demo/models/checkInternet.dart';
+import 'package:sufara_ba_demo/widgets/custom_alert_no_internet.dart';
+import 'package:sufara_ba_demo/widgets/doyYouWantToDownloadFiles.dart';
+import 'package:sufara_ba_demo/widgets/message_hadis.dart';
+import 'package:sufara_ba_demo/widgets/progression_indicator.dart';
 
 class VjezbaScreen extends StatefulWidget {
   final HarfModel harf;
@@ -67,6 +73,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
 
   SharedPrefs prefs = SharedPrefs();
   bool playing = false;
+  Download download = Download();
 
   Future<void> _sendAnalyticsEvent(String event) async {
     await widget.analytics.logEvent(
@@ -275,9 +282,133 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
     }
   }
 
+  Future<String> getDir() async {
+    String dir = (await path.getApplicationDocumentsDirectory()).path;
+    return dir;
+  }
+
   //this functions plays audio in 172 line
   playAudio(HarfModel harf, int index) async {
     String dir = (await path.getApplicationDocumentsDirectory()).path;
+
+    download.checkFile().then((val) => {
+          if (!val)
+            {
+              CheckForInternetService().checkForInternet().then((value9) {
+                if (value9) {
+                  Timer(
+                    Duration(seconds: 0),
+                    () async {
+                      getDir().then((value) {
+                        setState(() {
+                          //duzina = 1;
+                          dir = value;
+                        });
+                      });
+                      await widget.analytics.logEvent(
+                        name: 'downloading_files',
+                        parameters: {},
+                      );
+                      showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (ctx) {
+                          return DoYouWantToDownloadFiles();
+                        },
+                      ).then((value) {
+                        if (value) {
+                          showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (ctx) {
+                              return ProgressionIndicator();
+                            },
+                          ).then(
+                            (value) {
+                              //Navigator.of(context).pop();
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (ctx) {
+                                  return MessageHadis();
+                                },
+                              ).then((value) {
+                                if (harf.images[index]['audio'] == "x") {
+                                } else if (widget.player.state ==
+                                    AudioPlayerState.PLAYING) {
+                                } else {
+                                  Timer(
+                                    Duration(milliseconds: 0),
+                                    () async {
+                                      if (widget.player.state ==
+                                          AudioPlayerState.PLAYING) {
+                                        widget.player.stop();
+                                      }
+                                      if (harf.images[index]['audio'].isEmpty) {
+                                        await widget.player.play(
+                                            '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                                            isLocal: true);
+                                        setState(() {});
+                                      } else {
+                                        await widget.player.play(
+                                            '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                                            isLocal: true);
+                                        setState(() {});
+                                      }
+                                    },
+                                  );
+                                }
+                              });
+                            },
+                          );
+                        } else {
+                          Navigator.of(context).pop();
+                        }
+                      });
+                    },
+                  );
+                } else {
+                  showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (ctx) {
+                      return NoInternetConnection(download: true);
+                    },
+                  );
+                }
+              }),
+            }
+          else if (val)
+            {
+              if (harf.images[index]['audio'] == "x")
+                {}
+              else if (widget.player.state == AudioPlayerState.PLAYING)
+                {}
+              else
+                {
+                  Timer(
+                    Duration(milliseconds: 0),
+                    () async {
+                      if (widget.player.state == AudioPlayerState.PLAYING) {
+                        widget.player.stop();
+                      }
+                      if (harf.images[index]['audio'].isEmpty) {
+                        await widget.player.play(
+                            '$dir/audio/${harf.id}/${harf.images[index]['name']}.mp3',
+                            isLocal: true);
+                        setState(() {});
+                      } else {
+                        await widget.player.play(
+                            '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
+                            isLocal: true);
+                        setState(() {});
+                      }
+                    },
+                  ),
+                }
+            }
+        });
+/*
     if (widget.player.state == AudioPlayerState.PLAYING) {
       widget.player.stop();
     }
@@ -291,7 +422,7 @@ class _VjezbaScreenState extends State<VjezbaScreen> {
           '$dir/audio/${harf.id}/${harf.images[index]['audio']}.mp3',
           isLocal: true);
       setState(() {});
-    }
+    }*/
   }
 
   playSound(String music) async {

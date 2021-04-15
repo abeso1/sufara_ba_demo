@@ -83,8 +83,8 @@ class Opis {
                   TableCell(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.file(
-                        File('$dir/svg/1/fetha_.svg'),
+                      child: SvgPicture.asset(
+                         'assets/svg/1/fetha_.svg',
                         //width: SizeConfig.blockSizeHorizontal * 34,
                         height: 40,
                         //color: Colors.green,
@@ -121,8 +121,8 @@ class Opis {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.file(
-                      File('$dir/svg/1/kesra_.svg'),
+                    child: SvgPicture.asset(
+                       'assets/svg/1/kesra_.svg',
                       //width: SizeConfig.blockSizeHorizontal * 34,
                       height: 40,
                       //color: Colors.green,
@@ -156,8 +156,8 @@ class Opis {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.file(
-                      File('$dir/svg/1/damma_.svg'),
+                    child: SvgPicture.asset(
+                       'assets/svg/1/damma_.svg',
                       //width: SizeConfig.blockSizeHorizontal * 34,
                       height: 40,
                       //color: Colors.green,
@@ -191,8 +191,8 @@ class Opis {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.file(
-                      File('$dir/svg/1/sukun.svg'),
+                    child: SvgPicture.asset(
+                       'assets/svg/1/sukun.svg',
                       //width: SizeConfig.blockSizeHorizontal * 34,
                       height: 40,
                       //color: Colors.green,
@@ -728,8 +728,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/e.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/e.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -752,8 +752,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/en.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/en.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -799,8 +799,8 @@ class Opis {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.file(
-                  File('$dir/svg/5/den.svg'),
+                child: SvgPicture.asset(
+                   'assets/svg/5/den.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: 40,
                   //color: Colors.green,
@@ -831,8 +831,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/i.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/i.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -855,8 +855,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/in.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/in.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -902,8 +902,8 @@ class Opis {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.file(
-                  File('$dir/svg/5/din.svg'),
+                child: SvgPicture.asset(
+                   'assets/svg/5/din.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: 40,
                   //color: Colors.green,
@@ -934,8 +934,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/u.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/u.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -958,8 +958,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/un.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/un.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1005,8 +1005,8 @@ class Opis {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.file(
-                  File('$dir/svg/5/dun.svg'),
+                child: SvgPicture.asset(
+                   'assets/svg/5/dun.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: 40,
                   //color: Colors.green,
@@ -1069,8 +1069,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/b1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/b1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1093,8 +1093,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/elif.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/elif.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1143,8 +1143,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/b2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/b2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1165,8 +1165,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/elif.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/elif.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1187,8 +1187,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/b2-1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/b2-1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1223,8 +1223,8 @@ class Opis {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.file(
-                  File('$dir/svg/6/mali-elif.svg'),
+                child: SvgPicture.asset(
+                   'assets/svg/6/mali-elif.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: 40,
                   //color: Colors.green,
@@ -1245,8 +1245,8 @@ class Opis {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.file(
-                  File('$dir/svg/6/b4.svg'),
+                child: SvgPicture.asset(
+                   'assets/svg/6/b4.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: 40,
                   //color: Colors.green,
@@ -1267,8 +1267,8 @@ class Opis {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.file(
-                  File('$dir/svg/6/b3.svg'),
+                child: SvgPicture.asset(
+                   'assets/svg/6/b3.svg',
                   //width: SizeConfig.blockSizeHorizontal * 34,
                   height: 40,
                   //color: Colors.green,
@@ -1328,8 +1328,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/kratko-u.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/kratko-u.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1352,8 +1352,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/vav.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/vav.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1402,8 +1402,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/c1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/c1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1424,8 +1424,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/vav.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/vav.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1446,8 +1446,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/6/c1-2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/6/c1-2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1559,8 +1559,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/7/c2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/7/c2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1623,8 +1623,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/7/c1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/7/c1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1775,8 +1775,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/8/c1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/8/c1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1893,8 +1893,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b3.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b3.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1917,8 +1917,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/t1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/t1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -1980,8 +1980,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2002,8 +2002,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b1-2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b1-2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2024,8 +2024,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b1-1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b1-1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2098,8 +2098,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/t1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/t1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2161,8 +2161,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b4.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b4.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2250,8 +2250,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2272,8 +2272,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b1-2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b1-2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2294,8 +2294,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/9/b2-1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/9/b2-1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2335,8 +2335,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/10/hemze.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/10/hemze.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2422,8 +2422,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 12),
-                  child: SvgPicture.file(
-                    File('$dir/svg/10/med.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/10/med.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2506,8 +2506,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/11/b1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/11/b1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2667,8 +2667,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/c1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/c1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2678,8 +2678,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/t7.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/t7.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2695,8 +2695,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2706,8 +2706,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b1.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b1.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2736,8 +2736,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b6.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b6.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2747,8 +2747,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b5.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b5.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2764,8 +2764,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b4.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b4.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2775,8 +2775,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b3.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b3.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2822,8 +2822,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b8.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b8.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2859,8 +2859,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/13/b7.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/13/b7.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2954,8 +2954,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/15/b3.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/15/b3.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -2995,8 +2995,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/15/b4.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/15/b4.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3042,8 +3042,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/15/b7.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/15/b7.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3072,8 +3072,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/15/b5.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/15/b5.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3102,8 +3102,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/15/b8.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/15/b8.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3151,8 +3151,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/15/aamenuu.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/15/aamenuu.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3343,8 +3343,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice39.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice39.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3381,8 +3381,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice38.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice38.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3403,8 +3403,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 12, 8, 0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice29.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice29.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3425,8 +3425,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice28.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice28.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3447,8 +3447,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice27.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice27.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3496,8 +3496,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice26.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice26.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3518,8 +3518,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice25.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice25.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3540,8 +3540,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice24.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice24.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3562,8 +3562,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice23.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice23.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3611,8 +3611,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice22.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice22.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3682,8 +3682,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/e.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/e.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3704,8 +3704,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/i.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/i.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3726,8 +3726,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/u.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/u.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3748,8 +3748,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/in.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/in.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3770,8 +3770,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/un2.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/un2.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3825,8 +3825,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice31.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice31.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3847,8 +3847,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice30.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice30.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3892,8 +3892,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/5/en.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/5/en.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3936,8 +3936,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice33.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice33.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -3958,8 +3958,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice32.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice32.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4051,8 +4051,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice36.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice36.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4073,8 +4073,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice35.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice35.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4095,8 +4095,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice34.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice34.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4166,8 +4166,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice21.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice21.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4210,8 +4210,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice37.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice37.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4232,8 +4232,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice20.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice20.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4254,8 +4254,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice19.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice19.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4276,8 +4276,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice18.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice18.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,
@@ -4298,8 +4298,8 @@ class Opis {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: SvgPicture.file(
-                    File('$dir/svg/22/slice17.svg'),
+                  child: SvgPicture.asset(
+                     'assets/svg/22/slice17.svg',
                     //width: SizeConfig.blockSizeHorizontal * 34,
                     height: 40,
                     //color: Colors.green,

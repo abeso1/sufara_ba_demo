@@ -84,9 +84,8 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                               left: SizeConfig.blockSizeHorizontal * 5,
                               //top: SizeConfig.blockSizeHorizontal * 1,
                             ),
-                            child: SvgPicture.file(
-                              File(
-                                  '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]["name"]}.svg'),
+                            child: SvgPicture.asset(
+                              'assets/svg/${widget.harf.id}/${widget.harf.images[0]["name"]}.svg',
                               //width: SizeConfig.blockSizeHorizontal * 34,
                               //height: SizeConfig.blockSizeVertical * 1,
                               color: Colors.green,
@@ -187,13 +186,11 @@ class _HarfWidgetForLekcijeState extends State<LastVjezbaRegural> {
                                   left: SizeConfig.blockSizeHorizontal * 5,
                                   //top: SizeConfig.blockSizeHorizontal * 1,
                                 ),
-                                child: SvgPicture.file(
-                                  File(
-                                      '${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[0]["name"]}.svg'),
-                                  //width: SizeConfig.blockSizeHorizontal * 34,
-                                  //height: SizeConfig.blockSizeVertical * 1,
-                                  color: Colors.grey
-                                ),
+                                child: SvgPicture.asset(
+                                    'assets/svg/${widget.harf.id}/${widget.harf.images[0]["name"]}.svg',
+                                    //width: SizeConfig.blockSizeHorizontal * 34,
+                                    //height: SizeConfig.blockSizeVertical * 1,
+                                    color: Colors.grey),
                               )
                             ],
                           ),

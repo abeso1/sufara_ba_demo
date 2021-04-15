@@ -17,7 +17,6 @@ class CardForVjezbeRegural extends StatefulWidget {
 }
 
 class _CardForVjezbeReguralState extends State<CardForVjezbeRegural> {
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -26,8 +25,8 @@ class _CardForVjezbeReguralState extends State<CardForVjezbeRegural> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
-      child: SvgPicture.file(
-        File('${widget.dir}/svg/${widget.harf.id}/${widget.harf.images[widget.index]['name']}.svg'),
+      child: SvgPicture.asset(
+        'assets/svg/${widget.harf.id}/${widget.harf.images[widget.index]['name']}.svg',
         height: SizeConfig.blockSizeVertical * 12,
         color: Colors.green,
       ),

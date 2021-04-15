@@ -65,31 +65,57 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - svg/back_img/back_img.jpg
-    - svg/back_img/back_img_splash.jpg
-    - svg/back_img/sufara.ba_logo.png
-    - svg/back_img/throat-e.jpg
-    - svg/back_img/sufara.ba_logo_splash.svg
+    - svg/back_img/
+    - assets/audio/
+    - assets/language/
+    - assets/svg/1/
+    - assets/svg/2/
+    - assets/svg/3/
+    - assets/svg/4/
+    - assets/svg/5/
+    - assets/svg/6/
+    - assets/svg/7/
+    - assets/svg/8/
+    - assets/svg/9/
+    - assets/svg/10/
+    - assets/svg/11/
+    - assets/svg/12/
+    - assets/svg/13/
+    - assets/svg/14/
+    - assets/svg/15/
+    - assets/svg/16/
+    - assets/svg/17/
+    - assets/svg/18/
+    - assets/svg/19/
+    - assets/svg/20/
+    - assets/svg/21/
+    - assets/svg/22/
     - svg/back_img/sufara.png
-    - svg/back_img/1.jpg
-    - svg/back_img/2.jpg
-    - svg/back_img/3.jpg
-    - svg/back_img/4.jpg
-    - svg/back_img/7.jpg
-    - svg/back_img/8.jpg
-    - svg/back_img/9.jpg
-    - svg/back_img/10.jpg
-    - svg/back_img/11.jpg
-    - svg/back_img/12.jpg
-    - svg/back_img/13.jpg
-    - svg/back_img/14.jpg
-    - svg/back_img/16.jpg
-    - svg/back_img/17.jpg
-    - svg/back_img/18.jpg
-    - assets/audio/CORRECT.wav
-    - assets/audio/NOT CORRECT.wav
-    - assets/language/bs.json
-    - assets/language/en.json
+    #- svg/back_img/back_img_splash.jpg
+    #- svg/back_img/sufara.ba_logo.png
+    #- svg/back_img/throat-e.jpg
+    #- svg/back_img/sufara.ba_logo_splash.svg
+    #- svg/back_img/sufara.png
+    #- svg/back_img/1.jpg
+    #- svg/back_img/2.jpg
+    #- svg/back_img/3.jpg
+    #- svg/back_img/4.jpg
+    #- svg/back_img/7.jpg
+    #- svg/back_img/8.jpg
+    #- svg/back_img/9.jpg
+    #- svg/back_img/10.jpg
+    #- svg/back_img/11.jpg
+    #- svg/back_img/12.jpg
+    #- svg/back_img/13.jpg
+    #- svg/back_img/14.jpg
+    #- svg/back_img/16.jpg
+    #- svg/back_img/17.jpg
+    #- svg/back_img/18.jpg
+    #- assets/audio/CORRECT.wav
+    #- assets/audio/NOT CORRECT.wav
+    #- assets/language/bs.json
+    #- assets/language/en.json
+    #- assets/svg/2/
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
