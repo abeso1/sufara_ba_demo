@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>133745601520-ombq3qiuqk78jlb1ngevh98o8bcg57vs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.133745601520-ombq3qiuqk78jlb1ngevh98o8bcg57vs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAdHQJS3N-iuEABTY78ABhMO1DcZrxUCKw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>133745601520</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sufara.sufaraBaDemoApp</string>
+	<key>PROJECT_ID</key>
+	<string>sufaramobile</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sufaramobile.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:133745601520:ios:29a89848224059a17ecb35</string>
+	<key>DATABASE_URL</key>
+	<string>https://sufaramobile.firebaseio.com</string>
+</dict>
+</plist>
